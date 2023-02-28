@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="immortal">
+
+
+
+    <meta name="description" content="因过竹院逢僧话,偷得浮生半日闲">
+
+
+
+<title>canvas绘图 | 浮生 - 因过竹院逢僧话,偷得浮生半日闲。</title>
+
+
+
+    <link rel="icon" href="/favicon.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+    
+
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+    <script>
+        // this function is used to check current theme before page loaded.
+        (() => {
+            const currentTheme = window.localStorage && window.localStorage.getItem('theme') || '';
+            const isDark = currentTheme === 'dark';
+            const pagebody = document.getElementsByTagName('body')[0]
+            if (isDark) {
+                pagebody.classList.add('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Dark"
+            } else {
+                pagebody.classList.remove('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Light"
+            }
+        })();
+    </script>
+
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">浮生</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">浮生</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+            <div class="main">
+                <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    var tocbot_timer;
+    var DEPTH_MAX = 6; // 为 6 时展开所有
+    var tocbot_default_config = {
+        tocSelector: '.tocbot-list',
+        contentSelector: '.post-content',
+        headingSelector: 'h1, h2, h3, h4, h5',
+        orderedList: false,
+        scrollSmooth: true,
+        onClick: extend_click,
+    };
+
+    function extend_click() {
+        clearTimeout(tocbot_timer);
+        tocbot_timer = setTimeout(function() {
+            tocbot.refresh(obj_merge(tocbot_default_config, {
+                hasInnerContainers: true
+            }));
+        }, 420); // 这个值是由 tocbot 源码里定义的 scrollSmoothDuration 得来的
+    }
+
+    document.ready(function() {
+        tocbot.init(obj_merge(tocbot_default_config, {
+            collapseDepth: 1
+        }));
+    });
+
+    function expand_toc() {
+        var b = document.querySelector('.tocbot-toc-expand');
+        var expanded = b.getAttribute('data-expanded');
+        expanded ? b.removeAttribute('data-expanded') : b.setAttribute('data-expanded', true);
+        tocbot.refresh(obj_merge(tocbot_default_config, {
+            collapseDepth: expanded ? 1 : DEPTH_MAX
+        }));
+        b.innerText = expanded ? 'Expand all' : 'Collapse all';
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+    function obj_merge(target, source) {
+        for (var item in source) {
+            if (source.hasOwnProperty(item)) {
+                target[item] = source[item];
+            }
+        }
+        return target;
+    }
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">canvas绘图</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">immortal</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">二月 28, 2023&nbsp;&nbsp;15:51:06</a>
+                        </span>
+                    
+                    
+                        <span class="post-category">
+                    Category:
+                            
+                                <a href="/categories/vue%E7%BB%84%E4%BB%B6/">vue组件</a>
+                            
+                        </span>
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <h3 id="1-canvas绘图"><a href="#1-canvas绘图" class="headerlink" title="1.canvas绘图"></a>1.canvas绘图</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;img&quot;</span></span></span><br><span class="line"><span class="tag">           <span class="attr">style</span>=<span class="string">&quot;overflow: scroll; overflow-x: scroll; overflow-y: hidden; width:100%;height:18vh&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">v-show</span>=<span class="string">&quot;signtotal == 1&quot;</span> <span class="attr">style</span>=<span class="string">&quot;color:#ccc;&quot;</span>&gt;</span>暂无事件标记<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">canvas</span> <span class="attr">v-for</span>=<span class="string">&quot;item in canvasId&quot;</span> <span class="attr">:key</span>=<span class="string">&quot;item&quot;</span> <span class="attr">:id</span>=<span class="string">&quot;item&quot;</span> <span class="attr">width</span>=<span class="string">&quot;60&quot;</span></span></span><br><span class="line"><span class="tag">                <span class="attr">height</span>=<span class="string">&quot;100%&quot;</span> <span class="attr">style</span>=<span class="string">&quot;margin-right: 15px&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">canvas</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">el-button</span> <span class="attr">class</span>=<span class="string">&quot;ones&quot;</span> @<span class="attr">click</span>=<span class="string">&quot;addMark()&quot;</span></span></span><br><span class="line"><span class="tag">                 <span class="attr">style</span>=<span class="string">&quot;margin: 1.5vh 0 0 0vw;width: 100%&quot;</span>&gt;</span>事件标记</span><br><span class="line">      <span class="tag">&lt;/<span class="name">el-button</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript"><span class="keyword">import</span> &#123;</span></span><br><span class="line"><span class="language-javascript">  addMark,</span></span><br><span class="line"><span class="language-javascript">  uploadAvatar,</span></span><br><span class="line"><span class="language-javascript">&#125; <span class="keyword">from</span> <span class="string">&#x27;@/api/screen/screen&#x27;</span></span></span><br><span class="line"><span class="language-javascript"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span></span><br><span class="line"><span class="language-javascript">  <span class="attr">name</span>: <span class="string">&quot;basic&quot;</span>,</span></span><br><span class="line"><span class="language-javascript">  <span class="attr">props</span>:[<span class="string">&#x27;monitorNow&#x27;</span>,<span class="string">&#x27;monitor&#x27;</span>,<span class="string">&#x27;canvasId&#x27;</span>],</span></span><br><span class="line"><span class="language-javascript">  <span class="attr">computed</span>: &#123;</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">  &#125;,</span></span><br><span class="line"><span class="language-javascript">  <span class="title function_">data</span>(<span class="params"></span>) &#123;</span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">return</span> &#123;</span></span><br><span class="line"><span class="language-javascript">      <span class="attr">canvasIdList</span>: [],</span></span><br><span class="line"><span class="language-javascript">      <span class="comment">//事件标记序号</span></span></span><br><span class="line"><span class="language-javascript">      <span class="attr">signtotal</span>: <span class="number">1</span>,</span></span><br><span class="line"><span class="language-javascript">      <span class="attr">canvasIndex</span>:<span class="number">0</span>,</span></span><br><span class="line"><span class="language-javascript">    &#125;;</span></span><br><span class="line"><span class="language-javascript">  &#125;,</span></span><br><span class="line"><span class="language-javascript">  <span class="title function_">created</span>(<span class="params"></span>)&#123;</span></span><br><span class="line"><span class="language-javascript">  &#125;,</span></span><br><span class="line"><span class="language-javascript">  <span class="attr">methods</span>: &#123;</span></span><br><span class="line"><span class="language-javascript">    <span class="comment">//事件标记</span></span></span><br><span class="line"><span class="language-javascript">    <span class="title function_">addMark</span>(<span class="params"></span>) &#123;</span></span><br><span class="line"><span class="language-javascript">      <span class="comment">// console.log(&#x27;monitor&#x27;, this.monitor);</span></span></span><br><span class="line"><span class="language-javascript">      <span class="comment">//获取canvasId</span></span></span><br><span class="line"><span class="language-javascript">      <span class="comment">// console.log(&#x27;canvasId&#x27;,this.monitor[2].canvas[this.canvasIndex])</span></span></span><br><span class="line"><span class="language-javascript">      <span class="keyword">let</span> one = <span class="variable language_">this</span>.<span class="property">monitor</span>[<span class="number">2</span>].<span class="property">canvas</span>[<span class="variable language_">this</span>.<span class="property">canvasIndex</span>]</span></span><br><span class="line"><span class="language-javascript">      <span class="keyword">var</span> cvs = <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="variable language_">this</span>.<span class="property">monitor</span>[<span class="number">2</span>].<span class="property">canvas</span>[<span class="variable language_">this</span>.<span class="property">canvasIndex</span>]);</span></span><br><span class="line"><span class="language-javascript">      <span class="keyword">var</span> ctx = cvs.<span class="title function_">getContext</span>(<span class="string">&quot;2d&quot;</span>);</span></span><br><span class="line"><span class="language-javascript">      <span class="comment">//新增canvasId</span></span></span><br><span class="line"><span class="language-javascript">      <span class="variable language_">this</span>.<span class="property">canvasIndex</span>++</span></span><br><span class="line"><span class="language-javascript">      <span class="keyword">let</span> headId = one.<span class="title function_">split</span>(<span class="string">&quot;&amp;&quot;</span>)[<span class="number">0</span>];</span></span><br><span class="line"><span class="language-javascript">      headId = headId+<span class="string">&quot;&amp;&quot;</span>+<span class="variable language_">this</span>.<span class="property">canvasIndex</span>;</span></span><br><span class="line"><span class="language-javascript">      <span class="variable language_">this</span>.<span class="property">monitor</span>[<span class="number">2</span>].<span class="property">canvas</span>.<span class="title function_">push</span>(headId)</span></span><br><span class="line"><span class="language-javascript">      <span class="comment">// console.log(this.monitor[2].canvas)</span></span></span><br><span class="line"><span class="language-javascript">      <span class="variable language_">this</span>.<span class="property">signtotal</span> = <span class="number">0</span>;</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">      <span class="comment">//获取执法记录仪视频id</span></span></span><br><span class="line"><span class="language-javascript">      <span class="keyword">var</span> videoElement = <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="variable language_">this</span>.<span class="property">monitor</span>[<span class="number">1</span>].<span class="property">idn</span>)</span></span><br><span class="line"><span class="language-javascript">      <span class="comment">// console.log(videoElement)</span></span></span><br><span class="line"><span class="language-javascript">      <span class="comment">//绘制图片</span></span></span><br><span class="line"><span class="language-javascript">      ctx.<span class="title function_">drawImage</span>(videoElement, <span class="number">0</span>, <span class="number">0</span>, <span class="number">60</span>, <span class="number">120</span>);</span></span><br><span class="line"><span class="language-javascript">      <span class="comment">//得到base64</span></span></span><br><span class="line"><span class="language-javascript">      <span class="keyword">var</span> enforceSignUrl = cvs.<span class="title function_">toDataURL</span>(<span class="string">&#x27;image/png&#x27;</span>);</span></span><br><span class="line"><span class="language-javascript">      <span class="comment">//base64转url</span></span></span><br><span class="line"><span class="language-javascript">      <span class="variable language_">this</span>.<span class="property">file</span> = <span class="variable language_">this</span>.<span class="title function_">base64ImgtoFile</span>(enforceSignUrl); <span class="comment">// 得到File对象</span></span></span><br><span class="line"><span class="language-javascript">      <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;thisfile&quot;</span>, <span class="variable language_">this</span>.<span class="property">file</span>);</span></span><br><span class="line"><span class="language-javascript">      <span class="variable language_">this</span>.<span class="title function_">uploadImg</span>()</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">    &#125;,</span></span><br><span class="line"><span class="language-javascript">    <span class="comment">//base64转url</span></span></span><br><span class="line"><span class="language-javascript">    <span class="title function_">base64ImgtoFile</span>(<span class="params">dataurl, filename = <span class="string">&quot;file&quot;</span></span>) &#123;</span></span><br><span class="line"><span class="language-javascript">      <span class="keyword">const</span> arr = dataurl.<span class="title function_">split</span>(<span class="string">&quot;,&quot;</span>);</span></span><br><span class="line"><span class="language-javascript">      <span class="keyword">const</span> mime = arr[<span class="number">0</span>].<span class="title function_">match</span>(<span class="regexp">/:(.*?);/</span>)[<span class="number">1</span>];</span></span><br><span class="line"><span class="language-javascript">      <span class="keyword">const</span> suffix = mime.<span class="title function_">split</span>(<span class="string">&quot;/&quot;</span>)[<span class="number">1</span>];</span></span><br><span class="line"><span class="language-javascript">      <span class="keyword">const</span> bstr = <span class="title function_">atob</span>(arr[<span class="number">1</span>]);</span></span><br><span class="line"><span class="language-javascript">      <span class="keyword">let</span> n = bstr.<span class="property">length</span>;</span></span><br><span class="line"><span class="language-javascript">      <span class="keyword">const</span> u8arr = <span class="keyword">new</span> <span class="title class_">Uint8Array</span>(n);</span></span><br><span class="line"><span class="language-javascript">      <span class="keyword">while</span> (n--) &#123;</span></span><br><span class="line"><span class="language-javascript">        u8arr[n] = bstr.<span class="title function_">charCodeAt</span>(n);</span></span><br><span class="line"><span class="language-javascript">      &#125;</span></span><br><span class="line"><span class="language-javascript">      <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">File</span>([u8arr], <span class="string">`<span class="subst">$&#123;filename&#125;</span>.<span class="subst">$&#123;suffix&#125;</span>`</span>, &#123;</span></span><br><span class="line"><span class="language-javascript">        <span class="attr">type</span>: mime,</span></span><br><span class="line"><span class="language-javascript">      &#125;);</span></span><br><span class="line"><span class="language-javascript">    &#125;,</span></span><br><span class="line"><span class="language-javascript">    <span class="comment">//上传图片</span></span></span><br><span class="line"><span class="language-javascript">    <span class="title function_">uploadImg</span>(<span class="params"></span>)&#123;</span></span><br><span class="line"><span class="language-javascript">      <span class="keyword">let</span> formData = <span class="keyword">new</span> <span class="title class_">FormData</span>();</span></span><br><span class="line"><span class="language-javascript">      formData.<span class="title function_">append</span>(<span class="string">&quot;avatarfile&quot;</span>, <span class="variable language_">this</span>.<span class="property">file</span>);</span></span><br><span class="line"><span class="language-javascript">      <span class="title function_">uploadAvatar</span>(formData).<span class="title function_">then</span>(<span class="function"><span class="params">response</span> =&gt;</span> &#123;</span></span><br><span class="line"><span class="language-javascript">        <span class="keyword">var</span> params = &#123;</span></span><br><span class="line"><span class="language-javascript">          <span class="attr">checkEnforceId</span>: <span class="variable language_">this</span>.<span class="property">monitor</span>.<span class="property">enforceDeviceId</span>,</span></span><br><span class="line"><span class="language-javascript">          <span class="attr">enforceSignUrl</span>: response.<span class="property">imgUrl</span></span></span><br><span class="line"><span class="language-javascript">        &#125;</span></span><br><span class="line"><span class="language-javascript">        <span class="title function_">addMark</span>(params).<span class="title function_">then</span>(<span class="function">(<span class="params">response</span>) =&gt;</span> &#123;</span></span><br><span class="line"><span class="language-javascript">          <span class="variable language_">console</span>.<span class="title function_">log</span>(response);</span></span><br><span class="line"><span class="language-javascript">        &#125;);</span></span><br><span class="line"><span class="language-javascript">      &#125;);</span></span><br><span class="line"><span class="language-javascript">    &#125;</span></span><br><span class="line"><span class="language-javascript">  &#125;,</span></span><br><span class="line"><span class="language-javascript">  <span class="title function_">mounted</span>(<span class="params"></span>) &#123;</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">  &#125;,</span></span><br><span class="line"><span class="language-javascript">  <span class="title function_">destroyed</span>(<span class="params"></span>) &#123;</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">  &#125;</span></span><br><span class="line"><span class="language-javascript">&#125;</span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="2-三层数组结构"><a href="#2-三层数组结构" class="headerlink" title="2.三层数组结构"></a>2.三层数组结构</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript"><span class="comment">//查询实时查验视频列表</span></span></span><br><span class="line"><span class="language-javascript">    <span class="title function_">getRealTimeVideo</span>(<span class="params"></span>) &#123;</span></span><br><span class="line"><span class="language-javascript">      <span class="title function_">getRealTimeVideoList</span>(&#123;<span class="attr">managementId</span>: <span class="variable language_">this</span>.<span class="property">managementId</span>&#125;).<span class="title function_">then</span>(<span class="function">(<span class="params">response</span>) =&gt;</span> &#123;</span></span><br><span class="line"><span class="language-javascript">        <span class="keyword">if</span> (response.<span class="property">data</span>.<span class="property">length</span>) &#123;</span></span><br><span class="line"><span class="language-javascript">          <span class="variable language_">this</span>.<span class="property">urlList</span>= []</span></span><br><span class="line"><span class="language-javascript">          <span class="keyword">var</span> urlObj = []</span></span><br><span class="line"><span class="language-javascript">          response.<span class="property">data</span>.<span class="title function_">map</span>(<span class="function">(<span class="params">item, index</span>) =&gt;</span> &#123;</span></span><br><span class="line"><span class="language-javascript">                <span class="comment">//查验中记录</span></span></span><br><span class="line"><span class="language-javascript">                <span class="keyword">let</span> one = <span class="variable language_">this</span>.<span class="title function_">getVideoUrl</span>(item,index,urlObj)</span></span><br><span class="line"><span class="language-javascript">                one.<span class="property">monitorNow</span> = <span class="literal">true</span></span></span><br><span class="line"><span class="language-javascript">                one.<span class="property">enforceDeviceId</span> = item.<span class="property">enforceDeviceId</span></span></span><br><span class="line"><span class="language-javascript">                <span class="variable language_">this</span>.<span class="property">urlList</span>.<span class="title function_">push</span>(one)</span></span><br><span class="line"><span class="language-javascript">          &#125;)</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">        &#125;</span></span><br><span class="line"><span class="language-javascript">      &#125;)</span></span><br><span class="line"><span class="language-javascript">    &#125;,</span></span><br><span class="line"><span class="language-javascript"><span class="comment">//拼接当前记录视频路径</span></span></span><br><span class="line"><span class="language-javascript">    <span class="title function_">getVideoUrl</span>(<span class="params">item,index,urlObj</span>)&#123;</span></span><br><span class="line"><span class="language-javascript">      <span class="keyword">var</span> host = <span class="variable language_">window</span>.<span class="property">location</span>.<span class="property">hostname</span></span></span><br><span class="line"><span class="language-javascript">      <span class="comment">// if (item.state == &#x27;1000&#x27;) &#123;</span></span></span><br><span class="line"><span class="language-javascript">        <span class="comment">//查验中记录url</span></span></span><br><span class="line"><span class="language-javascript">        <span class="keyword">const</span> port = <span class="string">&#x27;8085&#x27;</span></span></span><br><span class="line"><span class="language-javascript">        item.<span class="property">checkVideoUrl</span> = <span class="string">`http://<span class="subst">$&#123;host&#125;</span>:<span class="subst">$&#123;port&#125;</span><span class="subst">$&#123;item.checkVideoUrl&#125;</span>`</span></span></span><br><span class="line"><span class="language-javascript">        item.<span class="property">enforceVideoUrl</span> = <span class="string">`http://<span class="subst">$&#123;host&#125;</span>:<span class="subst">$&#123;port&#125;</span><span class="subst">$&#123;item.enforceVideoUrl&#125;</span>`</span></span></span><br><span class="line"><span class="language-javascript">        item.<span class="property">audioUrl</span> = <span class="string">`http://<span class="subst">$&#123;host&#125;</span>:<span class="subst">$&#123;port&#125;</span><span class="subst">$&#123;item.audioUrl&#125;</span>`</span></span></span><br><span class="line"><span class="language-javascript">       <span class="comment">// &#125;else&#123;</span></span></span><br><span class="line"><span class="language-javascript">          <span class="comment">//查验结束记录url</span></span></span><br><span class="line"><span class="language-javascript">          <span class="comment">// const port = window.location.port</span></span></span><br><span class="line"><span class="language-javascript">          <span class="comment">// item.checkVideoUrl = `http://$&#123;host&#125;:$&#123;port&#125;/video$&#123;item.checkVideoUrl&#125;`</span></span></span><br><span class="line"><span class="language-javascript">          <span class="comment">// item.enforceVideoUrl = `http://$&#123;host&#125;:$&#123;port&#125;/video$&#123;item.enforceVideoUrl&#125;`</span></span></span><br><span class="line"><span class="language-javascript">          <span class="comment">// item.audioUrl = `http://$&#123;host&#125;:$&#123;port&#125;/video$&#123;item.audioUrl&#125;`</span></span></span><br><span class="line"><span class="language-javascript">      <span class="comment">// &#125;</span></span></span><br><span class="line"><span class="language-javascript">      <span class="comment">//轮播内层视频循环数组</span></span></span><br><span class="line"><span class="language-javascript">      urlObj = [</span></span><br><span class="line"><span class="language-javascript">        &#123;</span></span><br><span class="line"><span class="language-javascript">        <span class="attr">idn</span>: <span class="string">`video1-<span class="subst">$&#123;index&#125;</span>`</span>,</span></span><br><span class="line"><span class="language-javascript">        <span class="attr">name</span>: item.<span class="property">chargeName</span> + <span class="string">&#x27;-&#x27;</span> + item.<span class="property">laneName</span> + <span class="string">&quot;查验现场&quot;</span>,</span></span><br><span class="line"><span class="language-javascript">        <span class="attr">url</span>: item.<span class="property">checkVideoUrl</span>,</span></span><br><span class="line"><span class="language-javascript">        &#125;,</span></span><br><span class="line"><span class="language-javascript">        &#123;</span></span><br><span class="line"><span class="language-javascript">          <span class="attr">idn</span>: <span class="string">`video2-<span class="subst">$&#123;index&#125;</span>`</span>,</span></span><br><span class="line"><span class="language-javascript">          <span class="attr">name</span>: item.<span class="property">chargeName</span> + <span class="string">&#x27;-&#x27;</span> + item.<span class="property">laneName</span> + <span class="string">&quot;执法记录仪现场&quot;</span>,</span></span><br><span class="line"><span class="language-javascript">          <span class="attr">url</span>: item.<span class="property">enforceVideoUrl</span></span></span><br><span class="line"><span class="language-javascript">        &#125;,</span></span><br><span class="line"><span class="language-javascript">        &#123;</span></span><br><span class="line"><span class="language-javascript">          <span class="attr">idn</span>: <span class="string">`video3-<span class="subst">$&#123;index&#125;</span>`</span>,</span></span><br><span class="line"><span class="language-javascript">          <span class="attr">url</span>: item.<span class="property">audioUrl</span>,</span></span><br><span class="line"><span class="language-javascript">          <span class="attr">canvas</span>:[<span class="string">`canvas1-<span class="subst">$&#123;index&#125;</span>&amp;0`</span>],</span></span><br><span class="line"><span class="language-javascript">        &#125;</span></span><br><span class="line"><span class="language-javascript">      ]</span></span><br><span class="line"><span class="language-javascript">      <span class="keyword">return</span> urlObj</span></span><br><span class="line"><span class="language-javascript">    &#125;,</span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+        </div>
+
+        
+            <section class="post-copyright">
+                
+                    <p class="copyright-item">
+                        <span>Author:</span>
+                        <span>immortal</span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>Permalink:</span>
+                        <span><a href="http://example.com/posts/26865.html">http://example.com/posts/26865.html</a></span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>License:</span>
+                        <span>Copyright (c) 2019 <a target="_blank" rel="noopener" href="http://creativecommons.org/licenses/by-nc/4.0/">CC-BY-NC-4.0</a> LICENSE</span>
+                    </p>
+                
+                
+                     <p class="copyright-item">
+                         <span>Slogan:</span>
+                         <span>Do you believe in <strong>DESTINY</strong>?</span>
+                     </p>
+                
+
+            </section>
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+                <a class="prev" rel="prev" href="/posts/27101.html">腾讯地图</a>
+            
+            
+            <a class="next" rel="next" href="/posts/38895.html">父子组件传值</a>
+            
+        </section>
+
+
+    </article>
+</div>
+
+            </div>
+            <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© immortal | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer>
+
+    </div>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/hijiki.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":true},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/"});</script></body>
+
+</html>

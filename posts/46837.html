@@ -129,71 +129,6 @@
                 <div class="container">
     
     
-        <div class="post-toc">
-    <div class="tocbot-list">
-    </div>
-    <div class="tocbot-list-menu">
-        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
-        <a onclick="go_top()">Back to top</a>
-        <a onclick="go_bottom()">Go to bottom</a>
-    </div>
-</div>
-
-<script>
-    var tocbot_timer;
-    var DEPTH_MAX = 6; // 为 6 时展开所有
-    var tocbot_default_config = {
-        tocSelector: '.tocbot-list',
-        contentSelector: '.post-content',
-        headingSelector: 'h1, h2, h3, h4, h5',
-        orderedList: false,
-        scrollSmooth: true,
-        onClick: extend_click,
-    };
-
-    function extend_click() {
-        clearTimeout(tocbot_timer);
-        tocbot_timer = setTimeout(function() {
-            tocbot.refresh(obj_merge(tocbot_default_config, {
-                hasInnerContainers: true
-            }));
-        }, 420); // 这个值是由 tocbot 源码里定义的 scrollSmoothDuration 得来的
-    }
-
-    document.ready(function() {
-        tocbot.init(obj_merge(tocbot_default_config, {
-            collapseDepth: 1
-        }));
-    });
-
-    function expand_toc() {
-        var b = document.querySelector('.tocbot-toc-expand');
-        var expanded = b.getAttribute('data-expanded');
-        expanded ? b.removeAttribute('data-expanded') : b.setAttribute('data-expanded', true);
-        tocbot.refresh(obj_merge(tocbot_default_config, {
-            collapseDepth: expanded ? 1 : DEPTH_MAX
-        }));
-        b.innerText = expanded ? 'Expand all' : 'Collapse all';
-    }
-
-    function go_top() {
-        window.scrollTo(0, 0);
-    }
-
-    function go_bottom() {
-        window.scrollTo(0, document.body.scrollHeight);
-    }
-
-    function obj_merge(target, source) {
-        for (var item in source) {
-            if (source.hasOwnProperty(item)) {
-                target[item] = source[item];
-            }
-        }
-        return target;
-    }
-</script>
-    
 
     
     <article class="post-wrap">
@@ -223,7 +158,9 @@
         </header>
 
         <div class="post-content">
-            <h1 id="《中庸》"><a href="#《中庸》" class="headerlink" title="《中庸》"></a>《中庸》</h1><h2 id="战国·子思"><a href="#战国·子思" class="headerlink" title="战国·子思"></a>战国·子思</h2><p>　　天命之谓性，率性之谓道，修道之谓教。道也者，不可须臾离也;可离非道也。是故君子戒慎乎其所不睹，恐惧乎其所不闻。莫见乎隐，莫显乎微，故君子慎其独也。喜怒哀乐之未发，谓之中;发而皆中节，谓之和。中也者，天下之大本也;和也者，天下之达道也。致中和，天地位焉，万物育焉。</p>
+            <p>《中庸》</p>
+<p>战国·子思</p>
+<p>　　天命之谓性，率性之谓道，修道之谓教。道也者，不可须臾离也;可离非道也。是故君子戒慎乎其所不睹，恐惧乎其所不闻。莫见乎隐，莫显乎微，故君子慎其独也。喜怒哀乐之未发，谓之中;发而皆中节，谓之和。中也者，天下之大本也;和也者，天下之达道也。致中和，天地位焉，万物育焉。</p>
 <p>　　仲尼曰：“君子中庸，小人反中庸。君子之中庸也，君子而时中;小人之中庸也，小人而无忌惮也。”子曰：“中庸其至矣乎!民鲜能久矣!”</p>
 <p>　　子曰：“道之不行也，我知之矣：知者过之，愚者不及也。道之不明也，我知之矣：贤者过之，不肖者不及也。人莫不饮食也，鲜能知味也。”子曰：“道其不行矣夫!”</p>
 <p>　　子曰：“舜其大知也与!舜好问而好察迩言，隐恶而扬善，执其两端，用其中于民，其斯以为舜乎!”</p>

@@ -19,6 +19,171 @@
 ]]></content>
   </entry>
   <entry>
+    <title>element-css</title>
+    <url>/posts/35692.html</url>
+    <content><![CDATA[<h3 id="1-notify"><a href="#1-notify" class="headerlink" title="1.$notify"></a>1.$notify</h3><p>notify的样式修改是在body外样式才能生效，body设置以下样式即可实现f11全屏效果</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="language-css"></span></span><br><span class="line"><span class="language-css"><span class="selector-class">.body</span>&#123;</span></span><br><span class="line"><span class="language-css">  <span class="attribute">margin</span>: <span class="number">0</span>;</span></span><br><span class="line"><span class="language-css">  <span class="attribute">padding</span>: <span class="number">0</span>;</span></span><br><span class="line"><span class="language-css">  <span class="attribute">width</span>: <span class="number">100vw</span>;</span></span><br><span class="line"><span class="language-css">  <span class="attribute">height</span>: <span class="number">100vh</span>;</span></span><br><span class="line"><span class="language-css">  <span class="attribute">overflow</span>: hidden;</span></span><br><span class="line"><span class="language-css">&#125;</span></span><br><span class="line"><span class="language-css"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="2-深度选择器"><a href="#2-深度选择器" class="headerlink" title="2.深度选择器"></a>2.深度选择器</h3><ol>
+<li>当项目中使用的 css 原生样式 ，需要使用 &gt;&gt;&gt; 深度选择器来修改 外用第三方组件的样式</li>
+</ol>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span> <span class="attr">lang</span>=<span class="string">&quot;css&quot;</span> <span class="attr">scoped</span>&gt;</span><span class="language-css"></span></span><br><span class="line"><span class="language-css">    <span class="selector-class">.el-button</span> &gt;&gt;&gt; <span class="selector-tag">span</span>&#123;</span></span><br><span class="line"><span class="language-css">        <span class="attribute">color</span>: <span class="string">&#x27;#f00&#x27;</span></span></span><br><span class="line"><span class="language-css">    &#125;</span></span><br><span class="line"><span class="language-css"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>当项目中使用的 css 扩展语言是 less或sess， 需要使用 &#x2F;deep&#x2F; 或者 ::v-deep 深度选择器来修改 外用第三方组件的样式</li>
+</ol>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span> <span class="attr">lang</span>=<span class="string">&quot;less&quot;</span> <span class="attr">scoped</span>&gt;</span><span class="language-css"></span></span><br><span class="line"><span class="language-css">    /deep/<span class="selector-class">.el-button</span>&#123;</span></span><br><span class="line"><span class="language-css">         <span class="selector-tag">span</span>&#123;</span></span><br><span class="line"><span class="language-css">                <span class="attribute">color</span>: <span class="string">&#x27;#f00&#x27;</span></span></span><br><span class="line"><span class="language-css">         &#125;</span></span><br><span class="line"><span class="language-css">    &#125;</span></span><br><span class="line"><span class="language-css"></span></span><br><span class="line"><span class="language-css">    <span class="selector-class">.el-button</span>::v-deep&#123;</span></span><br><span class="line"><span class="language-css">         <span class="selector-tag">span</span>&#123;</span></span><br><span class="line"><span class="language-css">                <span class="attribute">color</span>: <span class="string">&#x27;#f00&#x27;</span></span></span><br><span class="line"><span class="language-css">         &#125;</span></span><br><span class="line"><span class="language-css">    &#125;</span></span><br><span class="line"><span class="language-css"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="3-el-carousel定义宽高"><a href="#3-el-carousel定义宽高" class="headerlink" title="3.el-carousel定义宽高"></a>3.el-carousel定义宽高</h3><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;card1&quot;</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;carousel&quot;</span> <span class="attr">v-show</span>=<span class="string">&quot;!searchData3&quot;</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">el-carousel</span> <span class="attr">:interval</span>=<span class="string">&quot;50000&quot;</span> <span class="attr">class</span>=<span class="string">&quot;imgClass&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">el-carousel-item</span> <span class="attr">v-for</span>=<span class="string">&quot;item in 4&quot;</span> <span class="attr">:key</span>=<span class="string">&quot;item&quot;</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">h3</span> <span class="attr">class</span>=<span class="string">&quot;small&quot;</span>&gt;</span>&#123;&#123; item &#125;&#125;<span class="tag">&lt;/<span class="name">h3</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">el-carousel-item</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">el-carousel</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span>  </span><br><span class="line"> <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">style</span> <span class="attr">lang</span>=<span class="string">&quot;scss&quot;</span> <span class="attr">scoped</span>&gt;</span><span class="language-css"></span></span><br><span class="line"><span class="language-css"><span class="selector-class">.card1</span> &#123;</span></span><br><span class="line"><span class="language-css">  <span class="attribute">position</span>: relative;</span></span><br><span class="line"><span class="language-css">  <span class="attribute">height</span>: <span class="number">100%</span>;</span></span><br><span class="line"><span class="language-css">  <span class="attribute">width</span>: <span class="number">100%</span>;</span></span><br><span class="line"><span class="language-css">  <span class="attribute">padding</span>:<span class="number">4.5vh</span> <span class="number">1vw</span> <span class="number">1.5vh</span> <span class="number">1vw</span>;</span></span><br><span class="line"><span class="language-css">  <span class="attribute">box-sizing</span>: border-box;</span></span><br><span class="line"><span class="language-css">  <span class="selector-class">.carousel</span> &#123;</span></span><br><span class="line"><span class="language-css">    <span class="attribute">height</span>: <span class="number">100%</span>;</span></span><br><span class="line"><span class="language-css">    <span class="attribute">background</span>: <span class="number">#000</span>;</span></span><br><span class="line"><span class="language-css">    <span class="selector-class">.imgClass</span>&#123;</span></span><br><span class="line"><span class="language-css">	    <span class="attribute">width</span>:<span class="number">100%</span>;</span></span><br><span class="line"><span class="language-css">	    <span class="attribute">height</span>:<span class="number">100%</span>;</span></span><br><span class="line"><span class="language-css">	    <span class="attribute">background</span>:red;</span></span><br><span class="line"><span class="language-css">	    <span class="attribute">box-sizing</span>: border-box;</span></span><br><span class="line"><span class="language-css">  	&#125;</span></span><br><span class="line"><span class="language-css">  	::v-deep .el-carousel__container&#123;</span></span><br><span class="line"><span class="language-css">   	 <span class="attribute">height</span>:<span class="number">100%</span></span></span><br><span class="line"><span class="language-css">  	&#125;	</span></span><br><span class="line"><span class="language-css">  &#125;</span></span><br><span class="line"><span class="language-css">&#125;</span></span><br><span class="line"><span class="language-css"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>css</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>flex布局</title>
+    <url>/posts/60589.html</url>
+    <content><![CDATA[<h2 id="flex布局中的一些基本概念"><a href="#flex布局中的一些基本概念" class="headerlink" title="flex布局中的一些基本概念"></a>flex布局中的一些基本概念</h2><p>容器：采用flex布局的元素被称作容器。<br>项目：在flex布局中的子元素被称作项目。</p>
+<p>即：父级元素采用flex布局，则父级元素为容器，全部子元素自动成为项目<br>flex布局，则父级元素为容器，全部子元素自动成为项目</p>
+<p>容器默认存在两根轴：水平的主轴和垂直的交叉轴。</p>
+<h2 id="容器属性"><a href="#容器属性" class="headerlink" title="容器属性"></a>容器属性</h2><p>有六个常用属性设置在容器上，分别为：</p>
+<pre><code>flex-direction、flex-wrap、flew-flow、justify-content、align-items、align-content
+</code></pre>
+<h3 id="flex-direction-属性"><a href="#flex-direction-属性" class="headerlink" title="flex-direction 属性"></a>flex-direction 属性</h3><p>flex-direction 属性设置容器主轴的方向</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">.wrap&#123;</span><br><span class="line">    flex-direction:row | row-reverse | column | column=reverse;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>包含四个属性值：</p>
+<pre><code>row: 默认值，表示沿水平方向，由左到右。
+
+row-reverse ：表示沿水平方向，由右到左
+
+column：表示垂直方向，由上到下
+
+column-reverse:表示垂直方向，由下到上
+</code></pre>
+<h3 id="flex-wrap属性"><a href="#flex-wrap属性" class="headerlink" title="flex-wrap属性"></a>flex-wrap属性</h3><p>flex-wrap属性用于设置当项目在容器中一行无法显示的时候如何处理。</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">.wrap&#123;</span><br><span class="line">    flex-wrap:nowrap | wrap | wrap-reverse;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>包含三个属性值：<br>nowrap：表示不换行<br><em>说明：设置的项目的宽度就失效了，强行在一行显示</em><br>wrap：正常换行，第一个位于第一行的第一个<br>wrap-reverse：向上换行，第一行位于下方</p>
+<h3 id="flex-flow属性"><a href="#flex-flow属性" class="headerlink" title="flex-flow属性"></a>flex-flow属性</h3><p>flex-flow属性是flex-deriction和flex-wrap属性的简写，默认值为[row nowrap]</p>
+<p>第一个属性值为flex-direction的属性值<br>第二个属性值为flex-wrap的属性值</p>
+<h3 id="justify-content-属性"><a href="#justify-content-属性" class="headerlink" title="justify-content 属性"></a>justify-content 属性</h3><p>justify-content属性用于设置项目在容器中的对齐方式。</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">.wrap&#123;</span><br><span class="line">    justify-content: flex-start | flex-end | center |space-between | space-around</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>该属性主要要五个属性值：</p>
+<pre><code>flex-start：默认值，左对齐
+flex-end：右对齐
+center：居中对齐
+space-between：两端对齐
+space-around：每个项目两侧的间距相等
+</code></pre>
+<h3 id="align-items-属性"><a href="#align-items-属性" class="headerlink" title="align-items 属性"></a>align-items 属性</h3><p>align-items定义了项目在交叉轴上是如何对齐显示的</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">.wrap&#123;</span><br><span class="line">    align-items:flex-start | flex-end | center | baseline | stretch</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>该属性主要有五个属性值：（以交叉轴从上向下为例）</p>
+<pre><code>flex-start:交叉轴的起点对齐
+flex-end 交叉轴的终点对齐
+center 交叉轴居中对齐
+baseline 项目的第一行文字的基线对齐
+stretch：默认值：如果项目未设置高度或者高度为auto，将占满整个容器的高度
+</code></pre>
+<h3 id="align-content属性"><a href="#align-content属性" class="headerlink" title="align-content属性"></a>align-content属性</h3><p>align-content属性定义了多根轴线的对齐方式。如果项目只有一根轴线，该属性不起作用。</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">.box &#123;</span><br><span class="line">  align-content: flex-start | flex-end | center | space-between | space-around | stretch;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>该属性可能取6个值。</p>
+<pre><code>flex-start：与交叉轴的起点对齐。
+flex-end：与交叉轴的终点对齐。
+center：与交叉轴的中点对齐。
+space-between：与交叉轴两端对齐，轴线之间的间隔平均分布。
+space-around：每根轴线两侧的间隔都相等。所以，轴线之间的间隔比轴线与边框的间隔大一倍。
+stretch（默认值）：轴线占满整个交叉轴。
+</code></pre>
+<h2 id="项目属性"><a href="#项目属性" class="headerlink" title="项目属性"></a>项目属性</h2><p>设置在项目上的属性主要有：order，flex-grow，flex-shrink，lex-basis，flex，align-self </p>
+<h3 id="order属性"><a href="#order属性" class="headerlink" title="order属性"></a>order属性</h3><p>order属性设置项目排序的位置，默认值为0，数值越小越靠前</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">.item&#123;</span><br><span class="line">    order:<span class="tag">&lt;<span class="name">Integer</span>&gt;</span>;	//-1;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="flex-grow-属性"><a href="#flex-grow-属性" class="headerlink" title="flex-grow 属性"></a>flex-grow 属性</h3><p>flex-group属性用来控制当前项目是否放大显示。默认值为0，表示即使容器有剩余空间也不放大显示。如果设置为1，则平均分摊后放大显示。</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">.green-item&#123;</span><br><span class="line">    order:-1;</span><br><span class="line">    flex-grow:2;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="flex-shrink属性"><a href="#flex-shrink属性" class="headerlink" title="flex-shrink属性"></a>flex-shrink属性</h3><p>flex-shrink属性表示元素的缩小比例。默认值为1，如果空间不够用时所有的项目同比缩小。如果一个项目的该属性设置为0，则空间不足时该项目也不缩小。</p>
+<h3 id="lex-basis属性"><a href="#lex-basis属性" class="headerlink" title="lex-basis属性"></a>lex-basis属性</h3><p>flex-basis属性表示表示项目占据主轴空间的值。默认为auto，表示项目当前默认的大小。如果设置为一个固定的值，则该项目在容器中占据固定的大小。</p>
+<h3 id="flex-属性"><a href="#flex-属性" class="headerlink" title="flex 属性"></a>flex 属性</h3><p>flex属性是 flex-grow属性、flex-shrink属性、flex-basis属性的简写。默认值为：0 1 auto；</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">.item&#123;</span><br><span class="line">    flex:(0 1 auto) | auto(1 1 auto) | none (0 0 auto)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="align-self-属性"><a href="#align-self-属性" class="headerlink" title="align-self 属性"></a>align-self 属性</h3><p>align-self属性表示当前项目可以和其他项目拥有不一样的对齐方式。它有六个可能的值。默认值为auto<br>auto：和父元素align-self的值一致</p>
+<p>flex-start：顶端对齐</p>
+<p>flex-end：底部对齐</p>
+<p>center：竖直方向上居中对齐</p>
+<p>baseline：item第一行文字的底部对齐</p>
+<p>stretch：当item未设置高度时，item将和容器等高对齐</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">.item&#123;</span><br><span class="line">    align-self: flex-start | flex-end | center | baseline | stretch </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>转自：<a href="https://blog.csdn.net/wqliuj/article/details/108241720">https://blog.csdn.net/wqliuj/article/details/108241720</a></p>
+<h2 id="垂直水平居中"><a href="#垂直水平居中" class="headerlink" title="垂直水平居中"></a>垂直水平居中</h2><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;fa&quot;</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;son&quot;</span>&gt;</span>son<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="language-css"></span></span><br><span class="line"><span class="language-css">	<span class="selector-class">.fa</span>&#123;</span></span><br><span class="line"><span class="language-css">	  <span class="attribute">display</span>: flex;</span></span><br><span class="line"><span class="language-css">	  <span class="attribute">justify-content</span>: center;</span></span><br><span class="line"><span class="language-css">	  <span class="attribute">align-items</span>: center;</span></span><br><span class="line"><span class="language-css">	&#125;</span></span><br><span class="line"><span class="language-css"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="垂直居中"><a href="#垂直居中" class="headerlink" title="垂直居中"></a>垂直居中</h2><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span>  <span class="attr">class</span>=<span class="string">&quot;wrap&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span>  <span class="attr">class</span>=<span class="string">&quot;box&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">.wrap&#123;</span><br><span class="line">	width:300px;</span><br><span class="line">	height:300px;</span><br><span class="line">    display:flex;</span><br><span class="line">&#125;</span><br><span class="line">.box&#123;</span><br><span class="line">	height:100px;</span><br><span class="line">	width:100px;</span><br><span class="line">    align-self: center;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>css布局</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>滚动</title>
+    <url>/posts/60587.html</url>
+    <content><![CDATA[<h3 id="1-多行隐藏滚动"><a href="#1-多行隐藏滚动" class="headerlink" title="1.多行隐藏滚动"></a>1.多行隐藏滚动</h3><p>父元素设高，y轴滚动，隐藏滚动条</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;scollData&quot;</span> <span class="attr">style</span>=<span class="string">&quot;height:23vh;overflow: scroll;overflow-x: hidden; overflow-y: scroll;&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">style</span> <span class="attr">lang</span>=<span class="string">&quot;scss&quot;</span>&gt;</span><span class="language-css"></span></span><br><span class="line"><span class="language-css"><span class="selector-class">.scollData</span>::-webkit-scrollbar &#123;</span></span><br><span class="line"><span class="language-css">    <span class="attribute">display</span>: none;</span></span><br><span class="line"><span class="language-css">  &#125;</span></span><br><span class="line"><span class="language-css"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="2-单行溢出隐藏"><a href="#2-单行溢出隐藏" class="headerlink" title="2.单行溢出隐藏"></a>2.单行溢出隐藏</h3><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;scollData&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">style</span> <span class="attr">lang</span>=<span class="string">&quot;scss&quot;</span>&gt;</span><span class="language-css"></span></span><br><span class="line"><span class="language-css"><span class="selector-class">.scollData</span>&#123;</span></span><br><span class="line"><span class="language-css">    <span class="attribute">overflow</span>: hidden;</span></span><br><span class="line"><span class="language-css">    <span class="attribute">text-overflow</span>: ellipsis;//多出部分以省略号形式隐藏</span></span><br><span class="line"><span class="language-css">    <span class="attribute">white-space</span>: nowrap;<span class="attribute">width</span>:<span class="number">600px</span>;<span class="comment">/* 禁止换行  normal可以换行 */</span></span></span><br><span class="line"><span class="language-css">  &#125;</span></span><br><span class="line"><span class="language-css"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="3-多行溢出隐藏"><a href="#3-多行溢出隐藏" class="headerlink" title="3.多行溢出隐藏"></a>3.多行溢出隐藏</h3><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;scollData&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">style</span> <span class="attr">lang</span>=<span class="string">&quot;scss&quot;</span>&gt;</span><span class="language-css"></span></span><br><span class="line"><span class="language-css"><span class="selector-class">.scollData</span>&#123;</span></span><br><span class="line"><span class="language-css">    <span class="attribute">display</span>: -webkit-box; </span></span><br><span class="line"><span class="language-css">	<span class="attribute">word-break</span>: break-all;</span></span><br><span class="line"><span class="language-css">	-webkit-box-orient: vertical;</span></span><br><span class="line"><span class="language-css">	-webkit-line-clamp:<span class="number">5</span>;<span class="comment">/*5代表, 在第5行结尾出现省略号,后面的内容都不显示*/</span></span></span><br><span class="line"><span class="language-css">	<span class="attribute">overflow</span>: hidden;</span></span><br><span class="line"><span class="language-css">	<span class="attribute">text-overflow</span>:ellipsis;</span></span><br><span class="line"><span class="language-css">  &#125;</span></span><br><span class="line"><span class="language-css"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>css布局</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>垂直水平居中</title>
+    <url>/posts/3799.html</url>
+    <content><![CDATA[<h1 id="1-垂直水平居中"><a href="#1-垂直水平居中" class="headerlink" title="1.垂直水平居中"></a>1.垂直水平居中</h1><h3 id="方法1（常用）：display：flex"><a href="#方法1（常用）：display：flex" class="headerlink" title="方法1（常用）：display：flex"></a>方法1（常用）：display：flex</h3><p>父元素使用flex布局，并设置相关的属性值为center</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">.par-work &#123;</span><br><span class="line">    height: 100vh;</span><br><span class="line">    display:flex;</span><br><span class="line">    justify-content:center;</span><br><span class="line">    align-items:center;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="方法2：-绝对定位-margin-auto"><a href="#方法2：-绝对定位-margin-auto" class="headerlink" title="方法2： 绝对定位 + margin: auto"></a>方法2： 绝对定位 + margin: auto</h3><p>使用绝对定位 + margin: auto，给子元素添加如下样式<br>父子元素宽高都未知时也适用。</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">.work2 &#123;</span><br><span class="line">      position: absolute;</span><br><span class="line">      top: 0;</span><br><span class="line">      bottom: 0;</span><br><span class="line">      right: 0;</span><br><span class="line">      left: 0;</span><br><span class="line">      margin:auto;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="方法3：绝对定位-transform"><a href="#方法3：绝对定位-transform" class="headerlink" title="方法3：绝对定位 + transform"></a>方法3：绝对定位 + transform</h3><p>使用绝对定位 + transform，给子元素添加如下样式<br>这种方式比较常用，父子元素都不确定宽高的情况也适用。<br>如果子元素的宽高确定的话，translate中的值也可以设置为子元素宽高的一半，即transform: translate(-100px, -100px);</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">.work &#123;</span><br><span class="line">      position: absolute;</span><br><span class="line">      top: 50%;</span><br><span class="line">      left: 50%;</span><br><span class="line">      transform: translate(-50%, -50%);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="方法4：使用table-cell实现"><a href="#方法4：使用table-cell实现" class="headerlink" title="方法4：使用table-cell实现"></a>方法4：使用table-cell实现</h3><p>这种方式需要父元素的宽高都是确定的，才能保证子元素在父元素中垂直水平都居中。</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">.par-work2 &#123;</span><br><span class="line">    height: 500px;</span><br><span class="line">    width: 500px;</span><br><span class="line">    display: table-cell;</span><br><span class="line">    vertical-align: middle;</span><br><span class="line">    text-align: center;</span><br><span class="line">&#125;</span><br><span class="line">.son-work2 &#123;</span><br><span class="line">    display: inline-block;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="2-垂直居中"><a href="#2-垂直居中" class="headerlink" title="2.垂直居中"></a>2.垂直居中</h1><h3 id="方法1（常用）：display：flex-1"><a href="#方法1（常用）：display：flex-1" class="headerlink" title="方法1（常用）：display：flex"></a>方法1（常用）：display：flex</h3><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span>  <span class="attr">class</span>=<span class="string">&quot;wrap&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span>  <span class="attr">class</span>=<span class="string">&quot;box&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">.wrap&#123;</span><br><span class="line">	width:300px;</span><br><span class="line">	height:300px;</span><br><span class="line">  display:flex;</span><br><span class="line">&#125;</span><br><span class="line">.box&#123;</span><br><span class="line">	height:100px;</span><br><span class="line">	width:100px;</span><br><span class="line">  //align-self属性定义flex子项单独在侧轴（纵轴）方向上的对齐方式。</span><br><span class="line">  align-self: center;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="方法2：vertical-align-middle"><a href="#方法2：vertical-align-middle" class="headerlink" title="方法2：vertical-align:middle"></a>方法2：vertical-align:middle</h3><p>vertical生效的前提是元素的display：inline-block。<br>在使用vertical-align：middle的时候需要一个兄弟元素做参照物，让它垂直于兄弟元素的中心点。vertical-align对齐的方法是寻找兄弟元素中最高的元素作为参考。<br>使用场景：将图片或表单元素（行内块）和文字垂直居中</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="language-css"></span></span><br><span class="line"><span class="language-css">  <span class="selector-class">.wrapper</span> &#123;</span></span><br><span class="line"><span class="language-css">    <span class="attribute">width</span>: <span class="number">500px</span>;</span></span><br><span class="line"><span class="language-css">    <span class="attribute">height</span>: <span class="number">500px</span>;</span></span><br><span class="line"><span class="language-css">    <span class="attribute">background-color</span>: pink;</span></span><br><span class="line"><span class="language-css">    <span class="attribute">text-align</span>: center;</span></span><br><span class="line"><span class="language-css">  &#125;</span></span><br><span class="line"><span class="language-css"> </span></span><br><span class="line"><span class="language-css">  <span class="selector-class">.box</span> &#123;</span></span><br><span class="line"><span class="language-css">    <span class="attribute">width</span>: <span class="number">100px</span>;</span></span><br><span class="line"><span class="language-css">    <span class="attribute">height</span>: <span class="number">100px</span>;</span></span><br><span class="line"><span class="language-css">    <span class="attribute">background-color</span>: deepskyblue;</span></span><br><span class="line"><span class="language-css"> </span></span><br><span class="line"><span class="language-css">    <span class="attribute">display</span>: inline-block;</span></span><br><span class="line"><span class="language-css">    <span class="attribute">vertical-align</span>: middle;</span></span><br><span class="line"><span class="language-css">  &#125;</span></span><br><span class="line"><span class="language-css"> </span></span><br><span class="line"><span class="language-css">  <span class="selector-class">.help</span> &#123;</span></span><br><span class="line"><span class="language-css">    <span class="attribute">width</span>: <span class="number">0</span>;</span></span><br><span class="line"><span class="language-css">    <span class="attribute">height</span>: <span class="number">100%</span>;</span></span><br><span class="line"><span class="language-css">    <span class="attribute">display</span>: inline-block;</span></span><br><span class="line"><span class="language-css">    <span class="attribute">vertical-align</span>: middle;</span></span><br><span class="line"><span class="language-css">  &#125;</span></span><br><span class="line"><span class="language-css"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;wrapper&quot;</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;box&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;help&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="方法3：line-height"><a href="#方法3：line-height" class="headerlink" title="方法3：line-height"></a>方法3：line-height</h3><p>通过line-height实现CSS垂直居中。<br>设置子元素的line-height值等于父元素的height，这种方法适用于子元素为单行文本的情况。</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="language-css"></span></span><br><span class="line"><span class="language-css">    <span class="selector-class">.wrap</span>&#123;</span></span><br><span class="line"><span class="language-css">    	<span class="attribute">width</span>:<span class="number">600px</span>;</span></span><br><span class="line"><span class="language-css">    	<span class="attribute">height</span>:<span class="number">300px</span>;</span></span><br><span class="line"><span class="language-css">        <span class="attribute">background</span>: yellow;</span></span><br><span class="line"><span class="language-css">    &#125;</span></span><br><span class="line"><span class="language-css">    <span class="selector-class">.box</span>&#123;</span></span><br><span class="line"><span class="language-css">        <span class="attribute">line-height</span>: <span class="number">300px</span>;</span></span><br><span class="line"><span class="language-css">        <span class="attribute">background</span>: red;</span></span><br><span class="line"><span class="language-css">        </span></span><br><span class="line"><span class="language-css">    &#125;</span></span><br><span class="line"><span class="language-css"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span>  <span class="attr">class</span>=<span class="string">&quot;wrap&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">p</span>  <span class="attr">class</span>=<span class="string">&quot;box&quot;</span>&gt;</span>111<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="方法4：绝对定位-transform"><a href="#方法4：绝对定位-transform" class="headerlink" title="方法4：绝对定位 + transform"></a>方法4：绝对定位 + transform</h3><p>使用绝对定位 + transform，给子元素添加如下样式<br>这种方式比较常用，父子元素都不确定宽高的情况也适用。<br>如果子元素的宽高确定的话，translate中的值也可以设置为子元素宽高的一半，即transform: translate(-100px, -100px);</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="language-css"></span></span><br><span class="line"><span class="language-css">    <span class="selector-class">.wrap</span>&#123;</span></span><br><span class="line"><span class="language-css">        <span class="attribute">position</span>: relative;</span></span><br><span class="line"><span class="language-css">        <span class="attribute">background</span>: yellow;</span></span><br><span class="line"><span class="language-css">        <span class="attribute">width</span>: <span class="number">1000px</span>;</span></span><br><span class="line"><span class="language-css">        <span class="attribute">height</span>: <span class="number">500px</span>;</span></span><br><span class="line"><span class="language-css">    &#125;</span></span><br><span class="line"><span class="language-css">    <span class="selector-class">.box</span>&#123;</span></span><br><span class="line"><span class="language-css">    <span class="attribute">position</span>: absolute;</span></span><br><span class="line"><span class="language-css">      <span class="attribute">top</span>: <span class="number">50%</span>;</span></span><br><span class="line"><span class="language-css">      <span class="attribute">transform</span>: <span class="built_in">translate</span>(-<span class="number">50%</span>);</span></span><br><span class="line"><span class="language-css">        <span class="attribute">background</span>: red;</span></span><br><span class="line"><span class="language-css">        </span></span><br><span class="line"><span class="language-css">    &#125;</span></span><br><span class="line"><span class="language-css"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span>  <span class="attr">class</span>=<span class="string">&quot;wrap&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span>  <span class="attr">class</span>=<span class="string">&quot;box&quot;</span>&gt;</span>111<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="3-水平居中"><a href="#3-水平居中" class="headerlink" title="3.水平居中"></a>3.水平居中</h1><pre><code>text-align: center;
+</code></pre>
+]]></content>
+      <categories>
+        <category>css布局</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>浮动</title>
+    <url>/posts/7628.html</url>
+    <content><![CDATA[<h1 id="1-浮动的特性"><a href="#1-浮动的特性" class="headerlink" title="1.浮动的特性"></a>1.浮动的特性</h1><p>①浮动元素会脱离标准流；<br>②浮动元素会在一行内显示并且元素顶部对齐排列；<br>③浮动的元素会具有行内块元素的特性。</p>
+<p>重要特性<br>①脱离标准流的控制移动到指定位置，浮动的盒子，会漂浮在标准流的盒子上面，不占位置；<br>②如果多个盒子都设置了浮动，则它们会按照属性值一行显示并且顶端对齐排列；<br>③浮动的元素是相互贴在一起（没有间隙）的，若父级宽度放不下盒子，多出的盒子会再下一行对齐；<br>④浮动元素具有行内块元素特性，任何元素都可以浮动，设置了浮动元素后都具有行内块元素性质。<br>注：若块级元素没有设置宽度，则默认和父级一样宽。</p>
+<h1 id="2-常见网页布局"><a href="#2-常见网页布局" class="headerlink" title="2.常见网页布局"></a>2.常见网页布局</h1><p>①浮动和标准流的父盒子搭配：用标准流父元素排列上下位置，内部子元素采取浮动元素排列左右位置。<br>②一个元素浮动了，理论上其余兄弟元素也要浮动：一个盒子里有多个盒子，其中一个盒子浮动，其他盒子也应该浮动，防止引起问题。<br>注：浮动的盒子只会影响浮动盒子后面的标准流，不会影响前面的标准流。</p>
+<h1 id="3-清除浮动"><a href="#3-清除浮动" class="headerlink" title="3.清除浮动"></a>3.清除浮动</h1><p>清除浮动的策略：<br>闭合浮动，只让浮动在父盒子内部影响，不影响父盒子外面的其他盒子。</p>
+<h3 id="1-额外标签法（隔墙法）"><a href="#1-额外标签法（隔墙法）" class="headerlink" title="1.额外标签法（隔墙法）"></a>1.额外标签法（隔墙法）</h3><p> 在最后一个浮动元素末尾添加一个空的块级元素，给其设置属性：clear: both; </p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">.clear &#123;</span><br><span class="line">    clear: both;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;clear&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="2-父级添加-overflow-属性"><a href="#2-父级添加-overflow-属性" class="headerlink" title="2.父级添加 overflow 属性"></a>2.父级添加 overflow 属性</h3><p>给父级添加 overflow 属性，将其属性设置为 hidden、auto 或 scroll。<br>注：是给父元素添加代码。</p>
+<h3 id="3-父级添加-after-伪元素"><a href="#3-父级添加-after-伪元素" class="headerlink" title="3.父级添加 after 伪元素"></a>3.父级添加 after 伪元素</h3><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">.clearfix &#123;</span><br><span class="line">  content: &quot;&quot;;</span><br><span class="line">  display: block;</span><br><span class="line">  height: 0;</span><br><span class="line">  clear: both;</span><br><span class="line">  visibility: hidden;</span><br><span class="line">&#125;</span><br><span class="line">.clearfix &#123;</span><br><span class="line">  /*IE6、7专有*/</span><br><span class="line">  *zoom: 1;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="4-父级添加双伪元素"><a href="#4-父级添加双伪元素" class="headerlink" title="4.父级添加双伪元素"></a>4.父级添加双伪元素</h3><figure class="highlight html"><table><tr><td class="code"><pre><span class="line">.clearfix::before,</span><br><span class="line">.clearfix::after &#123;</span><br><span class="line">  content: &quot;&quot;;</span><br><span class="line">  display: table;</span><br><span class="line">&#125;</span><br><span class="line">.clearfix::after &#123;</span><br><span class="line">  clear: both;</span><br><span class="line">&#125;</span><br><span class="line">.clearfix &#123;</span><br><span class="line">  *zoom: 1;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>css布局</category>
+      </categories>
+  </entry>
+  <entry>
     <title>hexo搭建网站</title>
     <url>/posts/23416.html</url>
     <content><![CDATA[<p>#1.Hexo搭建网站<br>###1. 安装Git</p>
@@ -134,6 +299,72 @@ hexo cl &amp;&amp; hexo g &amp;&amp; hexo d
 ]]></content>
       <categories>
         <category>hexo</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>markdown语法</title>
+    <url>/posts/47193.html</url>
+    <content><![CDATA[<p>vscode + markdown语法<br><a href="http://markdown.p2hp.com/basic-syntax/">http://markdown.p2hp.com/basic-syntax/</a></p>
+<ol>
+<li><p>vscode安装插件</p>
+<pre><code> Markdown All in One  ：markdown语法补全
+ Paste Image：剪切图片
+ Markdown Preview Enhanced：预览页面
+ LimfxCodeEx: 导出文件 
+</code></pre>
+</li>
+<li><p>标题</p>
+<pre><code> # 一级标题； ## 二级标题......
+
+ #### 换行  //此处两个空格
+ 换了一行
+
+ 换了一段
+ 
+ #### 强调！**加粗** *斜体*
+</code></pre>
+</li>
+<li><p>有序列表</p>
+<pre><code> 1. 一层列表1
+    1. 二层列表1
+    2. 二层列表2
+       1. 三层列表1
+       2. 三层列表2
+ 2. 一层列表2
+</code></pre>
+</li>
+<li><p>图片</p>
+<pre><code> ![](2023-02-17-14-55-50.png)
+     复制图片的时候必须选“复制图片”项，目前只能复制图片网页
+     vscode粘贴时得是 Ctrl+Alt+V
+</code></pre>
+</li>
+<li><p>表格 </p>
+<pre><code> |小ddddd米|大ddddd米|淘ddddddd米|
+ |---|---|---|
+ |1.2|3.4|5.6|
+ |---|---|---|
+ |小米|大米|淘米|
+ |---|---|---|
+ |1.2|3.4|5.6|
+</code></pre>
+</li>
+<li><p>链接  </p>
+<pre><code> 这是一个[链接](https://github.com/)
+ 复制一个链接，选中要做链接的文字，粘贴即可
+</code></pre>
+</li>
+<li><p>code</p>
+ <figure class="highlight plaintext"><figcaption><span> </span><a href="//指定语言">link</a></figcaption><table><tr><td class="code"><pre><span class="line">if (this.$route.query.deviceCode) &#123;</span><br><span class="line">      this.deviceCode = this.$route.query.deviceCode;</span><br><span class="line">      this.getOverGame()</span><br><span class="line">      this.getMqttData();</span><br><span class="line">    &#125;else&#123;</span><br><span class="line">      this.getDeviceCode()</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+ <figure class="highlight html"><table><tr><td class="code"><pre><span class="line">.work2 &#123;</span><br><span class="line">      position: absolute;</span><br><span class="line">      top: 0;</span><br><span class="line">      bottom: 0;</span><br><span class="line">      right: 0;</span><br><span class="line">      left: 0;</span><br><span class="line">      margin:auto;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>导出pdf<br>     1.预览页面右击 -&gt; chrome -&gt; pdf</p>
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>markdown</category>
       </categories>
   </entry>
   <entry>
@@ -509,226 +740,6 @@ hexo cl &amp;&amp; hexo g &amp;&amp; hexo d
       </categories>
   </entry>
   <entry>
-    <title>markdown语法</title>
-    <url>/posts/47193.html</url>
-    <content><![CDATA[<p>vscode + markdown语法<br><a href="http://markdown.p2hp.com/basic-syntax/">http://markdown.p2hp.com/basic-syntax/</a></p>
-<ol>
-<li><p>vscode安装插件</p>
-<pre><code> Markdown All in One  ：markdown语法补全
- Paste Image：剪切图片
- Markdown Preview Enhanced：预览页面
- LimfxCodeEx: 导出文件 
-</code></pre>
-</li>
-<li><p>标题</p>
-<pre><code> # 一级标题； ## 二级标题......
-
- #### 换行  //此处两个空格
- 换了一行
-
- 换了一段
- 
- #### 强调！**加粗** *斜体*
-</code></pre>
-</li>
-<li><p>有序列表</p>
-<pre><code> 1. 一层列表1
-    1. 二层列表1
-    2. 二层列表2
-       1. 三层列表1
-       2. 三层列表2
- 2. 一层列表2
-</code></pre>
-</li>
-<li><p>图片</p>
-<pre><code> ![](2023-02-17-14-55-50.png)
-     复制图片的时候必须选“复制图片”项，目前只能复制图片网页
-     vscode粘贴时得是 Ctrl+Alt+V
-</code></pre>
-</li>
-<li><p>表格</p>
-<pre><code> |小ddddd米|大ddddd米|淘ddddddd米|
- |---|---|---|
- |1.2|3.4|5.6|
- |---|---|---|
- |小米|大米|淘米|
- |---|---|---|
- |1.2|3.4|5.6|
-</code></pre>
-</li>
-<li><p>链接  </p>
-<pre><code> 这是一个[链接](https://github.com/)
- 复制一个链接，选中要做链接的文字，粘贴即可
-</code></pre>
-</li>
-<li><p>code</p>
- <figure class="highlight plaintext"><figcaption><span> </span><a href="//指定语言">link</a></figcaption><table><tr><td class="code"><pre><span class="line">if (this.$route.query.deviceCode) &#123;</span><br><span class="line">      this.deviceCode = this.$route.query.deviceCode;</span><br><span class="line">      this.getOverGame()</span><br><span class="line">      this.getMqttData();</span><br><span class="line">    &#125;else&#123;</span><br><span class="line">      this.getDeviceCode()</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></li>
-<li><p>导出pdf<br>     1.预览页面右击 -&gt; chrome -&gt; pdf</p>
-</li>
-</ol>
-]]></content>
-      <categories>
-        <category>markdown</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>hexo目录</title>
-    <url>/posts/43390.html</url>
-    <content><![CDATA[<p>###1.deploy_git</p>
-<p>在部署到github后自动创建。</p>
-<pre><code>此目录中的内容 = github站点中对于repository中的内容 = 最近一次上传到站点的public目录中的内容
-
-因此，该目录的结构和 public 目录基本一致（不一致的情况是由于重新生成，但是没有发布站点造成，此时 public 内容新于 .deploy_git 内容）。
-</code></pre>
-<p>###2. node_modules</p>
-<p>存放安装的Hexo扩展。	</p>
-<p>###3. public</p>
-<p>执行 hexo g 命令，Hexo程序会解析 source 、当前使用的theme，生成的静态网页内容目录就是 piblic 。执行 hexo d 则将该目录内容复制到 .deploy_git 目录。</p>
-<p>###4. scaffolds</p>
-<p>模版 文件夹。当新建文章时，Hexo 会根据 scaffold 来建立文件。更多参见 模版 | Hexo 。</p>
-<p>###5.source<br>存放用户资源的地方。</p>
-<h5 id="5-1-posts-文件夹"><a href="#5-1-posts-文件夹" class="headerlink" title="5.1 _posts 文件夹"></a>5.1 _posts 文件夹</h5><p>存放博客文章的地方，其中的markdown文件、html文件、org文件等会被解析并放到 public 文件夹，发布到站点。</p>
-<h5 id="5-2-其他开头命名为-下划线-的文件-x2F-文件夹"><a href="#5-2-其他开头命名为-下划线-的文件-x2F-文件夹" class="headerlink" title="5.2 其他开头命名为 _ (下划线)的文件 &#x2F; 文件夹"></a>5.2 其他开头命名为 _ (下划线)的文件 &#x2F; 文件夹</h5><p>将会被忽略。因此可以在source目录下创建 _drafts 目录用于存放未完成的草稿，其中内容不会发布到网站。</p>
-<h5 id="5-3-其他开头非-的文件-x2F-文件夹"><a href="#5-3-其他开头非-的文件-x2F-文件夹" class="headerlink" title="5.3 其他开头非_的文件 &#x2F; 文件夹"></a>5.3 其他开头非_的文件 &#x2F; 文件夹</h5><p>会被拷贝到public目录并上传到站点。</p>
-<ol>
-<li>可以创建 img 目录来存放在博客引用到的图片等。</li>
-<li>要添加新的页面（例如about），执行 hexo new page PageName 命令即会在 source 中自动新建子目录 PageName 。</li>
-<li>favicon.ico 在主题配置文件中引用 &#x2F;favicon.ico 来设置站点的页面图标。</li>
-</ol>
-<p>###6.themes<br>主题 文件夹。</p>
-<p>默认安装 landscape 主题，你可以安装新主题到 themes 目录，也可以自己新建主题。</p>
-<h5 id="6-1-config-yml"><a href="#6-1-config-yml" class="headerlink" title="6.1 _config.yml"></a>6.1 _config.yml</h5><p>主题的配置文件。</p>
-<h5 id="6-2-languages"><a href="#6-2-languages" class="headerlink" title="6.2 languages"></a>6.2 languages</h5><p>语言文件夹。根据 Hexo 目录中 _config.yml 设置的语言来选择站点以哪种语言来呈现。</p>
-<h5 id="6-3-layout"><a href="#6-3-layout" class="headerlink" title="6.3 layout"></a>6.3 layout</h5><p>存放主题的模板文件，决定了网站内容的呈现方式。<br>Hexo 根据模板文件的扩展名来决定所使用的模板引擎，例如：</p>
-<pre><code>layout.ejs - 使用 EJS
-layout.swig - 使用 Swig
-</code></pre>
-<h5 id="6-4-scripts"><a href="#6-4-scripts" class="headerlink" title="6.4 scripts"></a>6.4 scripts</h5><p>脚本文件夹。在启动时，Hexo 会载入此文件夹内的 JavaScript 文件。</p>
-<h5 id="6-5-source"><a href="#6-5-source" class="headerlink" title="6.5 source"></a>6.5 source</h5><p>资源文件夹，除了模板以外的资源，例如 CSS、JavaScript 文件等，都应该放在这个文件夹中。</p>
-<p>文件或文件夹开头名称为 _（下划线）或隐藏的文件会被忽略。</p>
-<p>如果文件可以被渲染的话，会经过解析然后储存到 public 文件夹，否则会直接拷贝到 public 文件夹。</p>
-<p>6.5.1. css<br>如果想自定义CSS，主要修改2个地方：</p>
-<pre><code>_variables
-_custom
-</code></pre>
-<p>###7. _config.yml<br>初始化时自动创建。</p>
-<p>网站的配置信息文件，可以在此配置大部分的参数。</p>
-<p>###8. package.json<br>初始化时自动创建。</p>
-<p>应用程序的信息。可以查看hexo的版本以及安装的扩展版本。</p>
-]]></content>
-      <categories>
-        <category>hexo</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>yml语法</title>
-    <url>/posts/4563.html</url>
-    <content><![CDATA[<p>###1. yml 基本语法</p>
-<p>k: v:表示一对键值对（冒号与V之间有空格）</p>
-<p>以空格的缩进来控制层级关系，只要是左对齐的一列数据，都是同一个层级的</p>
-<pre><code>server:
-  port: 8088
-  address: &quot;www.baid.com&quot;
-</code></pre>
-<p>注：属性和值都是大小写敏感的</p>
-<p>###2. 值的写法</p>
-<p>2.1. 字面量：普通的值（数字、字符串，布尔）</p>
-<pre><code>k: v：字面直接来写
-
-    字符串默认不用加上引号或者双引号
-
-　　“” 双引号；不会转义字条串里面的特殊字符；特殊字符会作为本身想表示的意思
-
-　　name: &quot;张三 \n lisi“ ；输出：张三 换行 lisi
-</code></pre>
-<p>2.2. 对象、Map(属性和值)（键值对）:</p>
-<pre><code>k: v:
-   对象还是k: v的方式
-    friends:
-      last_name: wang
-      first_name: gang
-
-还有一种行内写法：
-    friends: &#123;last_name: wang,first_name: gang&#125;
-</code></pre>
-<p>2.3. 数组（List、Set）:</p>
-<pre><code>用”-“表示数组中的一个元素
-    pets:
-      - cat
-      - dog
-      - pig
-
-也有行内写法：
-    pets: [pig,cat,dog]
-</code></pre>
-<p>###3. 配置文件注入</p>
-<p>yml配置文件格式</p>
-<pre><code>person:
-  lastName: 张三
-  age: 19
-  boss: false
-  birth: 2010/05/02
-  maps: &#123;k1:va,k2:v2&#125;
-  lists:
-    - lisi
-    - wangwu
-    - zhaoliu
-  dog:
-    name: 小爱
-    age: 5
-</code></pre>
-<p>###2. ejs 基本语法</p>
-<pre><code>https://ejs.bootcss.com/#install
-</code></pre>
-]]></content>
-      <categories>
-        <category>hexo</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>中庸</title>
-    <url>/posts/46837.html</url>
-    <content><![CDATA[<h1 id="《中庸》"><a href="#《中庸》" class="headerlink" title="《中庸》"></a>《中庸》</h1><h2 id="战国·子思"><a href="#战国·子思" class="headerlink" title="战国·子思"></a>战国·子思</h2><p>　　天命之谓性，率性之谓道，修道之谓教。道也者，不可须臾离也;可离非道也。是故君子戒慎乎其所不睹，恐惧乎其所不闻。莫见乎隐，莫显乎微，故君子慎其独也。喜怒哀乐之未发，谓之中;发而皆中节，谓之和。中也者，天下之大本也;和也者，天下之达道也。致中和，天地位焉，万物育焉。</p>
-<p>　　仲尼曰：“君子中庸，小人反中庸。君子之中庸也，君子而时中;小人之中庸也，小人而无忌惮也。”子曰：“中庸其至矣乎!民鲜能久矣!”</p>
-<p>　　子曰：“道之不行也，我知之矣：知者过之，愚者不及也。道之不明也，我知之矣：贤者过之，不肖者不及也。人莫不饮食也，鲜能知味也。”子曰：“道其不行矣夫!”</p>
-<p>　　子曰：“舜其大知也与!舜好问而好察迩言，隐恶而扬善，执其两端，用其中于民，其斯以为舜乎!”</p>
-<p>　　子曰：“人皆曰予知，驱而纳诸罟擭陷阱之中，而莫之知辟也。人皆曰予知，择乎中庸，而不能期月守也。”</p>
-<p>　　子曰：“回之为人也，择乎中庸，得一善，则拳拳服膺弗失之矣。”</p>
-<p>　　子曰：“天下国家可均也，爵禄可辞也，白刃可蹈也，中庸不可能也。”</p>
-<p>　　子路问强。子曰：“南方之强与?北方之强与?抑而强与?宽柔以教，不报无道，南方之强也，君子居之。衽金革，死而不厌，北方之强也，而强者居之。故君子和而不流，强哉矫!中立而不倚，强哉矫!国有道，不变塞焉，强哉矫!国无道，至死不变，强哉矫!”</p>
-<p>　　子曰：“素隐行怪，後世有述焉，吾弗为之矣。君子遵道而行，半途而废，吾弗能已矣。君子依乎中庸，遁世不见知而不悔，唯圣者能之。”</p>
-<p>　　君子之道费而隐。夫妇之愚，可以与知焉;及其至也，虽圣人亦有所不知焉。夫妇之不肖，可以能行焉;及其至也，虽圣人亦有所不能焉。天地之大也，人犹有所憾。故君子语大，天下莫能载焉;语小，天下莫能破焉。《诗》云：“鸢飞戾天，鱼跃于渊。”言其上下察也。君子之道，造端乎夫妇，及其至也，察乎天地。</p>
-<p>　　子曰：“道不远人，人之为道而远人，不可以为道。《诗》云：‘伐柯伐柯，其则不远。’执柯以伐柯，睨而视之，犹以为远。故君子以人治人，改而止。忠恕违道不远，施诸己而不愿，亦勿施于人。君子之道四，丘未能一焉，所求乎子，以事父，未能也;所求乎臣，以事君，未能也;所求乎弟，以事兄，未能也;所求乎朋友先施之，未能也。庸德之行，庸言之谨;有所不足，不敢不勉，有馀不敢尽;言顾行，行顾言，君子胡不慥慥尔!”</p>
-<p>　　君子素其位而行，不愿乎其外。素富贵，行乎富贵;素贫贱，行乎贫贱;素夷狄，行乎夷狄;素患难行乎患难，君子无入而不自得焉。在上位不陵下，在下位不援上，正己而不求于人，则无怨。上不怨天，下不尤人。故君子居易以俟命。小人行险以徼幸。子曰：“射有似乎君子，失诸正鹄，反求诸其身。”</p>
-<p>　　君子之道，辟如行远必自迩，辟如登高必自卑。《诗》曰：“妻子好合，如鼓瑟琴。兄弟既翕，和乐且耽。宜尔室家，乐尔妻帑。”子曰：“父母其顺矣乎!”</p>
-<p>　　子曰：“鬼神之为德，其盛矣乎?!视之而弗见，听之而弗闻，体物而不可遗，使天下之人齐明盛服，以承祭祀。洋洋乎如在其上，如在其左右。《诗》曰：‘神之格思，不可度思!矧可射思!’夫微之显，诚之不可揜如此夫。”</p>
-<p>　　子曰：“舜其大孝也与!德为圣人，尊为天子，富有四海之内。宗庙飨之，子孙保之。故大德必得其位，必得其禄，必得其名，必得其寿。故天之生物，必因其材而笃焉。故栽者培之，倾者覆之。《诗》曰：‘嘉乐君子，宪宪令德。宜民宜人，受禄于天，保佑命之，自天申之。’故大德者必受命。”</p>
-<p>　　子曰：“无忧者，其惟文王乎!以王季为父，以武王为子，父作之，子述之。武王缵大王、王季、文王之绪，壹戎衣而有天下。身不失天下之显名，尊为天子，富有四海之内。宗庙飨之，子孙保之。武王末受命，周公成文、武之德，追王大王、王季，上祀先公以天子之礼。斯礼也，达乎诸侯大夫，及士庶人。父为大夫，子为士，葬以大夫，祭以士。父为士，子为大夫，葬以士，祭以大夫。期之丧，达乎大夫。三年之丧，达乎天子。父母之丧，无贵贱，一也。”</p>
-<p>　　子曰：“武王、周公，其达孝矣乎!夫孝者，善继人之志，善述人之事者也。春秋修其祖庙，陈其宗器，设其裳衣，荐其时食。宗庙之礼，所以序昭穆也。序爵，所以辨贵贱也。序事，所以辨贤也。旅酬下为上，所以逮贱也。燕毛，所以序齿也。践其位，行其礼，奏其乐，敬其所尊，爱其所亲，事死如事生，事亡如事存，孝之至也。郊社之礼，所以事上帝也。宗庙之礼，所以祀乎其先也。明乎郊社之礼、禘尝之义，治国其如示诸掌乎!”</p>
-<p>　　哀公问政。子曰：“文武之政，布在方策。其人存，则其政举;其人亡，则其政息。人道敏政，地道敏树。夫政也者，蒲卢也。故为政在人，取人以身，修身以道，修道以仁。仁者人也，亲亲为大;义者宜也，尊贤为大。亲亲之杀，尊贤之等，礼所生也。在下位不获乎上，民不可得而治矣!故君子不可以不修身;思修身，不可以不事亲;思事亲，不可以不知人，思知人，不可以不知天。”</p>
-<p>　　“天下之达道五，所以行之者三。曰：君臣也，父子也，夫妇也，昆弟也，朋友之交也，五者天下之达道也。知，仁，勇，三者天下之达德也，所以行之者一也。或生而知之，或学而知之，或困而知之，及其知之，一也。或安而行之，或利而行之，或勉强而行之，及其成功，一也。子曰：好学近乎知，力行近乎仁，知耻近乎勇。知斯三者，则知所以修身;知所以修身，则知所以治人;知所以治人，则知所以治天下国家矣。”</p>
-<p>　　“凡为天下国家有九经，曰：修身也。尊贤也，亲亲也，敬大臣也，体群臣也。子庶民也，来百工也，柔远人也，怀诸侯也。修身则道立，尊贤则不惑，亲亲则诸父昆弟不怨，敬大臣则不眩，体群臣则士之报礼重，子庶民则百姓劝，来百工则财用足，柔远人则四方归之，怀诸侯则天下畏之。齐明盛服，非礼不动。所以修身也;去谗远色，贱货而贵德，所以劝贤也;尊其位，重其禄，同其好恶，所以劝亲亲也;官盛任使，所以劝大臣也;忠信重禄，所以劝士也;时使薄敛，所以劝百姓也;日省月试，既廪称事，所以劝百工也;送往迎来，嘉善而矜不能，所以柔远人也;继绝世，举废国，治乱持危。朝聘以时，厚往而薄来，所以怀诸侯也。凡为天下国家有九经，所以行之者一也。”</p>
-<p>　　“凡事豫则立，不豫则废。言前定则不跲，事前定则不困，行前定则不疚，道前定则不穷。在下位不获乎上，民不可得而治矣。获乎上有道，不信乎朋友，不获乎上矣;信乎朋友有道，不顺乎亲，不信乎朋友矣;顺乎亲有道，反诸身不诚，不顺乎亲矣;诚身有道，不明乎善，不诚乎身矣。诚者，天之道也;诚之者，人之道也。诚者不勉而中，不思而得，从容中道，圣人也。诚之者，择善而固执之者也。”</p>
-<p>　　“博学之，审问之，慎思之，明辨之，笃行之。有弗学，学之弗能，弗措也;有弗问，问之弗知，弗措也;有弗思，思之弗得，弗措也;有弗辨，辨之弗明，弗措也;有弗行，行之弗笃，弗措也。人一能之己百之，人十能之己千之。果能此道矣。虽愚必明，虽柔必强。”</p>
-<p>　　自诚明，谓之性。自明诚，谓之教。诚则明矣，明则诚矣。</p>
-<p>　　唯天下至诚，为能尽其性;能尽其性，则能尽人之性;能尽人之性，则能尽物之性;能尽物之性，则可以赞天地之化育;可以赞天地之化育，则可以与天地参矣。</p>
-<p>　　其次致曲。曲能有诚，诚则形，形则著，著则明，明则动，动则变，变则化。唯天下至诚为能化。</p>
-<p>　　至诚之道，可以前知。国家将兴，必有祯祥;国家将亡，必有妖孽。见乎蓍龟，动乎四体。祸福将至：善，必先知之;不善，必先知之。故至诚如神。</p>
-<p>　　诚者自成也，而道自道也。诚者物之终始，不诚无物。是故君子诚之为贵。诚者非自成己而已也，所以成物也。成己，仁也;成物，知也。性之德也，合外内之道也，故时措之宜也。</p>
-<p>　　故至诚无息。不息则久，久则徵;徵则悠远，悠远则博厚，博厚则高明。博厚，所以载物也;高明，所以覆物也;悠久，所以成物也。博厚配地，高明配天，悠久无疆。如此者，不见而章，不动而变，无为而成。天地之道，可壹言而尽也。其为物不贰，则其生物不测。天地之道：博也，厚也，高也，明也，悠也，久也。今夫天，斯昭昭之多，及其无穷也，日月星辰系焉，万物覆焉。今夫地，一撮土之多，及其广厚，载华岳而不重，振河海而不泄，万物载焉。今夫山，一卷石之多，及其广大，草木生之，禽兽居之，宝藏兴焉，今夫水，一勺之多，及其不测，鼋鼍、蛟龙、鱼鳖生焉，货财殖焉。《诗》曰：“惟天之命，于穆不已!”盖曰天之所以为天也。“于乎不显，文王之德之纯!”盖曰文王之所以为文也，纯亦不已。</p>
-<p>　　大哉!圣人之道洋洋乎!发育万物，峻极于天。优优大哉!礼仪三百，威仪三千，待其人然後行。故曰：苟不至德，至道不凝焉。故君子尊德性而道问学;致广大而尽精微;极高明而道中庸;温故而知新，敦厚以崇礼。是故居上不骄，为下不倍;国有道，其言足以兴;国无道，其默足以容。《诗》曰：“既明且哲，以保其身。”其此之谓与!</p>
-<p>　　子曰：“愚而好自用，贱而好自专，生乎今之世，反古之道：如此者，灾及其身者也。”非天子，不议礼，不制度，不考文。今天下车同轨，书同文，行同伦。虽有其位，苟无其德，不敢作礼乐焉;虽有其德。苟无其位，亦不敢作礼乐焉。子曰：“吾说夏礼，杞不足徵也。吾学殷礼，有宋存焉。吾学周礼，今用之，吾从周。”</p>
-<p>　　王天下有三重焉，其寡过矣乎!上焉者虽善无徵，无徵不信，不信民弗从;下焉者虽善不尊，不尊不信，不信民弗从。故君子之道：本诸身，徵诸庶民，考诸三王而不缪，建诸天地而不悖，质诸鬼神而无疑，百世以俟圣人而不惑。质诸鬼神而无疑，知天也;百世以俟圣人而不惑，知人也。是故君子动而世为天下道，行而世为天下法，言而世为天下则。远之则有望，近之则不厌。《诗》曰：“在彼无恶，在此无射。庶几夙夜，以永终誉!”君子未有不如此而蚤有誉于天下者也。</p>
-<p>　　仲尼祖述尧舜，宪章文武：上律天时，下袭水土。辟如天地之无不持载，无不覆帱，辟如四时之错行，如日月之代明。万物并育而不相害，道并行而不相悖，小德川流，大德敦化，此天地之这所以为大也。</p>
-<p>　　唯天下至圣为能聪明睿知，足以有临也;宽裕温柔，足以有容也;发强刚毅，足以有执也;齐庄中正，足以有敬也;文理密察，足以有别也。溥博渊泉，而时出之。溥博如天，渊泉如渊。见而民莫不敬，言而民莫不信，行而民莫不说。是以声名洋溢乎中国，施及蛮貊。舟车所至，人力所通，天之所覆，地之所载，日月所照，霜露所队，凡有血气者，莫不尊亲，故曰配天。</p>
-<p>　　唯天下至诚，为能经纶天下之大经，立天下之大本，知天地之化育。夫焉有所倚?肫肫其仁!渊渊其渊!浩浩其天!苟不固聪明圣知达天德者，其孰能知之?</p>
-<p>　　《诗》曰：“衣锦尚絅。”恶其文之著也。故君子之道，暗然而日章;小人之道，的然而日亡。君子之道：淡而面不厌，简而文，温而理，知远之近，知风之自，知微之显，可与入德矣。《诗》云：“潜虽伏矣，亦孔之昭!”故君子内省不疚，无恶于志。君子所不可及者，其唯人之所不见乎!《诗》云：“相在尔室，尚不愧于屋漏。”故君子不动而敬，不言而信。《诗》曰：“奏假无言，时靡有争。”是故君子不赏而民劝，不怒而民威于鈇钺。《诗》曰：“不显惟德!百辟其刑之。”是故君子笃恭而天下平。《诗》云：“予怀明德，不大声以色。”子曰：“声色之于以化民。末也。”《诗》曰：“德如毛。”毛犹有伦，上天之载，无声无臭，至矣!</p>
-]]></content>
-      <categories>
-        <category>练字</category>
-      </categories>
-  </entry>
-  <entry>
     <title>入门Hexo主题编写</title>
     <url>/posts/54528.html</url>
     <content><![CDATA[<p><a href="https://blog.csdn.net/smileyan9/article/details/124278860">https://blog.csdn.net/smileyan9/article/details/124278860</a><br>#1. 新建主题并配置</p>
@@ -868,6 +879,314 @@ git clone git@github.com:smile-yan/hexo-posts-examples.git source/_posts
 </ul>
 
 <p>&lt;%- paginator({<br>    prev_text: ‘&lt;’,<br>    next_text: ‘&gt;’<br>}) %&gt;</p>
+]]></content>
+      <categories>
+        <category>hexo</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>hexo目录</title>
+    <url>/posts/43390.html</url>
+    <content><![CDATA[<p>###1.deploy_git</p>
+<p>在部署到github后自动创建。</p>
+<pre><code>此目录中的内容 = github站点中对于repository中的内容 = 最近一次上传到站点的public目录中的内容
+
+因此，该目录的结构和 public 目录基本一致（不一致的情况是由于重新生成，但是没有发布站点造成，此时 public 内容新于 .deploy_git 内容）。
+</code></pre>
+<p>###2. node_modules</p>
+<p>存放安装的Hexo扩展。	</p>
+<p>###3. public</p>
+<p>执行 hexo g 命令，Hexo程序会解析 source 、当前使用的theme，生成的静态网页内容目录就是 piblic 。执行 hexo d 则将该目录内容复制到 .deploy_git 目录。</p>
+<p>###4. scaffolds</p>
+<p>模版 文件夹。当新建文章时，Hexo 会根据 scaffold 来建立文件。更多参见 模版 | Hexo 。</p>
+<p>###5.source<br>存放用户资源的地方。</p>
+<h5 id="5-1-posts-文件夹"><a href="#5-1-posts-文件夹" class="headerlink" title="5.1 _posts 文件夹"></a>5.1 _posts 文件夹</h5><p>存放博客文章的地方，其中的markdown文件、html文件、org文件等会被解析并放到 public 文件夹，发布到站点。</p>
+<h5 id="5-2-其他开头命名为-下划线-的文件-x2F-文件夹"><a href="#5-2-其他开头命名为-下划线-的文件-x2F-文件夹" class="headerlink" title="5.2 其他开头命名为 _ (下划线)的文件 &#x2F; 文件夹"></a>5.2 其他开头命名为 _ (下划线)的文件 &#x2F; 文件夹</h5><p>将会被忽略。因此可以在source目录下创建 _drafts 目录用于存放未完成的草稿，其中内容不会发布到网站。</p>
+<h5 id="5-3-其他开头非-的文件-x2F-文件夹"><a href="#5-3-其他开头非-的文件-x2F-文件夹" class="headerlink" title="5.3 其他开头非_的文件 &#x2F; 文件夹"></a>5.3 其他开头非_的文件 &#x2F; 文件夹</h5><p>会被拷贝到public目录并上传到站点。</p>
+<ol>
+<li>可以创建 img 目录来存放在博客引用到的图片等。</li>
+<li>要添加新的页面（例如about），执行 hexo new page PageName 命令即会在 source 中自动新建子目录 PageName 。</li>
+<li>favicon.ico 在主题配置文件中引用 &#x2F;favicon.ico 来设置站点的页面图标。</li>
+</ol>
+<p>###6.themes<br>主题 文件夹。</p>
+<p>默认安装 landscape 主题，你可以安装新主题到 themes 目录，也可以自己新建主题。</p>
+<h5 id="6-1-config-yml"><a href="#6-1-config-yml" class="headerlink" title="6.1 _config.yml"></a>6.1 _config.yml</h5><p>主题的配置文件。</p>
+<h5 id="6-2-languages"><a href="#6-2-languages" class="headerlink" title="6.2 languages"></a>6.2 languages</h5><p>语言文件夹。根据 Hexo 目录中 _config.yml 设置的语言来选择站点以哪种语言来呈现。</p>
+<h5 id="6-3-layout"><a href="#6-3-layout" class="headerlink" title="6.3 layout"></a>6.3 layout</h5><p>存放主题的模板文件，决定了网站内容的呈现方式。<br>Hexo 根据模板文件的扩展名来决定所使用的模板引擎，例如：</p>
+<pre><code>layout.ejs - 使用 EJS
+layout.swig - 使用 Swig
+</code></pre>
+<h5 id="6-4-scripts"><a href="#6-4-scripts" class="headerlink" title="6.4 scripts"></a>6.4 scripts</h5><p>脚本文件夹。在启动时，Hexo 会载入此文件夹内的 JavaScript 文件。</p>
+<h5 id="6-5-source"><a href="#6-5-source" class="headerlink" title="6.5 source"></a>6.5 source</h5><p>资源文件夹，除了模板以外的资源，例如 CSS、JavaScript 文件等，都应该放在这个文件夹中。</p>
+<p>文件或文件夹开头名称为 _（下划线）或隐藏的文件会被忽略。</p>
+<p>如果文件可以被渲染的话，会经过解析然后储存到 public 文件夹，否则会直接拷贝到 public 文件夹。</p>
+<p>6.5.1. css<br>如果想自定义CSS，主要修改2个地方：</p>
+<pre><code>_variables
+_custom
+</code></pre>
+<p>###7. _config.yml<br>初始化时自动创建。</p>
+<p>网站的配置信息文件，可以在此配置大部分的参数。</p>
+<p>###8. package.json<br>初始化时自动创建。</p>
+<p>应用程序的信息。可以查看hexo的版本以及安装的扩展版本。</p>
+]]></content>
+      <categories>
+        <category>hexo</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>yml语法</title>
+    <url>/posts/4563.html</url>
+    <content><![CDATA[<p>###1. yml 基本语法</p>
+<p>k: v:表示一对键值对（冒号与V之间有空格）</p>
+<p>以空格的缩进来控制层级关系，只要是左对齐的一列数据，都是同一个层级的</p>
+<pre><code>server:
+  port: 8088
+  address: &quot;www.baid.com&quot;
+</code></pre>
+<p>注：属性和值都是大小写敏感的</p>
+<p>###2. 值的写法</p>
+<p>2.1. 字面量：普通的值（数字、字符串，布尔）</p>
+<pre><code>k: v：字面直接来写
+
+    字符串默认不用加上引号或者双引号
+
+　　“” 双引号；不会转义字条串里面的特殊字符；特殊字符会作为本身想表示的意思
+
+　　name: &quot;张三 \n lisi“ ；输出：张三 换行 lisi
+</code></pre>
+<p>2.2. 对象、Map(属性和值)（键值对）:</p>
+<pre><code>k: v:
+   对象还是k: v的方式
+    friends:
+      last_name: wang
+      first_name: gang
+
+还有一种行内写法：
+    friends: &#123;last_name: wang,first_name: gang&#125;
+</code></pre>
+<p>2.3. 数组（List、Set）:</p>
+<pre><code>用”-“表示数组中的一个元素
+    pets:
+      - cat
+      - dog
+      - pig
+
+也有行内写法：
+    pets: [pig,cat,dog]
+</code></pre>
+<p>###3. 配置文件注入</p>
+<p>yml配置文件格式</p>
+<pre><code>person:
+  lastName: 张三
+  age: 19
+  boss: false
+  birth: 2010/05/02
+  maps: &#123;k1:va,k2:v2&#125;
+  lists:
+    - lisi
+    - wangwu
+    - zhaoliu
+  dog:
+    name: 小爱
+    age: 5
+</code></pre>
+<p>###2. ejs 基本语法</p>
+<pre><code>https://ejs.bootcss.com/#install
+</code></pre>
+]]></content>
+      <categories>
+        <category>hexo</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>js数组/对象</title>
+    <url>/posts/62336.html</url>
+    <content><![CDATA[<h3 id="1-数组-x2F-对象循环"><a href="#1-数组-x2F-对象循环" class="headerlink" title="1.数组&#x2F;对象循环"></a>1.数组&#x2F;对象循环</h3><ol>
+<li>forEach只能循环数组&#x2F;对象，不能改变数组里的元素</li>
+<li>map循环数组&#x2F;对象使用return 可以改变数组元素</li>
+</ol>
+<h3 id="2-js对象-、null、-的区别"><a href="#2-js对象-、null、-的区别" class="headerlink" title="2.js对象{}、null、[]的区别"></a>2.js对象{}、null、[]的区别</h3><p>在转化布尔值时，对于对象而言，只有null转为false，其他的都为true，因此，一定要注意[]、{}都会被转为true</p>
+]]></content>
+      <categories>
+        <category>JavaScript</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>vue-js</title>
+    <url>/posts/7527.html</url>
+    <content><![CDATA[<h3 id="1-require引入文件"><a href="#1-require引入文件" class="headerlink" title="1.require引入文件"></a>1.require引入文件</h3><p>不能直接使用变量，要把变量拼进去</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">background:require(&#x27;@/assets/images/赛事路线.png&#x27;),	//可以</span><br><span class="line">this.backgroundTrackImage = 赛事路线.png</span><br><span class="line">background:require(&#x27;@/assets/images/&#x27;+this.backgroundTrackImage), 	//可以</span><br><span class="line">this.background = @/assets/images/赛事路线.png</span><br><span class="line">background:require(this.background),	//不可以</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-vue动态赋className"><a href="#2-vue动态赋className" class="headerlink" title="2.vue动态赋className"></a>2.vue动态赋className</h3><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">方式一：</span><br><span class="line"><span class="tag">&lt;<span class="name">view</span> <span class="attr">:class</span>=<span class="string">&quot;flag? &#x27;class2&#x27;: &#x27;class3&#x27; &quot;</span>&gt;</span>联系我们<span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line">方式二：</span><br><span class="line"><span class="tag">&lt;<span class="name">view</span> <span class="attr">:class</span>=<span class="string">&quot;&#123;class1:true,class2:flag==true,class3:flag==false&#125; &quot;</span>&gt;</span>联系我们<span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="3-vue改变数组-x2F-对象的同时渲染view层"><a href="#3-vue改变数组-x2F-对象的同时渲染view层" class="headerlink" title="3.vue改变数组&#x2F;对象的同时渲染view层"></a>3.vue改变数组&#x2F;对象的同时渲染view层</h3><pre><code>1. js操作数组/对象改变原数组/对象的方法，如splice()
+2. vue官网的全局API里的set方法
+
+//直接赋值
+this.list[0] = 444
+//vue.set 需要修改的数组/对象，索引值/属性，新值
+this.$set( this.list, 0, 444 )
+- 注：直接赋值不能在view层重新渲染
+</code></pre>
+<h3 id="4-key"><a href="#4-key" class="headerlink" title="4.key"></a>4.key</h3><figure class="highlight html"><table><tr><td class="code"><pre><span class="line">用key区分，激发view层重新渲染的机制</span><br><span class="line"></span><br><span class="line">单选框</span><br><span class="line">&#123;&#123;&quot;&quot;&#125;&#125; 替代lable属性赋空</span><br><span class="line"><span class="tag">&lt;<span class="name">el-table-column</span> <span class="attr">v-if</span>=<span class="string">&quot;currentIndex === null&quot;</span> <span class="attr">key</span>=<span class="string">&quot;1&quot;</span> <span class="attr">width</span>=<span class="string">&quot;35&quot;</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">template</span> <span class="attr">slot-scope</span>=<span class="string">&quot;scope&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">el-radio</span> <span class="attr">:label</span>=<span class="string">&quot;scope.row.rfidShowNo&quot;</span> <span class="attr">v-model</span>=<span class="string">&quot;rfidShowNo&quot;</span>&gt;</span>&#123;&#123;&quot;&quot;&#125;&#125;<span class="tag">&lt;/<span class="name">el-radio</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">el-table-column</span>&gt;</span></span><br><span class="line"></span><br><span class="line">复选框</span><br><span class="line"><span class="tag">&lt;<span class="name">el-table-column</span></span></span><br><span class="line"><span class="tag">    <span class="attr">v-else</span></span></span><br><span class="line"><span class="tag">     <span class="attr">key</span>=<span class="string">&quot;2&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">type</span>=<span class="string">&quot;selection&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">:reserve-selection</span>=<span class="string">&quot;true&quot;</span></span></span><br><span class="line"><span class="tag">&gt;</span><span class="tag">&lt;/<span class="name">el-table-column</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="5-nextTick"><a href="#5-nextTick" class="headerlink" title="5.$nextTick"></a>5.$nextTick</h3><p>vue官网全局api，在修改数据之后立即使用这个方法，获取更新后的 DOM。</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">// 修改数据</span><br><span class="line">vm.msg = &#x27;Hello&#x27;</span><br><span class="line">// DOM 还没有更新</span><br><span class="line">Vue.nextTick(function () &#123;</span><br><span class="line">  // DOM 更新了</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h3 id="6-post请求查询数据列表"><a href="#6-post请求查询数据列表" class="headerlink" title="6.post请求查询数据列表"></a>6.post请求查询数据列表</h3><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-handlebars"><span class="language-xml"></span></span></span><br><span class="line"><span class="language-xml"><span class="language-handlebars"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml"><span class="language-handlebars"><span class="keyword">import</span> &#123;</span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml"><span class="language-handlebars">  getBasicInfoList,</span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml"><span class="language-handlebars">  getVehicleNumList,</span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml"><span class="language-handlebars">&#125; <span class="keyword">from</span> <span class="string">&#x27;@/api/screen/screen&#x27;</span></span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml"><span class="language-handlebars"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml"><span class="language-handlebars">  <span class="title function_">data</span>(<span class="params"></span>) &#123;</span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml"><span class="language-handlebars">    <span class="keyword">return</span> &#123;</span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml"><span class="language-handlebars">      <span class="comment">// 查询参数</span></span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml"><span class="language-handlebars">      <span class="attr">queryParams</span>: &#123;</span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml"><span class="language-handlebars">        <span class="attr">pageNum</span>: <span class="number">1</span>,</span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml"><span class="language-handlebars">        <span class="attr">pageSize</span>: <span class="number">10</span>,</span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml"><span class="language-handlebars">        <span class="attr">state</span>: <span class="string">&#x27;1001&#x27;</span>,</span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml"><span class="language-handlebars">      &#125;,</span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml"><span class="language-handlebars">    &#125;;</span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml"><span class="language-handlebars">  &#125;,</span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml"><span class="language-handlebars">  <span class="title function_">created</span>(<span class="params"></span>)&#123;</span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml"><span class="language-handlebars"> </span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml"><span class="language-handlebars">  &#125;,</span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml"><span class="language-handlebars">  <span class="attr">watch</span>: &#123;</span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml"><span class="language-handlebars">  &#125;,</span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml"><span class="language-handlebars">  <span class="attr">methods</span>: &#123;</span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml"><span class="language-handlebars">	<span class="comment">/** 查询查验执法信息列表 */</span></span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml"><span class="language-handlebars">    <span class="title function_">getList</span>(<span class="params"></span>) &#123;</span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml"><span class="language-handlebars">      <span class="variable language_">this</span>.<span class="property">loading</span> = <span class="literal">true</span>;</span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml"><span class="language-handlebars">      <span class="title function_">listEnforce</span>(<span class="variable language_">this</span>.<span class="property">queryParams</span>).<span class="title function_">then</span>(<span class="function">(<span class="params">response</span>) =&gt;</span> &#123;</span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml"><span class="language-handlebars">        <span class="variable language_">this</span>.<span class="property">enforceList</span> = response.<span class="property">rows</span>;</span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml"><span class="language-handlebars">        <span class="variable language_">this</span>.<span class="property">total</span> = response.<span class="property">total</span>;</span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml"><span class="language-handlebars">        <span class="variable language_">this</span>.<span class="property">loading</span> = <span class="literal">false</span>;</span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml"><span class="language-handlebars">      &#125;);</span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml"><span class="language-handlebars">    &#125;,  </span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml"><span class="language-handlebars">  &#125;,</span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml"><span class="language-handlebars">&#125;</span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml"><span class="language-handlebars"></span></span></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">@/api/screen/screen</span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">	<span class="keyword">import</span> request <span class="keyword">from</span> <span class="string">&#x27;@/utils/request&#x27;</span></span></span><br><span class="line"><span class="language-javascript">	</span></span><br><span class="line"><span class="language-javascript">	<span class="comment">// 查询查验执法信息列表</span></span></span><br><span class="line"><span class="language-javascript">	<span class="keyword">export</span> <span class="keyword">function</span> <span class="title function_">listEnforce</span>(<span class="params">query</span>) &#123;</span></span><br><span class="line"><span class="language-javascript">	  <span class="keyword">return</span> <span class="title function_">request</span>(&#123;</span></span><br><span class="line"><span class="language-javascript">	    <span class="attr">url</span>: <span class="string">&#x27;/lvtong/enforce/getHistoryVideoList?pageNum=&#x27;</span></span></span><br><span class="line"><span class="language-javascript">	    +query.<span class="property">pageNum</span>+<span class="string">&#x27;&amp;pageSize=&#x27;</span>+query.<span class="property">pageSize</span>,</span></span><br><span class="line"><span class="language-javascript">	    <span class="attr">method</span>: <span class="string">&#x27;post&#x27;</span>,</span></span><br><span class="line"><span class="language-javascript">	    <span class="attr">data</span>: query</span></span><br><span class="line"><span class="language-javascript">	  &#125;)</span></span><br><span class="line"><span class="language-javascript">	&#125;</span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>JavaScript</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>canvas绘图</title>
+    <url>/posts/26865.html</url>
+    <content><![CDATA[<h3 id="1-canvas绘图"><a href="#1-canvas绘图" class="headerlink" title="1.canvas绘图"></a>1.canvas绘图</h3><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;img&quot;</span></span></span><br><span class="line"><span class="tag">           <span class="attr">style</span>=<span class="string">&quot;overflow: scroll; overflow-x: scroll; overflow-y: hidden; width:100%;height:18vh&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">v-show</span>=<span class="string">&quot;signtotal == 1&quot;</span> <span class="attr">style</span>=<span class="string">&quot;color:#ccc;&quot;</span>&gt;</span>暂无事件标记<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">canvas</span> <span class="attr">v-for</span>=<span class="string">&quot;item in canvasId&quot;</span> <span class="attr">:key</span>=<span class="string">&quot;item&quot;</span> <span class="attr">:id</span>=<span class="string">&quot;item&quot;</span> <span class="attr">width</span>=<span class="string">&quot;60&quot;</span></span></span><br><span class="line"><span class="tag">                <span class="attr">height</span>=<span class="string">&quot;100%&quot;</span> <span class="attr">style</span>=<span class="string">&quot;margin-right: 15px&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">canvas</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">el-button</span> <span class="attr">class</span>=<span class="string">&quot;ones&quot;</span> @<span class="attr">click</span>=<span class="string">&quot;addMark()&quot;</span></span></span><br><span class="line"><span class="tag">                 <span class="attr">style</span>=<span class="string">&quot;margin: 1.5vh 0 0 0vw;width: 100%&quot;</span>&gt;</span>事件标记</span><br><span class="line">      <span class="tag">&lt;/<span class="name">el-button</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript"><span class="keyword">import</span> &#123;</span></span><br><span class="line"><span class="language-javascript">  addMark,</span></span><br><span class="line"><span class="language-javascript">  uploadAvatar,</span></span><br><span class="line"><span class="language-javascript">&#125; <span class="keyword">from</span> <span class="string">&#x27;@/api/screen/screen&#x27;</span></span></span><br><span class="line"><span class="language-javascript"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span></span><br><span class="line"><span class="language-javascript">  <span class="attr">name</span>: <span class="string">&quot;basic&quot;</span>,</span></span><br><span class="line"><span class="language-javascript">  <span class="attr">props</span>:[<span class="string">&#x27;monitorNow&#x27;</span>,<span class="string">&#x27;monitor&#x27;</span>,<span class="string">&#x27;canvasId&#x27;</span>],</span></span><br><span class="line"><span class="language-javascript">  <span class="attr">computed</span>: &#123;</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">  &#125;,</span></span><br><span class="line"><span class="language-javascript">  <span class="title function_">data</span>(<span class="params"></span>) &#123;</span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">return</span> &#123;</span></span><br><span class="line"><span class="language-javascript">      <span class="attr">canvasIdList</span>: [],</span></span><br><span class="line"><span class="language-javascript">      <span class="comment">//事件标记序号</span></span></span><br><span class="line"><span class="language-javascript">      <span class="attr">signtotal</span>: <span class="number">1</span>,</span></span><br><span class="line"><span class="language-javascript">      <span class="attr">canvasIndex</span>:<span class="number">0</span>,</span></span><br><span class="line"><span class="language-javascript">    &#125;;</span></span><br><span class="line"><span class="language-javascript">  &#125;,</span></span><br><span class="line"><span class="language-javascript">  <span class="title function_">created</span>(<span class="params"></span>)&#123;</span></span><br><span class="line"><span class="language-javascript">  &#125;,</span></span><br><span class="line"><span class="language-javascript">  <span class="attr">methods</span>: &#123;</span></span><br><span class="line"><span class="language-javascript">    <span class="comment">//事件标记</span></span></span><br><span class="line"><span class="language-javascript">    <span class="title function_">addMark</span>(<span class="params"></span>) &#123;</span></span><br><span class="line"><span class="language-javascript">      <span class="comment">// console.log(&#x27;monitor&#x27;, this.monitor);</span></span></span><br><span class="line"><span class="language-javascript">      <span class="comment">//获取canvasId</span></span></span><br><span class="line"><span class="language-javascript">      <span class="comment">// console.log(&#x27;canvasId&#x27;,this.monitor[2].canvas[this.canvasIndex])</span></span></span><br><span class="line"><span class="language-javascript">      <span class="keyword">let</span> one = <span class="variable language_">this</span>.<span class="property">monitor</span>[<span class="number">2</span>].<span class="property">canvas</span>[<span class="variable language_">this</span>.<span class="property">canvasIndex</span>]</span></span><br><span class="line"><span class="language-javascript">      <span class="keyword">var</span> cvs = <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="variable language_">this</span>.<span class="property">monitor</span>[<span class="number">2</span>].<span class="property">canvas</span>[<span class="variable language_">this</span>.<span class="property">canvasIndex</span>]);</span></span><br><span class="line"><span class="language-javascript">      <span class="keyword">var</span> ctx = cvs.<span class="title function_">getContext</span>(<span class="string">&quot;2d&quot;</span>);</span></span><br><span class="line"><span class="language-javascript">      <span class="comment">//新增canvasId</span></span></span><br><span class="line"><span class="language-javascript">      <span class="variable language_">this</span>.<span class="property">canvasIndex</span>++</span></span><br><span class="line"><span class="language-javascript">      <span class="keyword">let</span> headId = one.<span class="title function_">split</span>(<span class="string">&quot;&amp;&quot;</span>)[<span class="number">0</span>];</span></span><br><span class="line"><span class="language-javascript">      headId = headId+<span class="string">&quot;&amp;&quot;</span>+<span class="variable language_">this</span>.<span class="property">canvasIndex</span>;</span></span><br><span class="line"><span class="language-javascript">      <span class="variable language_">this</span>.<span class="property">monitor</span>[<span class="number">2</span>].<span class="property">canvas</span>.<span class="title function_">push</span>(headId)</span></span><br><span class="line"><span class="language-javascript">      <span class="comment">// console.log(this.monitor[2].canvas)</span></span></span><br><span class="line"><span class="language-javascript">      <span class="variable language_">this</span>.<span class="property">signtotal</span> = <span class="number">0</span>;</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">      <span class="comment">//获取执法记录仪视频id</span></span></span><br><span class="line"><span class="language-javascript">      <span class="keyword">var</span> videoElement = <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="variable language_">this</span>.<span class="property">monitor</span>[<span class="number">1</span>].<span class="property">idn</span>)</span></span><br><span class="line"><span class="language-javascript">      <span class="comment">// console.log(videoElement)</span></span></span><br><span class="line"><span class="language-javascript">      <span class="comment">//绘制图片</span></span></span><br><span class="line"><span class="language-javascript">      ctx.<span class="title function_">drawImage</span>(videoElement, <span class="number">0</span>, <span class="number">0</span>, <span class="number">60</span>, <span class="number">120</span>);</span></span><br><span class="line"><span class="language-javascript">      <span class="comment">//得到base64</span></span></span><br><span class="line"><span class="language-javascript">      <span class="keyword">var</span> enforceSignUrl = cvs.<span class="title function_">toDataURL</span>(<span class="string">&#x27;image/png&#x27;</span>);</span></span><br><span class="line"><span class="language-javascript">      <span class="comment">//base64转url</span></span></span><br><span class="line"><span class="language-javascript">      <span class="variable language_">this</span>.<span class="property">file</span> = <span class="variable language_">this</span>.<span class="title function_">base64ImgtoFile</span>(enforceSignUrl); <span class="comment">// 得到File对象</span></span></span><br><span class="line"><span class="language-javascript">      <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;thisfile&quot;</span>, <span class="variable language_">this</span>.<span class="property">file</span>);</span></span><br><span class="line"><span class="language-javascript">      <span class="variable language_">this</span>.<span class="title function_">uploadImg</span>()</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">    &#125;,</span></span><br><span class="line"><span class="language-javascript">    <span class="comment">//base64转url</span></span></span><br><span class="line"><span class="language-javascript">    <span class="title function_">base64ImgtoFile</span>(<span class="params">dataurl, filename = <span class="string">&quot;file&quot;</span></span>) &#123;</span></span><br><span class="line"><span class="language-javascript">      <span class="keyword">const</span> arr = dataurl.<span class="title function_">split</span>(<span class="string">&quot;,&quot;</span>);</span></span><br><span class="line"><span class="language-javascript">      <span class="keyword">const</span> mime = arr[<span class="number">0</span>].<span class="title function_">match</span>(<span class="regexp">/:(.*?);/</span>)[<span class="number">1</span>];</span></span><br><span class="line"><span class="language-javascript">      <span class="keyword">const</span> suffix = mime.<span class="title function_">split</span>(<span class="string">&quot;/&quot;</span>)[<span class="number">1</span>];</span></span><br><span class="line"><span class="language-javascript">      <span class="keyword">const</span> bstr = <span class="title function_">atob</span>(arr[<span class="number">1</span>]);</span></span><br><span class="line"><span class="language-javascript">      <span class="keyword">let</span> n = bstr.<span class="property">length</span>;</span></span><br><span class="line"><span class="language-javascript">      <span class="keyword">const</span> u8arr = <span class="keyword">new</span> <span class="title class_">Uint8Array</span>(n);</span></span><br><span class="line"><span class="language-javascript">      <span class="keyword">while</span> (n--) &#123;</span></span><br><span class="line"><span class="language-javascript">        u8arr[n] = bstr.<span class="title function_">charCodeAt</span>(n);</span></span><br><span class="line"><span class="language-javascript">      &#125;</span></span><br><span class="line"><span class="language-javascript">      <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">File</span>([u8arr], <span class="string">`<span class="subst">$&#123;filename&#125;</span>.<span class="subst">$&#123;suffix&#125;</span>`</span>, &#123;</span></span><br><span class="line"><span class="language-javascript">        <span class="attr">type</span>: mime,</span></span><br><span class="line"><span class="language-javascript">      &#125;);</span></span><br><span class="line"><span class="language-javascript">    &#125;,</span></span><br><span class="line"><span class="language-javascript">    <span class="comment">//上传图片</span></span></span><br><span class="line"><span class="language-javascript">    <span class="title function_">uploadImg</span>(<span class="params"></span>)&#123;</span></span><br><span class="line"><span class="language-javascript">      <span class="keyword">let</span> formData = <span class="keyword">new</span> <span class="title class_">FormData</span>();</span></span><br><span class="line"><span class="language-javascript">      formData.<span class="title function_">append</span>(<span class="string">&quot;avatarfile&quot;</span>, <span class="variable language_">this</span>.<span class="property">file</span>);</span></span><br><span class="line"><span class="language-javascript">      <span class="title function_">uploadAvatar</span>(formData).<span class="title function_">then</span>(<span class="function"><span class="params">response</span> =&gt;</span> &#123;</span></span><br><span class="line"><span class="language-javascript">        <span class="keyword">var</span> params = &#123;</span></span><br><span class="line"><span class="language-javascript">          <span class="attr">checkEnforceId</span>: <span class="variable language_">this</span>.<span class="property">monitor</span>.<span class="property">enforceDeviceId</span>,</span></span><br><span class="line"><span class="language-javascript">          <span class="attr">enforceSignUrl</span>: response.<span class="property">imgUrl</span></span></span><br><span class="line"><span class="language-javascript">        &#125;</span></span><br><span class="line"><span class="language-javascript">        <span class="title function_">addMark</span>(params).<span class="title function_">then</span>(<span class="function">(<span class="params">response</span>) =&gt;</span> &#123;</span></span><br><span class="line"><span class="language-javascript">          <span class="variable language_">console</span>.<span class="title function_">log</span>(response);</span></span><br><span class="line"><span class="language-javascript">        &#125;);</span></span><br><span class="line"><span class="language-javascript">      &#125;);</span></span><br><span class="line"><span class="language-javascript">    &#125;</span></span><br><span class="line"><span class="language-javascript">  &#125;,</span></span><br><span class="line"><span class="language-javascript">  <span class="title function_">mounted</span>(<span class="params"></span>) &#123;</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">  &#125;,</span></span><br><span class="line"><span class="language-javascript">  <span class="title function_">destroyed</span>(<span class="params"></span>) &#123;</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">  &#125;</span></span><br><span class="line"><span class="language-javascript">&#125;</span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="2-三层数组结构"><a href="#2-三层数组结构" class="headerlink" title="2.三层数组结构"></a>2.三层数组结构</h3><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript"><span class="comment">//查询实时查验视频列表</span></span></span><br><span class="line"><span class="language-javascript">    <span class="title function_">getRealTimeVideo</span>(<span class="params"></span>) &#123;</span></span><br><span class="line"><span class="language-javascript">      <span class="title function_">getRealTimeVideoList</span>(&#123;<span class="attr">managementId</span>: <span class="variable language_">this</span>.<span class="property">managementId</span>&#125;).<span class="title function_">then</span>(<span class="function">(<span class="params">response</span>) =&gt;</span> &#123;</span></span><br><span class="line"><span class="language-javascript">        <span class="keyword">if</span> (response.<span class="property">data</span>.<span class="property">length</span>) &#123;</span></span><br><span class="line"><span class="language-javascript">          <span class="variable language_">this</span>.<span class="property">urlList</span>= []</span></span><br><span class="line"><span class="language-javascript">          <span class="keyword">var</span> urlObj = []</span></span><br><span class="line"><span class="language-javascript">          response.<span class="property">data</span>.<span class="title function_">map</span>(<span class="function">(<span class="params">item, index</span>) =&gt;</span> &#123;</span></span><br><span class="line"><span class="language-javascript">                <span class="comment">//查验中记录</span></span></span><br><span class="line"><span class="language-javascript">                <span class="keyword">let</span> one = <span class="variable language_">this</span>.<span class="title function_">getVideoUrl</span>(item,index,urlObj)</span></span><br><span class="line"><span class="language-javascript">                one.<span class="property">monitorNow</span> = <span class="literal">true</span></span></span><br><span class="line"><span class="language-javascript">                one.<span class="property">enforceDeviceId</span> = item.<span class="property">enforceDeviceId</span></span></span><br><span class="line"><span class="language-javascript">                <span class="variable language_">this</span>.<span class="property">urlList</span>.<span class="title function_">push</span>(one)</span></span><br><span class="line"><span class="language-javascript">          &#125;)</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">        &#125;</span></span><br><span class="line"><span class="language-javascript">      &#125;)</span></span><br><span class="line"><span class="language-javascript">    &#125;,</span></span><br><span class="line"><span class="language-javascript"><span class="comment">//拼接当前记录视频路径</span></span></span><br><span class="line"><span class="language-javascript">    <span class="title function_">getVideoUrl</span>(<span class="params">item,index,urlObj</span>)&#123;</span></span><br><span class="line"><span class="language-javascript">      <span class="keyword">var</span> host = <span class="variable language_">window</span>.<span class="property">location</span>.<span class="property">hostname</span></span></span><br><span class="line"><span class="language-javascript">      <span class="comment">// if (item.state == &#x27;1000&#x27;) &#123;</span></span></span><br><span class="line"><span class="language-javascript">        <span class="comment">//查验中记录url</span></span></span><br><span class="line"><span class="language-javascript">        <span class="keyword">const</span> port = <span class="string">&#x27;8085&#x27;</span></span></span><br><span class="line"><span class="language-javascript">        item.<span class="property">checkVideoUrl</span> = <span class="string">`http://<span class="subst">$&#123;host&#125;</span>:<span class="subst">$&#123;port&#125;</span><span class="subst">$&#123;item.checkVideoUrl&#125;</span>`</span></span></span><br><span class="line"><span class="language-javascript">        item.<span class="property">enforceVideoUrl</span> = <span class="string">`http://<span class="subst">$&#123;host&#125;</span>:<span class="subst">$&#123;port&#125;</span><span class="subst">$&#123;item.enforceVideoUrl&#125;</span>`</span></span></span><br><span class="line"><span class="language-javascript">        item.<span class="property">audioUrl</span> = <span class="string">`http://<span class="subst">$&#123;host&#125;</span>:<span class="subst">$&#123;port&#125;</span><span class="subst">$&#123;item.audioUrl&#125;</span>`</span></span></span><br><span class="line"><span class="language-javascript">       <span class="comment">// &#125;else&#123;</span></span></span><br><span class="line"><span class="language-javascript">          <span class="comment">//查验结束记录url</span></span></span><br><span class="line"><span class="language-javascript">          <span class="comment">// const port = window.location.port</span></span></span><br><span class="line"><span class="language-javascript">          <span class="comment">// item.checkVideoUrl = `http://$&#123;host&#125;:$&#123;port&#125;/video$&#123;item.checkVideoUrl&#125;`</span></span></span><br><span class="line"><span class="language-javascript">          <span class="comment">// item.enforceVideoUrl = `http://$&#123;host&#125;:$&#123;port&#125;/video$&#123;item.enforceVideoUrl&#125;`</span></span></span><br><span class="line"><span class="language-javascript">          <span class="comment">// item.audioUrl = `http://$&#123;host&#125;:$&#123;port&#125;/video$&#123;item.audioUrl&#125;`</span></span></span><br><span class="line"><span class="language-javascript">      <span class="comment">// &#125;</span></span></span><br><span class="line"><span class="language-javascript">      <span class="comment">//轮播内层视频循环数组</span></span></span><br><span class="line"><span class="language-javascript">      urlObj = [</span></span><br><span class="line"><span class="language-javascript">        &#123;</span></span><br><span class="line"><span class="language-javascript">        <span class="attr">idn</span>: <span class="string">`video1-<span class="subst">$&#123;index&#125;</span>`</span>,</span></span><br><span class="line"><span class="language-javascript">        <span class="attr">name</span>: item.<span class="property">chargeName</span> + <span class="string">&#x27;-&#x27;</span> + item.<span class="property">laneName</span> + <span class="string">&quot;查验现场&quot;</span>,</span></span><br><span class="line"><span class="language-javascript">        <span class="attr">url</span>: item.<span class="property">checkVideoUrl</span>,</span></span><br><span class="line"><span class="language-javascript">        &#125;,</span></span><br><span class="line"><span class="language-javascript">        &#123;</span></span><br><span class="line"><span class="language-javascript">          <span class="attr">idn</span>: <span class="string">`video2-<span class="subst">$&#123;index&#125;</span>`</span>,</span></span><br><span class="line"><span class="language-javascript">          <span class="attr">name</span>: item.<span class="property">chargeName</span> + <span class="string">&#x27;-&#x27;</span> + item.<span class="property">laneName</span> + <span class="string">&quot;执法记录仪现场&quot;</span>,</span></span><br><span class="line"><span class="language-javascript">          <span class="attr">url</span>: item.<span class="property">enforceVideoUrl</span></span></span><br><span class="line"><span class="language-javascript">        &#125;,</span></span><br><span class="line"><span class="language-javascript">        &#123;</span></span><br><span class="line"><span class="language-javascript">          <span class="attr">idn</span>: <span class="string">`video3-<span class="subst">$&#123;index&#125;</span>`</span>,</span></span><br><span class="line"><span class="language-javascript">          <span class="attr">url</span>: item.<span class="property">audioUrl</span>,</span></span><br><span class="line"><span class="language-javascript">          <span class="attr">canvas</span>:[<span class="string">`canvas1-<span class="subst">$&#123;index&#125;</span>&amp;0`</span>],</span></span><br><span class="line"><span class="language-javascript">        &#125;</span></span><br><span class="line"><span class="language-javascript">      ]</span></span><br><span class="line"><span class="language-javascript">      <span class="keyword">return</span> urlObj</span></span><br><span class="line"><span class="language-javascript">    &#125;,</span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+]]></content>
+      <categories>
+        <category>vue组件</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>sse连接</title>
+    <url>/posts/12906.html</url>
+    <content><![CDATA[<p>sse连接</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript"><span class="title function_">chComplete</span>(<span class="params"></span>) &#123;</span></span><br><span class="line"><span class="language-javascript">      <span class="keyword">if</span> (<span class="variable language_">window</span>.<span class="property">EventSource</span>) &#123;</span></span><br><span class="line"><span class="language-javascript">        <span class="comment">// 建立连接</span></span></span><br><span class="line"><span class="language-javascript">        source = <span class="keyword">new</span> <span class="title class_">EventSource</span>(</span></span><br><span class="line"><span class="language-javascript">          process.<span class="property">env</span>.<span class="property">VUE_APP_BASE_API</span> + <span class="string">&quot;/sse/connect/&quot;</span> + <span class="variable language_">this</span>.<span class="property">deviceCode</span></span></span><br><span class="line"><span class="language-javascript">        );</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">        <span class="variable language_">console</span>.<span class="title function_">log</span>(source, <span class="string">&quot;source&quot;</span>);</span></span><br><span class="line"><span class="language-javascript">        <span class="comment">/** 连接一旦建立，就会触发open事件 */</span></span></span><br><span class="line"><span class="language-javascript">        source.<span class="title function_">addEventListener</span>(</span></span><br><span class="line"><span class="language-javascript">          <span class="string">&quot;open&quot;</span>,</span></span><br><span class="line"><span class="language-javascript">          <span class="keyword">function</span> (<span class="params">e</span>) &#123;</span></span><br><span class="line"><span class="language-javascript">            <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;建立连接。。。&quot;</span>);</span></span><br><span class="line"><span class="language-javascript">          &#125;,</span></span><br><span class="line"><span class="language-javascript">          <span class="literal">false</span></span></span><br><span class="line"><span class="language-javascript">        );</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">        <span class="comment">/** 客户端收到服务器发来的数据 */</span></span></span><br><span class="line"><span class="language-javascript">        source.<span class="title function_">addEventListener</span>(<span class="string">&quot;message&quot;</span>,  <span class="function">(<span class="params">e</span>) =&gt;</span> &#123;</span></span><br><span class="line"><span class="language-javascript">          <span class="keyword">if</span> (e.<span class="property">data</span> != <span class="variable language_">this</span>.<span class="property">deviceCode</span>) &#123;</span></span><br><span class="line"><span class="language-javascript">            <span class="comment">// json转对象</span></span></span><br><span class="line"><span class="language-javascript">            <span class="keyword">var</span> data = <span class="title class_">JSON</span>.<span class="title function_">parse</span>(e.<span class="property">data</span>);</span></span><br><span class="line"><span class="language-javascript">            <span class="variable language_">console</span>.<span class="title function_">log</span>(data)</span></span><br><span class="line"><span class="language-javascript">            <span class="keyword">let</span> len = <span class="variable language_">this</span>.<span class="property">listComplete</span>.<span class="title function_">filter</span>(<span class="function"><span class="params">item</span>=&gt;</span>(item.<span class="property">userName</span> == data.<span class="property">userName</span> &amp;&amp; item.<span class="property">greenwayId</span> == data.<span class="property">greenwayId</span>)).<span class="property">length</span></span></span><br><span class="line"><span class="language-javascript">            <span class="comment">// 如果存在重复数据</span></span></span><br><span class="line"><span class="language-javascript">            <span class="keyword">if</span>(len &gt; <span class="number">0</span>)&#123;</span></span><br><span class="line"><span class="language-javascript">              <span class="keyword">return</span></span></span><br><span class="line"><span class="language-javascript">            &#125;<span class="keyword">else</span> &#123;</span></span><br><span class="line"><span class="language-javascript">              <span class="variable language_">this</span>.<span class="property">listComplete</span>.<span class="title function_">push</span>(data)</span></span><br><span class="line"><span class="language-javascript">            &#125;</span></span><br><span class="line"><span class="language-javascript">          &#125;</span></span><br><span class="line"><span class="language-javascript">        &#125;);</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">        <span class="comment">/** 如果发生通信错误（比如连接中断），就会触发error事件 */</span></span></span><br><span class="line"><span class="language-javascript">        source.<span class="title function_">addEventListener</span>(</span></span><br><span class="line"><span class="language-javascript">          <span class="string">&quot;error&quot;</span>,</span></span><br><span class="line"><span class="language-javascript">          <span class="keyword">function</span> (<span class="params">e</span>) &#123;</span></span><br><span class="line"><span class="language-javascript">            <span class="keyword">if</span> (e.<span class="property">readyState</span> === <span class="title class_">EventSource</span>.<span class="property">CLOSED</span>) &#123;</span></span><br><span class="line"><span class="language-javascript">              <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;连接关闭&quot;</span>);</span></span><br><span class="line"><span class="language-javascript">            &#125; <span class="keyword">else</span> &#123;</span></span><br><span class="line"><span class="language-javascript">              <span class="variable language_">console</span>.<span class="title function_">log</span>(e, <span class="string">&quot;sourceError&quot;</span>);</span></span><br><span class="line"><span class="language-javascript">            &#125;</span></span><br><span class="line"><span class="language-javascript">          &#125;,</span></span><br><span class="line"><span class="language-javascript">          <span class="literal">false</span></span></span><br><span class="line"><span class="language-javascript">        );</span></span><br><span class="line"><span class="language-javascript">      &#125; <span class="keyword">else</span> &#123;</span></span><br><span class="line"><span class="language-javascript">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;你的浏览器不支持SSE&quot;</span>);</span></span><br><span class="line"><span class="language-javascript">      &#125;</span></span><br><span class="line"><span class="language-javascript">    &#125;,</span></span><br><span class="line"><span class="language-javascript">    <span class="comment">//关闭SSE</span></span></span><br><span class="line"><span class="language-javascript">    <span class="title function_">closeSseConnect</span>(<span class="params">params</span>) &#123;</span></span><br><span class="line"><span class="language-javascript">      <span class="title function_">getCloseSseConnect</span>(params).<span class="title function_">then</span>(<span class="function">(<span class="params">res</span>) =&gt;</span> &#123;&#125;);</span></span><br><span class="line"><span class="language-javascript">    &#125;,</span></span><br><span class="line"><span class="language-javascript">    <span class="title function_">destroyed</span>(<span class="params"></span>) &#123;</span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">if</span> (<span class="variable language_">this</span>.<span class="property">sseId</span>) &#123;</span></span><br><span class="line"><span class="language-javascript">      source.<span class="title function_">close</span>();	<span class="comment">//关闭前端sse</span></span></span><br><span class="line"><span class="language-javascript">      <span class="variable language_">this</span>.<span class="title function_">closeSseConnect</span>(<span class="variable language_">this</span>.<span class="property">sseId</span>)<span class="comment">//关闭后端sse</span></span></span><br><span class="line"><span class="language-javascript">    &#125;</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">  &#125;,</span></span><br><span class="line"><span class="language-javascript">    </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>vue组件</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>父子组件传值</title>
+    <url>/posts/38895.html</url>
+    <content><![CDATA[<h3 id="1-父组件向子组件传值"><a href="#1-父组件向子组件传值" class="headerlink" title="1.父组件向子组件传值"></a>1.父组件向子组件传值</h3><figure class="highlight html"><table><tr><td class="code"><pre><span class="line">父组件 import </span><br><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">basic-data</span> <span class="attr">:managementId</span>=<span class="string">&quot;managementId&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">basic-data</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript"><span class="keyword">import</span> <span class="title class_">BasicData</span> <span class="keyword">from</span> <span class="string">&quot;./components/BasicData&quot;</span>;</span></span><br><span class="line"><span class="language-javascript"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span></span><br><span class="line"><span class="language-javascript">  <span class="attr">name</span>: <span class="string">&#x27;index&#x27;</span>,</span></span><br><span class="line"><span class="language-javascript">  <span class="attr">components</span>: &#123;</span></span><br><span class="line"><span class="language-javascript">    <span class="title class_">BasicData</span>,</span></span><br><span class="line"><span class="language-javascript">  &#125;,</span></span><br><span class="line"><span class="language-javascript">&#125;</span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line">子组件 props</span><br><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;card&quot;</span>&gt;</span>managementId<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span></span><br><span class="line"><span class="language-javascript">  <span class="attr">name</span>: <span class="string">&#x27;BasicData&#x27;</span>,</span></span><br><span class="line"><span class="language-javascript">  <span class="attr">props</span>:[<span class="string">&#x27;managementId&#x27;</span>],</span></span><br><span class="line"><span class="language-javascript">  <span class="attr">watch</span>: &#123;</span></span><br><span class="line"><span class="language-javascript">    <span class="attr">managementId</span>: &#123;</span></span><br><span class="line"><span class="language-javascript">      <span class="attr">immediate</span>: <span class="literal">true</span>,</span></span><br><span class="line"><span class="language-javascript">      <span class="title function_">handler</span>(<span class="params">newValue, oldValue</span>) &#123;</span></span><br><span class="line"><span class="language-javascript">        <span class="keyword">if</span> (newValue) &#123;</span></span><br><span class="line"><span class="language-javascript">          <span class="variable language_">console</span>.<span class="title function_">log</span>(newValue,<span class="string">&#x27;managementId&#x27;</span>)</span></span><br><span class="line"><span class="language-javascript">        &#125;</span></span><br><span class="line"><span class="language-javascript">      &#125;,</span></span><br><span class="line"><span class="language-javascript">    &#125;,</span></span><br><span class="line"><span class="language-javascript">  &#125;,</span></span><br><span class="line"><span class="language-javascript">&#125;</span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="2-子组件向父组件传值"><a href="#2-子组件向父组件传值" class="headerlink" title="2.子组件向父组件传值"></a>2.子组件向父组件传值</h3><figure class="highlight html"><table><tr><td class="code"><pre><span class="line">子组件 emit </span><br><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;card&quot;</span> @<span class="attr">click</span>=<span class="string">&quot;chargeChange&quot;</span>&gt;</span>managementId<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span></span><br><span class="line"><span class="language-javascript">  <span class="attr">name</span>: <span class="string">&#x27;BasicData&#x27;</span>,</span></span><br><span class="line"><span class="language-javascript">  <span class="title function_">methods</span>(<span class="params"></span>) &#123;</span></span><br><span class="line"><span class="language-javascript">	<span class="title function_">chargeChange</span>(<span class="params">item</span>) &#123;</span></span><br><span class="line"><span class="language-javascript">      <span class="variable language_">this</span>.<span class="property">historyVideo</span> = &#123;</span></span><br><span class="line"><span class="language-javascript">        <span class="attr">name1</span>: <span class="string">&#x27;查验现场视频&#x27;</span>,</span></span><br><span class="line"><span class="language-javascript">        <span class="attr">name2</span>: <span class="string">&#x27;执法记录仪现场视频&#x27;</span>,</span></span><br><span class="line"><span class="language-javascript">      &#125;</span></span><br><span class="line"><span class="language-javascript">      <span class="comment">//方法不局限点击事件</span></span></span><br><span class="line"><span class="language-javascript">      <span class="variable language_">this</span>.$emit(<span class="string">&quot;historyVideo&quot;</span>,<span class="variable language_">this</span>.<span class="property">historyVideo</span>);</span></span><br><span class="line"><span class="language-javascript">    &#125;,</span></span><br><span class="line"><span class="language-javascript">  &#125;,</span></span><br><span class="line"><span class="language-javascript">&#125;</span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line">父组件 @</span><br><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">basic-data</span>  @<span class="attr">historyVideo</span>=<span class="string">&quot;getHistoryEmit&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">basic-data</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript"><span class="keyword">import</span> <span class="title class_">BasicData</span> <span class="keyword">from</span> <span class="string">&quot;./components/BasicData&quot;</span>;</span></span><br><span class="line"><span class="language-javascript"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span></span><br><span class="line"><span class="language-javascript">  <span class="attr">name</span>: <span class="string">&#x27;index&#x27;</span>,</span></span><br><span class="line"><span class="language-javascript">  <span class="attr">components</span>: &#123;</span></span><br><span class="line"><span class="language-javascript">    <span class="title class_">BasicData</span>,</span></span><br><span class="line"><span class="language-javascript">  &#125;,</span></span><br><span class="line"><span class="language-javascript">  <span class="title function_">methods</span>(<span class="params"></span>) &#123;</span></span><br><span class="line"><span class="language-javascript">	<span class="title function_">getHistoryEmit</span>(<span class="params">historyVideo</span>)&#123;</span></span><br><span class="line"><span class="language-javascript">	<span class="comment">//获取到的值不能直接使用，需要赋值给父组件已存在的变量</span></span></span><br><span class="line"><span class="language-javascript">      <span class="variable language_">this</span>.<span class="property">historyVideo</span> = historyVideo</span></span><br><span class="line"><span class="language-javascript">      <span class="variable language_">console</span>.<span class="title function_">log</span>(historyVideo)</span></span><br><span class="line"><span class="language-javascript">    &#125;,</span></span><br><span class="line"><span class="language-javascript">  &#125;,</span></span><br><span class="line"><span class="language-javascript">&#125;</span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="3-子组件1向子组件2传值"><a href="#3-子组件1向子组件2传值" class="headerlink" title="3.子组件1向子组件2传值"></a>3.子组件1向子组件2传值</h3><p> 第一步：子组件1向父组件传值<br> 第一步：父组件向子组件2传值</p>
+<h3 id="4-子组件调用父组件方法并传参"><a href="#4-子组件调用父组件方法并传参" class="headerlink" title="4.子组件调用父组件方法并传参"></a>4.子组件调用父组件方法并传参</h3><figure class="highlight html"><table><tr><td class="code"><pre><span class="line">子组件</span><br><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span></span><br><span class="line"><span class="language-javascript">  <span class="attr">name</span>: <span class="string">&#x27;SseConnect&#x27;</span>,</span></span><br><span class="line"><span class="language-javascript">  <span class="title function_">methods</span>(<span class="params"></span>) &#123;</span></span><br><span class="line"><span class="language-javascript">	<span class="title function_">selectRealVideo</span>(<span class="params">item, index</span>) &#123;</span></span><br><span class="line"><span class="language-javascript">      <span class="variable language_">this</span>.$emit( <span class="string">&#x27;changeRealData&#x27;</span>,item)</span></span><br><span class="line"><span class="language-javascript">    &#125;,</span></span><br><span class="line"><span class="language-javascript">  &#125;,</span></span><br><span class="line"><span class="language-javascript">&#125;</span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line">父组件</span><br><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">sse-connect</span> @<span class="attr">changeRealData</span>= <span class="string">&quot;changeRealData&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">sse-connect</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript"><span class="keyword">import</span> <span class="title class_">SseConnect</span> <span class="keyword">from</span> <span class="string">&quot;./components/SseConnect&quot;</span>;</span></span><br><span class="line"><span class="language-javascript"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span></span><br><span class="line"><span class="language-javascript">  <span class="attr">name</span>: <span class="string">&#x27;index&#x27;</span>,</span></span><br><span class="line"><span class="language-javascript">  <span class="attr">components</span>: &#123;</span></span><br><span class="line"><span class="language-javascript">    <span class="title class_">SseConnect</span>,</span></span><br><span class="line"><span class="language-javascript">  &#125;,</span></span><br><span class="line"><span class="language-javascript">  <span class="title function_">methods</span>(<span class="params"></span>) &#123;</span></span><br><span class="line"><span class="language-javascript">	<span class="comment">//手动切换实时记录</span></span></span><br><span class="line"><span class="language-javascript">    <span class="title function_">changeRealData</span>(<span class="params">item</span>)&#123;</span></span><br><span class="line"><span class="language-javascript">      <span class="variable language_">this</span>.<span class="property">gpsPosition</span> = item.<span class="property">gpsPosition</span></span></span><br><span class="line"><span class="language-javascript">    &#125;,</span></span><br><span class="line"><span class="language-javascript">  &#125;,</span></span><br><span class="line"><span class="language-javascript">&#125;</span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+<h3 id="5-兄弟组件调用方法"><a href="#5-兄弟组件调用方法" class="headerlink" title="5.兄弟组件调用方法"></a>5.兄弟组件调用方法</h3><figure class="highlight html"><table><tr><td class="code"><pre><span class="line">兄弟组件1 emit</span><br><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;card&quot;</span> @<span class="attr">click</span>=<span class="string">&quot;chargeChange&quot;</span>&gt;</span>managementId<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span></span><br><span class="line"><span class="language-javascript">  <span class="attr">name</span>: <span class="string">&#x27;SseConnect&#x27;</span>,</span></span><br><span class="line"><span class="language-javascript">  <span class="title function_">methods</span>(<span class="params"></span>) &#123;</span></span><br><span class="line"><span class="language-javascript">	<span class="title function_">chargeChange</span>(<span class="params">item</span>) &#123;</span></span><br><span class="line"><span class="language-javascript">      <span class="comment">//方法不局限点击事件</span></span></span><br><span class="line"><span class="language-javascript">      <span class="variable language_">this</span>.$emit( <span class="string">&#x27;SseData&#x27;</span>)</span></span><br><span class="line"><span class="language-javascript">    &#125;,</span></span><br><span class="line"><span class="language-javascript">  &#125;,</span></span><br><span class="line"><span class="language-javascript">&#125;</span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line">父组件 ref</span><br><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">sse-connect</span> @<span class="attr">SseData</span>= <span class="string">&quot;getSseData&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">sse-connect</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">real-time-data</span> <span class="attr">ref</span>=<span class="string">&quot;real_data&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">real-time-data</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript"><span class="keyword">import</span> <span class="title class_">RealTimeData</span> <span class="keyword">from</span> <span class="string">&quot;./components/RealTimeData&quot;</span>;</span></span><br><span class="line"><span class="language-javascript"><span class="keyword">import</span> <span class="title class_">SseConnect</span> <span class="keyword">from</span> <span class="string">&quot;./components/SseConnect&quot;</span>;</span></span><br><span class="line"><span class="language-javascript"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span></span><br><span class="line"><span class="language-javascript">  <span class="attr">name</span>: <span class="string">&#x27;index&#x27;</span>,</span></span><br><span class="line"><span class="language-javascript">  <span class="attr">components</span>: &#123;</span></span><br><span class="line"><span class="language-javascript">    <span class="title class_">RealTimeData</span>,</span></span><br><span class="line"><span class="language-javascript">    <span class="title class_">SseConnect</span>,</span></span><br><span class="line"><span class="language-javascript">  &#125;,</span></span><br><span class="line"><span class="language-javascript">  <span class="title function_">methods</span>(<span class="params"></span>) &#123;</span></span><br><span class="line"><span class="language-javascript">	<span class="title function_">getSseData</span>(<span class="params"></span>) &#123;</span></span><br><span class="line"><span class="language-javascript">      <span class="comment">// 父组件通过$ref调用子组件2中的事件方法</span></span></span><br><span class="line"><span class="language-javascript">      <span class="variable language_">this</span>.<span class="property">$refs</span>.<span class="property">real_data</span>.<span class="title function_">handleCheckedCitiesChange</span>()</span></span><br><span class="line"><span class="language-javascript">    &#125;,</span></span><br><span class="line"><span class="language-javascript">  &#125;,</span></span><br><span class="line"><span class="language-javascript">&#125;</span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line">兄弟组件2</span><br><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;card&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span></span><br><span class="line"><span class="language-javascript">  <span class="attr">name</span>: <span class="string">&#x27;RealTimeData&#x27;</span>,</span></span><br><span class="line"><span class="language-javascript">  <span class="title function_">methods</span>(<span class="params"></span>) &#123;</span></span><br><span class="line"><span class="language-javascript">	<span class="title function_">handleCheckedCitiesChange</span>(<span class="params"></span>) &#123;</span></span><br><span class="line"><span class="language-javascript">      <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;绿通实时查验记录多选value&quot;</span>)</span></span><br><span class="line"><span class="language-javascript">    &#125;,</span></span><br><span class="line"><span class="language-javascript">  &#125;,</span></span><br><span class="line"><span class="language-javascript">&#125;</span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>vue组件</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>腾讯地图</title>
+    <url>/posts/27101.html</url>
+    <content><![CDATA[<h3 id="1-去除地图上的腾讯logo"><a href="#1-去除地图上的腾讯logo" class="headerlink" title="1.去除地图上的腾讯logo"></a>1.去除地图上的腾讯logo</h3><figure class="highlight html"><table><tr><td class="code"><pre><span class="line">::v-deep div a, ::v-deep .logo-text &#123;</span><br><span class="line">  display: none !important;</span><br><span class="line">&#125;</span><br><span class="line">//设置地图宽高</span><br><span class="line">.map &#123;</span><br><span class="line">        z-index: 1;</span><br><span class="line">        height: 100%;</span><br><span class="line">      &#125;</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>vue组件</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>人情世故</title>
+    <url>/posts/46728.html</url>
+    <content><![CDATA[<ol>
+<li>给自己自信的资本</li>
+<li>有什么事不对先自己认真查看理由，超过五分钟之后确定解决不了再麻烦别人，不要一惊一乍的去麻烦别人。</li>
+<li></li>
+</ol>
+]]></content>
+      <categories>
+        <category>随笔</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>敲代码的注意事件</title>
+    <url>/posts/8426.html</url>
+    <content><![CDATA[<h3 id="1-css"><a href="#1-css" class="headerlink" title="1.css"></a>1.css</h3><ol>
+<li>样式繁重的时候就布好框架，全屏用f11，尽量不要用组件。</li>
+<li>样式修改可以先在controls里调试一下，再改代码</li>
+<li>写样式的时候不能只顾样式正确，还得同时保证结构正确，父元素确定布局，子元素在父元素的可操作性范围内</li>
+</ol>
+<h3 id="2-js"><a href="#2-js" class="headerlink" title="2.js"></a>2.js</h3><ol>
+<li>写一个模块的代码就要对一个模块的代码负责，写完之后再对代码进行整体测试，确定达到自己预期之后再提交代码，不要总想着以后处理，然后想着马虎能行就行。</li>
+<li>写代码的时候要考虑到你在些什么，要明白你所写代码的逻辑</li>
+<li>js框架的终极是js语法，不明白原因的时候就追溯js语法</li>
+<li>一个function尽量代码足够简单，不要过长，过长就调用别的function </li>
+<li>vue3引入vue2代码，把vue2代码做成一个页面，设置iframe模块，边框隐藏</li>
+<li>debugger;在要打断点的地方写上这行代码,刷新页面即可直接进入调试</li>
+</ol>
+<h3 id="3-项目"><a href="#3-项目" class="headerlink" title="3.项目"></a>3.项目</h3><ol>
+<li>项目要截档的时候小心对代码的处理，不要因为没什么事了就大改代码，有什么事等截完档之后再说。</li>
+<li>找代码的时候尽量找官网或者git，比如腾讯地图的引用找腾讯api，vue组件找git官网，找demo测试</li>
+<li>若依自带的功能可以借用，不用自己哭唧唧的找代码，有空多了解一些</li>
+<li>逻辑复杂的时候列好逻辑，不要急着做项目，动态id和动态ref用字符串加循环实现，一层循环 不够就再循环一层，尽量结构完整统一，不要东拼西凑，从长远打算，不要走一步看一步。</li>
+<li>一个项目的组件引入最好先自己在全新的地方测试无误再引入，引入的组件放components文件夹</li>
+<li>写过的代码一定要确保没有问题再提交，对代码负责</li>
+<li>写的代码感觉不对劲时得考虑为什么不对劲，怎么去处理，而不是想着能解决就完了</li>
+<li>写代码哪怕是抄，都得去明白自己在抄的是什么，而不是单纯想着抄就完事了</li>
+<li>但凡接到一个事，写代码之前得考虑该怎么去写，先考虑清楚，而不是走一步看一步，写就完事了</li>
+<li>一个项目得先解决主流程，比如绿通就是视频的实时播放，条件搜索就比较次要，结果你实时播放、轮播放着不去做，先去搞样式，害的后来大家陪你一起加班</li>
+<li>一个模块的代码没有问题就别去动，有什么流程上的事要去处理时解决完了记得把这个模块的整理流程走一遍，不要遗漏小bug</li>
+</ol>
+<h3 id="4-大屏"><a href="#4-大屏" class="headerlink" title="4.大屏"></a>4.大屏</h3><ol>
+<li>开始做项目前先布好大局，尤其是样式和逻辑很复杂的数据，以免之后反复修改</li>
+<li>写代码模块多或者代码多的时候要整理代码，把每个模块都做成一个组件分散开来，尽量不要再一个文件里改了又改，补了又补，想到哪里写哪里。</li>
+</ol>
+]]></content>
+      <categories>
+        <category>随笔</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>死记硬背</title>
+    <url>/posts/28218.html</url>
+    <content><![CDATA[<ol start="2">
+<li></li>
+</ol>
+]]></content>
+      <categories>
+        <category>随笔</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>hexo配置diaspora主题插件</title>
+    <url>/posts/9252.html</url>
+    <content><![CDATA[<h1 id="1-看板娘-下载单个模型"><a href="#1-看板娘-下载单个模型" class="headerlink" title="1.看板娘-下载单个模型"></a>1.看板娘-下载单个模型</h1><p>1.安装依赖</p>
+<pre><code>#基础支持的插件
+npm install --save hexo-helper-live2d
+#单个live2d模型
+npm install --save live2d-widget-model-haruto
+</code></pre>
+<p>2._config.yml配置</p>
+<pre><code># Live2D
+## https://github.com/EYHN/hexo-helper-live2d
+live2d:
+  enable: true #开关插件版看板娘
+  scriptFrom: local # 默认
+  # scriptFrom: https://cdn.cbd.int/live2d-widget@3.x/lib/L2Dwidget.min.js # 你的自定义 url
+  tagMode: false # 标签模式, 是否仅替换 live2d tag标签而非插入到所有页面中
+  debug: false # 调试, 是否在控制台输出日志
+  model:
+    use: live2d-widget-model-hijiki # npm-module package name
+    # use: https://unpkg.com/live2d-widget-model-koharu@1.0.5/assets/koharu.model.json # 你的自定义 url
+  display:
+    position: left #控制看板娘位置
+    width: 150 #控制看板娘大小
+    height: 300 #控制看板娘大小
+  mobile:
+    show: true # 手机中是否展示
+</code></pre>
+<h1 id="2-永久链接"><a href="#2-永久链接" class="headerlink" title="2. 永久链接"></a>2. 永久链接</h1><p>一个Hexo插件，用于根据帖子前端的标题和数据生成静态帖子链接。</p>
+<pre><code>    npm install hexo-abbrlink --save
+    官网： https://github.com/rozbo/hexo-abbrlink
+    配置_config.yml
+    1. permalink: posts/:abbrlink.html
+    2. language: zh-CN
+    3. 在文件最后面空白处添加
+        # abbrlink config
+        abbrlink:
+          alg: crc32      #support crc16(default) and crc32
+          rep: hex        #support dec(default) and hex
+</code></pre>
 ]]></content>
       <categories>
         <category>hexo</category>
@@ -1290,48 +1609,58 @@ footer_beautify:
       </categories>
   </entry>
   <entry>
-    <title>hexo配置diaspora主题插件</title>
-    <url>/posts/9252.html</url>
-    <content><![CDATA[<h1 id="1-看板娘-下载单个模型"><a href="#1-看板娘-下载单个模型" class="headerlink" title="1.看板娘-下载单个模型"></a>1.看板娘-下载单个模型</h1><p>1.安装依赖</p>
-<pre><code>#基础支持的插件
-npm install --save hexo-helper-live2d
-#单个live2d模型
-npm install --save live2d-widget-model-haruto
-</code></pre>
-<p>2._config.yml配置</p>
-<pre><code># Live2D
-## https://github.com/EYHN/hexo-helper-live2d
-live2d:
-  enable: true #开关插件版看板娘
-  scriptFrom: local # 默认
-  # scriptFrom: https://cdn.cbd.int/live2d-widget@3.x/lib/L2Dwidget.min.js # 你的自定义 url
-  tagMode: false # 标签模式, 是否仅替换 live2d tag标签而非插入到所有页面中
-  debug: false # 调试, 是否在控制台输出日志
-  model:
-    use: live2d-widget-model-hijiki # npm-module package name
-    # use: https://unpkg.com/live2d-widget-model-koharu@1.0.5/assets/koharu.model.json # 你的自定义 url
-  display:
-    position: left #控制看板娘位置
-    width: 150 #控制看板娘大小
-    height: 300 #控制看板娘大小
-  mobile:
-    show: true # 手机中是否展示
-</code></pre>
-<h1 id="2-永久链接"><a href="#2-永久链接" class="headerlink" title="2. 永久链接"></a>2. 永久链接</h1><p>一个Hexo插件，用于根据帖子前端的标题和数据生成静态帖子链接。</p>
-<pre><code>    npm install hexo-abbrlink --save
-    官网： https://github.com/rozbo/hexo-abbrlink
-    配置_config.yml
-    1. permalink: posts/:abbrlink.html
-    2. language: zh-CN
-    3. 在文件最后面空白处添加
-        # abbrlink config
-        abbrlink:
-          alg: crc32      #support crc16(default) and crc32
-          rep: hex        #support dec(default) and hex
-</code></pre>
+    <title>中庸</title>
+    <url>/posts/46837.html</url>
+    <content><![CDATA[<p>《中庸》</p>
+<p>战国·子思</p>
+<p>　　天命之谓性，率性之谓道，修道之谓教。道也者，不可须臾离也;可离非道也。是故君子戒慎乎其所不睹，恐惧乎其所不闻。莫见乎隐，莫显乎微，故君子慎其独也。喜怒哀乐之未发，谓之中;发而皆中节，谓之和。中也者，天下之大本也;和也者，天下之达道也。致中和，天地位焉，万物育焉。</p>
+<p>　　仲尼曰：“君子中庸，小人反中庸。君子之中庸也，君子而时中;小人之中庸也，小人而无忌惮也。”子曰：“中庸其至矣乎!民鲜能久矣!”</p>
+<p>　　子曰：“道之不行也，我知之矣：知者过之，愚者不及也。道之不明也，我知之矣：贤者过之，不肖者不及也。人莫不饮食也，鲜能知味也。”子曰：“道其不行矣夫!”</p>
+<p>　　子曰：“舜其大知也与!舜好问而好察迩言，隐恶而扬善，执其两端，用其中于民，其斯以为舜乎!”</p>
+<p>　　子曰：“人皆曰予知，驱而纳诸罟擭陷阱之中，而莫之知辟也。人皆曰予知，择乎中庸，而不能期月守也。”</p>
+<p>　　子曰：“回之为人也，择乎中庸，得一善，则拳拳服膺弗失之矣。”</p>
+<p>　　子曰：“天下国家可均也，爵禄可辞也，白刃可蹈也，中庸不可能也。”</p>
+<p>　　子路问强。子曰：“南方之强与?北方之强与?抑而强与?宽柔以教，不报无道，南方之强也，君子居之。衽金革，死而不厌，北方之强也，而强者居之。故君子和而不流，强哉矫!中立而不倚，强哉矫!国有道，不变塞焉，强哉矫!国无道，至死不变，强哉矫!”</p>
+<p>　　子曰：“素隐行怪，後世有述焉，吾弗为之矣。君子遵道而行，半途而废，吾弗能已矣。君子依乎中庸，遁世不见知而不悔，唯圣者能之。”</p>
+<p>　　君子之道费而隐。夫妇之愚，可以与知焉;及其至也，虽圣人亦有所不知焉。夫妇之不肖，可以能行焉;及其至也，虽圣人亦有所不能焉。天地之大也，人犹有所憾。故君子语大，天下莫能载焉;语小，天下莫能破焉。《诗》云：“鸢飞戾天，鱼跃于渊。”言其上下察也。君子之道，造端乎夫妇，及其至也，察乎天地。</p>
+<p>　　子曰：“道不远人，人之为道而远人，不可以为道。《诗》云：‘伐柯伐柯，其则不远。’执柯以伐柯，睨而视之，犹以为远。故君子以人治人，改而止。忠恕违道不远，施诸己而不愿，亦勿施于人。君子之道四，丘未能一焉，所求乎子，以事父，未能也;所求乎臣，以事君，未能也;所求乎弟，以事兄，未能也;所求乎朋友先施之，未能也。庸德之行，庸言之谨;有所不足，不敢不勉，有馀不敢尽;言顾行，行顾言，君子胡不慥慥尔!”</p>
+<p>　　君子素其位而行，不愿乎其外。素富贵，行乎富贵;素贫贱，行乎贫贱;素夷狄，行乎夷狄;素患难行乎患难，君子无入而不自得焉。在上位不陵下，在下位不援上，正己而不求于人，则无怨。上不怨天，下不尤人。故君子居易以俟命。小人行险以徼幸。子曰：“射有似乎君子，失诸正鹄，反求诸其身。”</p>
+<p>　　君子之道，辟如行远必自迩，辟如登高必自卑。《诗》曰：“妻子好合，如鼓瑟琴。兄弟既翕，和乐且耽。宜尔室家，乐尔妻帑。”子曰：“父母其顺矣乎!”</p>
+<p>　　子曰：“鬼神之为德，其盛矣乎?!视之而弗见，听之而弗闻，体物而不可遗，使天下之人齐明盛服，以承祭祀。洋洋乎如在其上，如在其左右。《诗》曰：‘神之格思，不可度思!矧可射思!’夫微之显，诚之不可揜如此夫。”</p>
+<p>　　子曰：“舜其大孝也与!德为圣人，尊为天子，富有四海之内。宗庙飨之，子孙保之。故大德必得其位，必得其禄，必得其名，必得其寿。故天之生物，必因其材而笃焉。故栽者培之，倾者覆之。《诗》曰：‘嘉乐君子，宪宪令德。宜民宜人，受禄于天，保佑命之，自天申之。’故大德者必受命。”</p>
+<p>　　子曰：“无忧者，其惟文王乎!以王季为父，以武王为子，父作之，子述之。武王缵大王、王季、文王之绪，壹戎衣而有天下。身不失天下之显名，尊为天子，富有四海之内。宗庙飨之，子孙保之。武王末受命，周公成文、武之德，追王大王、王季，上祀先公以天子之礼。斯礼也，达乎诸侯大夫，及士庶人。父为大夫，子为士，葬以大夫，祭以士。父为士，子为大夫，葬以士，祭以大夫。期之丧，达乎大夫。三年之丧，达乎天子。父母之丧，无贵贱，一也。”</p>
+<p>　　子曰：“武王、周公，其达孝矣乎!夫孝者，善继人之志，善述人之事者也。春秋修其祖庙，陈其宗器，设其裳衣，荐其时食。宗庙之礼，所以序昭穆也。序爵，所以辨贵贱也。序事，所以辨贤也。旅酬下为上，所以逮贱也。燕毛，所以序齿也。践其位，行其礼，奏其乐，敬其所尊，爱其所亲，事死如事生，事亡如事存，孝之至也。郊社之礼，所以事上帝也。宗庙之礼，所以祀乎其先也。明乎郊社之礼、禘尝之义，治国其如示诸掌乎!”</p>
+<p>　　哀公问政。子曰：“文武之政，布在方策。其人存，则其政举;其人亡，则其政息。人道敏政，地道敏树。夫政也者，蒲卢也。故为政在人，取人以身，修身以道，修道以仁。仁者人也，亲亲为大;义者宜也，尊贤为大。亲亲之杀，尊贤之等，礼所生也。在下位不获乎上，民不可得而治矣!故君子不可以不修身;思修身，不可以不事亲;思事亲，不可以不知人，思知人，不可以不知天。”</p>
+<p>　　“天下之达道五，所以行之者三。曰：君臣也，父子也，夫妇也，昆弟也，朋友之交也，五者天下之达道也。知，仁，勇，三者天下之达德也，所以行之者一也。或生而知之，或学而知之，或困而知之，及其知之，一也。或安而行之，或利而行之，或勉强而行之，及其成功，一也。子曰：好学近乎知，力行近乎仁，知耻近乎勇。知斯三者，则知所以修身;知所以修身，则知所以治人;知所以治人，则知所以治天下国家矣。”</p>
+<p>　　“凡为天下国家有九经，曰：修身也。尊贤也，亲亲也，敬大臣也，体群臣也。子庶民也，来百工也，柔远人也，怀诸侯也。修身则道立，尊贤则不惑，亲亲则诸父昆弟不怨，敬大臣则不眩，体群臣则士之报礼重，子庶民则百姓劝，来百工则财用足，柔远人则四方归之，怀诸侯则天下畏之。齐明盛服，非礼不动。所以修身也;去谗远色，贱货而贵德，所以劝贤也;尊其位，重其禄，同其好恶，所以劝亲亲也;官盛任使，所以劝大臣也;忠信重禄，所以劝士也;时使薄敛，所以劝百姓也;日省月试，既廪称事，所以劝百工也;送往迎来，嘉善而矜不能，所以柔远人也;继绝世，举废国，治乱持危。朝聘以时，厚往而薄来，所以怀诸侯也。凡为天下国家有九经，所以行之者一也。”</p>
+<p>　　“凡事豫则立，不豫则废。言前定则不跲，事前定则不困，行前定则不疚，道前定则不穷。在下位不获乎上，民不可得而治矣。获乎上有道，不信乎朋友，不获乎上矣;信乎朋友有道，不顺乎亲，不信乎朋友矣;顺乎亲有道，反诸身不诚，不顺乎亲矣;诚身有道，不明乎善，不诚乎身矣。诚者，天之道也;诚之者，人之道也。诚者不勉而中，不思而得，从容中道，圣人也。诚之者，择善而固执之者也。”</p>
+<p>　　“博学之，审问之，慎思之，明辨之，笃行之。有弗学，学之弗能，弗措也;有弗问，问之弗知，弗措也;有弗思，思之弗得，弗措也;有弗辨，辨之弗明，弗措也;有弗行，行之弗笃，弗措也。人一能之己百之，人十能之己千之。果能此道矣。虽愚必明，虽柔必强。”</p>
+<p>　　自诚明，谓之性。自明诚，谓之教。诚则明矣，明则诚矣。</p>
+<p>　　唯天下至诚，为能尽其性;能尽其性，则能尽人之性;能尽人之性，则能尽物之性;能尽物之性，则可以赞天地之化育;可以赞天地之化育，则可以与天地参矣。</p>
+<p>　　其次致曲。曲能有诚，诚则形，形则著，著则明，明则动，动则变，变则化。唯天下至诚为能化。</p>
+<p>　　至诚之道，可以前知。国家将兴，必有祯祥;国家将亡，必有妖孽。见乎蓍龟，动乎四体。祸福将至：善，必先知之;不善，必先知之。故至诚如神。</p>
+<p>　　诚者自成也，而道自道也。诚者物之终始，不诚无物。是故君子诚之为贵。诚者非自成己而已也，所以成物也。成己，仁也;成物，知也。性之德也，合外内之道也，故时措之宜也。</p>
+<p>　　故至诚无息。不息则久，久则徵;徵则悠远，悠远则博厚，博厚则高明。博厚，所以载物也;高明，所以覆物也;悠久，所以成物也。博厚配地，高明配天，悠久无疆。如此者，不见而章，不动而变，无为而成。天地之道，可壹言而尽也。其为物不贰，则其生物不测。天地之道：博也，厚也，高也，明也，悠也，久也。今夫天，斯昭昭之多，及其无穷也，日月星辰系焉，万物覆焉。今夫地，一撮土之多，及其广厚，载华岳而不重，振河海而不泄，万物载焉。今夫山，一卷石之多，及其广大，草木生之，禽兽居之，宝藏兴焉，今夫水，一勺之多，及其不测，鼋鼍、蛟龙、鱼鳖生焉，货财殖焉。《诗》曰：“惟天之命，于穆不已!”盖曰天之所以为天也。“于乎不显，文王之德之纯!”盖曰文王之所以为文也，纯亦不已。</p>
+<p>　　大哉!圣人之道洋洋乎!发育万物，峻极于天。优优大哉!礼仪三百，威仪三千，待其人然後行。故曰：苟不至德，至道不凝焉。故君子尊德性而道问学;致广大而尽精微;极高明而道中庸;温故而知新，敦厚以崇礼。是故居上不骄，为下不倍;国有道，其言足以兴;国无道，其默足以容。《诗》曰：“既明且哲，以保其身。”其此之谓与!</p>
+<p>　　子曰：“愚而好自用，贱而好自专，生乎今之世，反古之道：如此者，灾及其身者也。”非天子，不议礼，不制度，不考文。今天下车同轨，书同文，行同伦。虽有其位，苟无其德，不敢作礼乐焉;虽有其德。苟无其位，亦不敢作礼乐焉。子曰：“吾说夏礼，杞不足徵也。吾学殷礼，有宋存焉。吾学周礼，今用之，吾从周。”</p>
+<p>　　王天下有三重焉，其寡过矣乎!上焉者虽善无徵，无徵不信，不信民弗从;下焉者虽善不尊，不尊不信，不信民弗从。故君子之道：本诸身，徵诸庶民，考诸三王而不缪，建诸天地而不悖，质诸鬼神而无疑，百世以俟圣人而不惑。质诸鬼神而无疑，知天也;百世以俟圣人而不惑，知人也。是故君子动而世为天下道，行而世为天下法，言而世为天下则。远之则有望，近之则不厌。《诗》曰：“在彼无恶，在此无射。庶几夙夜，以永终誉!”君子未有不如此而蚤有誉于天下者也。</p>
+<p>　　仲尼祖述尧舜，宪章文武：上律天时，下袭水土。辟如天地之无不持载，无不覆帱，辟如四时之错行，如日月之代明。万物并育而不相害，道并行而不相悖，小德川流，大德敦化，此天地之这所以为大也。</p>
+<p>　　唯天下至圣为能聪明睿知，足以有临也;宽裕温柔，足以有容也;发强刚毅，足以有执也;齐庄中正，足以有敬也;文理密察，足以有别也。溥博渊泉，而时出之。溥博如天，渊泉如渊。见而民莫不敬，言而民莫不信，行而民莫不说。是以声名洋溢乎中国，施及蛮貊。舟车所至，人力所通，天之所覆，地之所载，日月所照，霜露所队，凡有血气者，莫不尊亲，故曰配天。</p>
+<p>　　唯天下至诚，为能经纶天下之大经，立天下之大本，知天地之化育。夫焉有所倚?肫肫其仁!渊渊其渊!浩浩其天!苟不固聪明圣知达天德者，其孰能知之?</p>
+<p>　　《诗》曰：“衣锦尚絅。”恶其文之著也。故君子之道，暗然而日章;小人之道，的然而日亡。君子之道：淡而面不厌，简而文，温而理，知远之近，知风之自，知微之显，可与入德矣。《诗》云：“潜虽伏矣，亦孔之昭!”故君子内省不疚，无恶于志。君子所不可及者，其唯人之所不见乎!《诗》云：“相在尔室，尚不愧于屋漏。”故君子不动而敬，不言而信。《诗》曰：“奏假无言，时靡有争。”是故君子不赏而民劝，不怒而民威于鈇钺。《诗》曰：“不显惟德!百辟其刑之。”是故君子笃恭而天下平。《诗》云：“予怀明德，不大声以色。”子曰：“声色之于以化民。末也。”《诗》曰：“德如毛。”毛犹有伦，上天之载，无声无臭，至矣!</p>
 ]]></content>
       <categories>
-        <category>hexo</category>
+        <category>练字</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>视频插件</title>
+    <url>/posts/19688.html</url>
+    <content><![CDATA[<h3 id="1-视频不静音自动播放"><a href="#1-视频不静音自动播放" class="headerlink" title="1.视频不静音自动播放"></a>1.视频不静音自动播放</h3><figure class="highlight html"><table><tr><td class="code"><pre><span class="line">//1.视频播放设置属性multed</span><br><span class="line">//2.视频取消静音并播放</span><br><span class="line">this.$nextTick(() =&gt; &#123;</span><br><span class="line">            document.getElementById(elem.id).muted = false;</span><br><span class="line">            document.getElementById(elem.id).play();</span><br><span class="line">        &#125;);</span><br><span class="line">      &#125;)</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-flv播放视频"><a href="#2-flv播放视频" class="headerlink" title="2.flv播放视频"></a>2.flv播放视频</h3><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--  flv编码格式的mp4文件播放器 --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">video</span></span></span><br><span class="line"><span class="tag">    <span class="attr">:src</span>=<span class="string">&quot;url&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">autoplay</span></span></span><br><span class="line"><span class="tag">    <span class="attr">muted</span></span></span><br><span class="line"><span class="tag">    <span class="attr">type</span>=<span class="string">&quot;video/mp4&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">width</span>=<span class="string">&quot;100%&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">height</span>=<span class="string">&quot;100%&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">controls</span></span></span><br><span class="line"><span class="tag">    <span class="attr">loop</span></span></span><br><span class="line"><span class="tag">    <span class="attr">:id</span>=<span class="string">&quot;id&quot;</span></span></span><br><span class="line"><span class="tag">  &gt;</span><span class="tag">&lt;/<span class="name">video</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript"><span class="keyword">import</span> flvjs <span class="keyword">from</span> <span class="string">&quot;flv.js&quot;</span>;</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span></span><br><span class="line"><span class="language-javascript">  <span class="attr">name</span>: <span class="string">&quot;FlvMp4Player&quot;</span>,</span></span><br><span class="line"><span class="language-javascript">  <span class="attr">components</span>: &#123;&#125;,</span></span><br><span class="line"><span class="language-javascript">  <span class="attr">props</span>: &#123;</span></span><br><span class="line"><span class="language-javascript">    <span class="attr">hasAudio</span>: &#123;</span></span><br><span class="line"><span class="language-javascript">      <span class="attr">type</span>: <span class="title class_">Boolean</span>,</span></span><br><span class="line"><span class="language-javascript">      <span class="attr">default</span>: <span class="literal">true</span></span></span><br><span class="line"><span class="language-javascript">    &#125;,</span></span><br><span class="line"><span class="language-javascript">    <span class="attr">url</span>: &#123;</span></span><br><span class="line"><span class="language-javascript">      <span class="attr">type</span>: <span class="title class_">String</span></span></span><br><span class="line"><span class="language-javascript">    &#125;,</span></span><br><span class="line"><span class="language-javascript">    <span class="attr">id</span>: &#123;</span></span><br><span class="line"><span class="language-javascript">      <span class="attr">type</span>: <span class="title class_">String</span></span></span><br><span class="line"><span class="language-javascript">    &#125;</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">  &#125;,</span></span><br><span class="line"><span class="language-javascript">  <span class="title function_">data</span>(<span class="params"></span>) &#123;</span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">return</span> &#123;</span></span><br><span class="line"><span class="language-javascript">      <span class="attr">flvPlayer</span>: <span class="literal">null</span>,</span></span><br><span class="line"><span class="language-javascript">      <span class="attr">playerId</span>: <span class="literal">null</span></span></span><br><span class="line"><span class="language-javascript">    &#125;;</span></span><br><span class="line"><span class="language-javascript">  &#125;,</span></span><br><span class="line"><span class="language-javascript">  <span class="attr">watch</span>: &#123;</span></span><br><span class="line"><span class="language-javascript">    <span class="title function_">url</span>(<span class="params">newVal, oldVal</span>) &#123;</span></span><br><span class="line"><span class="language-javascript">      <span class="keyword">if</span>(<span class="variable language_">this</span>.<span class="property">id</span> &amp;&amp; <span class="variable language_">this</span>.<span class="property">url</span>)&#123;</span></span><br><span class="line"><span class="language-javascript">        <span class="variable language_">this</span>.$nextTick(<span class="function">() =&gt;</span> &#123;</span></span><br><span class="line"><span class="language-javascript">          <span class="variable language_">this</span>.<span class="title function_">destoryVideo</span>(<span class="variable language_">this</span>.<span class="property">flvPlayer</span>)</span></span><br><span class="line"><span class="language-javascript">          <span class="variable language_">this</span>.<span class="title function_">initPlayer</span>()</span></span><br><span class="line"><span class="language-javascript">        &#125;)</span></span><br><span class="line"><span class="language-javascript">      &#125;</span></span><br><span class="line"><span class="language-javascript">    &#125;,</span></span><br><span class="line"><span class="language-javascript">  &#125;,</span></span><br><span class="line"><span class="language-javascript">  <span class="attr">methods</span>: &#123;</span></span><br><span class="line"><span class="language-javascript">    <span class="comment">// 生成随机字符串id</span></span></span><br><span class="line"><span class="language-javascript">    <span class="title function_">randomString</span>(<span class="params">len</span>) &#123;</span></span><br><span class="line"><span class="language-javascript">      len = len || <span class="number">32</span></span></span><br><span class="line"><span class="language-javascript">      <span class="keyword">let</span> $chars = <span class="string">&#x27;ABCDEFGHJKMNPQRSTWXYZabcdefhijkmnprstwxyz2345678&#x27;</span></span></span><br><span class="line"><span class="language-javascript">      <span class="keyword">let</span> maxPos = $chars.<span class="property">length</span></span></span><br><span class="line"><span class="language-javascript">      <span class="keyword">let</span> pwd = <span class="string">&#x27;&#x27;</span></span></span><br><span class="line"><span class="language-javascript">      <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; len; i++) &#123;</span></span><br><span class="line"><span class="language-javascript">        pwd += $chars.<span class="title function_">charAt</span>(<span class="title class_">Math</span>.<span class="title function_">floor</span>(<span class="title class_">Math</span>.<span class="title function_">random</span>() * maxPos))</span></span><br><span class="line"><span class="language-javascript">      &#125;</span></span><br><span class="line"><span class="language-javascript">      <span class="keyword">return</span> <span class="string">&#x27;a&#x27;</span> + pwd</span></span><br><span class="line"><span class="language-javascript">    &#125;,</span></span><br><span class="line"><span class="language-javascript">    <span class="title function_">createVideo</span>(<span class="params">url, type</span>) &#123;</span></span><br><span class="line"><span class="language-javascript">      <span class="keyword">if</span> (flvjs.<span class="title function_">isSupported</span>()) &#123;</span></span><br><span class="line"><span class="language-javascript">        <span class="keyword">var</span> videoElement = <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="variable language_">this</span>.<span class="property">id</span>)</span></span><br><span class="line"><span class="language-javascript">        <span class="variable language_">console</span>.<span class="title function_">log</span>(videoElement)</span></span><br><span class="line"><span class="language-javascript">        <span class="variable language_">this</span>.<span class="property">flvPlayer</span> = flvjs.<span class="title function_">createPlayer</span>(</span></span><br><span class="line"><span class="language-javascript">          &#123;</span></span><br><span class="line"><span class="language-javascript">            <span class="attr">type</span>: type,</span></span><br><span class="line"><span class="language-javascript">            <span class="attr">isLive</span>: <span class="literal">true</span>,</span></span><br><span class="line"><span class="language-javascript">            <span class="attr">url</span>: url,</span></span><br><span class="line"><span class="language-javascript">            <span class="attr">hasAudio</span>: <span class="variable language_">this</span>.<span class="property">hasAudio</span></span></span><br><span class="line"><span class="language-javascript">          &#125;,</span></span><br><span class="line"><span class="language-javascript">          &#123;</span></span><br><span class="line"><span class="language-javascript">            <span class="attr">enableWorker</span>: <span class="literal">false</span>, <span class="comment">// 不启用分离线程</span></span></span><br><span class="line"><span class="language-javascript">            <span class="attr">enableStashBuffer</span>: <span class="literal">false</span>, <span class="comment">// 关闭IO隐藏缓冲区</span></span></span><br><span class="line"><span class="language-javascript">            <span class="attr">reuseRedirectedURL</span>: <span class="literal">true</span>, <span class="comment">// 重用301/302重定向url，用于随后的请求，如查找、重新连接等。</span></span></span><br><span class="line"><span class="language-javascript">            <span class="attr">autoCleanupSourceBuffer</span>: <span class="literal">true</span>, <span class="comment">// 自动清除缓存</span></span></span><br><span class="line"><span class="language-javascript">            <span class="attr">fixAudioTimestampGap</span>: <span class="literal">false</span></span></span><br><span class="line"><span class="language-javascript">          &#125;</span></span><br><span class="line"><span class="language-javascript">        )</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">        <span class="variable language_">this</span>.<span class="property">flvPlayer</span>.<span class="title function_">attachMediaElement</span>(videoElement)</span></span><br><span class="line"><span class="language-javascript">        <span class="variable language_">this</span>.<span class="property">flvPlayer</span>.<span class="title function_">load</span>()</span></span><br><span class="line"><span class="language-javascript">        <span class="variable language_">this</span>.<span class="property">flvPlayer</span>.<span class="title function_">play</span>()</span></span><br><span class="line"><span class="language-javascript">      &#125;</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">      <span class="variable language_">this</span>.<span class="property">flvPlayer</span>.<span class="title function_">on</span>(flvjs.<span class="property">Events</span>.<span class="property">ERROR</span>, <span class="function">(<span class="params">errType, errDetail</span>) =&gt;</span> &#123;</span></span><br><span class="line"><span class="language-javascript">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;网络波动,正在尝试连接中...&#x27;</span>);</span></span><br><span class="line"><span class="language-javascript">        <span class="keyword">if</span> (<span class="variable language_">this</span>.<span class="property">flvPlayer</span>) &#123;</span></span><br><span class="line"><span class="language-javascript">          <span class="variable language_">this</span>.<span class="title function_">reloadVideo</span>(<span class="variable language_">this</span>.<span class="property">flvPlayer</span>)</span></span><br><span class="line"><span class="language-javascript">        &#125;</span></span><br><span class="line"><span class="language-javascript">      &#125;)</span></span><br><span class="line"><span class="language-javascript">    &#125;,</span></span><br><span class="line"><span class="language-javascript">    <span class="title function_">reloadVideo</span>(<span class="params">flvPlayer</span>) &#123;</span></span><br><span class="line"><span class="language-javascript">      <span class="variable language_">this</span>.<span class="title function_">destoryVideo</span>(flvPlayer)</span></span><br><span class="line"><span class="language-javascript">      <span class="comment">// this.url为视频播放的路径</span></span></span><br><span class="line"><span class="language-javascript">      <span class="variable language_">this</span>.<span class="title function_">createVideo</span>(<span class="variable language_">this</span>.<span class="property">url</span>, <span class="string">&#x27;flv&#x27;</span>)</span></span><br><span class="line"><span class="language-javascript">    &#125;,</span></span><br><span class="line"><span class="language-javascript">    <span class="title function_">destoryVideo</span>(<span class="params">flvPlayer</span>) &#123;</span></span><br><span class="line"><span class="language-javascript">      flvPlayer.<span class="title function_">pause</span>()</span></span><br><span class="line"><span class="language-javascript">      flvPlayer.<span class="title function_">unload</span>()</span></span><br><span class="line"><span class="language-javascript">      flvPlayer.<span class="title function_">detachMediaElement</span>()</span></span><br><span class="line"><span class="language-javascript">      flvPlayer.<span class="title function_">destroy</span>()</span></span><br><span class="line"><span class="language-javascript">      flvPlayer = <span class="literal">null</span></span></span><br><span class="line"><span class="language-javascript">    &#125;,</span></span><br><span class="line"><span class="language-javascript">    <span class="title function_">initPlayer</span>(<span class="params"></span>) &#123;</span></span><br><span class="line"><span class="language-javascript">      <span class="comment">// this.playerId = this.randomString(12)</span></span></span><br><span class="line"><span class="language-javascript">      <span class="variable language_">this</span>.$nextTick(<span class="function">() =&gt;</span> &#123;</span></span><br><span class="line"><span class="language-javascript">        <span class="comment">// url为播放视频的路径,type可以是 &#x27;flv&#x27;,也可以是&#x27;mp4&#x27;</span></span></span><br><span class="line"><span class="language-javascript">        <span class="variable language_">this</span>.<span class="title function_">createVideo</span>(<span class="variable language_">this</span>.<span class="property">url</span>, <span class="string">&#x27;flv&#x27;</span>)</span></span><br><span class="line"><span class="language-javascript">      &#125;)</span></span><br><span class="line"><span class="language-javascript">    &#125;,</span></span><br><span class="line"><span class="language-javascript">  &#125;,</span></span><br><span class="line"><span class="language-javascript">  <span class="title function_">mounted</span>(<span class="params"></span>) &#123;</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">if</span>(<span class="variable language_">this</span>.<span class="property">id</span> &amp;&amp; <span class="variable language_">this</span>.<span class="property">url</span>)&#123;</span></span><br><span class="line"><span class="language-javascript">      <span class="variable language_">this</span>.$nextTick(<span class="function">() =&gt;</span> &#123;</span></span><br><span class="line"><span class="language-javascript">        <span class="comment">// url为播放视频的路径,type可以是 &#x27;flv&#x27;,也可以是&#x27;mp4&#x27;</span></span></span><br><span class="line"><span class="language-javascript">        <span class="variable language_">this</span>.<span class="title function_">initPlayer</span>()</span></span><br><span class="line"><span class="language-javascript">      &#125;)</span></span><br><span class="line"><span class="language-javascript">    &#125;</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">  &#125;</span></span><br><span class="line"><span class="language-javascript">&#125;</span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">style</span> <span class="attr">scoped</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>vue组件</category>
       </categories>
   </entry>
 </search>

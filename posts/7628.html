@@ -15,7 +15,7 @@
 
 
 
-<title>hexo目录 | 浮生 - 因过竹院逢僧话,偷得浮生半日闲。</title>
+<title>浮动 | 浮生 - 因过竹院逢僧话,偷得浮生半日闲。</title>
 
 
 
@@ -198,7 +198,7 @@
     
     <article class="post-wrap">
         <header class="post-header">
-            <h1 class="post-title">hexo目录</h1>
+            <h1 class="post-title">浮动</h1>
             
                 <div class="post-meta">
                     
@@ -207,14 +207,14 @@
 
                     
                         <span class="post-time">
-                        Date: <a href="#">二月 28, 2023&nbsp;&nbsp;9:58:07</a>
+                        Date: <a href="#">二月 28, 2023&nbsp;&nbsp;15:32:06</a>
                         </span>
                     
                     
                         <span class="post-category">
                     Category:
                             
-                                <a href="/categories/hexo/">hexo</a>
+                                <a href="/categories/css%E5%B8%83%E5%B1%80/">css布局</a>
                             
                         </span>
                     
@@ -223,48 +223,15 @@
         </header>
 
         <div class="post-content">
-            <p>###1.deploy_git</p>
-<p>在部署到github后自动创建。</p>
-<pre><code>此目录中的内容 = github站点中对于repository中的内容 = 最近一次上传到站点的public目录中的内容
-
-因此，该目录的结构和 public 目录基本一致（不一致的情况是由于重新生成，但是没有发布站点造成，此时 public 内容新于 .deploy_git 内容）。
-</code></pre>
-<p>###2. node_modules</p>
-<p>存放安装的Hexo扩展。	</p>
-<p>###3. public</p>
-<p>执行 hexo g 命令，Hexo程序会解析 source 、当前使用的theme，生成的静态网页内容目录就是 piblic 。执行 hexo d 则将该目录内容复制到 .deploy_git 目录。</p>
-<p>###4. scaffolds</p>
-<p>模版 文件夹。当新建文章时，Hexo 会根据 scaffold 来建立文件。更多参见 模版 | Hexo 。</p>
-<p>###5.source<br>存放用户资源的地方。</p>
-<h5 id="5-1-posts-文件夹"><a href="#5-1-posts-文件夹" class="headerlink" title="5.1 _posts 文件夹"></a>5.1 _posts 文件夹</h5><p>存放博客文章的地方，其中的markdown文件、html文件、org文件等会被解析并放到 public 文件夹，发布到站点。</p>
-<h5 id="5-2-其他开头命名为-下划线-的文件-x2F-文件夹"><a href="#5-2-其他开头命名为-下划线-的文件-x2F-文件夹" class="headerlink" title="5.2 其他开头命名为 _ (下划线)的文件 &#x2F; 文件夹"></a>5.2 其他开头命名为 _ (下划线)的文件 &#x2F; 文件夹</h5><p>将会被忽略。因此可以在source目录下创建 _drafts 目录用于存放未完成的草稿，其中内容不会发布到网站。</p>
-<h5 id="5-3-其他开头非-的文件-x2F-文件夹"><a href="#5-3-其他开头非-的文件-x2F-文件夹" class="headerlink" title="5.3 其他开头非_的文件 &#x2F; 文件夹"></a>5.3 其他开头非_的文件 &#x2F; 文件夹</h5><p>会被拷贝到public目录并上传到站点。</p>
-<ol>
-<li>可以创建 img 目录来存放在博客引用到的图片等。</li>
-<li>要添加新的页面（例如about），执行 hexo new page PageName 命令即会在 source 中自动新建子目录 PageName 。</li>
-<li>favicon.ico 在主题配置文件中引用 &#x2F;favicon.ico 来设置站点的页面图标。</li>
-</ol>
-<p>###6.themes<br>主题 文件夹。</p>
-<p>默认安装 landscape 主题，你可以安装新主题到 themes 目录，也可以自己新建主题。</p>
-<h5 id="6-1-config-yml"><a href="#6-1-config-yml" class="headerlink" title="6.1 _config.yml"></a>6.1 _config.yml</h5><p>主题的配置文件。</p>
-<h5 id="6-2-languages"><a href="#6-2-languages" class="headerlink" title="6.2 languages"></a>6.2 languages</h5><p>语言文件夹。根据 Hexo 目录中 _config.yml 设置的语言来选择站点以哪种语言来呈现。</p>
-<h5 id="6-3-layout"><a href="#6-3-layout" class="headerlink" title="6.3 layout"></a>6.3 layout</h5><p>存放主题的模板文件，决定了网站内容的呈现方式。<br>Hexo 根据模板文件的扩展名来决定所使用的模板引擎，例如：</p>
-<pre><code>layout.ejs - 使用 EJS
-layout.swig - 使用 Swig
-</code></pre>
-<h5 id="6-4-scripts"><a href="#6-4-scripts" class="headerlink" title="6.4 scripts"></a>6.4 scripts</h5><p>脚本文件夹。在启动时，Hexo 会载入此文件夹内的 JavaScript 文件。</p>
-<h5 id="6-5-source"><a href="#6-5-source" class="headerlink" title="6.5 source"></a>6.5 source</h5><p>资源文件夹，除了模板以外的资源，例如 CSS、JavaScript 文件等，都应该放在这个文件夹中。</p>
-<p>文件或文件夹开头名称为 _（下划线）或隐藏的文件会被忽略。</p>
-<p>如果文件可以被渲染的话，会经过解析然后储存到 public 文件夹，否则会直接拷贝到 public 文件夹。</p>
-<p>6.5.1. css<br>如果想自定义CSS，主要修改2个地方：</p>
-<pre><code>_variables
-_custom
-</code></pre>
-<p>###7. _config.yml<br>初始化时自动创建。</p>
-<p>网站的配置信息文件，可以在此配置大部分的参数。</p>
-<p>###8. package.json<br>初始化时自动创建。</p>
-<p>应用程序的信息。可以查看hexo的版本以及安装的扩展版本。</p>
-
+            <h1 id="1-浮动的特性"><a href="#1-浮动的特性" class="headerlink" title="1.浮动的特性"></a>1.浮动的特性</h1><p>①浮动元素会脱离标准流；<br>②浮动元素会在一行内显示并且元素顶部对齐排列；<br>③浮动的元素会具有行内块元素的特性。</p>
+<p>重要特性<br>①脱离标准流的控制移动到指定位置，浮动的盒子，会漂浮在标准流的盒子上面，不占位置；<br>②如果多个盒子都设置了浮动，则它们会按照属性值一行显示并且顶端对齐排列；<br>③浮动的元素是相互贴在一起（没有间隙）的，若父级宽度放不下盒子，多出的盒子会再下一行对齐；<br>④浮动元素具有行内块元素特性，任何元素都可以浮动，设置了浮动元素后都具有行内块元素性质。<br>注：若块级元素没有设置宽度，则默认和父级一样宽。</p>
+<h1 id="2-常见网页布局"><a href="#2-常见网页布局" class="headerlink" title="2.常见网页布局"></a>2.常见网页布局</h1><p>①浮动和标准流的父盒子搭配：用标准流父元素排列上下位置，内部子元素采取浮动元素排列左右位置。<br>②一个元素浮动了，理论上其余兄弟元素也要浮动：一个盒子里有多个盒子，其中一个盒子浮动，其他盒子也应该浮动，防止引起问题。<br>注：浮动的盒子只会影响浮动盒子后面的标准流，不会影响前面的标准流。</p>
+<h1 id="3-清除浮动"><a href="#3-清除浮动" class="headerlink" title="3.清除浮动"></a>3.清除浮动</h1><p>清除浮动的策略：<br>闭合浮动，只让浮动在父盒子内部影响，不影响父盒子外面的其他盒子。</p>
+<h3 id="1-额外标签法（隔墙法）"><a href="#1-额外标签法（隔墙法）" class="headerlink" title="1.额外标签法（隔墙法）"></a>1.额外标签法（隔墙法）</h3><p> 在最后一个浮动元素末尾添加一个空的块级元素，给其设置属性：clear: both; </p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">.clear &#123;</span><br><span class="line">    clear: both;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;clear&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="2-父级添加-overflow-属性"><a href="#2-父级添加-overflow-属性" class="headerlink" title="2.父级添加 overflow 属性"></a>2.父级添加 overflow 属性</h3><p>给父级添加 overflow 属性，将其属性设置为 hidden、auto 或 scroll。<br>注：是给父元素添加代码。</p>
+<h3 id="3-父级添加-after-伪元素"><a href="#3-父级添加-after-伪元素" class="headerlink" title="3.父级添加 after 伪元素"></a>3.父级添加 after 伪元素</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">.clearfix &#123;</span><br><span class="line">  content: &quot;&quot;;</span><br><span class="line">  display: block;</span><br><span class="line">  height: 0;</span><br><span class="line">  clear: both;</span><br><span class="line">  visibility: hidden;</span><br><span class="line">&#125;</span><br><span class="line">.clearfix &#123;</span><br><span class="line">  /*IE6、7专有*/</span><br><span class="line">  *zoom: 1;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="4-父级添加双伪元素"><a href="#4-父级添加双伪元素" class="headerlink" title="4.父级添加双伪元素"></a>4.父级添加双伪元素</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">.clearfix::before,</span><br><span class="line">.clearfix::after &#123;</span><br><span class="line">  content: &quot;&quot;;</span><br><span class="line">  display: table;</span><br><span class="line">&#125;</span><br><span class="line">.clearfix::after &#123;</span><br><span class="line">  clear: both;</span><br><span class="line">&#125;</span><br><span class="line">.clearfix &#123;</span><br><span class="line">  *zoom: 1;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
         </div>
 
         
@@ -278,7 +245,7 @@ _custom
                 
                     <p class="copyright-item">
                         <span>Permalink:</span>
-                        <span><a href="http://example.com/posts/43390.html">http://example.com/posts/43390.html</a></span>
+                        <span><a href="http://example.com/posts/7628.html">http://example.com/posts/7628.html</a></span>
                     </p>
                 
                 
@@ -311,10 +278,10 @@ _custom
         </section>
         <section class="post-nav">
             
-                <a class="prev" rel="prev" href="/posts/4563.html">yml语法</a>
+                <a class="prev" rel="prev" href="/posts/60587.html">滚动</a>
             
             
-            <a class="next" rel="next" href="/posts/23416.html">hexo搭建网站</a>
+            <a class="next" rel="next" href="/posts/3799.html">垂直水平居中</a>
             
         </section>
 

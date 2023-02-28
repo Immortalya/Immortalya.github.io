@@ -15,7 +15,7 @@
 
 
 
-<title>yml语法 | 浮生 - 因过竹院逢僧话,偷得浮生半日闲。</title>
+<title>敲代码的注意事件 | 浮生 - 因过竹院逢僧话,偷得浮生半日闲。</title>
 
 
 
@@ -129,11 +129,76 @@
                 <div class="container">
     
     
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    var tocbot_timer;
+    var DEPTH_MAX = 6; // 为 6 时展开所有
+    var tocbot_default_config = {
+        tocSelector: '.tocbot-list',
+        contentSelector: '.post-content',
+        headingSelector: 'h1, h2, h3, h4, h5',
+        orderedList: false,
+        scrollSmooth: true,
+        onClick: extend_click,
+    };
+
+    function extend_click() {
+        clearTimeout(tocbot_timer);
+        tocbot_timer = setTimeout(function() {
+            tocbot.refresh(obj_merge(tocbot_default_config, {
+                hasInnerContainers: true
+            }));
+        }, 420); // 这个值是由 tocbot 源码里定义的 scrollSmoothDuration 得来的
+    }
+
+    document.ready(function() {
+        tocbot.init(obj_merge(tocbot_default_config, {
+            collapseDepth: 1
+        }));
+    });
+
+    function expand_toc() {
+        var b = document.querySelector('.tocbot-toc-expand');
+        var expanded = b.getAttribute('data-expanded');
+        expanded ? b.removeAttribute('data-expanded') : b.setAttribute('data-expanded', true);
+        tocbot.refresh(obj_merge(tocbot_default_config, {
+            collapseDepth: expanded ? 1 : DEPTH_MAX
+        }));
+        b.innerText = expanded ? 'Expand all' : 'Collapse all';
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+    function obj_merge(target, source) {
+        for (var item in source) {
+            if (source.hasOwnProperty(item)) {
+                target[item] = source[item];
+            }
+        }
+        return target;
+    }
+</script>
+    
 
     
     <article class="post-wrap">
         <header class="post-header">
-            <h1 class="post-title">yml语法</h1>
+            <h1 class="post-title">敲代码的注意事件</h1>
             
                 <div class="post-meta">
                     
@@ -142,14 +207,14 @@
 
                     
                         <span class="post-time">
-                        Date: <a href="#">二月 28, 2023&nbsp;&nbsp;9:59:06</a>
+                        Date: <a href="#">二月 28, 2023&nbsp;&nbsp;14:53:06</a>
                         </span>
                     
                     
                         <span class="post-category">
                     Category:
                             
-                                <a href="/categories/hexo/">hexo</a>
+                                <a href="/categories/%E9%9A%8F%E7%AC%94/">随笔</a>
                             
                         </span>
                     
@@ -158,63 +223,36 @@
         </header>
 
         <div class="post-content">
-            <p>###1. yml 基本语法</p>
-<p>k: v:表示一对键值对（冒号与V之间有空格）</p>
-<p>以空格的缩进来控制层级关系，只要是左对齐的一列数据，都是同一个层级的</p>
-<pre><code>server:
-  port: 8088
-  address: &quot;www.baid.com&quot;
-</code></pre>
-<p>注：属性和值都是大小写敏感的</p>
-<p>###2. 值的写法</p>
-<p>2.1. 字面量：普通的值（数字、字符串，布尔）</p>
-<pre><code>k: v：字面直接来写
-
-    字符串默认不用加上引号或者双引号
-
-　　“” 双引号；不会转义字条串里面的特殊字符；特殊字符会作为本身想表示的意思
-
-　　name: &quot;张三 \n lisi“ ；输出：张三 换行 lisi
-</code></pre>
-<p>2.2. 对象、Map(属性和值)（键值对）:</p>
-<pre><code>k: v:
-   对象还是k: v的方式
-    friends:
-      last_name: wang
-      first_name: gang
-
-还有一种行内写法：
-    friends: &#123;last_name: wang,first_name: gang&#125;
-</code></pre>
-<p>2.3. 数组（List、Set）:</p>
-<pre><code>用”-“表示数组中的一个元素
-    pets:
-      - cat
-      - dog
-      - pig
-
-也有行内写法：
-    pets: [pig,cat,dog]
-</code></pre>
-<p>###3. 配置文件注入</p>
-<p>yml配置文件格式</p>
-<pre><code>person:
-  lastName: 张三
-  age: 19
-  boss: false
-  birth: 2010/05/02
-  maps: &#123;k1:va,k2:v2&#125;
-  lists:
-    - lisi
-    - wangwu
-    - zhaoliu
-  dog:
-    name: 小爱
-    age: 5
-</code></pre>
-<p>###2. ejs 基本语法</p>
-<pre><code>https://ejs.bootcss.com/#install
-</code></pre>
+            <h3 id="1-css"><a href="#1-css" class="headerlink" title="1.css"></a>1.css</h3><ol>
+<li>样式繁重的时候就布好框架，全屏用f11，尽量不要用组件。</li>
+<li>样式修改可以先在controls里调试一下，再改代码</li>
+<li>写样式的时候不能只顾样式正确，还得同时保证结构正确，父元素确定布局，子元素在父元素的可操作性范围内</li>
+</ol>
+<h3 id="2-js"><a href="#2-js" class="headerlink" title="2.js"></a>2.js</h3><ol>
+<li>写一个模块的代码就要对一个模块的代码负责，写完之后再对代码进行整体测试，确定达到自己预期之后再提交代码，不要总想着以后处理，然后想着马虎能行就行。</li>
+<li>写代码的时候要考虑到你在些什么，要明白你所写代码的逻辑</li>
+<li>js框架的终极是js语法，不明白原因的时候就追溯js语法</li>
+<li>一个function尽量代码足够简单，不要过长，过长就调用别的function </li>
+<li>vue3引入vue2代码，把vue2代码做成一个页面，设置iframe模块，边框隐藏</li>
+<li>debugger;在要打断点的地方写上这行代码,刷新页面即可直接进入调试</li>
+</ol>
+<h3 id="3-项目"><a href="#3-项目" class="headerlink" title="3.项目"></a>3.项目</h3><ol>
+<li>项目要截档的时候小心对代码的处理，不要因为没什么事了就大改代码，有什么事等截完档之后再说。</li>
+<li>找代码的时候尽量找官网或者git，比如腾讯地图的引用找腾讯api，vue组件找git官网，找demo测试</li>
+<li>若依自带的功能可以借用，不用自己哭唧唧的找代码，有空多了解一些</li>
+<li>逻辑复杂的时候列好逻辑，不要急着做项目，动态id和动态ref用字符串加循环实现，一层循环 不够就再循环一层，尽量结构完整统一，不要东拼西凑，从长远打算，不要走一步看一步。</li>
+<li>一个项目的组件引入最好先自己在全新的地方测试无误再引入，引入的组件放components文件夹</li>
+<li>写过的代码一定要确保没有问题再提交，对代码负责</li>
+<li>写的代码感觉不对劲时得考虑为什么不对劲，怎么去处理，而不是想着能解决就完了</li>
+<li>写代码哪怕是抄，都得去明白自己在抄的是什么，而不是单纯想着抄就完事了</li>
+<li>但凡接到一个事，写代码之前得考虑该怎么去写，先考虑清楚，而不是走一步看一步，写就完事了</li>
+<li>一个项目得先解决主流程，比如绿通就是视频的实时播放，条件搜索就比较次要，结果你实时播放、轮播放着不去做，先去搞样式，害的后来大家陪你一起加班</li>
+<li>一个模块的代码没有问题就别去动，有什么流程上的事要去处理时解决完了记得把这个模块的整理流程走一遍，不要遗漏小bug</li>
+</ol>
+<h3 id="4-大屏"><a href="#4-大屏" class="headerlink" title="4.大屏"></a>4.大屏</h3><ol>
+<li>开始做项目前先布好大局，尤其是样式和逻辑很复杂的数据，以免之后反复修改</li>
+<li>写代码模块多或者代码多的时候要整理代码，把每个模块都做成一个组件分散开来，尽量不要再一个文件里改了又改，补了又补，想到哪里写哪里。</li>
+</ol>
 
         </div>
 
@@ -229,7 +267,7 @@
                 
                     <p class="copyright-item">
                         <span>Permalink:</span>
-                        <span><a href="http://example.com/posts/4563.html">http://example.com/posts/4563.html</a></span>
+                        <span><a href="http://example.com/posts/8426.html">http://example.com/posts/8426.html</a></span>
                     </p>
                 
                 
@@ -262,10 +300,10 @@
         </section>
         <section class="post-nav">
             
-                <a class="prev" rel="prev" href="/posts/54528.html">入门Hexo主题编写</a>
+                <a class="prev" rel="prev" href="/posts/46728.html">人情世故</a>
             
             
-            <a class="next" rel="next" href="/posts/43390.html">hexo目录</a>
+            <a class="next" rel="next" href="/posts/28218.html">死记硬背</a>
             
         </section>
 
