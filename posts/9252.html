@@ -1,0 +1,227 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>hexo配置diaspora主题插件 - Hexo</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="immotal,"> 
+    <meta name="description" content="1.看板娘-下载单个模型1.安装依赖
+#基础支持的插件
+npm install --save hexo-helper-live2d
+#单个live2d模型
+npm install --save li,"> 
+    <meta name="author" content="John Doe"> 
+    <link rel="alternative" href="atom.xml" title="Hexo" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    
+    
+    
+    <meta name="twitter:card" content="summary"/>
+    <meta name="twitter:title" content="hexo配置diaspora主题插件 - Hexo"/>
+    <meta name="twitter:description" content="1.看板娘-下载单个模型1.安装依赖
+#基础支持的插件
+npm install --save hexo-helper-live2d
+#单个live2d模型
+npm install --save li,"/>
+    
+    
+    
+    
+    <meta property="og:site_name" content="Hexo"/>
+    <meta property="og:type" content="object"/>
+    <meta property="og:title" content="hexo配置diaspora主题插件 - Hexo"/>
+    <meta property="og:description" content="1.看板娘-下载单个模型1.安装依赖
+#基础支持的插件
+npm install --save hexo-helper-live2d
+#单个live2d模型
+npm install --save li,"/>
+    
+<link rel="stylesheet" href="/css/diaspora.css">
+
+    <script>window.searchDbPath = "/search.xml";</script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap" rel="stylesheet">
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body class="loading">
+    <span id="config-title" style="display:none">Hexo</span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="iconfont icon-home image-icon" href="javascript:;" data-url="http://example.com"></a>
+    <div title="播放/暂停" class="iconfont icon-play"></div>
+    <h3 class="subtitle">hexo配置diaspora主题插件</h3>
+    <div class="social">
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="iconfont icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">hexo配置diaspora主题插件</h1>
+        <div class="stuff">
+            <span>二月 27, 2023</span>
+            
+  <ul class="post-tags-list" itemprop="keywords"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/diaspora%E4%B8%BB%E9%A2%98%E6%8F%92%E4%BB%B6/" rel="tag">diaspora主题插件</a></li></ul>
+
+
+        </div>
+        <div class="content markdown">
+            <h1 id="1-看板娘-下载单个模型"><a href="#1-看板娘-下载单个模型" class="headerlink" title="1.看板娘-下载单个模型"></a>1.看板娘-下载单个模型</h1><p>1.安装依赖</p>
+<pre><code>#基础支持的插件
+npm install --save hexo-helper-live2d
+#单个live2d模型
+npm install --save live2d-widget-model-haruto
+</code></pre>
+<p>2._config.yml配置</p>
+<pre><code>live2d:
+enable: true
+scriptFrom: local # 默认
+pluginRootPath: node_modules/ # 插件在站点上的根目录(相对路径)
+pluginJsPath: lib/ # 脚本文件相对与插件根目录路径
+pluginModelPath: assets/ # 模型文件相对与插件根目录路径
+tagMode: false # 标签模式， 是否仅替换 live2d tag标签而非插入到所有页面中
+debug: false # 调试， 是否在控制台输出日志
+model:
+    use: live2d-widget-model-haruto # npm-module package name
+    # use: wanko # 博客根目录/live2d_models/ 下的目录名
+    # use: ./wives/wanko # 相对于博客根目录的路径
+    # use: https://cdn.jsdelivr.net/npm/live2d-widget-model-wanko@1.0.5/assets/wanko.model.json # 你的自定义 url
+display:
+    position: left    
+    width: 150
+    height: 300
+mobile:
+    show: false
+react:
+    opacity: 0.7
+</code></pre>
+<h1 id="2-永久链接"><a href="#2-永久链接" class="headerlink" title="2. 永久链接"></a>2. 永久链接</h1><p>一个Hexo插件，用于根据帖子前端的标题和数据生成静态帖子链接。</p>
+<pre><code>    npm install hexo-abbrlink --save
+    官网： https://github.com/rozbo/hexo-abbrlink
+    配置_config.yml
+    1. permalink: posts/:abbrlink.html
+    2. language: zh-CN
+    3. 在文件最后面空白处添加
+        # abbrlink config
+        abbrlink:
+          alg: crc32      #support crc16(default) and crc32
+          rep: hex        #support dec(default) and hex
+</code></pre>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src="http://domain.com/awesome.mp3">
+            </audio>
+            
+        </div>
+        
+        
+    <div id="gitalk-container" class="comment link"
+		data-enable="false"
+        data-ae="false"
+        data-ci=""
+        data-cs=""
+        data-r=""
+        data-o=""
+        data-a=""
+        data-d="false"
+    >查看评论</div>
+
+
+    </div>
+    
+        <div class="side">
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-%E7%9C%8B%E6%9D%BF%E5%A8%98-%E4%B8%8B%E8%BD%BD%E5%8D%95%E4%B8%AA%E6%A8%A1%E5%9E%8B"><span class="toc-number">1.</span> <span class="toc-text">1.看板娘-下载单个模型</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-%E6%B0%B8%E4%B9%85%E9%93%BE%E6%8E%A5"><span class="toc-number">2.</span> <span class="toc-text">2. 永久链接</span></a></li></ol>
+        </div>
+    
+</div>
+
+
+    </div>
+</div>
+<script src="/node_modules/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"node_modules/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/node_modules/assets/hijiki.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":true},"react":{"opacity":0.7},"log":false});</script></body>
+
+
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/typed.js"></script>
+<script src="/js/diaspora.js"></script>
+
+
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+
+
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+</html>

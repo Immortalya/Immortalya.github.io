@@ -1,0 +1,548 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>hexo的模板和变量 - Hexo</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="immotal,"> 
+    <meta name="description" content="#1.模板1.1. 局部（Layout）如果页面结构类似，例如两个模板都有页首（Header）和页脚（Footer），您可考虑通过「布局」让两个模板共享相同的结构。一个布局文件必须要能显示 body,"> 
+    <meta name="author" content="John Doe"> 
+    <link rel="alternative" href="atom.xml" title="Hexo" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    
+    
+    
+    <meta name="twitter:card" content="summary"/>
+    <meta name="twitter:title" content="hexo的模板和变量 - Hexo"/>
+    <meta name="twitter:description" content="#1.模板1.1. 局部（Layout）如果页面结构类似，例如两个模板都有页首（Header）和页脚（Footer），您可考虑通过「布局」让两个模板共享相同的结构。一个布局文件必须要能显示 body,"/>
+    
+    
+    
+    
+    <meta property="og:site_name" content="Hexo"/>
+    <meta property="og:type" content="object"/>
+    <meta property="og:title" content="hexo的模板和变量 - Hexo"/>
+    <meta property="og:description" content="#1.模板1.1. 局部（Layout）如果页面结构类似，例如两个模板都有页首（Header）和页脚（Footer），您可考虑通过「布局」让两个模板共享相同的结构。一个布局文件必须要能显示 body,"/>
+    
+<link rel="stylesheet" href="/css/diaspora.css">
+
+    <script>window.searchDbPath = "/search.xml";</script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap" rel="stylesheet">
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body class="loading">
+    <span id="config-title" style="display:none">Hexo</span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="iconfont icon-home image-icon" href="javascript:;" data-url="http://example.com"></a>
+    <div title="播放/暂停" class="iconfont icon-play"></div>
+    <h3 class="subtitle">hexo的模板和变量</h3>
+    <div class="social">
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="iconfont icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">hexo的模板和变量</h1>
+        <div class="stuff">
+            <span>二月 28, 2023</span>
+            
+
+        </div>
+        <div class="content markdown">
+            <p>#1.模板<br>1.1. 局部（Layout）<br>如果页面结构类似，例如两个模板都有页首（Header）和页脚（Footer），您可考虑通过「布局」让两个模板共享相同的结构。一个布局文件必须要能显示 body 变量的内容，如此一来模板的内容才会被显示，举例来说：</p>
+<p>index.ejs文件</p>
+<pre><code>index
+</code></pre>
+<p>layout.ejs文件</p>
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;body&gt;&lt;%- body %&gt;&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<p>生成</p>
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;body&gt;index&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<p>每个模板都默认使用 layout 布局，您可在 front-matter 指定其他布局，或是设为 false 来关闭布局功能，您甚至可在布局中再使用其他布局来建立嵌套布局。</p>
+<p>1.2. 局部模版（Partial）<br>局部模板让您在不同模板之间共享相同的组件，例如页首（Header）、页脚（Footer）或侧边栏（Sidebar）等，可利用局部模板功能分割为个别文件，让维护更加便利。举例来说：</p>
+<p>partial&#x2F;header.ejs</p>
+<pre><code>&lt;h1 id=&quot;logo&quot;&gt;&lt;%= config.title %&gt;&lt;/h1&gt;
+</code></pre>
+<p>index.ejs</p>
+<pre><code>&lt;%- partial(&#39;partial/header&#39;) %&gt;
+&lt;div id=&quot;content&quot;&gt;Home page&lt;/div&gt;
+</code></pre>
+<p>生成：</p>
+<pre><code>&lt;h1 id=&quot;logo&quot;&gt;My Site&lt;/h1&gt;
+&lt;div id=&quot;content&quot;&gt;Home page&lt;/div&gt;
+</code></pre>
+<p>1.3. 局部变量</p>
+<p>您可以在局部模板中指定局部变量并使用。</p>
+<p>partial&#x2F;header.ejs</p>
+<pre><code>&lt;h1 id=&quot;logo&quot;&gt;&lt;%= title %&gt;&lt;/h1&gt;
+</code></pre>
+<p>index.ejs</p>
+<pre><code>&lt;%- partial(&#39;partial/header&#39;, &#123;title: &#39;Hello World&#39;&#125;) %&gt;
+&lt;div id=&quot;content&quot;&gt;Home page&lt;/div&gt;
+</code></pre>
+<p>生成：</p>
+<pre><code>&lt;h1 id=&quot;logo&quot;&gt;Hello World&lt;/h1&gt;
+&lt;div id=&quot;content&quot;&gt;Home page&lt;/div&gt;
+</code></pre>
+<p>优化<br>如果您的主题太过于复杂，或是需要生成的文件量太过于庞大，可能会大幅降低性能，除了简化主题外，您可以考虑 Hexo 2.7 新增的局部缓存（Fragment Caching） 功能。它储存局部内容，下次便能直接使用缓存内容，可以减少文件夹查询并使生成速度更快。</p>
+<p>它可用于页首、页脚、侧边栏等文件不常变动的位置，举例来说：</p>
+<pre><code>&lt;%- fragment_cache(&#39;header&#39;, function()&#123;
+  return &#39;&lt;header&gt;&lt;/header&gt;&#39;;
+&#125;);
+</code></pre>
+<p>如果您使用局部模板的话，可以更简单：</p>
+<pre><code>&lt;%- partial(&#39;header&#39;, &#123;&#125;, &#123;cache: true&#125;);
+</code></pre>
+<p>注：fragment_cache() 将会缓存第一次的渲染结果，并在之后直接输出缓存的结果。因此只有在不同页面的渲染结果都相同时才应使用局部缓存。</p>
+<p>#2. 变量<br>2.1. 全局变量</p>
+<table>
+<thead>
+<tr>
+<th>变量</th>
+<th>描述</th>
+<th>类型</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>site</td>
+<td>网站变量</td>
+<td>object</td>
+</tr>
+<tr>
+<td>page</td>
+<td>针对该页面的内容以及front-matter中自定义的变量</td>
+<td>object</td>
+</tr>
+<tr>
+<td>config</td>
+<td>网站配置</td>
+<td>object</td>
+</tr>
+<tr>
+<td>theme</td>
+<td>主题配置。继承自网络配置</td>
+<td>object</td>
+</tr>
+<tr>
+<td>path</td>
+<td>当前页面的路径（不含跟路径）</td>
+<td>string</td>
+</tr>
+<tr>
+<td>url</td>
+<td>当前页面的完整网站</td>
+<td>string</td>
+</tr>
+<tr>
+<td>env</td>
+<td>环境变量</td>
+<td>object</td>
+</tr>
+</tbody></table>
+<p>2.2. 网站变量</p>
+<table>
+<thead>
+<tr>
+<th>变量</th>
+<th>描述</th>
+<th>类型</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>site.posts</td>
+<td>所有文章</td>
+<td>array，包含了站点全部的文章 object</td>
+</tr>
+<tr>
+<td>site.pages</td>
+<td>所有分页</td>
+<td>array，包含了站点全部的分页 object</td>
+</tr>
+<tr>
+<td>site.categories</td>
+<td>所有分类</td>
+<td>array，包含了站点全部的分类 object</td>
+</tr>
+<tr>
+<td>site.tags</td>
+<td>所有标签</td>
+<td>array，包含了站点全部的标签 object</td>
+</tr>
+</tbody></table>
+<p>2.3. 页面变量</p>
+<p>2.3.1. 页面（page）</p>
+<table>
+<thead>
+<tr>
+<th>变量</th>
+<th>描述</th>
+<th>类型</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>page.title</td>
+<td>页面标题</td>
+<td>string</td>
+</tr>
+<tr>
+<td>page.date</td>
+<td>页面建立日期</td>
+<td>Moment.js 对象</td>
+</tr>
+<tr>
+<td>page.updated</td>
+<td>页面更新日期</td>
+<td>Moment.js 对象</td>
+</tr>
+<tr>
+<td>page.comments</td>
+<td>留言是否开启</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td>page.layout</td>
+<td>布局名称</td>
+<td>string</td>
+</tr>
+<tr>
+<td>page.content</td>
+<td>页面的完整内容</td>
+<td>string</td>
+</tr>
+<tr>
+<td>page.excerpt</td>
+<td>页面摘要</td>
+<td>string</td>
+</tr>
+<tr>
+<td>page.more</td>
+<td>除了页面摘要的其余内容</td>
+<td>string</td>
+</tr>
+<tr>
+<td>page.source</td>
+<td>页面原始路径</td>
+<td>string</td>
+</tr>
+<tr>
+<td>page.full_source</td>
+<td>页面的完整原始路径</td>
+<td>string</td>
+</tr>
+<tr>
+<td>page.path</td>
+<td>页面网址（不含根路径）。我们通常在主题中使用 url_for(page.path)。</td>
+<td>string</td>
+</tr>
+<tr>
+<td>page.permalink</td>
+<td>页面的完整网址</td>
+<td>string</td>
+</tr>
+<tr>
+<td>page.prev</td>
+<td>上一个页面。如果此为第一个页面则为 null</td>
+<td>object 或 null</td>
+</tr>
+<tr>
+<td>page.next</td>
+<td>下一个页面。如果此为最后一个页面则为 null。</td>
+<td>object 或 null</td>
+</tr>
+<tr>
+<td>page.raw</td>
+<td>文章的原始内容</td>
+<td>string</td>
+</tr>
+<tr>
+<td>page.photos</td>
+<td>文章的照片（用于相簿）</td>
+<td>array</td>
+</tr>
+<tr>
+<td>page.link</td>
+<td>文章的外部链接（用于链接文章）</td>
+<td>string</td>
+</tr>
+</tbody></table>
+<p>2.3.2. 文章 (post):<br>与 page 布局相同，但新增以下变量。</p>
+<table>
+<thead>
+<tr>
+<th>变量</th>
+<th>描述</th>
+<th>类型</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>page.published</td>
+<td>如果该文章已发布则为 true</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td>page.categories</td>
+<td>该文章的所有分类</td>
+<td>array</td>
+</tr>
+<tr>
+<td>page.tags</td>
+<td>该文章的所有标签</td>
+<td>array</td>
+</tr>
+</tbody></table>
+<p>2.3.3. 首页（index）</p>
+<table>
+<thead>
+<tr>
+<th>变量</th>
+<th>描述</th>
+<th>类型</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>page.per_page</td>
+<td>每页显示的文章数量</td>
+<td>number</td>
+</tr>
+<tr>
+<td>page.total</td>
+<td>总页数</td>
+<td>number</td>
+</tr>
+<tr>
+<td>page.current</td>
+<td>目前页数</td>
+<td>number</td>
+</tr>
+<tr>
+<td>page.current_url</td>
+<td>目前分页的网址</td>
+<td>string</td>
+</tr>
+<tr>
+<td>page.posts</td>
+<td>本页文章 (Data Model)</td>
+<td>object</td>
+</tr>
+<tr>
+<td>page.prev</td>
+<td>上一页的页数。如果此页是第一页的话则为 0。</td>
+<td>number</td>
+</tr>
+<tr>
+<td>page.prev_link</td>
+<td>上一页的网址。如果此页是第一页的话则为 ‘’。</td>
+<td>string</td>
+</tr>
+<tr>
+<td>page.next</td>
+<td>下一页的页数。如果此页是最后一页的话则为 0。</td>
+<td>number</td>
+</tr>
+<tr>
+<td>page.next_link</td>
+<td>下一页的网址。如果此页是最后一页的话则为 ‘’。</td>
+<td>string</td>
+</tr>
+<tr>
+<td>page.path</td>
+<td>当前页面的路径（不含根目录）。我们通常在主题中使用 url_for(page.path)。</td>
+<td>string</td>
+</tr>
+</tbody></table>
+<p>2.3.4. 归档 (archive)<br>与 index 布局相同，但新增以下变量。</p>
+<table>
+<thead>
+<tr>
+<th>变量</th>
+<th>描述</th>
+<th>类型</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>page.archive</td>
+<td>等于 true</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td>page.year</td>
+<td>年份归档 (4位)</td>
+<td>number</td>
+</tr>
+<tr>
+<td>page.month</td>
+<td>月份归档 (没有前导零的2位数)</td>
+<td>number</td>
+</tr>
+</tbody></table>
+<p>2.3.4. 分类 (category)<br>与 index 布局相同，但新增以下变量。</p>
+<table>
+<thead>
+<tr>
+<th>变量</th>
+<th>描述</th>
+<th>类型</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>page.category</td>
+<td>分类名称</td>
+<td>string</td>
+</tr>
+</tbody></table>
+<p>2.3.4. 标签 (tag)<br>与 index 布局相同，但新增以下变量。</p>
+<table>
+<thead>
+<tr>
+<th>变量</th>
+<th>描述</th>
+<th>类型</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>page.tag</td>
+<td>标签名称</td>
+<td>string</td>
+</tr>
+</tbody></table>
+<p>#3.辅助函数（Helpers）</p>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        
+                            <li title="0" data-url="http://link.hhtjim.com/163/425570952.mp3"></li>
+                        
+                    
+                        
+                            <li title="1" data-url="http://link.hhtjim.com/163/425570952.mp3"></li>
+                        
+                    
+                </ul>
+            
+        </div>
+        
+        
+    <div id="gitalk-container" class="comment link"
+		data-enable="false"
+        data-ae="false"
+        data-ci=""
+        data-cs=""
+        data-r=""
+        data-o=""
+        data-a=""
+        data-d="false"
+    >查看评论</div>
+
+
+    </div>
+    
+        <div class="side">
+            
+        </div>
+    
+</div>
+
+
+    </div>
+</div>
+<script src="/node_modules/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"node_modules/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/node_modules/assets/hijiki.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":true},"react":{"opacity":0.7},"log":false});</script></body>
+
+
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/typed.js"></script>
+<script src="/js/diaspora.js"></script>
+
+
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+
+
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+</html>

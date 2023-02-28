@@ -1,0 +1,592 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>hexo配置butterfly主题 - Hexo</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="immotal,"> 
+    <meta name="description" content="1.hexo配置butterfly主题1.1. 安知鱼	https://anzhiy.cn/posts/sdxhu.html    1. 安装主题：git clone -b master https,"> 
+    <meta name="author" content="John Doe"> 
+    <link rel="alternative" href="atom.xml" title="Hexo" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    
+    
+    
+    <meta name="twitter:card" content="summary"/>
+    <meta name="twitter:title" content="hexo配置butterfly主题 - Hexo"/>
+    <meta name="twitter:description" content="1.hexo配置butterfly主题1.1. 安知鱼	https://anzhiy.cn/posts/sdxhu.html    1. 安装主题：git clone -b master https,"/>
+    
+    
+    
+    
+    <meta property="og:site_name" content="Hexo"/>
+    <meta property="og:type" content="object"/>
+    <meta property="og:title" content="hexo配置butterfly主题 - Hexo"/>
+    <meta property="og:description" content="1.hexo配置butterfly主题1.1. 安知鱼	https://anzhiy.cn/posts/sdxhu.html    1. 安装主题：git clone -b master https,"/>
+    
+<link rel="stylesheet" href="/css/diaspora.css">
+
+    <script>window.searchDbPath = "/search.xml";</script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap" rel="stylesheet">
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body class="loading">
+    <span id="config-title" style="display:none">Hexo</span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="iconfont icon-home image-icon" href="javascript:;" data-url="http://example.com"></a>
+    <div title="播放/暂停" class="iconfont icon-play"></div>
+    <h3 class="subtitle">hexo配置butterfly主题</h3>
+    <div class="social">
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="iconfont icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">hexo配置butterfly主题</h1>
+        <div class="stuff">
+            <span>二月 28, 2023</span>
+            
+
+        </div>
+        <div class="content markdown">
+            <h1 id="1-hexo配置butterfly主题"><a href="#1-hexo配置butterfly主题" class="headerlink" title="1.hexo配置butterfly主题"></a>1.hexo配置butterfly主题</h1><h3 id="1-1-安知鱼https-anzhiy-cn-posts-sdxhu-html"><a href="#1-1-安知鱼https-anzhiy-cn-posts-sdxhu-html" class="headerlink" title="1.1. 安知鱼	https://anzhiy.cn/posts/sdxhu.html"></a>1.1. 安知鱼	<a target="_blank" rel="noopener" href="https://anzhiy.cn/posts/sdxhu.html">https://anzhiy.cn/posts/sdxhu.html</a></h3><pre><code>    1. 安装主题：git clone -b master https://github.com/jerryc127/hexo-theme-butterfly.git themes/butterfly
+    
+    2. 在根目录下的_config.yml文件中把 theme 改成 butterfly
+
+    3. If you don&#39;t have pug &amp; stylus renderer, try this:
+    npm install hexo-renderer-pug hexo-renderer-stylus
+
+    4. 为了減少升级主题后带來的不便，请使用以下方法（建议，可以不做）。
+    在 hexo 的根目录创建一个文件 _config.butterfly.yml，并把主題目录的 _config.yml 內容复制到 _config.butterfly.yml 去。( 注意: 复制的是主題的 _config.yml ,而不是 hexo 的 _config.yml)
+        注：
+        1. 不要把主題目录的 _config.yml 刪掉
+        2. 以后只需要在 _config.butterfly.yml进行配置就行。如果使用了 _config.butterfly.yml， 配置主題的_config.yml 將不会有效果。
+</code></pre>
+<h3 id="1-2-安装hexo-abbrlink："><a href="#1-2-安装hexo-abbrlink：" class="headerlink" title="1.2. 安装hexo-abbrlink："></a>1.2. 安装hexo-abbrlink：</h3><pre><code>    一个Hexo插件，用于根据帖子前端的标题和数据生成静态帖子链接。
+    npm install hexo-abbrlink --save
+    官网： https://github.com/rozbo/hexo-abbrlink
+    配置_config.yml
+    1. permalink: posts/:abbrlink.html
+    2. language: zh-CN
+    3. 在文件最后面空白处添加
+        # abbrlink config
+        abbrlink:
+          alg: crc32      #support crc16(default) and crc32
+          rep: hex        #support dec(default) and hex
+</code></pre>
+<h3 id="1-3-安装本地搜索依赖：hexo-generator-search"><a href="#1-3-安装本地搜索依赖：hexo-generator-search" class="headerlink" title="1.3. 安装本地搜索依赖：hexo-generator-search"></a>1.3. 安装本地搜索依赖：hexo-generator-search</h3><pre><code>    npm install hexo-generator-search --save
+    官网： https://github.com/wzpan/hexo-generator-search
+    配置_config.yml
+        search:
+          path: search.xml
+          field: all
+          content: true
+    配置_config.butterfly.yml
+        # Local search
+        local_search:
+          enable: true
+          preload: false
+          CDN:
+    点击搜索按钮：接口报错404
+    npm install hexo-generator-searchdb --save
+</code></pre>
+<h3 id="1-4-安装音乐、追番页、live2d看板娘"><a href="#1-4-安装音乐、追番页、live2d看板娘" class="headerlink" title="1.4. 安装音乐、追番页、live2d看板娘"></a>1.4. 安装音乐、追番页、live2d看板娘</h3><p>1.4.1. 配置_config.yml</p>
+<pre><code>    # Deployment
+    ## Docs: https://hexo.io/docs/one-command-deployment
+    deploy:
+  		//添加下面一行
+        - type: baidu_url_submitter # 这是新加的百度主动推送
+
+
+    # Live2D //以下内容替换live2d的内容
+    ## https://github.com/EYHN/hexo-helper-live2d
+    live2d:
+      enable: true #开关插件版看板娘
+      scriptFrom: local # 默认
+      # scriptFrom: https://cdn.cbd.int/live2d-widget@3.x/lib/L2Dwidget.min.js # 你的自定义 url
+      tagMode: false # 标签模式, 是否仅替换 live2d tag标签而非插入到所有页面中
+      debug: false # 调试, 是否在控制台输出日志
+      model:
+        use: live2d-widget-model-koharu # npm-module package name
+        # use: https://unpkg.com/live2d-widget-model-koharu@1.0.5/assets/koharu.model.json # 你的自定义 url
+      display:
+        position: left #控制看板娘位置
+        width: 150 #控制看板娘大小
+        height: 300 #控制看板娘大小
+      mobile:
+        show: false # 手机中是否展示
+    
+    # https://github.com/hexojs/hexo-generator-sitemap
+    sitemap:
+      path: sitemap.xml
+      rel: false
+      tags: true
+      categories: true
+    
+    # https://github.com/coneycode/hexo-generator-baidu-sitemap
+    baidusitemap:
+        path: baidusitemap.xml
+    
+    # https://github.com/hexojs/hexo-generator-feed
+    #Feed Atom
+    feed:
+        type: atom
+        path: atom.xml
+        limit: 20
+    rss: /atom.xml
+    
+    # Extensions
+    plugins:
+        - hexo-generator-feed
+        - hexo-generator-baidu-sitemap
+        - hexo-generator-sitemap
+    
+    # 追番插件
+    # https://github.com/HCLonely/hexo-bilibili-bangumi
+    bangumi: # 追番设置
+      enable: true
+      path:
+      vmid: 413386768
+      title: &#39;追番列表&#39;
+      quote: &#39;生命不息，追番不止！&#39;
+      show: 1
+      lazyload: false
+      loading:
+      metaColor:
+      color:
+      webp:
+      progress:
+      extra_options:
+        key: value
+    cinema: # 追剧设置
+      enable: false
+      path:
+      vmid: 413386768
+      title: &#39;追剧列表&#39;
+      quote: &#39;生命不息，追剧不止！&#39;
+      show: 1
+      lazyload: true
+      loading:
+      metaColor:
+      color:
+      webp:
+      progress:
+      extra_options:
+        key: value
+    
+    # 百度主动推送
+    # https://github.com/huiwang/hexo-baidu-url-submit
+    baidu_url_submit:
+      count: 1        # 提交最新的多少个链接
+      host: blog.anzhiy.cn  # 在百度站长平台中添加的域名
+      token: Rgem9kAECSLflQq6   # 秘钥
+      path: baidu_urls.txt   # 文本文档的地址， 新链接会保存在此文本文档里
+    
+    # APlayer
+    # https://github.com/MoePlayer/hexo-tag-aplayer/blob/master/docs/README-zh_cn.md
+    aplayer:
+      meting: true
+      asset_inject: false
+    
+</code></pre>
+<p>1.4.2. 配置_config.butterfly.yml</p>
+<pre><code>    # Lazyload (圖片懶加載)
+    # https://github.com/verlok/vanilla-lazyload
+    lazyload:
+        //把false改为true
+        enable: true
+
+    # Inject the css and script (aplayer/meting)
+    aplayerInject:
+        //把false改为true
+        enable: true
+
+    # Inject
+      bottom:
+    # - &lt;script src=&quot;xxxx&quot;&gt;&lt;/script&gt;
+    # aplayer音乐
+      - &lt;div class=&quot;aplayer no-destroy&quot; data-id=&quot;8152976493&quot; data-server=&quot;netease&quot; data-type=&quot;playlist&quot;   data-order=&quot;list&quot; data- fixed=&quot;true&quot; data-preload=&quot;auto&quot; data-autoplay=&quot;false&quot; data-mutex=&quot;true&quot; &gt;&lt;/div&gt;
+</code></pre>
+<p>1.4.3. 安装插件</p>
+<pre><code>    # 安装live2d
+        npm install --save hexo-helper-live2d
+    # 安装模型
+        npm install --save live2d-widget-model-koharu
+    # sitemap
+        npm install hexo-generator-sitemap --save
+        npm install hexo-generator-baidu-sitemap --save-dev
+    # Rss
+        npm install hexo-generator-feed --save
+    # 追番插件
+        npm install hexo-bilibili-bangumi --save
+
+        hexo g
+        hexo bangumi -u	//更新追番数据	
+        hexo s
+</code></pre>
+<h3 id="1-5-安装pwa实现文章更新通知"><a href="#1-5-安装pwa实现文章更新通知" class="headerlink" title="1.5. 安装pwa实现文章更新通知"></a>1.5. 安装pwa实现文章更新通知</h3><p>1.5.1.安装依赖</p>
+<pre><code># 全局安装gulp命令集
+npm install --global gulp-cli
+# 安装workbox和gulp插件
+npm install workbox-build gulp --save 
+
+# 压缩html插件
+npm install gulp-htmlclean --save-dev
+npm install --save gulp-htmlmin
+# 压缩css插件
+npm install gulp-clean-css --save-dev
+# 压缩js插件（建议选terser）
+# 使用babel压缩js，与terser二选一
+npm install --save-dev gulp-uglify
+npm install --save-dev gulp-babel @babel/core @babel/preset-env
+# 使用terser压缩js，与babel二选一
+npm install gulp-terser --save-dev
+npm install --save-dev gulp-babel @babel/core @babel/preset-env
+# 压缩图片插件
+npm install --save-dev gulp-imagemin
+# 压缩字体插件(font-min仅支持压缩ttf格式的字体包)
+npm install gulp-fontmin --save-dev
+</code></pre>
+<p>1.5.2.在 package.json 中添加</p>
+<pre><code>&quot;type&quot;: &quot;module&quot;,
+</code></pre>
+<p>1.5.3.新建文件</p>
+<pre><code>1. 在Hexo 的根目录新增gulpfile.js文件，复制代码
+2. 在Hexo 的根目录新增sw-template.js文件，复制代码
+3. 在[Blogroot]\themes\butterfly\layout\includes\third-party\目录下新建pwanotice.pug文件，复制代码
+
+4. 修改[Blogroot]\themes\butterfly\layout\includes\additional-js.pug,在文件底部添加以下内容，注意缩进。
+ if theme.pjax.enable
+    	!= partial(&quot;includes/third-party/pjax&quot;, &#123;&#125;, &#123; cache: true &#125;)
+//添加以下两行
+  if theme.pwa.enable
+    !=partial(&#39;includes/third-party/pwanotice&#39;, &#123;&#125;, &#123;cache: true&#125;)
+
+5. 将你的图标包移入相应的目录，例如我是/img/siteicon/，所以放到[Blogroot]/source/img/siteicon/目录下。
+</code></pre>
+<p>1.5.4.配置_config.butterfly.yml</p>
+<pre><code># PWA
+# See https://github.com/JLHwung/hexo-offline
+# ---------------
+pwa:
+  enable: true
+  manifest: /manifest.json
+  theme_color: &quot;#3b70fc&quot;
+  apple_touch_icon: /img/siteicon/128.png
+  favicon_32_32: /img/siteicon/32.png
+  favicon_16_16: /img/siteicon/16.png
+  mask_icon: /img/siteicon/128.png
+</code></pre>
+<p>1.5.5.git命令</p>
+<pre><code>hexo cl
+hexo g
+gulp
+hexo d
+打开git网址，右上角离线下载
+文章更新就会在右上角出现弹框
+</code></pre>
+<h3 id="1-6-配置自定义-css"><a href="#1-6-配置自定义-css" class="headerlink" title="1.6. 配置自定义 css"></a>1.6. 配置自定义 css</h3><p>1.6.1.新建文件[Blogroot]&#x2F;source&#x2F;css&#x2F;custom.css,复制代码<br>1.6.2.配置_config.butterfly.yml</p>
+<pre><code>inject:
+  head:
+    //加入以下几行
+    # 自定义css
+    - &lt;link rel=&quot;stylesheet&quot; href=&quot;/css/custom.css&quot; media=&quot;defer&quot; onload=&quot;this.media=&#39;all&#39;&quot;&gt;
+
+# Website Background (設置網站背景)
+# can set it to color or image (可設置圖片 或者 顔色)
+//设置背景，可用图床图片或本地图片
+#background: url(https://img01.anzhiy.cn/useruploads/0/2023/02/21/63f47527471f1.jpg)
+background: url(/img/20200408112514_fglqw.jpg)
+</code></pre>
+<h3 id="1-7-外挂标签（Tag）的添加"><a href="#1-7-外挂标签（Tag）的添加" class="headerlink" title="1.7.外挂标签（Tag）的添加"></a>1.7.外挂标签（Tag）的添加</h3><p>外挂标签：标签插件，帮助开发者在文章中快速插入内容。<br>标签外挂是Hexo独有的功能，并不是标准的Markdown格式。<br>此外挂标签只适用于butterfly主题  </p>
+<p>sse：<a target="_blank" rel="noopener" href="https://www.npmjs.com/package/hexo-butterfly-tag-plugins-plus">https://www.npmjs.com/package/hexo-butterfly-tag-plugins-plus</a></p>
+<p>1.7.1.安装tag-plugins-plus</p>
+<pre><code>npm install hexo-butterfly-tag-plugins-plus --save	
+npm uninstall hexo-renderer-marked --save
+npm install hexo-renderer-kramed --save
+</code></pre>
+<p>1.7.2.配置_config.butterfly.yml</p>
+<pre><code># tag-plugins-plus
+# see https://akilar.top/posts/615e2dec/
+tag_plugins:
+  enable: true # 开关
+  priority: 5 #过滤器优先权
+  issues: false #issues标签开关
+  link:
+    placeholder: /img/siteicon/64.png #link_card标签默认的图标图片
+  CDN:
+    anima: https://cdn.cbd.int/hexo-butterfly-tag-plugins-plus@latest/lib/assets/font-awesome-animation.min.css #动画标签anima的依赖
+    jquery: https://cdn.cbd.int/jquery@latest/dist/jquery.min.js #issues标签依赖
+    issues: https://cdn.cbd.int/hexo-butterfly-tag-plugins-plus@latest/lib/assets/issues.js #issues标签依赖
+    iconfont: /js/ali_font.js #参看https://akilar.top/posts/d2ebecef/
+    carousel: https://cdn.cbd.int/hexo-butterfly-tag-plugins-plus@latest/lib/assets/carousel-touch.js
+    tag_plugins_css: https://cdn.cbd.int/hexo-butterfly-tag-plugins-plus@latest/lib/tag_plugins.css
+
+# Inject	//添加到Inject前面
+</code></pre>
+<p>1.7.3.使用标签</p>
+<pre><code>在：https://www.npmjs.com/package/hexo-butterfly-tag-plugins-plus 找到模板，查看样式预览，复制实例源码
+eg：&#123;% nota 点击我呀 ,我出现了 %&#125;
+</code></pre>
+<h3 id="1-8-wowjs与留言板的配置"><a href="#1-8-wowjs与留言板的配置" class="headerlink" title="1.8.wowjs与留言板的配置"></a>1.8.wowjs与留言板的配置</h3><p>1.8.1.安装</p>
+<pre><code>see https://www.npmjs.com/package/hexo-butterfly-wowjs
+npm install hexo-butterfly-wowjs --save	
+
+npm install hexo-butterfly-envelope --save
+</code></pre>
+<p>1.8.2.配置_config.butterfly.yml</p>
+<pre><code># wowjs
+# see https://www.npmjs.com/package/hexo-butterfly-wowjs
+wowjs:
+  enable: true #控制动画开关。true是打开，false是关闭
+  priority: 10 #过滤器优先级
+  mobile: false #移动端是否启用，默认移动端禁用
+  animateitem:
+    - class: recent-post-item #必填项，需要添加动画的元素的class
+      style: animate__zoomIn #必填项，需要添加的动画
+      duration: 1.5s #选填项，动画持续时间，单位可以是ms也可以是s。例如3s，700ms。
+      delay: 200ms #选填项，动画开始的延迟时间，单位可以是ms也可以是s。例如3s，700ms。
+      offset: 30 #选填项，开始动画的距离（相对浏览器底部）
+      iteration: 1 #选填项，动画重复的次数
+    - class: card-widget
+      style: animate__zoomIn
+      delay: 200ms
+    # - class: flink-list-card
+    #   style: wowpanels
+    - class: flink-list-card
+      style: animate__flipInY
+      duration: 3s
+    - class: flink-list-card
+      style: animate__animated
+      duration: 3s
+    - class: article-sort-item
+      style: animate__slideInRight
+      duration: 1.5s
+    - class: site-card
+      style: animate__flipInY
+      duration: 3s
+    - class: site-card
+      style: animate__animated
+      duration: 3s
+  animate_css: https://cdn.cbd.int/hexo-butterfly-wowjs/lib/animate.min.css
+  wow_js: https://cdn.cbd.int/hexo-butterfly-wowjs/lib/wow.min.js
+  wow_init_js: https://cdn.cbd.int/hexo-butterfly-wowjs/lib/wow_init.js
+
+# envelope_comment
+# see https://akilar.top/posts/e2d3c450/
+# envelope_comment
+# see https://akilar.top/posts/e2d3c450/
+envelope_comment:
+  enable: true #控制开关
+  custom_pic:
+    cover: https://cdn.cbd.int//hexo-butterfly-envelope/lib/violet.jpg #信笺头部图片
+    line: https://cdn.cbd.int/hexo-butterfly-envelope/lib/line.png #信笺底部图片
+    beforeimg: https://cdn.cbd.int/hexo-butterfly-envelope/lib/before.png # 信封前半部分
+    afterimg: https://cdn.cbd.int/hexo-butterfly-envelope/lib/after.png # 信封后半部分
+  message: #信笺正文，多行文本，写法如下
+    - 有什么想问的？
+    - 有什么想说的？
+    - 有什么想吐槽的？
+    - 哪怕是有什么想吃的，都可以告诉我哦~
+  bottom: 自动书记人偶竭诚为您服务！ #仅支持单行文本
+  height: #1050px，信封划出的高度
+  path: #【可选】comments 的路径名称。默认为 comments，生成的页面为 comments/index.html
+  front_matter: #【可选】comments页面的 front_matter 配置
+    title: 留言板
+    comments: true
+
+# Inject //添加到Inject前面
+</code></pre>
+<p>1.8.3.添加菜单</p>
+<pre><code>_config.butterfly.yml
+menu:
+  Home: / || fas fa-home
+  追番: /bangumis/index.html || fa-home
+  留言板: /comments/ || fas fa-envelope
+</code></pre>
+<h3 id="1-9-使用-Github-Action-实现全自动部署"><a href="#1-9-使用-Github-Action-实现全自动部署" class="headerlink" title="1.9.使用 Github Action 实现全自动部署"></a>1.9.使用 Github Action 实现全自动部署</h3><pre><code>参考https://anzhiy.cn/posts/asdx.html
+</code></pre>
+<h3 id="1-10-页脚-github-徽标和计时器"><a href="#1-10-页脚-github-徽标和计时器" class="headerlink" title="1.10.页脚 github 徽标和计时器"></a>1.10.页脚 github 徽标和计时器</h3><p>参考: <a target="_blank" rel="noopener" href="https://www.npmjs.com/package/hexo-butterfly-footer-beautify">https://www.npmjs.com/package/hexo-butterfly-footer-beautify</a>  </p>
+<p>1.10.1.安装</p>
+<pre><code>npm install hexo-butterfly-footer-beautify --save
+</code></pre>
+<p>1.10.2.配置_config.butterfly.yml</p>
+<pre><code># footer_beautify
+# 页脚计时器：[Native JS Timer](https://akilar.top/posts/b941af/)
+# 页脚徽标：[Add Github Badge](https://akilar.top/posts/e87ad7f8/)
+footer_beautify:
+  enable:
+    timer: true # 计时器开关
+    bdage: true # 徽标开关
+  priority: 5 #过滤器优先权
+  enable_page: all # 应用页面
+  exclude:
+    # - /posts/
+    # - /about/
+  layout: # 挂载容器类型
+    type: id
+    name: footer-wrap
+    index: 0
+  # 计时器部分配置项
+  runtime_js: https://npm.elemecdn.com/anzhiyu-blog@2.0.4/js/runtime/runtime.min.js
+  runtime_css: https://npm.elemecdn.com/anzhiyu-blog@2.0.4/css/runtime/runtime.min.css
+  # 徽标部分配置项
+  swiperpara: 0 #若非0，则开启轮播功能，每行徽标个数
+  bdageitem:
+    - link: https://hexo.io/ #徽标指向网站链接
+      shields: https://img.shields.io/badge/Frame-Hexo-blue?style=flat&amp;logo=hexo #徽标API
+      message: 博客框架为Hexo_v5.4.0 #徽标提示语
+    - link: https://butterfly.js.org/
+      shields: https://img.shields.io/badge/Theme-Butterfly-6513df?style=flat&amp;logo=bitdefender
+      message: 主题版本Butterfly_v4.2.2
+    - link: https://www.jsdelivr.com/
+      shields: https://img.shields.io/badge/CDN-jsDelivr-orange?style=flat&amp;logo=jsDelivr
+      message: 本站使用JsDelivr为静态资源提供CDN加速
+    - link: https://beian.miit.gov.cn/#/Integrated/index
+      shields: https://img.shields.io/badge/湘ICP备-2022004213号-e1d492?style=flat&amp;logo=data:image/png;base64,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
+      message: 本站已在湘进行备案
+    - link: https://github.com/
+      shields: https://img.shields.io/badge/Source-Github-d021d6?style=flat&amp;logo=GitHub
+      message: 本站项目由Github托管
+    - link: http://creativecommons.org/licenses/by-nc-sa/4.0/
+      shields: https://img.shields.io/badge/Copyright-BY--NC--SA%204.0-d42328?style=flat&amp;logo=Claris
+      message: 本站采用知识共享署名-非商业性使用-相同方式共享4.0国际许可协议进行许可
+
+  # swiper_css: https://cdn.cbd.int/hexo-butterfly-swiper/lib/swiper.min.css
+  # swiper_js: https://cdn.cbd.int/hexo-butterfly-swiper/lib/swiper.min.js
+  # swiperbdage_init_js: https://cdn.cbd.int/hexo-butterfly-footer-beautify/lib/swiperbdage_init.min.js
+</code></pre>
+<p>hexo clean &amp;&amp; hexo g &amp;&amp; hexo d</p>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        
+                            <li title="0" data-url="http://link.hhtjim.com/163/425570952.mp3"></li>
+                        
+                    
+                        
+                            <li title="1" data-url="http://link.hhtjim.com/163/425570952.mp3"></li>
+                        
+                    
+                </ul>
+            
+        </div>
+        
+        
+    <div id="gitalk-container" class="comment link"
+		data-enable="false"
+        data-ae="false"
+        data-ci=""
+        data-cs=""
+        data-r=""
+        data-o=""
+        data-a=""
+        data-d="false"
+    >查看评论</div>
+
+
+    </div>
+    
+        <div class="side">
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-hexo%E9%85%8D%E7%BD%AEbutterfly%E4%B8%BB%E9%A2%98"><span class="toc-number">1.</span> <span class="toc-text">1.hexo配置butterfly主题</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-%E5%AE%89%E7%9F%A5%E9%B1%BChttps-anzhiy-cn-posts-sdxhu-html"><span class="toc-number">1.0.1.</span> <span class="toc-text">1.1. 安知鱼	https:&#x2F;&#x2F;anzhiy.cn&#x2F;posts&#x2F;sdxhu.html</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-%E5%AE%89%E8%A3%85hexo-abbrlink%EF%BC%9A"><span class="toc-number">1.0.2.</span> <span class="toc-text">1.2. 安装hexo-abbrlink：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-3-%E5%AE%89%E8%A3%85%E6%9C%AC%E5%9C%B0%E6%90%9C%E7%B4%A2%E4%BE%9D%E8%B5%96%EF%BC%9Ahexo-generator-search"><span class="toc-number">1.0.3.</span> <span class="toc-text">1.3. 安装本地搜索依赖：hexo-generator-search</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-4-%E5%AE%89%E8%A3%85%E9%9F%B3%E4%B9%90%E3%80%81%E8%BF%BD%E7%95%AA%E9%A1%B5%E3%80%81live2d%E7%9C%8B%E6%9D%BF%E5%A8%98"><span class="toc-number">1.0.4.</span> <span class="toc-text">1.4. 安装音乐、追番页、live2d看板娘</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-5-%E5%AE%89%E8%A3%85pwa%E5%AE%9E%E7%8E%B0%E6%96%87%E7%AB%A0%E6%9B%B4%E6%96%B0%E9%80%9A%E7%9F%A5"><span class="toc-number">1.0.5.</span> <span class="toc-text">1.5. 安装pwa实现文章更新通知</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-6-%E9%85%8D%E7%BD%AE%E8%87%AA%E5%AE%9A%E4%B9%89-css"><span class="toc-number">1.0.6.</span> <span class="toc-text">1.6. 配置自定义 css</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-7-%E5%A4%96%E6%8C%82%E6%A0%87%E7%AD%BE%EF%BC%88Tag%EF%BC%89%E7%9A%84%E6%B7%BB%E5%8A%A0"><span class="toc-number">1.0.7.</span> <span class="toc-text">1.7.外挂标签（Tag）的添加</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-8-wowjs%E4%B8%8E%E7%95%99%E8%A8%80%E6%9D%BF%E7%9A%84%E9%85%8D%E7%BD%AE"><span class="toc-number">1.0.8.</span> <span class="toc-text">1.8.wowjs与留言板的配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-9-%E4%BD%BF%E7%94%A8-Github-Action-%E5%AE%9E%E7%8E%B0%E5%85%A8%E8%87%AA%E5%8A%A8%E9%83%A8%E7%BD%B2"><span class="toc-number">1.0.9.</span> <span class="toc-text">1.9.使用 Github Action 实现全自动部署</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-10-%E9%A1%B5%E8%84%9A-github-%E5%BE%BD%E6%A0%87%E5%92%8C%E8%AE%A1%E6%97%B6%E5%99%A8"><span class="toc-number">1.0.10.</span> <span class="toc-text">1.10.页脚 github 徽标和计时器</span></a></li></ol></li></ol></li></ol>
+        </div>
+    
+</div>
+
+
+    </div>
+</div>
+<script src="/node_modules/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"node_modules/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/node_modules/assets/hijiki.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":true},"react":{"opacity":0.7},"log":false});</script></body>
+
+
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/typed.js"></script>
+<script src="/js/diaspora.js"></script>
+
+
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+
+
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+</html>
