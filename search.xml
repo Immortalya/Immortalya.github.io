@@ -19,124 +19,6 @@
 ]]></content>
   </entry>
   <entry>
-    <title>hexo搭建网站</title>
-    <url>/posts/23416.html</url>
-    <content><![CDATA[<p>#1.Hexo搭建网站<br>###1. 安装Git</p>
-<pre><code>      下载地址：https://gitforwindows.org/
-
-    git教程：https://www.liaoxuefeng.com/wiki/896043488029600
-
-    安装好后，用git --version 来查看一下版本
-</code></pre>
-<p>###2. 安装Node.js</p>
-<pre><code>    下载地址：https://nodejs.org/en/download/
-    windows：nodejs选择LTS版本就行了。
-    
-    安装完后，打开命令行
-     node -v npm -v
-    检查一下有没有安装成功
-
-    顺便说一下，windows在git安装完后，就可以直接使用git bash来敲命令行了，不用自带的cmd，cmd有点难用。
-</code></pre>
-<p>###3. 安装Hexo(git bash命令)</p>
-<pre><code>    前面git和nodejs安装好后，就可以安装hexo了，你可以先创建一个文件夹myblog，然后cd到该文件夹下（或者在该文件夹下直接右键git bash打开）。
-    
-    输入命令:npm install -g hexo-cli
-
-    用hexo -v查看一下版本
-    
-    初始化hexo：hexo init myblog
-
-    新建：npm install
-
-    hexo g(确保能运行)
-    运行：hexo server
-    
-    打开hexo的服务，在浏览器输入localhost:4000就可以看到你生成的博客了。
-
-新建完成后，指定文件夹目录下有：
-
-    node_modules: 依赖包
-    public：存放生成的页面
-    scaffolds：生成文章的一些模板
-    source：用来存放你的文章
-    themes：主题
-    ** _config.yml: 博客的配置文件**
-</code></pre>
-<p>###4. GitHub创建个人仓库</p>
-<pre><code>    登录后，在GitHub.com中看到一个New repository，新建仓库
-
-    创建一个和你用户名相同的仓库，后面加.github.io，只有这样，将来要部署到GitHub page的时候，才会被识别，也就是xxxx.github.io，其中xxx就是你注册GitHub的用户名。
-    
-    点击create repository。
-</code></pre>
-<p>###5. 生成SSH添加到GitHub</p>
-<pre><code>    回到你的git bash中
-        git config --global user.name &quot;yourname&quot;
-        git config --global user.email &quot;youremail&quot;
-
-    然后创建SSH，一路回车
-        ssh-keygen -t rsa -C &quot;youremail&quot;
-        一路回车
-
-    C:\Users\LSM\.ssh文件夹找到id_rsa.pub文件打开点击全部复制
-
-    而后在GitHub的setting中，找到SSH keys的设置选项，点击New SSH key，把id_rsa.pub里面的信息复制进去。
-
-    在gitbash中，查看是否成功
-        ssh -T git@github.com
-
-
-ssh，简单来讲，就是一个秘钥，其中，id_rsa是你这台电脑的私人秘钥，不能给别人看的，id_rsa.pub是公共秘钥，可以随便给别人看。把这个公钥放在GitHub上，这样当你链接GitHub自己的账户时，它就会根据公钥匹配你的私钥，当能够相互匹配时，才能够顺利的通过git上传你的文件到GitHub上。
-</code></pre>
-<p>###6. 将hexo部署到GitHub</p>
-<pre><code>这一步，我们就可以将hexo和GitHub关联起来，也就是将hexo生成的文章部署到GitHub上，打开站点配置文件 _config.yml，翻到最后，修改为YourgithubName就是你的GitHub账户
-
-    deploy:
-      type: git
-      #repo: https://github.com/Immortalya/Immortalya.github.io.git
-      repo: git@github.com:Immortalya/Immortalya.github.io.git
-      branch: main
-
-这个时候需要先安装deploy-git ，也就是部署的命令,这样你才能用命令部署到GitHub。
-
-    npm install hexo-deployer-git --save
-    hexo clean	//清除缓存，也可以不加。
-    hexo generate	//生成静态文章，可以用 hexo g缩写（提交到本地）
-    hexo deploy	//部署文章，可以用hexo d缩写（提交到git）
-</code></pre>
-<p>###7. 运行三件套<br>        修改配置文件需要重新运行，修改文章不需要<br>        hexo cl	&#x2F;&#x2F;清除缓存，也可以不加。<br>        hexo generate	&#x2F;&#x2F;生成静态文章，可以用 hexo g缩写<br>        hexo server	&#x2F;&#x2F;部署文章，可以用hexo s缩写</p>
-<h1 id="2-写作"><a href="#2-写作" class="headerlink" title="2.写作"></a>2.写作</h1><p>###1.发布文章</p>
-<pre><code>    hexo new [layout] &lt;title&gt;
-    Hexo支持3种布局方式：post、page、draft，
-
-    发布文章：hexo new post &quot;我的第一篇博客&quot;
-    post布局的文章会被创建到source/_posts目录下，表示这是要被发表的文章；
-
-    发布草稿：hexo new draft &quot;我的第一篇草稿&quot;
-    page布局的文章会被创建到source/_drafts目录下，表示这是一个草稿
-    预览草稿：hexo server --draft
-    草稿发布：
-        hexo publish 我的第一篇草稿  
-        或直接将该文件转移到_posts目录下
-
-    发布页面：hexo new page learn
-    page布局会被创建到sourse目录下，表示这是一个页面
-    文件夹被创建成功后去该主题的_config.yml文件夹menu下添加Learn: learn，重新运行，即可查看新发布的页面标签
-</code></pre>
-<h1 id="3-hexo转移电脑"><a href="#3-hexo转移电脑" class="headerlink" title="3.hexo转移电脑"></a>3.hexo转移电脑</h1><pre><code>npm i
-git init
-git pull
-hexo cl &amp;&amp; hexo g &amp;&amp; hexo s
-npm install hexo-deployer-git --save
-hexo cl &amp;&amp; hexo g &amp;&amp; hexo d
-</code></pre>
-]]></content>
-      <categories>
-        <category>hexo</category>
-      </categories>
-  </entry>
-  <entry>
     <title>hexo的模板和变量</title>
     <url>/posts/50565.html</url>
     <content><![CDATA[<p>#1.模板<br>1.1. 局部（Layout）<br>如果页面结构类似，例如两个模板都有页首（Header）和页脚（Footer），您可考虑通过「布局」让两个模板共享相同的结构。一个布局文件必须要能显示 body 变量的内容，如此一来模板的内容才会被显示，举例来说：</p>
@@ -503,6 +385,124 @@ hexo cl &amp;&amp; hexo g &amp;&amp; hexo d
 </tr>
 </tbody></table>
 <p>#3.辅助函数（Helpers）</p>
+]]></content>
+      <categories>
+        <category>hexo</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>hexo搭建网站</title>
+    <url>/posts/23416.html</url>
+    <content><![CDATA[<p>#1.Hexo搭建网站<br>###1. 安装Git</p>
+<pre><code>      下载地址：https://gitforwindows.org/
+
+    git教程：https://www.liaoxuefeng.com/wiki/896043488029600
+
+    安装好后，用git --version 来查看一下版本
+</code></pre>
+<p>###2. 安装Node.js</p>
+<pre><code>    下载地址：https://nodejs.org/en/download/
+    windows：nodejs选择LTS版本就行了。
+    
+    安装完后，打开命令行
+     node -v npm -v
+    检查一下有没有安装成功
+
+    顺便说一下，windows在git安装完后，就可以直接使用git bash来敲命令行了，不用自带的cmd，cmd有点难用。
+</code></pre>
+<p>###3. 安装Hexo(git bash命令)</p>
+<pre><code>    前面git和nodejs安装好后，就可以安装hexo了，你可以先创建一个文件夹myblog，然后cd到该文件夹下（或者在该文件夹下直接右键git bash打开）。
+    
+    输入命令:npm install -g hexo-cli
+
+    用hexo -v查看一下版本
+    
+    初始化hexo：hexo init myblog
+
+    新建：npm install
+
+    hexo g(确保能运行)
+    运行：hexo server
+    
+    打开hexo的服务，在浏览器输入localhost:4000就可以看到你生成的博客了。
+
+新建完成后，指定文件夹目录下有：
+
+    node_modules: 依赖包
+    public：存放生成的页面
+    scaffolds：生成文章的一些模板
+    source：用来存放你的文章
+    themes：主题
+    ** _config.yml: 博客的配置文件**
+</code></pre>
+<p>###4. GitHub创建个人仓库</p>
+<pre><code>    登录后，在GitHub.com中看到一个New repository，新建仓库
+
+    创建一个和你用户名相同的仓库，后面加.github.io，只有这样，将来要部署到GitHub page的时候，才会被识别，也就是xxxx.github.io，其中xxx就是你注册GitHub的用户名。
+    
+    点击create repository。
+</code></pre>
+<p>###5. 生成SSH添加到GitHub</p>
+<pre><code>    回到你的git bash中
+        git config --global user.name &quot;yourname&quot;
+        git config --global user.email &quot;youremail&quot;
+
+    然后创建SSH，一路回车
+        ssh-keygen -t rsa -C &quot;youremail&quot;
+        一路回车
+
+    C:\Users\LSM\.ssh文件夹找到id_rsa.pub文件打开点击全部复制
+
+    而后在GitHub的setting中，找到SSH keys的设置选项，点击New SSH key，把id_rsa.pub里面的信息复制进去。
+
+    在gitbash中，查看是否成功
+        ssh -T git@github.com
+
+
+ssh，简单来讲，就是一个秘钥，其中，id_rsa是你这台电脑的私人秘钥，不能给别人看的，id_rsa.pub是公共秘钥，可以随便给别人看。把这个公钥放在GitHub上，这样当你链接GitHub自己的账户时，它就会根据公钥匹配你的私钥，当能够相互匹配时，才能够顺利的通过git上传你的文件到GitHub上。
+</code></pre>
+<p>###6. 将hexo部署到GitHub</p>
+<pre><code>这一步，我们就可以将hexo和GitHub关联起来，也就是将hexo生成的文章部署到GitHub上，打开站点配置文件 _config.yml，翻到最后，修改为YourgithubName就是你的GitHub账户
+
+    deploy:
+      type: git
+      #repo: https://github.com/Immortalya/Immortalya.github.io.git
+      repo: git@github.com:Immortalya/Immortalya.github.io.git
+      branch: main
+
+这个时候需要先安装deploy-git ，也就是部署的命令,这样你才能用命令部署到GitHub。
+
+    npm install hexo-deployer-git --save
+    hexo clean	//清除缓存，也可以不加。
+    hexo generate	//生成静态文章，可以用 hexo g缩写（提交到本地）
+    hexo deploy	//部署文章，可以用hexo d缩写（提交到git）
+</code></pre>
+<p>###7. 运行三件套<br>        修改配置文件需要重新运行，修改文章不需要<br>        hexo cl	&#x2F;&#x2F;清除缓存，也可以不加。<br>        hexo generate	&#x2F;&#x2F;生成静态文章，可以用 hexo g缩写<br>        hexo server	&#x2F;&#x2F;部署文章，可以用hexo s缩写</p>
+<h1 id="2-写作"><a href="#2-写作" class="headerlink" title="2.写作"></a>2.写作</h1><p>###1.发布文章</p>
+<pre><code>    hexo new [layout] &lt;title&gt;
+    Hexo支持3种布局方式：post、page、draft，
+
+    发布文章：hexo new post &quot;我的第一篇博客&quot;
+    post布局的文章会被创建到source/_posts目录下，表示这是要被发表的文章；
+
+    发布草稿：hexo new draft &quot;我的第一篇草稿&quot;
+    page布局的文章会被创建到source/_drafts目录下，表示这是一个草稿
+    预览草稿：hexo server --draft
+    草稿发布：
+        hexo publish 我的第一篇草稿  
+        或直接将该文件转移到_posts目录下
+
+    发布页面：hexo new page learn
+    page布局会被创建到sourse目录下，表示这是一个页面
+    文件夹被创建成功后去该主题的_config.yml文件夹menu下添加Learn: learn，重新运行，即可查看新发布的页面标签
+</code></pre>
+<h1 id="3-hexo转移电脑"><a href="#3-hexo转移电脑" class="headerlink" title="3.hexo转移电脑"></a>3.hexo转移电脑</h1><pre><code>npm i
+git init
+git pull
+hexo cl &amp;&amp; hexo g &amp;&amp; hexo s
+npm install hexo-deployer-git --save
+hexo cl &amp;&amp; hexo g &amp;&amp; hexo d
+</code></pre>
 ]]></content>
       <categories>
         <category>hexo</category>
