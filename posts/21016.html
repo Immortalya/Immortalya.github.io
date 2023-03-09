@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="immortal">
+
+
+
+    <meta name="description" content="因过竹院逢僧话,偷得浮生半日闲">
+
+
+
+<title>echarts图表 | 浮生 - 因过竹院逢僧话,偷得浮生半日闲。</title>
+
+
+
+    <link rel="icon" href="/favicon.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+    
+
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+    <script>
+        // this function is used to check current theme before page loaded.
+        (() => {
+            const currentTheme = window.localStorage && window.localStorage.getItem('theme') || '';
+            const isDark = currentTheme === 'dark';
+            const pagebody = document.getElementsByTagName('body')[0]
+            if (isDark) {
+                pagebody.classList.add('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Dark"
+            } else {
+                pagebody.classList.remove('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Light"
+            }
+        })();
+    </script>
+
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">给自己自信的资本 ＾０＾~</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">给自己自信的资本 ＾０＾~</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+            <div class="main">
+                <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    var tocbot_timer;
+    var DEPTH_MAX = 6; // 为 6 时展开所有
+    var tocbot_default_config = {
+        tocSelector: '.tocbot-list',
+        contentSelector: '.post-content',
+        headingSelector: 'h1, h2, h3, h4, h5',
+        orderedList: false,
+        scrollSmooth: true,
+        onClick: extend_click,
+    };
+
+    function extend_click() {
+        clearTimeout(tocbot_timer);
+        tocbot_timer = setTimeout(function() {
+            tocbot.refresh(obj_merge(tocbot_default_config, {
+                hasInnerContainers: true
+            }));
+        }, 420); // 这个值是由 tocbot 源码里定义的 scrollSmoothDuration 得来的
+    }
+
+    document.ready(function() {
+        tocbot.init(obj_merge(tocbot_default_config, {
+            collapseDepth: 1
+        }));
+    });
+
+    function expand_toc() {
+        var b = document.querySelector('.tocbot-toc-expand');
+        var expanded = b.getAttribute('data-expanded');
+        expanded ? b.removeAttribute('data-expanded') : b.setAttribute('data-expanded', true);
+        tocbot.refresh(obj_merge(tocbot_default_config, {
+            collapseDepth: expanded ? 1 : DEPTH_MAX
+        }));
+        b.innerText = expanded ? 'Expand all' : 'Collapse all';
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+    function obj_merge(target, source) {
+        for (var item in source) {
+            if (source.hasOwnProperty(item)) {
+                target[item] = source[item];
+            }
+        }
+        return target;
+    }
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">echarts图表</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">immortal</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">三月 7, 2023&nbsp;&nbsp;14:51:06</a>
+                        </span>
+                    
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <h2 id="1-图表自适应"><a href="#1-图表自适应" class="headerlink" title="1.图表自适应"></a>1.图表自适应</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">window</span>.<span class="title function_">addEventListener</span>(<span class="string">&quot;resize&quot;</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">       <span class="variable language_">this</span>.<span class="property">chart</span>.<span class="title function_">resize</span>();</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h2 id="2-图表应用主题"><a href="#2-图表应用主题" class="headerlink" title="2.图表应用主题"></a>2.图表应用主题</h2><h3 id="1-引入echarts"><a href="#1-引入echarts" class="headerlink" title="1.引入echarts"></a>1.引入echarts</h3><pre><code>npm install echarts --save
+</code></pre>
+<h3 id="2-项目中引入Echarts"><a href="#2-项目中引入Echarts" class="headerlink" title="2.项目中引入Echarts"></a>2.项目中引入Echarts</h3><pre><code>main.js
+
+import * as echarts from &#39;echarts&#39;;
+Vue.prototype.$echarts = echarts  //定义为全局变量
+</code></pre>
+<h3 id="3-引入官方主题"><a href="#3-引入官方主题" class="headerlink" title="3.引入官方主题"></a>3.引入官方主题</h3><p><a target="_blank" rel="noopener" href="https://echarts.apache.org/zh/download-theme.html">https://echarts.apache.org/zh/download-theme.html</a><br>例如macarons主题</p>
+<p>3.1. 引入官方定义的主题macarons </p>
+<pre><code>require(&quot;echarts/theme/macarons&quot;);
+</code></pre>
+<p>3.2. 初始化echarts实例时引入主题名称</p>
+<pre><code>this.chart = echarts.init(document.getElementById(&quot;main&quot;), &quot;macarons&quot;);
+</code></pre>
+<h3 id="4-引入自定义主题"><a href="#4-引入自定义主题" class="headerlink" title="4.引入自定义主题"></a>4.引入自定义主题</h3><p><a target="_blank" rel="noopener" href="https://echarts.apache.org/zh/theme-builder.html">https://echarts.apache.org/zh/theme-builder.html</a></p>
+<p>4.1. 下载主题<br>根据所需定义好主题后就可以下载（这里选择了JS版本）<br>例如自定义命名为first主题</p>
+<p> 下载或复制以下的主题保存至 first.js 文件；</p>
+<p>4.2. 引入first.js文件</p>
+<pre><code>import first from &quot;./first&quot;;
+</code></pre>
+<p>4.3. 初始化echarts实例时引入主题名称</p>
+<pre><code>this.chart = echarts.init(document.getElementById(&quot;main&quot;), &quot;first&quot;);
+</code></pre>
+<h2 id="3-实例（柱状图）"><a href="#3-实例（柱状图）" class="headerlink" title="3.实例（柱状图）"></a>3.实例（柱状图）</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br></pre></td><td class="code"><pre><span class="line"> &lt;div id=<span class="string">&quot;main&quot;</span> style=<span class="string">&quot;width:100%;height:70vh&quot;</span> /&gt;</span><br><span class="line"></span><br><span class="line"><span class="title function_">initChart</span>(<span class="params">queryRecordData</span>)&#123;</span><br><span class="line">     <span class="keyword">let</span> dataX = []</span><br><span class="line">     <span class="keyword">let</span> dataY = []</span><br><span class="line">     queryRecordData.<span class="title function_">forEach</span>(<span class="function">(<span class="params">item</span>)=&gt;</span>&#123;</span><br><span class="line">       dataX.<span class="title function_">push</span>(item.<span class="property">createTime</span>)</span><br><span class="line">       dataY.<span class="title function_">push</span>(item.<span class="property">activeEnergy</span>)</span><br><span class="line">     &#125;)</span><br><span class="line">     <span class="variable language_">this</span>.<span class="property">chart</span> = echarts.<span class="title function_">init</span>(<span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&quot;main&quot;</span>), <span class="string">&quot;macarons&quot;</span>);</span><br><span class="line"></span><br><span class="line">     <span class="variable language_">this</span>.<span class="property">chart</span>.<span class="title function_">setOption</span>(&#123;</span><br><span class="line">       <span class="attr">tooltip</span>: &#123;</span><br><span class="line">         <span class="attr">trigger</span>: <span class="string">&quot;axis&quot;</span>,</span><br><span class="line">         <span class="attr">axisPointer</span>: &#123;</span><br><span class="line">           <span class="comment">// 坐标轴指示器，坐标轴触发有效</span></span><br><span class="line">           <span class="attr">type</span>: <span class="string">&quot;line&quot;</span>, <span class="comment">// 默认为直线，可选为：&#x27;line&#x27; | &#x27;shadow&#x27;</span></span><br><span class="line">         &#125;,</span><br><span class="line">       &#125;,</span><br><span class="line">       <span class="attr">grid</span>: &#123;</span><br><span class="line">         <span class="attr">top</span>: <span class="number">40</span>,</span><br><span class="line">         <span class="attr">left</span>: <span class="number">50</span>,</span><br><span class="line">         <span class="attr">containLabel</span>: <span class="literal">true</span>,</span><br><span class="line">       &#125;,</span><br><span class="line">       <span class="attr">title</span>: &#123;</span><br><span class="line">         <span class="attr">text</span>: <span class="string">&quot;路灯设备能耗信息统计表&quot;</span>,</span><br><span class="line">         <span class="attr">top</span>: <span class="number">5</span>,</span><br><span class="line">         <span class="attr">left</span>: <span class="string">&quot;center&quot;</span>,</span><br><span class="line">         <span class="attr">textStyle</span>: &#123;</span><br><span class="line">           <span class="attr">fontSize</span>: <span class="number">16</span>,</span><br><span class="line">         &#125;,</span><br><span class="line">       &#125;,</span><br><span class="line">       <span class="attr">xAxis</span>: [</span><br><span class="line">         &#123;</span><br><span class="line">           <span class="attr">type</span>: <span class="string">&quot;category&quot;</span>,</span><br><span class="line">           <span class="attr">axisTick</span>: &#123;</span><br><span class="line">             <span class="attr">alignWithLabel</span>: <span class="literal">true</span>,</span><br><span class="line">           &#125;,</span><br><span class="line">           <span class="attr">data</span>: dataX</span><br><span class="line">         &#125;,</span><br><span class="line">       ],</span><br><span class="line">       <span class="attr">yAxis</span>: [</span><br><span class="line">         &#123;</span><br><span class="line">           <span class="attr">type</span>: <span class="string">&quot;value&quot;</span>,</span><br><span class="line">         &#125;,</span><br><span class="line">       ],</span><br><span class="line">       <span class="attr">series</span>: [</span><br><span class="line">         &#123;</span><br><span class="line">           <span class="comment">// name: &quot;故障类型告警数统计&quot;,</span></span><br><span class="line">           <span class="attr">type</span>: <span class="string">&quot;bar&quot;</span>,</span><br><span class="line">           <span class="attr">stack</span>: <span class="string">&quot;vistors&quot;</span>,</span><br><span class="line">           <span class="attr">barWidth</span>: <span class="string">&quot;25%&quot;</span>,</span><br><span class="line">           <span class="attr">data</span>: dataY,</span><br><span class="line">           <span class="attr">label</span>: &#123;</span><br><span class="line">             <span class="attr">show</span>: <span class="literal">true</span>,</span><br><span class="line">             <span class="attr">position</span>: <span class="string">&quot;top&quot;</span>,</span><br><span class="line">             <span class="attr">formatter</span>: <span class="keyword">function</span> (<span class="params">val</span>) &#123;</span><br><span class="line">               <span class="keyword">if</span> (val.<span class="property">value</span> == <span class="number">0</span>) &#123;</span><br><span class="line">                 <span class="keyword">return</span> <span class="string">&quot;&quot;</span>;</span><br><span class="line">               &#125;</span><br><span class="line">             &#125;,</span><br><span class="line">           &#125;,</span><br><span class="line">           animationDuration,</span><br><span class="line">         &#125;,</span><br><span class="line">       ],</span><br><span class="line">     &#125;);</span><br><span class="line"></span><br><span class="line">     <span class="variable language_">window</span>.<span class="title function_">addEventListener</span>(<span class="string">&quot;resize&quot;</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">       <span class="variable language_">this</span>.<span class="property">chart</span>.<span class="title function_">resize</span>();</span><br><span class="line">     &#125;);</span><br><span class="line"></span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+        </div>
+
+        
+            <section class="post-copyright">
+                
+                    <p class="copyright-item">
+                        <span>Author:</span>
+                        <span>immortal</span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>Permalink:</span>
+                        <span><a href="http://example.com/posts/21016.html">http://example.com/posts/21016.html</a></span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>License:</span>
+                        <span>Copyright (c) 2019 <a target="_blank" rel="noopener" href="http://creativecommons.org/licenses/by-nc/4.0/">CC-BY-NC-4.0</a> LICENSE</span>
+                    </p>
+                
+                
+                     <p class="copyright-item">
+                         <span>Slogan:</span>
+                         <span>Do you believe in <strong>DESTINY</strong>?</span>
+                     </p>
+                
+
+            </section>
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                    
+                        <a href="/tags/vue%E7%BB%84%E4%BB%B6/"># vue组件</a>
+                    
+                        
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+                <a class="prev" rel="prev" href="/posts/46728.html">人情世故</a>
+            
+            
+            <a class="next" rel="next" href="/posts/42089.html">async，await</a>
+            
+        </section>
+
+
+    </article>
+</div>
+
+            </div>
+            <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© immortal | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer>
+
+    </div>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/hijiki.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":true},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/"});</script></body>
+
+</html>

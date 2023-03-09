@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="immortal">
+
+
+
+    <meta name="description" content="因过竹院逢僧话,偷得浮生半日闲">
+
+
+
+<title>敲代码的注意事件 | 浮生 - 因过竹院逢僧话,偷得浮生半日闲。</title>
+
+
+
+    <link rel="icon" href="/favicon.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+    
+
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+    <script>
+        // this function is used to check current theme before page loaded.
+        (() => {
+            const currentTheme = window.localStorage && window.localStorage.getItem('theme') || '';
+            const isDark = currentTheme === 'dark';
+            const pagebody = document.getElementsByTagName('body')[0]
+            if (isDark) {
+                pagebody.classList.add('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Dark"
+            } else {
+                pagebody.classList.remove('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Light"
+            }
+        })();
+    </script>
+
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">给自己自信的资本 ＾０＾~</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">给自己自信的资本 ＾０＾~</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+            <div class="main">
+                <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    var tocbot_timer;
+    var DEPTH_MAX = 6; // 为 6 时展开所有
+    var tocbot_default_config = {
+        tocSelector: '.tocbot-list',
+        contentSelector: '.post-content',
+        headingSelector: 'h1, h2, h3, h4, h5',
+        orderedList: false,
+        scrollSmooth: true,
+        onClick: extend_click,
+    };
+
+    function extend_click() {
+        clearTimeout(tocbot_timer);
+        tocbot_timer = setTimeout(function() {
+            tocbot.refresh(obj_merge(tocbot_default_config, {
+                hasInnerContainers: true
+            }));
+        }, 420); // 这个值是由 tocbot 源码里定义的 scrollSmoothDuration 得来的
+    }
+
+    document.ready(function() {
+        tocbot.init(obj_merge(tocbot_default_config, {
+            collapseDepth: 1
+        }));
+    });
+
+    function expand_toc() {
+        var b = document.querySelector('.tocbot-toc-expand');
+        var expanded = b.getAttribute('data-expanded');
+        expanded ? b.removeAttribute('data-expanded') : b.setAttribute('data-expanded', true);
+        tocbot.refresh(obj_merge(tocbot_default_config, {
+            collapseDepth: expanded ? 1 : DEPTH_MAX
+        }));
+        b.innerText = expanded ? 'Expand all' : 'Collapse all';
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+    function obj_merge(target, source) {
+        for (var item in source) {
+            if (source.hasOwnProperty(item)) {
+                target[item] = source[item];
+            }
+        }
+        return target;
+    }
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">敲代码的注意事件</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">immortal</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">二月 28, 2023&nbsp;&nbsp;14:53:06</a>
+                        </span>
+                    
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <h3 id="1-css"><a href="#1-css" class="headerlink" title="1.css"></a>1.css</h3><ol>
+<li>样式繁重的时候就布好框架，全屏用f11，尽量不要用组件。</li>
+<li>样式修改可以先在controls里调试一下，再改代码</li>
+<li>写样式的时候不能只顾样式正确，还得同时保证结构正确，父元素确定布局，子元素在父元素的可操作性范围内</li>
+</ol>
+<h3 id="2-js"><a href="#2-js" class="headerlink" title="2.js"></a>2.js</h3><ol>
+<li>写一个模块的代码就要对一个模块的代码负责，写完之后再对代码进行整体测试，确定达到自己预期之后再提交代码，不要总想着以后处理，然后想着马虎能行就行。</li>
+<li>写代码的时候要考虑到你在些什么，要明白你所写代码的逻辑</li>
+<li>js框架的终极是js语法，不明白原因的时候就追溯js语法</li>
+<li>一个function尽量代码足够简单，不要过长，过长就调用别的function </li>
+<li>vue3引入vue2代码，把vue2代码做成一个页面，设置iframe模块，边框隐藏</li>
+<li>debugger;在要打断点的地方写上这行代码,刷新页面即可直接进入调试</li>
+</ol>
+<h3 id="3-项目"><a href="#3-项目" class="headerlink" title="3.项目"></a>3.项目</h3><ol>
+<li>项目要截档的时候小心对代码的处理，不要因为没什么事了就大改代码，有什么事等截完档之后再说。</li>
+<li>找代码的时候尽量找官网或者git，比如腾讯地图的引用找腾讯api，vue组件找git官网，找demo测试</li>
+<li>若依自带的功能可以借用，不用自己哭唧唧的找代码，有空多了解一些</li>
+<li>逻辑复杂的时候列好逻辑，不要急着做项目，动态id和动态ref用字符串加循环实现，一层循环 不够就再循环一层，尽量结构完整统一，不要东拼西凑，从长远打算，不要走一步看一步。</li>
+<li>一个项目的组件引入最好先自己在全新的地方测试无误再引入，引入的组件放components文件夹</li>
+<li>写过的代码一定要确保没有问题再提交，对代码负责</li>
+<li>写的代码感觉不对劲时得考虑为什么不对劲，怎么去处理，而不是想着能解决就完了</li>
+<li>写代码哪怕是抄，都得去明白自己在抄的是什么，而不是单纯想着抄就完事了</li>
+<li>但凡接到一个事，写代码之前得考虑该怎么去写，先考虑清楚，而不是走一步看一步，写就完事了</li>
+<li>一个项目得先解决主流程，比如绿通就是视频的实时播放，条件搜索就比较次要，结果你实时播放、轮播放着不去做，先去搞样式，害的后来大家陪你一起加班</li>
+<li>一个模块的代码没有问题就别去动，有什么流程上的事要去处理时解决完了记得把这个模块的整理流程走一遍，不要遗漏小bug</li>
+</ol>
+<h3 id="4-大屏"><a href="#4-大屏" class="headerlink" title="4.大屏"></a>4.大屏</h3><ol>
+<li>开始做项目前先布好大局，尤其是样式和逻辑很复杂的数据，以免之后反复修改</li>
+<li>写代码模块多或者代码多的时候要整理代码，把每个模块都做成一个组件分散开来，尽量不要再一个文件里改了又改，补了又补，想到哪里写哪里。</li>
+</ol>
+
+        </div>
+
+        
+            <section class="post-copyright">
+                
+                    <p class="copyright-item">
+                        <span>Author:</span>
+                        <span>immortal</span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>Permalink:</span>
+                        <span><a href="http://example.com/posts/8426.html">http://example.com/posts/8426.html</a></span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>License:</span>
+                        <span>Copyright (c) 2019 <a target="_blank" rel="noopener" href="http://creativecommons.org/licenses/by-nc/4.0/">CC-BY-NC-4.0</a> LICENSE</span>
+                    </p>
+                
+                
+                     <p class="copyright-item">
+                         <span>Slogan:</span>
+                         <span>Do you believe in <strong>DESTINY</strong>?</span>
+                     </p>
+                
+
+            </section>
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                    
+                        <a href="/tags/%E9%9A%8F%E7%AC%94/"># 随笔</a>
+                    
+                        
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+                <a class="prev" rel="prev" href="/posts/3799.html">垂直水平居中</a>
+            
+            
+            <a class="next" rel="next" href="/posts/28218.html">死记硬背</a>
+            
+        </section>
+
+
+    </article>
+</div>
+
+            </div>
+            <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© immortal | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer>
+
+    </div>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/hijiki.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":true},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/"});</script></body>
+
+</html>

@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="immortal">
+
+
+
+    <meta name="description" content="因过竹院逢僧话,偷得浮生半日闲">
+
+
+
+<title>js数组/对象 | 浮生 - 因过竹院逢僧话,偷得浮生半日闲。</title>
+
+
+
+    <link rel="icon" href="/favicon.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+    
+
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+    <script>
+        // this function is used to check current theme before page loaded.
+        (() => {
+            const currentTheme = window.localStorage && window.localStorage.getItem('theme') || '';
+            const isDark = currentTheme === 'dark';
+            const pagebody = document.getElementsByTagName('body')[0]
+            if (isDark) {
+                pagebody.classList.add('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Dark"
+            } else {
+                pagebody.classList.remove('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Light"
+            }
+        })();
+    </script>
+
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">给自己自信的资本 ＾０＾~</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">给自己自信的资本 ＾０＾~</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+            <div class="main">
+                <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    var tocbot_timer;
+    var DEPTH_MAX = 6; // 为 6 时展开所有
+    var tocbot_default_config = {
+        tocSelector: '.tocbot-list',
+        contentSelector: '.post-content',
+        headingSelector: 'h1, h2, h3, h4, h5',
+        orderedList: false,
+        scrollSmooth: true,
+        onClick: extend_click,
+    };
+
+    function extend_click() {
+        clearTimeout(tocbot_timer);
+        tocbot_timer = setTimeout(function() {
+            tocbot.refresh(obj_merge(tocbot_default_config, {
+                hasInnerContainers: true
+            }));
+        }, 420); // 这个值是由 tocbot 源码里定义的 scrollSmoothDuration 得来的
+    }
+
+    document.ready(function() {
+        tocbot.init(obj_merge(tocbot_default_config, {
+            collapseDepth: 1
+        }));
+    });
+
+    function expand_toc() {
+        var b = document.querySelector('.tocbot-toc-expand');
+        var expanded = b.getAttribute('data-expanded');
+        expanded ? b.removeAttribute('data-expanded') : b.setAttribute('data-expanded', true);
+        tocbot.refresh(obj_merge(tocbot_default_config, {
+            collapseDepth: expanded ? 1 : DEPTH_MAX
+        }));
+        b.innerText = expanded ? 'Expand all' : 'Collapse all';
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+    function obj_merge(target, source) {
+        for (var item in source) {
+            if (source.hasOwnProperty(item)) {
+                target[item] = source[item];
+            }
+        }
+        return target;
+    }
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">js数组/对象</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">immortal</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">二月 28, 2023&nbsp;&nbsp;16:00:06</a>
+                        </span>
+                    
+                    
+                        <span class="post-category">
+                    Category:
+                            
+                                <a href="/categories/JavaScript/">JavaScript</a>
+                            
+                        </span>
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <h1 id="1-数组方法"><a href="#1-数组方法" class="headerlink" title="1.数组方法"></a>1.数组方法</h1><h2 id="1-遍历元素："><a href="#1-遍历元素：" class="headerlink" title="1.遍历元素："></a>1.遍历元素：</h2><p>1.会修改原有数组</p>
+<pre><code>arr.map((currentValue,index,array) =&gt; &#123;&#125; ,this);
+--创建一个新数组，其结果是该数组中的每个元素是调用一次提供的函数后的返回值。	
+
+arr.forEach((currentValue,index,array) =&gt; &#123;&#125; ,this);
+--对数组的每个元素执行一次给定的函数。此方法会修改原有数组
+
+使用foreach和map遍历数组的话，使用break不能中断循环，使用return也不能返回到外层函数。
+</code></pre>
+<p>2.不会修改原有数组</p>
+<pre><code>arr.join(&quot;,&quot;);
+--数组转字符串，将一个数组的所有元素连接成一个字符串返回
+
+arr.reduce((previousValue,currentValue,index,array) =&gt; &#123;&#125;,initialValue);
+--reduce方法迭代数组的所有项，又称为“累加器”，返回函数最终计算的一个值。
+</code></pre>
+<h2 id="2-查找元素："><a href="#2-查找元素：" class="headerlink" title="2.查找元素："></a>2.查找元素：</h2><p>1.会修改原有数组</p>
+<p>2.不会修改原有数组</p>
+<pre><code>arr.filter((element,index,array)=&gt;&#123;&#125;,this) ;
+--filter方法过滤数组,返回一个新数组, 其保留 通过所提供函数测试的 所有元素。
+
+arr.indexOf(searchElement，fromIndex);
+--返回在数组中可以找到一个给定元素的第一个索引，如果不存在，则返回-1。
+
+arr.findIndex((element,index,array) =&gt; &#123;&#125; ,this);
+-- 返回数组中满足提供的测试函数的第一个元素的索引。若没有找到对应元素则返回-1。
+
+arr.find((element,index,array) =&gt; &#123;&#125; ,this);
+--返回数组中满足提供的测试函数的第一个元素的值。否则返回 undefined。
+
+arr.includes(searchElement，fromIndex); // ES6 
+--判断一个数组是否包含一个指定的值，根据情况，返回布尔值
+
+arr.every((element,index,array)=&gt;&#123;&#125;,this)
+--依据判断条件，数组的元素是否全满足，若满足则返回ture
+
+arr.some((element,index,array)=&gt;&#123;&#125;,this)
+--依据判断条件，数组的元素是否有一个满足，若有一个满足则返回ture
+</code></pre>
+<h2 id="3-增加元素："><a href="#3-增加元素：" class="headerlink" title="3.增加元素："></a>3.增加元素：</h2><p>1.会修改原有数组</p>
+<pre><code>arr.push(e1, e2, en);
+--添加元素到数组的尾部，返回该数组的新长度
+
+arr.unshift(e1, e2, en);
+--添加元素到数组的头部，返回该数组的新长度
+
+arr.splice(index, count, e1, e2, en);
+--添加元素到数组的任何位置
+</code></pre>
+<p>2.不会修改原有数组</p>
+<pre><code>arr.concat(arr1, arr2, arrn) ;
+--合并两个或多个数组。
+</code></pre>
+<h2 id="4-删除元素："><a href="#4-删除元素：" class="headerlink" title="4.删除元素："></a>4.删除元素：</h2><p>1.会修改原有数组</p>
+<pre><code>arr.pop();
+--删除数组尾部的元素
+
+arr.shift();
+--删除数组头部的元素
+
+arr.splice(index, count); 
+--删除任意位置元素
+
+delete(arr[2]);
+--删除索引值为2的元素值，该位置的元素值改为undefined，返回布尔值
+</code></pre>
+<p>2.不会修改原有数组</p>
+<pre><code>arr.slice(start, end);
+--包头不包尾的截取数组中的一段，并返回新数组。
+</code></pre>
+<h2 id="5-修改元素："><a href="#5-修改元素：" class="headerlink" title="5.修改元素："></a>5.修改元素：</h2><p>1.会修改原有数组</p>
+<pre><code>arr.fill(value,start,end) ;
+--用一个固定值填充一个数组中从起始索引到终止索引内的全部元素。（es6）
+</code></pre>
+<h2 id="6-数组排序："><a href="#6-数组排序：" class="headerlink" title="6.数组排序："></a>6.数组排序：</h2><p>1.会修改原有数组</p>
+<pre><code>arr.sort();
+--对数组的元素进行排序，并返回数组
+
+arr.reverse();
+--将数组中元素的位置颠倒，并返回该数组
+</code></pre>
+<h1 id="2-备注"><a href="#2-备注" class="headerlink" title="2.备注"></a>2.备注</h1><h3 id="1-数组-x2F-对象循环"><a href="#1-数组-x2F-对象循环" class="headerlink" title="1. 数组&#x2F;对象循环"></a>1. 数组&#x2F;对象循环</h3><ol>
+<li>forEach只能循环数组&#x2F;对象，不能改变数组里的元素</li>
+<li>map循环数组&#x2F;对象使用return 可以改变数组元素</li>
+</ol>
+<h3 id="2-js对象-、null、-的区别"><a href="#2-js对象-、null、-的区别" class="headerlink" title="2. js对象{}、null、[]的区别"></a>2. js对象{}、null、[]的区别</h3><p>在转化布尔值时，对于对象而言，只有null转为false，其他的都为true，因此，一定要注意[]、{}都会被转为true</p>
+<h3 id="3"><a href="#3" class="headerlink" title="3. ?."></a>3. ?.</h3><p>if (cur.devices?.length &gt; 0) {}<br>cur对象的devices数组是否为null，如果不为null，devices数组的长度是否大于0</p>
+
+        </div>
+
+        
+            <section class="post-copyright">
+                
+                    <p class="copyright-item">
+                        <span>Author:</span>
+                        <span>immortal</span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>Permalink:</span>
+                        <span><a href="http://example.com/posts/62336.html">http://example.com/posts/62336.html</a></span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>License:</span>
+                        <span>Copyright (c) 2019 <a target="_blank" rel="noopener" href="http://creativecommons.org/licenses/by-nc/4.0/">CC-BY-NC-4.0</a> LICENSE</span>
+                    </p>
+                
+                
+                     <p class="copyright-item">
+                         <span>Slogan:</span>
+                         <span>Do you believe in <strong>DESTINY</strong>?</span>
+                     </p>
+                
+
+            </section>
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+                <a class="prev" rel="prev" href="/posts/12906.html">sse连接</a>
+            
+            
+            <a class="next" rel="next" href="/posts/7527.html">vue-js</a>
+            
+        </section>
+
+
+    </article>
+</div>
+
+            </div>
+            <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© immortal | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer>
+
+    </div>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/hijiki.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":true},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/"});</script></body>
+
+</html>
