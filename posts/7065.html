@@ -1,0 +1,452 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Git常用命令 - 浮生 - 因过竹院逢僧话,偷得浮生半日闲。</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="immortal,"> 
+    <meta name="description" content="因过竹院逢僧话,偷得浮生半日闲,转载自：https://mp.weixin.qq.com/s/Bf7uVhGiu47uOELjmC5uXQw3c：https://www.w3cschool.cn/git/git-basic-ope,"> 
+    <meta name="author" content="immortal"> 
+    <link rel="alternative" href="atom.xml" title="浮生 - 因过竹院逢僧话,偷得浮生半日闲。" type="application/atom+xml"> 
+    <link rel="icon" href="/favicon.ico"> 
+    
+    
+    
+    <meta name="twitter:card" content="summary"/>
+    <meta name="twitter:title" content="Git常用命令 - 浮生 - 因过竹院逢僧话,偷得浮生半日闲。"/>
+    <meta name="twitter:description" content="因过竹院逢僧话,偷得浮生半日闲,转载自：https://mp.weixin.qq.com/s/Bf7uVhGiu47uOELjmC5uXQw3c：https://www.w3cschool.cn/git/git-basic-ope,"/>
+    
+    
+    
+    
+    <meta property="og:site_name" content="浮生 - 因过竹院逢僧话,偷得浮生半日闲。"/>
+    <meta property="og:type" content="object"/>
+    <meta property="og:title" content="Git常用命令 - 浮生 - 因过竹院逢僧话,偷得浮生半日闲。"/>
+    <meta property="og:description" content="因过竹院逢僧话,偷得浮生半日闲,转载自：https://mp.weixin.qq.com/s/Bf7uVhGiu47uOELjmC5uXQw3c：https://www.w3cschool.cn/git/git-basic-ope,"/>
+    
+<link rel="stylesheet" href="/css/diaspora.css">
+
+    <script>window.searchDbPath = "/search.xml";</script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap" rel="stylesheet">
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body class="loading">
+    <span id="config-title" style="display:none">浮生 - 因过竹院逢僧话,偷得浮生半日闲。</span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="iconfont icon-home image-icon" href="javascript:;" data-url="http://example.com"></a>
+    <div title="播放/暂停" class="iconfont icon-play"></div>
+    <h3 class="subtitle">Git常用命令</h3>
+    <div class="social">
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="iconfont icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">Git常用命令</h1>
+        <div class="stuff">
+            <span>三月 10, 2023</span>
+            
+
+        </div>
+        <div class="content markdown">
+            <p>转载自：<a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/Bf7uVhGiu47uOELjmC5uXQ">https://mp.weixin.qq.com/s/Bf7uVhGiu47uOELjmC5uXQ</a><br>w3c：<a target="_blank" rel="noopener" href="https://www.w3cschool.cn/git/git-basic-operations.html">https://www.w3cschool.cn/git/git-basic-operations.html</a><br>git：<a target="_blank" rel="noopener" href="https://gitee.com/all-about-git">https://gitee.com/all-about-git</a></p>
+<h1 id="1-git简介"><a href="#1-git简介" class="headerlink" title="1.git简介"></a>1.git简介</h1><p>1.版本控制<br>版本控制（Revision control）是一种在开发的过程中用于管理我们对文件、目录或工程等内容的修改历史，方便查看更改历史记录，备份以便恢复以前的版本的软件工程技术。<br>简单说就是用于管理多人协同开发项目的技术。</p>
+<p>2.Git与SVN的主要区别<br>SVN是集中式版本控制系统，版本库是集中放在中央服务器的，而工作的时候，用的都是自己的电脑，所以首先要从中央服务器得到最新的版本，然后工作，完成工作后，需要把自己做完的活推送到中央服务器。集中式版本控制系统是必须联网才能工作，对网络带宽要求较高。</p>
+<p>Git是分布式版本控制系统，没有中央服务器，每个人的电脑就是一个完整的版本库，工作的时候不需要联网了，因为版本都在自己电脑上。协同的方法是这样的：比如说自己在电脑上改了文件A，其他人也在电脑上改了文件A，这时，你们两之间只需把各自的修改推送给对方，就可以互相看到对方的修改了。Git可以直接看到更新了哪些代码和文件！<br>Git是目前世界上最先进的分布式版本控制系统。</p>
+<p>3.Git的历史<br>Git是免费、开源的，最初Git是为辅助 Linux 内核开发的，来替代 BitKeeper！</p>
+<h1 id="2-git配置"><a href="#2-git配置" class="headerlink" title="2.git配置"></a>2.git配置</h1><h3 id="1-启动git"><a href="#1-启动git" class="headerlink" title="1.启动git"></a>1.启动git</h3><p>安装成功后在开始菜单中会有Git项，菜单下有3个程序：任意文件夹下右键也可以看到对应的程序！</p>
+<pre><code>Git Bash：Unix与Linux风格的命令行，使用最多，推荐最多
+
+Git CMD：Windows风格的命令行
+
+Git GUI：图形界面的Git，不建议初学者使用，尽量先熟悉常用命令
+</code></pre>
+<p>环境变量只是为了全局使用，在安装时git已经自己配置好了</p>
+<h3 id="2-常用的Linux命令"><a href="#2-常用的Linux命令" class="headerlink" title="2.常用的Linux命令"></a>2.常用的Linux命令</h3><pre><code>cd : 改变目录。
+cd .. 回退到上一个目录，直接cd进入默认目录
+cd gitcode 进入子目录gitcode
+
+pwd : 显示当前所在的目录绝对路径。
+ls:  列出当前目录中的所有文件
+ll:  列出当前目录中的所有文件，ll列出的内容更为详细。
+
+touch : 新建一个文件, touch index.js 就会在当前目录下新建一个index.js文件。
+rm:  删除一个文件, rm index.js 就会把index.js文件删除。
+mkdir:  新建一个目录, mkdir demo 在当前目录下新建demo文件夹。
+rm -r :  删除一个文件夹, rm -r demo 删除demo目录
+
+rm -rf / 切勿在Linux中尝试！删除电脑中全部文件！
+
+mv : 移动文件
+mv index.js demo 把index.js文件转移到demo文件夹下
+index.js 是我们要移动的文件, demo 是目标文件夹,当然, 这样写,必须保证文件index.js和目标文件夹demo在同一目录gitcode下。
+
+reset 重新初始化终端/清屏。
+clear : 清屏。cls (windows)
+
+history 查看命令历史。
+help 帮助。
+exit 退出。
+#表示注释
+</code></pre>
+<h3 id="3-Git配置"><a href="#3-Git配置" class="headerlink" title="3.Git配置"></a>3.Git配置</h3><p>所有的配置文件，其实都保存在本地！</p>
+<pre><code>查看配置 
+- git config -l
+
+查看系统
+- config git config --system --list
+查看当前用户（global）配置 
+- git config --global  --list
+</code></pre>
+<p>Git相关的配置文件：</p>
+<pre><code>1. Git\etc\gitconfig  ：Git 安装目录下的 gitconfig     --system 系统级
+
+2. C:\Users\Administrator\ .gitconfig    只适用于当前登录用户的配置  --global 全局
+</code></pre>
+<p>配置文件可以直接编辑，通过命令设置后会响应到配置文件这里。</p>
+<h3 id="4-设置用户名与邮箱（用户标识，必要）"><a href="#4-设置用户名与邮箱（用户标识，必要）" class="headerlink" title="4.设置用户名与邮箱（用户标识，必要）"></a>4.设置用户名与邮箱（用户标识，必要）</h3><pre><code>git config --global user.name &quot;Immortalya&quot;  #名称
+git config --global user.email 2421030235@qq.com   #邮箱
+</code></pre>
+<p>只需要做一次这个设置，如果你传递了–global 选项，因为Git将总是会使用该信息来处理你在系统中所做的一切操作。如果你希望在一个特定的项目中使用不同的名称或e-mail地址，你可以在该项目中运行该命令而不要–global选项。总之–global为全局配置，不加为某个项目的特定配置。</p>
+<h3 id="5-git在软件中的插件"><a href="#5-git在软件中的插件" class="headerlink" title="5.git在软件中的插件"></a>5.git在软件中的插件</h3><p>当前光标的所在行会显示一个灰色斜体的git提交记录，显示作者以及commit信息</p>
+<ol>
+<li><p>vscode插件<br>GitLens — Git supercharged</p>
+</li>
+<li><p>webstorm插件<br>GitToolBox</p>
+</li>
+</ol>
+<h1 id="3-Git基本理论（重要）"><a href="#3-Git基本理论（重要）" class="headerlink" title="3.Git基本理论（重要）"></a>3.Git基本理论（重要）</h1><h3 id="1-三个区域"><a href="#1-三个区域" class="headerlink" title="1. 三个区域"></a>1. 三个区域</h3><p>Git本地有三个工作区域：工作目录（Working Directory）、暂存区(Stage&#x2F;Index)、资源库(Repository或Git Directory)。如果在加上远程的git仓库(Remote Directory)就可以分为四个工作区域。</p>
+<p><img src="/posts/7065/2023-03-11-10-28-36.png"></p>
+<pre><code>Workspace：工作区，就是你平时存放项目代码的地方
+
+Index / Stage：暂存区，用于临时存放你的改动，事实上它只是一个文件，保存即将提交到文件列表信息
+
+Repository：仓库区（或本地仓库），就是安全存放数据的位置，这里面有你提交到所有版本的数据。其中HEAD指向最新放入仓库的版本
+
+Remote：远程仓库，托管代码的服务器，可以简单的认为是你项目组中的一台电脑用于远程数据交换
+</code></pre>
+<h3 id="2-工作流程"><a href="#2-工作流程" class="headerlink" title="2. 工作流程"></a>2. 工作流程</h3><pre><code>１、在工作目录中添加、修改文件；
+
+２、将需要进行版本管理的文件放入暂存区域；
+
+３、将暂存区域的文件提交到git仓库。
+</code></pre>
+<p><img src="/posts/7065/2023-03-11-10-31-40.png"></p>
+<p>因此，git管理的文件有三种状态：已修改（modified）,已暂存（staged）,已提交(committed)</p>
+<h1 id="4-Git项目搭建"><a href="#4-Git项目搭建" class="headerlink" title="4.Git项目搭建"></a>4.Git项目搭建</h1><h3 id="1-创建工作目录与常用指令"><a href="#1-创建工作目录与常用指令" class="headerlink" title="1.创建工作目录与常用指令"></a>1.创建工作目录与常用指令</h3><p>工作目录（WorkSpace)一般就是你希望Git帮助你管理的文件夹，可以是你项目的目录，也可以是一个空目录，建议不要有中文。</p>
+<p>日常使用只要记住下图6个命令：<br><img src="/posts/7065/2023-03-11-10-33-49.png"></p>
+<h3 id="2-本地仓库搭建"><a href="#2-本地仓库搭建" class="headerlink" title="2.本地仓库搭建"></a>2.本地仓库搭建</h3><p>创建本地仓库的方法有两种：一种是创建全新的仓库，另一种是克隆远程仓库。</p>
+<ol>
+<li><p>创建全新的仓库，需要用GIT管理的项目的根目录执行：</p>
+<pre><code> git init
+</code></pre>
+</li>
+</ol>
+<p>  执行后可以看到，仅仅在项目目录多出了一个.git目录，关于版本等的所有信息都在这个目录里面。</p>
+<ol start="2">
+<li><p>克隆远程仓库</p>
+<p>git clone <a target="_blank" rel="noopener" href="https://github.com/Immortalya/Js-Learn.git">https://github.com/Immortalya/Js-Learn.git</a></p>
+<p>#克隆远程分支到本地分支【远程分支移动到git文件夹，该分支称为本地分支】<br>git clone -b 分支名称 分支地址.git</p>
+</li>
+</ol>
+<p>去 gitee 或者 github 上克隆一个测试！</p>
+<h1 id="5-Git文件操作"><a href="#5-Git文件操作" class="headerlink" title="5.Git文件操作"></a>5.Git文件操作</h1><h3 id="1-文件的四种状态"><a href="#1-文件的四种状态" class="headerlink" title="1.文件的四种状态"></a>1.文件的四种状态</h3><p>版本控制就是对文件的版本控制，要对文件进行修改、提交等操作，首先要知道文件当前在什么状态，不然可能会提交了现在还不想提交的文件，或者要提交的文件没提交上。</p>
+<pre><code>Untracked: 未跟踪, 此文件在文件夹中, 但并没有加入到git库, 不参与版本控制. 通过git add 状态变为Staged.
+
+Unmodify: 文件已经入库, 未修改, 即版本库中的文件快照内容与文件夹中完全一致. 这种类型的文件有两种去处, 如果它被修改, 而变为Modified. 如果使用git rm移出版本库, 则成为Untracked文件
+
+Modified: 文件已修改, 仅仅是修改, 并没有进行其他的操作. 这个文件也有两个去处, 通过git add可进入暂存staged状态, 使用git checkout 则丢弃修改过, 返回到unmodify状态, 这个git checkout即从库中取出文件, 覆盖当前修改 !
+
+Staged: 暂存状态. 执行git commit则将修改同步到库中, 这时库中的文件和本地文件又变为一致, 文件为Unmodify状态. 执行git reset HEAD filename取消暂存, 文件状态为Modified
+</code></pre>
+<h3 id="2-查看文件状态"><a href="#2-查看文件状态" class="headerlink" title="2.查看文件状态"></a>2.查看文件状态</h3><p>git status命令用于显示工作目录和暂存区的状态。使用此命令能看到那些修改被暂存到了, 哪些没有, 哪些文件没有被Git tracked到。</p>
+<p>当执行 git status 的时候，返回结果大致可分为3个部分：</p>
+<pre><code>拟提交的变更：这是已经放入暂存区，准备使用 git commit 命令提交的变更
+
+未暂存的变更：这是工作目录和暂存区快照之间存在差异的文件列表
+
+未跟踪的文件：这类文件对于 Git 系统来说是未知的，也是可以被忽略的
+</code></pre>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">#查看指定文件状态</span><br><span class="line">git status [filename]</span><br><span class="line">  </span><br><span class="line">#查看所有文件状态</span><br><span class="line">git status</span><br><span class="line"></span><br><span class="line">#查看历史提交记录</span><br><span class="line">git log</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="3-忽略文件"><a href="#3-忽略文件" class="headerlink" title="3.忽略文件"></a>3.忽略文件</h3><p>有些时候我们不想把某些文件纳入版本控制中，比如数据库文件，临时文件，设计文件等</p>
+<p>在主目录下建立”.gitignore”文件，此文件有如下规则：</p>
+<p>忽略文件中的空行或以井号（#）开始的行将会被忽略。</p>
+<p>可以使用Linux通配符。例如：星号（*）代表任意多个字符，问号（？）代表一个字符，方括号（[abc]）代表可选字符范围，大括号（{string1,string2,…}）代表可选的字符串等。</p>
+<p>如果名称的最前面有一个感叹号（!），表示例外规则，将不被忽略。</p>
+<p>如果名称的最前面是一个路径分隔符（&#x2F;），表示要忽略的文件在此目录下，而子目录中的文件不忽略。</p>
+<p>如果名称的最后面是一个路径分隔符（&#x2F;），表示要忽略的是此目录下该名称的子目录，而非文件（默认文件或目录都忽略）。</p>
+<pre><code>#为注释
+*.txt        #忽略所有 .txt结尾的文件,这样的话上传就不会被选中！
+!lib.txt     #但lib.txt除外
+/temp        #仅忽略项目根目录下的TODO文件,不包括其它目录temp
+build/       #忽略build/目录下的所有文件
+doc/*.txt    #会忽略 doc/notes.txt 但不包括 doc/server/arch.txt
+</code></pre>
+<h3 id="4-本地文件更改命令"><a href="#4-本地文件更改命令" class="headerlink" title="4.本地文件更改命令"></a>4.本地文件更改命令</h3><p>1.添加文件到暂存区</p>
+<pre><code>#添加所有文件到暂存区
+git add . 
+#把b和c存入暂存区
+git add b c 
+</code></pre>
+<p>2.删除缓存区文件</p>
+<pre><code>#不删除物理文件，仅将该文件从缓存中删除；
+git rm --cached &#39;one.txt&#39;
+#不仅将该文件从缓存中删除，还会将物理文件删除（不会回收到回收站）；
+git rm --f &#39;one.txt&#39;
+</code></pre>
+<p>3.提交暂存区中的内容到本地仓库</p>
+<pre><code>git commit -m &quot;提交信息&quot;  
+</code></pre>
+<h1 id="6-本地关联远程仓库"><a href="#6-本地关联远程仓库" class="headerlink" title="6.本地关联远程仓库"></a>6.本地关联远程仓库</h1><p>1.设置本机绑定SSH公钥，实现免密码登录！</p>
+<p>2.将公钥信息public key 添加到码云账户中即可！<br>github 是有墙的，比较慢，在国内的话，我们一般使用 gitee ，公司中有时候会搭建自己的gitlab服务器</p>
+<p>3.克隆到本地！<br>创建远程仓库的时候得创建README.md文件，不然clone代码的时候会失败</p>
+<p>4.新建项目，绑定git<br>将远程的git文件目录拷贝到新建项目的根目录即可</p>
+<p>5.修改文件，提交代码</p>
+<h1 id="7-git常用操作命令"><a href="#7-git常用操作命令" class="headerlink" title="7.git常用操作命令"></a>7.git常用操作命令</h1><h3 id="1-远程同步"><a href="#1-远程同步" class="headerlink" title="1.远程同步"></a>1.远程同步</h3><pre><code># 显示所有远程仓库
+git remote -v
+
+#显示某个远程仓库的信息
+git remote show [remote]
+
+# 增加一个新的远程仓库，并命名
+git remote add [shortname] [url]
+
+# 取回远程仓库的变化，并与本地分支合并
+git pull [remote] [branch]
+
+# 上传本地指定分支到远程仓库
+git push [remote] [branch]
+
+# 推送所有分支到远程仓库
+git push [remote] --all
+
+# 强行推送当前分支到远程仓库，即使有冲突
+git push [remote] --force
+</code></pre>
+<h3 id="2-Git分支操作"><a href="#2-Git分支操作" class="headerlink" title="2.Git分支操作"></a>2.Git分支操作</h3><p>1.查看分支</p>
+<pre><code># 列出所有本地分支
+git branch
+
+# 列出所有远程分支
+git branch -r
+</code></pre>
+<p>2.切换分支</p>
+<pre><code># 切换到dev分支
+git checkout dev
+</code></pre>
+<p>3.新建分支</p>
+<pre><code># 新建一个分支，但依然停留在当前分支
+git branch [branch-name]
+
+# 新建一个分支，并切换到该分支
+git checkout -b [branch]
+</code></pre>
+<p>4.合并分支</p>
+<pre><code># 合并指定分支到当前分支
+$ git merge [branch]
+</code></pre>
+<p>5.推送分支</p>
+<pre><code># 推送本地分支dev到远程
+git push origin dev
+</code></pre>
+<p>6.删除分支</p>
+<pre><code># 删除分支
+$ git branch -d [branch-name]
+
+# 删除远程分支
+$ git push origin --delete [branch-name]
+</code></pre>
+<h3 id="3-git标签"><a href="#3-git标签" class="headerlink" title="3.git标签"></a>3.git标签</h3><pre><code># 列出所有tag
+$ git tag
+
+# 新建一个tag在当前commit
+$ git tag [tag]
+
+# 新建一个tag在指定commit
+$ git tag [tag] [commit]
+
+# 删除本地tag
+$ git tag -d [tag]
+
+# 删除远程tag
+$ git push origin :refs/tags/[tagName]
+
+# 查看tag信息
+$ git show [tag]
+
+# 提交指定tag
+$ git push [remote] [tag]
+
+# 提交所有tag
+$ git push [remote] --tags
+
+# 新建一个分支，指向某个tag
+$ git checkout -b [branch] [tag]
+</code></pre>
+<h3 id="4-撤销"><a href="#4-撤销" class="headerlink" title="4.撤销"></a>4.撤销</h3><pre><code># 恢复暂存区的指定文件到工作区
+$ git checkout [file]
+
+# 恢复某个commit的指定文件到暂存区和工作区
+$ git checkout [commit] [file]
+
+# 恢复暂存区的所有文件到工作区
+$ git checkout .
+
+# 重置暂存区的指定文件，与上一次commit保持一致，但工作区不变
+$ git reset [file]
+
+# 重置暂存区与工作区，与上一次commit保持一致
+$ git reset --hard
+
+# 重置当前分支的指针为指定commit，同时重置暂存区，但工作区不变
+$ git reset [commit]
+
+# 重置当前分支的HEAD为指定commit，同时重置暂存区和工作区，与指定commit一致
+$ git reset --hard [commit]
+
+# 重置当前HEAD为指定commit，但保持暂存区和工作区不变
+$ git reset --keep [commit]
+
+# 新建一个commit，用来撤销指定commit
+# 后者的所有变化都将被前者抵消，并且应用到当前分支
+$ git revert [commit]
+
+暂时将未提交的变化移除，稍后再移入
+$ git stash
+$ git stash pop
+</code></pre>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        
+                            <li title="0" data-url="http://link.hhtjim.com/163/425570952.mp3"></li>
+                        
+                    
+                        
+                            <li title="1" data-url="http://link.hhtjim.com/163/425570952.mp3"></li>
+                        
+                    
+                </ul>
+            
+        </div>
+        
+        
+    <div id="gitalk-container" class="comment link"
+		data-enable="false"
+        data-ae="false"
+        data-ci=""
+        data-cs=""
+        data-r=""
+        data-o=""
+        data-a=""
+        data-d="false"
+    >查看评论</div>
+
+
+    </div>
+    
+        <div class="side">
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-git%E7%AE%80%E4%BB%8B"><span class="toc-number">1.</span> <span class="toc-text">1.git简介</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-git%E9%85%8D%E7%BD%AE"><span class="toc-number">2.</span> <span class="toc-text">2.git配置</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E5%90%AF%E5%8A%A8git"><span class="toc-number">2.0.1.</span> <span class="toc-text">1.启动git</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E5%B8%B8%E7%94%A8%E7%9A%84Linux%E5%91%BD%E4%BB%A4"><span class="toc-number">2.0.2.</span> <span class="toc-text">2.常用的Linux命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-Git%E9%85%8D%E7%BD%AE"><span class="toc-number">2.0.3.</span> <span class="toc-text">3.Git配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E8%AE%BE%E7%BD%AE%E7%94%A8%E6%88%B7%E5%90%8D%E4%B8%8E%E9%82%AE%E7%AE%B1%EF%BC%88%E7%94%A8%E6%88%B7%E6%A0%87%E8%AF%86%EF%BC%8C%E5%BF%85%E8%A6%81%EF%BC%89"><span class="toc-number">2.0.4.</span> <span class="toc-text">4.设置用户名与邮箱（用户标识，必要）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-git%E5%9C%A8%E8%BD%AF%E4%BB%B6%E4%B8%AD%E7%9A%84%E6%8F%92%E4%BB%B6"><span class="toc-number">2.0.5.</span> <span class="toc-text">5.git在软件中的插件</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-Git%E5%9F%BA%E6%9C%AC%E7%90%86%E8%AE%BA%EF%BC%88%E9%87%8D%E8%A6%81%EF%BC%89"><span class="toc-number">3.</span> <span class="toc-text">3.Git基本理论（重要）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E4%B8%89%E4%B8%AA%E5%8C%BA%E5%9F%9F"><span class="toc-number">3.0.1.</span> <span class="toc-text">1. 三个区域</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%A8%8B"><span class="toc-number">3.0.2.</span> <span class="toc-text">2. 工作流程</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#4-Git%E9%A1%B9%E7%9B%AE%E6%90%AD%E5%BB%BA"><span class="toc-number">4.</span> <span class="toc-text">4.Git项目搭建</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E5%88%9B%E5%BB%BA%E5%B7%A5%E4%BD%9C%E7%9B%AE%E5%BD%95%E4%B8%8E%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4"><span class="toc-number">4.0.1.</span> <span class="toc-text">1.创建工作目录与常用指令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E6%9C%AC%E5%9C%B0%E4%BB%93%E5%BA%93%E6%90%AD%E5%BB%BA"><span class="toc-number">4.0.2.</span> <span class="toc-text">2.本地仓库搭建</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#5-Git%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C"><span class="toc-number">5.</span> <span class="toc-text">5.Git文件操作</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E6%96%87%E4%BB%B6%E7%9A%84%E5%9B%9B%E7%A7%8D%E7%8A%B6%E6%80%81"><span class="toc-number">5.0.1.</span> <span class="toc-text">1.文件的四种状态</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E6%9F%A5%E7%9C%8B%E6%96%87%E4%BB%B6%E7%8A%B6%E6%80%81"><span class="toc-number">5.0.2.</span> <span class="toc-text">2.查看文件状态</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E5%BF%BD%E7%95%A5%E6%96%87%E4%BB%B6"><span class="toc-number">5.0.3.</span> <span class="toc-text">3.忽略文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E6%9C%AC%E5%9C%B0%E6%96%87%E4%BB%B6%E6%9B%B4%E6%94%B9%E5%91%BD%E4%BB%A4"><span class="toc-number">5.0.4.</span> <span class="toc-text">4.本地文件更改命令</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#6-%E6%9C%AC%E5%9C%B0%E5%85%B3%E8%81%94%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93"><span class="toc-number">6.</span> <span class="toc-text">6.本地关联远程仓库</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#7-git%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C%E5%91%BD%E4%BB%A4"><span class="toc-number">7.</span> <span class="toc-text">7.git常用操作命令</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E8%BF%9C%E7%A8%8B%E5%90%8C%E6%AD%A5"><span class="toc-number">7.0.1.</span> <span class="toc-text">1.远程同步</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-Git%E5%88%86%E6%94%AF%E6%93%8D%E4%BD%9C"><span class="toc-number">7.0.2.</span> <span class="toc-text">2.Git分支操作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-git%E6%A0%87%E7%AD%BE"><span class="toc-number">7.0.3.</span> <span class="toc-text">3.git标签</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E6%92%A4%E9%94%80"><span class="toc-number">7.0.4.</span> <span class="toc-text">4.撤销</span></a></li></ol></li></ol></li></ol>
+        </div>
+    
+</div>
+
+
+    </div>
+</div>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/hijiki.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":true},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/"});</script></body>
+
+
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/typed.js"></script>
+<script src="/js/diaspora.js"></script>
+
+
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+
+
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+</html>
