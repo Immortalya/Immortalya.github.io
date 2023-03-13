@@ -281,60 +281,27 @@ $ git tag
 
 # 新建一个tag在当前commit
 $ git tag [tag]
-
-# 新建一个tag在指定commit
-$ git tag [tag] [commit]
+git tag first
 
 # 删除本地tag
 $ git tag -d [tag]
 
 # 删除远程tag
 $ git push origin :refs/tags/[tagName]
-
-# 查看tag信息
-$ git show [tag]
-
-# 提交指定tag
-$ git push [remote] [tag]
+git push origin :refs/tags/first
+注：删除远程标签first不会删除本地标签first
 
 # 提交所有tag
 $ git push [remote] --tags
+git push --tags
+注：remote还不知道用法
 
 # 新建一个分支，指向某个tag
 $ git checkout -b [branch] [tag]
+git checkout -b move third
+注：分支和标签之间的关系还没搞清楚
 </code></pre>
-<h3 id="4-撤销"><a href="#4-撤销" class="headerlink" title="4.撤销"></a>4.撤销</h3><pre><code># 恢复暂存区的指定文件到工作区
-$ git checkout [file]
-
-# 恢复某个commit的指定文件到暂存区和工作区
-$ git checkout [commit] [file]
-
-# 恢复暂存区的所有文件到工作区
-$ git checkout .
-
-# 重置暂存区的指定文件，与上一次commit保持一致，但工作区不变
-$ git reset [file]
-
-# 重置暂存区与工作区，与上一次commit保持一致
-$ git reset --hard
-
-# 重置当前分支的指针为指定commit，同时重置暂存区，但工作区不变
-$ git reset [commit]
-
-# 重置当前分支的HEAD为指定commit，同时重置暂存区和工作区，与指定commit一致
-$ git reset --hard [commit]
-
-# 重置当前HEAD为指定commit，但保持暂存区和工作区不变
-$ git reset --keep [commit]
-
-# 新建一个commit，用来撤销指定commit
-# 后者的所有变化都将被前者抵消，并且应用到当前分支
-$ git revert [commit]
-
-暂时将未提交的变化移除，稍后再移入
-$ git stash
-$ git stash pop
-</code></pre>
+<h3 id="4-撤销"><a href="#4-撤销" class="headerlink" title="4.撤销"></a>4.撤销</h3><p>稍微测了下本地仓库撤回，结果没生效，等以后再试吧</p>
 
             <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
             <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
