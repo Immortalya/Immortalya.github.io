@@ -1,0 +1,790 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Keep">
+    <meta name="description" content="因过竹院逢僧话,偷得浮生半日闲">
+    <meta name="author" content="immortal">
+    
+    <title>
+        
+            Git常用命令 |
+        
+        唔、
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <link rel="shortcut icon" href="/images/favicon.png">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/font/css/fontawesome.min.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/font/css/regular.min.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/font/css/solid.min.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/font/css/brands.min.css">
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {}
+    KEEP.hexo_config = {"hostname":"example.com","root":"/","language":"zh-CN","path":"search.xml"}
+    KEEP.theme_config = {"toc":{"enable":true,"number":true,"expand_all":true,"init_open":true},"style":{"primary_color":"#0066cc","logo":"/images/logo.png","favicon":"/images/favicon.png","avatar":"/images/avatar.jpg","font_size":null,"font_family":null,"hover":{"shadow":true,"scale":true},"first_screen":{"enable":true,"header_transparent":true,"background_img":"/images/bg.svg","description":"表达要简明扼要、 || 做事稳重点，不要急","font_color":null,"hitokoto":false},"scroll":{"progress_bar":true,"percent":true}},"local_search":{"enable":true,"preload":true},"code_copy":{},"code_block":{"tools":{"enable":true,"style":"default"},"highlight_theme":"default"},"side_tools":{},"pjax":{"enable":true},"lazyload":{"enable":false},"comment":{"enable":false,"use":"valine","valine":{"appid":null,"appkey":null,"server_urls":null,"placeholder":null},"gitalk":{"github_id":null,"github_admins":null,"repository":null,"client_id":null,"client_secret":null,"proxy":null},"twikoo":{"env_id":null,"region":null,"version":"1.6.8"},"waline":{"server_url":null,"reaction":false,"version":2}},"post":{"author_label":{"enable":true,"auto":true,"custom_label_list":["Trainee","Engineer","Architect"]},"word_count":{"enable":true,"wordcount":true,"min2read":true},"img_align":"center","copyright_info":true},"version":"3.6.1"}
+    KEEP.language_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 个月前","year":"%s 年前"}
+    KEEP.language_code_block = {"copy":"复制代码","copied":"已复制","fold":"折叠代码块","folded":"已折叠"}
+    KEEP.language_copy_copyright = {"copy":"复制版权信息","copied":"已复制","title":"原文标题","author":"原文作者","link":"原文链接"}
+  </script>
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+        <span class="scroll-progress-bar"></span>
+    
+
+    
+        <span class="pjax-progress-bar"></span>
+        <i class="pjax-progress-icon fas fa-circle-notch fa-spin"></i>
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            
+<header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            
+                <a class="logo-image" href="/">
+                    <img src="/images/logo.png">
+                </a>
+            
+            <a class="logo-title" href="/">
+               唔、
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                首页
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                归档
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/categories"
+                            >
+                                分类
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/tags"
+                            >
+                                标签
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/links"
+                            >
+                                友链
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/about"
+                            >
+                                关于
+                            </a>
+                        </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas fa-search"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/">首页</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives">归档</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/categories">分类</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/tags">标签</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/links">友链</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/about">关于</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="post-page-container">
+        <div class="article-content-container">
+
+            <div class="article-title">
+                <span class="title-hover-animation">Git常用命令</span>
+            </div>
+
+            
+                <div class="article-header">
+                    <div class="avatar">
+                        <img src="/images/avatar.jpg">
+                    </div>
+                    <div class="info">
+                        <div class="author">
+                            <span class="name">immortal</span>
+                            
+                                <span class="author-label">Lv4</span>
+                            
+                        </div>
+                        <div class="meta-info">
+                            
+<div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        
+            <i class="fa-regular fa-calendar-plus"></i>&nbsp;
+        
+        <span class="pc">2023-03-10 09:54:06</span>
+        <span class="mobile">2023-03-10 09:54</span>
+    </span>
+    
+        <span class="article-update-date article-meta-item">
+        <i class="fas fa-file-pen"></i>&nbsp;
+        <span class="pc">2023-05-07 14:46:15</span>
+    </span>
+    
+    
+        <span class="article-categories article-meta-item">
+            <i class="fas fa-folder"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/categories/hexo/">hexo</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+    
+
+    
+    
+        <span class="article-wordcount article-meta-item">
+            <i class="fas fa-file-word"></i>&nbsp;<span>3.3k 字</span>
+        </span>
+    
+    
+        <span class="article-min2read article-meta-item">
+            <i class="fas fa-clock"></i>&nbsp;<span>12 分钟</span>
+        </span>
+    
+    
+        <span class="article-pv article-meta-item">
+            <i class="fas fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+        </span>
+    
+</div>
+
+                        </div>
+                    </div>
+                </div>
+            
+
+            <div class="article-content keep-markdown-body">
+                
+
+                <p>转载自：<a class="link" target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/Bf7uVhGiu47uOELjmC5uXQ">https://mp.weixin.qq.com/s/Bf7uVhGiu47uOELjmC5uXQ<i class="fas fa-external-link-alt"></i></a><br>w3c：<a class="link" target="_blank" rel="noopener" href="https://www.w3cschool.cn/git/git-basic-operations.html">https://www.w3cschool.cn/git/git-basic-operations.html<i class="fas fa-external-link-alt"></i></a><br>git：<a class="link" target="_blank" rel="noopener" href="https://gitee.com/all-about-git">https://gitee.com/all-about-git<i class="fas fa-external-link-alt"></i></a></p>
+<h1 id="1-git简介"><a href="#1-git简介" class="headerlink" title="1.git简介"></a>1.git简介</h1><p>1.版本控制<br>版本控制（Revision control）是一种在开发的过程中用于管理我们对文件、目录或工程等内容的修改历史，方便查看更改历史记录，备份以便恢复以前的版本的软件工程技术。<br>简单说就是用于管理多人协同开发项目的技术。</p>
+<p>2.Git与SVN的主要区别<br>SVN是集中式版本控制系统，版本库是集中放在中央服务器的，而工作的时候，用的都是自己的电脑，所以首先要从中央服务器得到最新的版本，然后工作，完成工作后，需要把自己做完的活推送到中央服务器。集中式版本控制系统是必须联网才能工作，对网络带宽要求较高。</p>
+<p>Git是分布式版本控制系统，没有中央服务器，每个人的电脑就是一个完整的版本库，工作的时候不需要联网了，因为版本都在自己电脑上。协同的方法是这样的：比如说自己在电脑上改了文件A，其他人也在电脑上改了文件A，这时，你们两之间只需把各自的修改推送给对方，就可以互相看到对方的修改了。Git可以直接看到更新了哪些代码和文件！<br>Git是目前世界上最先进的分布式版本控制系统。</p>
+<p>3.Git的历史<br>Git是免费、开源的，最初Git是为辅助 Linux 内核开发的，来替代 BitKeeper！</p>
+<h1 id="2-git配置"><a href="#2-git配置" class="headerlink" title="2.git配置"></a>2.git配置</h1><h3 id="1-启动git"><a href="#1-启动git" class="headerlink" title="1.启动git"></a>1.启动git</h3><p>安装成功后在开始菜单中会有Git项，菜单下有3个程序：任意文件夹下右键也可以看到对应的程序！</p>
+<pre><code>Git Bash：Unix与Linux风格的命令行，使用最多，推荐最多
+
+Git CMD：Windows风格的命令行
+
+Git GUI：图形界面的Git，不建议初学者使用，尽量先熟悉常用命令
+</code></pre>
+<p>环境变量只是为了全局使用，在安装时git已经自己配置好了</p>
+<h3 id="2-常用的Linux命令"><a href="#2-常用的Linux命令" class="headerlink" title="2.常用的Linux命令"></a>2.常用的Linux命令</h3><pre><code>cd : 改变目录。
+cd .. 回退到上一个目录，直接cd进入默认目录
+cd gitcode 进入子目录gitcode
+
+pwd : 显示当前所在的目录绝对路径。
+ls:  列出当前目录中的所有文件
+ll:  列出当前目录中的所有文件，ll列出的内容更为详细。
+
+touch : 新建一个文件, touch index.js 就会在当前目录下新建一个index.js文件。
+rm:  删除一个文件, rm index.js 就会把index.js文件删除。
+mkdir:  新建一个目录, mkdir demo 在当前目录下新建demo文件夹。
+rm -r :  删除一个文件夹, rm -r demo 删除demo目录
+
+rm -rf / 切勿在Linux中尝试！删除电脑中全部文件！
+
+mv : 移动文件
+mv index.js demo 把index.js文件转移到demo文件夹下
+index.js 是我们要移动的文件, demo 是目标文件夹,当然, 这样写,必须保证文件index.js和目标文件夹demo在同一目录gitcode下。
+
+reset 重新初始化终端/清屏。
+clear : 清屏。cls (windows)
+
+history 查看命令历史。
+help 帮助。
+exit 退出。
+#表示注释
+</code></pre>
+<h3 id="3-Git配置"><a href="#3-Git配置" class="headerlink" title="3.Git配置"></a>3.Git配置</h3><p>所有的配置文件，其实都保存在本地！</p>
+<pre><code>查看配置 
+- git config -l
+
+查看系统
+- config git config --system --list
+查看当前用户（global）配置 
+- git config --global  --list
+</code></pre>
+<p>Git相关的配置文件：</p>
+<pre><code>1. Git\etc\gitconfig  ：Git 安装目录下的 gitconfig     --system 系统级
+
+2. C:\Users\Administrator\ .gitconfig    只适用于当前登录用户的配置  --global 全局
+</code></pre>
+<p>配置文件可以直接编辑，通过命令设置后会响应到配置文件这里。</p>
+<h3 id="4-设置用户名与邮箱（用户标识，必要）"><a href="#4-设置用户名与邮箱（用户标识，必要）" class="headerlink" title="4.设置用户名与邮箱（用户标识，必要）"></a>4.设置用户名与邮箱（用户标识，必要）</h3><pre><code>git config --global user.name &quot;Immortalya&quot;  #名称
+git config --global user.email 2421030235@qq.com   #邮箱
+</code></pre>
+<p>只需要做一次这个设置，如果你传递了–global 选项，因为Git将总是会使用该信息来处理你在系统中所做的一切操作。如果你希望在一个特定的项目中使用不同的名称或e-mail地址，你可以在该项目中运行该命令而不要–global选项。总之–global为全局配置，不加为某个项目的特定配置。</p>
+<h3 id="5-git在软件中的插件"><a href="#5-git在软件中的插件" class="headerlink" title="5.git在软件中的插件"></a>5.git在软件中的插件</h3><p>当前光标的所在行会显示一个灰色斜体的git提交记录，显示作者以及commit信息</p>
+<ol>
+<li><p>vscode插件<br>GitLens — Git supercharged</p>
+</li>
+<li><p>webstorm插件<br>GitToolBox</p>
+</li>
+</ol>
+<h1 id="3-Git基本理论（重要）"><a href="#3-Git基本理论（重要）" class="headerlink" title="3.Git基本理论（重要）"></a>3.Git基本理论（重要）</h1><h3 id="1-三个区域"><a href="#1-三个区域" class="headerlink" title="1. 三个区域"></a>1. 三个区域</h3><p>Git本地有三个工作区域：工作目录（Working Directory）、暂存区(Stage&#x2F;Index)、资源库(Repository或Git Directory)。如果在加上远程的git仓库(Remote Directory)就可以分为四个工作区域。</p>
+<p><img src="/posts/7065/2023-03-11-10-28-36.png"></p>
+<pre><code>Workspace：工作区，就是你平时存放项目代码的地方
+
+Index / Stage：暂存区，用于临时存放你的改动，事实上它只是一个文件，保存即将提交到文件列表信息
+
+Repository：仓库区（或本地仓库），就是安全存放数据的位置，这里面有你提交到所有版本的数据。其中HEAD指向最新放入仓库的版本
+
+Remote：远程仓库，托管代码的服务器，可以简单的认为是你项目组中的一台电脑用于远程数据交换
+</code></pre>
+<h3 id="2-工作流程"><a href="#2-工作流程" class="headerlink" title="2. 工作流程"></a>2. 工作流程</h3><pre><code>１、在工作目录中添加、修改文件；
+
+２、将需要进行版本管理的文件放入暂存区域；
+
+３、将暂存区域的文件提交到git仓库。
+</code></pre>
+<p><img src="/posts/7065/2023-03-11-10-31-40.png"></p>
+<p>因此，git管理的文件有三种状态：已修改（modified）,已暂存（staged）,已提交(committed)</p>
+<h1 id="4-Git项目搭建"><a href="#4-Git项目搭建" class="headerlink" title="4.Git项目搭建"></a>4.Git项目搭建</h1><h3 id="1-创建工作目录与常用指令"><a href="#1-创建工作目录与常用指令" class="headerlink" title="1.创建工作目录与常用指令"></a>1.创建工作目录与常用指令</h3><p>工作目录（WorkSpace)一般就是你希望Git帮助你管理的文件夹，可以是你项目的目录，也可以是一个空目录，建议不要有中文。</p>
+<p>日常使用只要记住下图6个命令：<br><img src="/posts/7065/2023-03-11-10-33-49.png"></p>
+<h3 id="2-本地仓库搭建"><a href="#2-本地仓库搭建" class="headerlink" title="2.本地仓库搭建"></a>2.本地仓库搭建</h3><p>创建本地仓库的方法有两种：一种是创建全新的仓库，另一种是克隆远程仓库。</p>
+<ol>
+<li><p>创建全新的仓库，需要用GIT管理的项目的根目录执行：</p>
+<pre><code> git init
+</code></pre>
+</li>
+</ol>
+<p>  执行后可以看到，仅仅在项目目录多出了一个.git目录，关于版本等的所有信息都在这个目录里面。</p>
+<ol start="2">
+<li><p>克隆远程仓库</p>
+<p>git clone <a class="link" target="_blank" rel="noopener" href="https://github.com/Immortalya/Js-Learn.git">https://github.com/Immortalya/Js-Learn.git<i class="fas fa-external-link-alt"></i></a></p>
+<p>#克隆远程分支到本地分支【远程分支移动到git文件夹，该分支称为本地分支】<br>git clone -b 分支名称 分支地址.git</p>
+</li>
+</ol>
+<p>去 gitee 或者 github 上克隆一个测试！</p>
+<h1 id="5-Git文件操作"><a href="#5-Git文件操作" class="headerlink" title="5.Git文件操作"></a>5.Git文件操作</h1><h3 id="1-文件的四种状态"><a href="#1-文件的四种状态" class="headerlink" title="1.文件的四种状态"></a>1.文件的四种状态</h3><p>版本控制就是对文件的版本控制，要对文件进行修改、提交等操作，首先要知道文件当前在什么状态，不然可能会提交了现在还不想提交的文件，或者要提交的文件没提交上。</p>
+<pre><code>Untracked: 未跟踪, 此文件在文件夹中, 但并没有加入到git库, 不参与版本控制. 通过git add 状态变为Staged.
+
+Unmodify: 文件已经入库, 未修改, 即版本库中的文件快照内容与文件夹中完全一致. 这种类型的文件有两种去处, 如果它被修改, 而变为Modified. 如果使用git rm移出版本库, 则成为Untracked文件
+
+Modified: 文件已修改, 仅仅是修改, 并没有进行其他的操作. 这个文件也有两个去处, 通过git add可进入暂存staged状态, 使用git checkout 则丢弃修改过, 返回到unmodify状态, 这个git checkout即从库中取出文件, 覆盖当前修改 !
+
+Staged: 暂存状态. 执行git commit则将修改同步到库中, 这时库中的文件和本地文件又变为一致, 文件为Unmodify状态. 执行git reset HEAD filename取消暂存, 文件状态为Modified
+</code></pre>
+<h3 id="2-查看文件状态"><a href="#2-查看文件状态" class="headerlink" title="2.查看文件状态"></a>2.查看文件状态</h3><p>git status命令用于显示工作目录和暂存区的状态。使用此命令能看到那些修改被暂存到了, 哪些没有, 哪些文件没有被Git tracked到。</p>
+<p>当执行 git status 的时候，返回结果大致可分为3个部分：</p>
+<pre><code>拟提交的变更：这是已经放入暂存区，准备使用 git commit 命令提交的变更
+
+未暂存的变更：这是工作目录和暂存区快照之间存在差异的文件列表
+
+未跟踪的文件：这类文件对于 Git 系统来说是未知的，也是可以被忽略的
+</code></pre>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">#查看指定文件状态</span><br><span class="line">git status [filename]</span><br><span class="line">  </span><br><span class="line">#查看所有文件状态</span><br><span class="line">git status</span><br><span class="line"></span><br><span class="line">#查看历史提交记录</span><br><span class="line">git log</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="3-忽略文件"><a href="#3-忽略文件" class="headerlink" title="3.忽略文件"></a>3.忽略文件</h3><p>有些时候我们不想把某些文件纳入版本控制中，比如数据库文件，临时文件，设计文件等</p>
+<p>在主目录下建立”.gitignore”文件，此文件有如下规则：</p>
+<p>忽略文件中的空行或以井号（#）开始的行将会被忽略。</p>
+<p>可以使用Linux通配符。例如：星号（*）代表任意多个字符，问号（？）代表一个字符，方括号（[abc]）代表可选字符范围，大括号（{string1,string2,…}）代表可选的字符串等。</p>
+<p>如果名称的最前面有一个感叹号（!），表示例外规则，将不被忽略。</p>
+<p>如果名称的最前面是一个路径分隔符（&#x2F;），表示要忽略的文件在此目录下，而子目录中的文件不忽略。</p>
+<p>如果名称的最后面是一个路径分隔符（&#x2F;），表示要忽略的是此目录下该名称的子目录，而非文件（默认文件或目录都忽略）。</p>
+<pre><code>#为注释
+*.txt        #忽略所有 .txt结尾的文件,这样的话上传就不会被选中！
+!lib.txt     #但lib.txt除外
+/temp        #仅忽略项目根目录下的TODO文件,不包括其它目录temp
+build/       #忽略build/目录下的所有文件
+doc/*.txt    #会忽略 doc/notes.txt 但不包括 doc/server/arch.txt
+</code></pre>
+<h3 id="4-本地文件更改命令"><a href="#4-本地文件更改命令" class="headerlink" title="4.本地文件更改命令"></a>4.本地文件更改命令</h3><p>1.添加文件到暂存区</p>
+<pre><code>#添加所有文件到暂存区
+git add . 
+#把b和c存入暂存区
+git add b c 
+</code></pre>
+<p>2.删除缓存区文件</p>
+<pre><code>#不删除物理文件，仅将该文件从缓存中删除；
+git rm --cached &#39;one.txt&#39;
+#不仅将该文件从缓存中删除，还会将物理文件删除（不会回收到回收站）；
+git rm --f &#39;one.txt&#39;
+</code></pre>
+<p>3.提交暂存区中的内容到本地仓库</p>
+<pre><code>git commit -m &quot;提交信息&quot;  
+</code></pre>
+<h1 id="6-本地关联远程仓库"><a href="#6-本地关联远程仓库" class="headerlink" title="6.本地关联远程仓库"></a>6.本地关联远程仓库</h1><p>1.设置本机绑定SSH公钥，实现免密码登录！</p>
+<p>2.将公钥信息public key 添加到码云账户中即可！<br>github 是有墙的，比较慢，在国内的话，我们一般使用 gitee ，公司中有时候会搭建自己的gitlab服务器</p>
+<p>3.克隆到本地！<br>创建远程仓库的时候得创建README.md文件，不然clone代码的时候会失败</p>
+<p>4.新建项目，绑定git<br>将远程的git文件目录拷贝到新建项目的根目录即可</p>
+<p>5.修改文件，提交代码</p>
+<h1 id="7-git常用操作命令"><a href="#7-git常用操作命令" class="headerlink" title="7.git常用操作命令"></a>7.git常用操作命令</h1><h3 id="1-远程同步"><a href="#1-远程同步" class="headerlink" title="1.远程同步"></a>1.远程同步</h3><pre><code># 显示所有远程仓库
+git remote -v
+
+#显示某个远程仓库的信息
+git remote show [remote]
+
+# 增加一个新的远程仓库，并命名
+git remote add [shortname] [url]
+
+# 取回远程仓库的变化，并与本地分支合并
+git pull [remote] [branch]
+
+# 上传本地指定分支到远程仓库
+git push [remote] [branch]
+
+# 推送所有分支到远程仓库
+git push [remote] --all
+
+# 强行推送当前分支到远程仓库，即使有冲突
+git push [remote] --force
+</code></pre>
+<h3 id="2-Git分支操作"><a href="#2-Git分支操作" class="headerlink" title="2.Git分支操作"></a>2.Git分支操作</h3><p>1.查看分支</p>
+<pre><code># 列出所有本地分支
+git branch
+
+# 列出所有远程分支
+git branch -r
+</code></pre>
+<p>2.切换分支</p>
+<pre><code># 切换到dev分支
+git checkout dev
+</code></pre>
+<p>3.新建分支</p>
+<pre><code># 新建一个分支，但依然停留在当前分支
+git branch [branch-name]
+
+# 新建一个分支，并切换到该分支
+git checkout -b [branch]
+</code></pre>
+<p>4.合并分支</p>
+<pre><code># 合并指定分支到当前分支
+$ git merge [branch]
+</code></pre>
+<p>5.推送分支</p>
+<pre><code># 推送本地分支dev到远程
+git push origin dev
+</code></pre>
+<p>6.删除分支</p>
+<pre><code># 删除分支
+$ git branch -d [branch-name]
+
+# 删除远程分支
+$ git push origin --delete [branch-name]
+</code></pre>
+<h3 id="3-git标签"><a href="#3-git标签" class="headerlink" title="3.git标签"></a>3.git标签</h3><pre><code># 列出所有tag
+$ git tag
+
+# 新建一个tag在当前commit
+$ git tag [tag]
+git tag first
+
+# 删除本地tag
+$ git tag -d [tag]
+
+# 删除远程tag
+$ git push origin :refs/tags/[tagName]
+git push origin :refs/tags/first
+注：删除远程标签first不会删除本地标签first
+
+# 提交所有tag
+$ git push [remote] --tags
+git push --tags
+注：remote还不知道用法
+
+# 新建一个分支，指向某个tag
+$ git checkout -b [branch] [tag]
+git checkout -b move third
+注：分支和标签之间的关系还没搞清楚
+</code></pre>
+<h3 id="4-撤销"><a href="#4-撤销" class="headerlink" title="4.撤销"></a>4.撤销</h3><p>稍微测了下本地仓库撤回，结果没生效，等以后再试吧</p>
+
+            </div>
+
+            
+                <div class="post-copyright-info">
+                    
+<div class="article-copyright-info-container">
+    <ul class="copyright-info-content">
+        <li class="post-title">
+            <span class="type">本文标题</span>：<span class="content">Git常用命令</span>
+        </li>
+        <li class="post-author">
+            <span class="type">本文作者</span>：<span class="content">immortal</span>
+        </li>
+        <li class="post-time">
+            <span class="type">创建时间</span>：<span class="content">2023-03-10 09:54:06</span>
+        </li>
+        <li class="post-link">
+            <span class="type">本文链接</span>：<span class="content">posts/7065.html</span>
+        </li>
+        <li class="post-license">
+            <span class="type">版权声明</span>：<span class="content">本博客所有文章除特别声明外，均采用 <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> 许可协议。转载请注明出处！</span>
+        </li>
+    </ul>
+    <div class="copy-copyright-info flex-center tooltip" data-content="复制版权信息" data-offset-y="-2px">
+        <i class="fa-solid fa-copy"></i>
+    </div>
+</div>
+
+                </div>
+            
+
+            
+
+            
+                <div class="article-nav">
+                    
+                        <div class="article-prev">
+                            <a class="prev"
+                               rel="prev"
+                               href="/posts/11358.html"
+                            >
+                            <span class="left arrow-icon flex-center">
+                              <i class="fas fa-chevron-left"></i>
+                            </span>
+                                <span class="title flex-center">
+                                <span class="post-nav-title-item">css3中的函数</span>
+                                <span class="post-nav-item">上一篇</span>
+                            </span>
+                            </a>
+                        </div>
+                    
+                    
+                        <div class="article-next">
+                            <a class="next"
+                               rel="next"
+                               href="/posts/46728.html"
+                            >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">时光会说话</span>
+                                <span class="post-nav-item">下一篇</span>
+                            </span>
+                                <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                            </a>
+                        </div>
+                    
+                </div>
+            
+
+            
+        </div>
+
+        
+            <div class="toc-content-container">
+                <div class="post-toc-wrap">
+    <div class="post-toc">
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-git%E7%AE%80%E4%BB%8B"><span class="nav-number">1.</span> <span class="nav-text">1.git简介</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-git%E9%85%8D%E7%BD%AE"><span class="nav-number">2.</span> <span class="nav-text">2.git配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E5%90%AF%E5%8A%A8git"><span class="nav-number">2.0.1.</span> <span class="nav-text">1.启动git</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E5%B8%B8%E7%94%A8%E7%9A%84Linux%E5%91%BD%E4%BB%A4"><span class="nav-number">2.0.2.</span> <span class="nav-text">2.常用的Linux命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-Git%E9%85%8D%E7%BD%AE"><span class="nav-number">2.0.3.</span> <span class="nav-text">3.Git配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-%E8%AE%BE%E7%BD%AE%E7%94%A8%E6%88%B7%E5%90%8D%E4%B8%8E%E9%82%AE%E7%AE%B1%EF%BC%88%E7%94%A8%E6%88%B7%E6%A0%87%E8%AF%86%EF%BC%8C%E5%BF%85%E8%A6%81%EF%BC%89"><span class="nav-number">2.0.4.</span> <span class="nav-text">4.设置用户名与邮箱（用户标识，必要）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-git%E5%9C%A8%E8%BD%AF%E4%BB%B6%E4%B8%AD%E7%9A%84%E6%8F%92%E4%BB%B6"><span class="nav-number">2.0.5.</span> <span class="nav-text">5.git在软件中的插件</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-Git%E5%9F%BA%E6%9C%AC%E7%90%86%E8%AE%BA%EF%BC%88%E9%87%8D%E8%A6%81%EF%BC%89"><span class="nav-number">3.</span> <span class="nav-text">3.Git基本理论（重要）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E4%B8%89%E4%B8%AA%E5%8C%BA%E5%9F%9F"><span class="nav-number">3.0.1.</span> <span class="nav-text">1. 三个区域</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%A8%8B"><span class="nav-number">3.0.2.</span> <span class="nav-text">2. 工作流程</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-Git%E9%A1%B9%E7%9B%AE%E6%90%AD%E5%BB%BA"><span class="nav-number">4.</span> <span class="nav-text">4.Git项目搭建</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E5%88%9B%E5%BB%BA%E5%B7%A5%E4%BD%9C%E7%9B%AE%E5%BD%95%E4%B8%8E%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4"><span class="nav-number">4.0.1.</span> <span class="nav-text">1.创建工作目录与常用指令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E6%9C%AC%E5%9C%B0%E4%BB%93%E5%BA%93%E6%90%AD%E5%BB%BA"><span class="nav-number">4.0.2.</span> <span class="nav-text">2.本地仓库搭建</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#5-Git%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C"><span class="nav-number">5.</span> <span class="nav-text">5.Git文件操作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E6%96%87%E4%BB%B6%E7%9A%84%E5%9B%9B%E7%A7%8D%E7%8A%B6%E6%80%81"><span class="nav-number">5.0.1.</span> <span class="nav-text">1.文件的四种状态</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E6%9F%A5%E7%9C%8B%E6%96%87%E4%BB%B6%E7%8A%B6%E6%80%81"><span class="nav-number">5.0.2.</span> <span class="nav-text">2.查看文件状态</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E5%BF%BD%E7%95%A5%E6%96%87%E4%BB%B6"><span class="nav-number">5.0.3.</span> <span class="nav-text">3.忽略文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-%E6%9C%AC%E5%9C%B0%E6%96%87%E4%BB%B6%E6%9B%B4%E6%94%B9%E5%91%BD%E4%BB%A4"><span class="nav-number">5.0.4.</span> <span class="nav-text">4.本地文件更改命令</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#6-%E6%9C%AC%E5%9C%B0%E5%85%B3%E8%81%94%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93"><span class="nav-number">6.</span> <span class="nav-text">6.本地关联远程仓库</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#7-git%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C%E5%91%BD%E4%BB%A4"><span class="nav-number">7.</span> <span class="nav-text">7.git常用操作命令</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E8%BF%9C%E7%A8%8B%E5%90%8C%E6%AD%A5"><span class="nav-number">7.0.1.</span> <span class="nav-text">1.远程同步</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-Git%E5%88%86%E6%94%AF%E6%93%8D%E4%BD%9C"><span class="nav-number">7.0.2.</span> <span class="nav-text">2.Git分支操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-git%E6%A0%87%E7%AD%BE"><span class="nav-number">7.0.3.</span> <span class="nav-text">3.git标签</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-%E6%92%A4%E9%94%80"><span class="nav-number">7.0.4.</span> <span class="nav-text">4.撤销</span></a></li></ol></li></ol></li></ol>
+    </div>
+</div>
+
+            </div>
+        
+    </div>
+</div>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            
+<footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+                <span>2023</span> -
+            
+            2023
+            
+                &nbsp;<i class="fas fa-heart icon-animate"></i>
+                &nbsp;<a href="/">immortal</a>
+            
+        </div>
+        
+            <script async data-pjax
+                    src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+            <div class="website-count info-item">
+                
+                    访问人数&nbsp;<span id="busuanzi_value_site_uv"></span>&ensp;
+                
+                
+                    总访问量&nbsp;<span id="busuanzi_value_site_pv"></span>
+                
+            </div>
+        
+        <div class="theme-info info-item">
+            由 <a target="_blank" href="https://hexo.io">Hexo</a> 驱动&nbsp;|&nbsp;主题&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.6.1</a>
+        </div>
+        
+        
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="tools-item flex-center toggle-show-toc">
+                <i class="fas fa-list"></i>
+            </li>
+        
+
+        <!-- go comment -->
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="arrow-up fas fa-arrow-up"></i>
+                <span class="percent"></span>
+            </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    <div class="zoom-in-image-mask">
+    <img class="zoom-in-image">
+</div>
+
+
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="搜索..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="close-popup-btn">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+</main>
+
+
+
+<script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/js/utils.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/js/main.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/js/header-shrink.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/js/back2top.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/js/dark-light-toggle.js"></script>
+
+
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/js/local-search.js"></script>
+
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/js/code-block.js"></script>
+
+
+
+
+<div class="post-scripts pjax">
+    
+        <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/js/post-helper.js"></script>
+        
+            <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/js/libs/anime.min.js"></script>
+        
+        
+            <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/js/toc.js"></script>
+        
+    
+</div>
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/js/libs/pjax.min.js"></script>
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        window.pjax = new Pjax({
+            selectors: [
+                'head title',
+                '.page-container',
+                '.pjax'
+            ],
+            history: true,
+            debug: false,
+            cacheBust: false,
+            timeout: 0,
+            analytics: false,
+            currentUrlFullReload: false,
+            scrollRestoration: false,
+            // scrollTo: true,
+        });
+
+        document.addEventListener('pjax:send', () => {
+            KEEP.utils.pjaxProgressBarStart();
+        });
+
+        document.addEventListener('pjax:complete', () => {
+            KEEP.utils.pjaxProgressBarEnd();
+            window.pjax.executeScripts(document.querySelectorAll('script[data-pjax], .pjax script'));
+            KEEP.refresh();
+        });
+    });
+</script>
+
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/hijiki.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":true},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/"});</script></body>
+</html>

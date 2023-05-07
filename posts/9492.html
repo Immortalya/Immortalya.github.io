@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Keep">
+    <meta name="description" content="因过竹院逢僧话,偷得浮生半日闲">
+    <meta name="author" content="immortal">
+    
+    <title>
+        
+            Js对象 |
+        
+        唔、
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <link rel="shortcut icon" href="/images/favicon.png">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/font/css/fontawesome.min.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/font/css/regular.min.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/font/css/solid.min.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/font/css/brands.min.css">
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {}
+    KEEP.hexo_config = {"hostname":"example.com","root":"/","language":"zh-CN","path":"search.xml"}
+    KEEP.theme_config = {"toc":{"enable":true,"number":true,"expand_all":true,"init_open":true},"style":{"primary_color":"#0066cc","logo":"/images/logo.png","favicon":"/images/favicon.png","avatar":"/images/avatar.jpg","font_size":null,"font_family":null,"hover":{"shadow":true,"scale":true},"first_screen":{"enable":true,"header_transparent":true,"background_img":"/images/bg.svg","description":"表达要简明扼要、 || 做事稳重点，不要急","font_color":null,"hitokoto":false},"scroll":{"progress_bar":true,"percent":true}},"local_search":{"enable":true,"preload":true},"code_copy":{},"code_block":{"tools":{"enable":true,"style":"default"},"highlight_theme":"default"},"side_tools":{},"pjax":{"enable":true},"lazyload":{"enable":false},"comment":{"enable":false,"use":"valine","valine":{"appid":null,"appkey":null,"server_urls":null,"placeholder":null},"gitalk":{"github_id":null,"github_admins":null,"repository":null,"client_id":null,"client_secret":null,"proxy":null},"twikoo":{"env_id":null,"region":null,"version":"1.6.8"},"waline":{"server_url":null,"reaction":false,"version":2}},"post":{"author_label":{"enable":true,"auto":true,"custom_label_list":["Trainee","Engineer","Architect"]},"word_count":{"enable":true,"wordcount":true,"min2read":true},"img_align":"center","copyright_info":true},"version":"3.6.1"}
+    KEEP.language_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 个月前","year":"%s 年前"}
+    KEEP.language_code_block = {"copy":"复制代码","copied":"已复制","fold":"折叠代码块","folded":"已折叠"}
+    KEEP.language_copy_copyright = {"copy":"复制版权信息","copied":"已复制","title":"原文标题","author":"原文作者","link":"原文链接"}
+  </script>
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+        <span class="scroll-progress-bar"></span>
+    
+
+    
+        <span class="pjax-progress-bar"></span>
+        <i class="pjax-progress-icon fas fa-circle-notch fa-spin"></i>
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            
+<header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            
+                <a class="logo-image" href="/">
+                    <img src="/images/logo.png">
+                </a>
+            
+            <a class="logo-title" href="/">
+               唔、
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                首页
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                归档
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/categories"
+                            >
+                                分类
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/tags"
+                            >
+                                标签
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/links"
+                            >
+                                友链
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/about"
+                            >
+                                关于
+                            </a>
+                        </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas fa-search"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/">首页</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives">归档</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/categories">分类</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/tags">标签</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/links">友链</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/about">关于</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="post-page-container">
+        <div class="article-content-container">
+
+            <div class="article-title">
+                <span class="title-hover-animation">Js对象</span>
+            </div>
+
+            
+                <div class="article-header">
+                    <div class="avatar">
+                        <img src="/images/avatar.jpg">
+                    </div>
+                    <div class="info">
+                        <div class="author">
+                            <span class="name">immortal</span>
+                            
+                                <span class="author-label">Lv4</span>
+                            
+                        </div>
+                        <div class="meta-info">
+                            
+<div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        
+            <i class="fa-regular fa-calendar-plus"></i>&nbsp;
+        
+        <span class="pc">2023-03-14 10:00:06</span>
+        <span class="mobile">2023-03-14 10:00</span>
+    </span>
+    
+        <span class="article-update-date article-meta-item">
+        <i class="fas fa-file-pen"></i>&nbsp;
+        <span class="pc">2023-05-07 14:46:15</span>
+    </span>
+    
+    
+        <span class="article-categories article-meta-item">
+            <i class="fas fa-folder"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/categories/JavaScript/">JavaScript</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+    
+
+    
+    
+        <span class="article-wordcount article-meta-item">
+            <i class="fas fa-file-word"></i>&nbsp;<span>2.5k 字</span>
+        </span>
+    
+    
+        <span class="article-min2read article-meta-item">
+            <i class="fas fa-clock"></i>&nbsp;<span>11 分钟</span>
+        </span>
+    
+    
+        <span class="article-pv article-meta-item">
+            <i class="fas fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+        </span>
+    
+</div>
+
+                        </div>
+                    </div>
+                </div>
+            
+
+            <div class="article-content keep-markdown-body">
+                
+
+                <h1 id="1-对象"><a href="#1-对象" class="headerlink" title="1.对象"></a>1.对象</h1><h2 id="1-访问对象属性"><a href="#1-访问对象属性" class="headerlink" title="1.访问对象属性"></a>1.访问对象属性</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> obj = &#123; </span><br><span class="line">    <span class="attr">name</span>: <span class="string">&#x27;first&#x27;</span>,</span><br><span class="line">    <span class="attr">inner</span>: &#123;</span><br><span class="line">        <span class="attr">a</span>: <span class="number">10</span>,</span><br><span class="line">        <span class="attr">b</span>: <span class="number">20</span></span><br><span class="line">    &#125;, </span><br><span class="line">    <span class="attr">arr</span>: [<span class="number">1</span>, <span class="number">2</span>],</span><br><span class="line">    <span class="attr">sayHi</span>: <span class="function">(<span class="params">name</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">`hi,<span class="subst">$&#123;name&#125;</span>`</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>1.以 . 的方式访问</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(obj.<span class="property">name</span>) <span class="comment">// first</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(obj.<span class="property">inner</span>) <span class="comment">// &#123;a: 10, b: 20&#125;</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(obj.<span class="property">arr</span>) <span class="comment">// [1,2]</span></span><br><span class="line">obj.<span class="title function_">sayHi</span>(<span class="string">&#x27;dengke&#x27;</span>) <span class="comment">// hi,dengke</span></span><br></pre></td></tr></table></figure>
+
+<p>2.以 [] 形式访问</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(obj[<span class="string">&#x27;name&#x27;</span>]) <span class="comment">// wakaka</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(obj[<span class="string">&#x27;inner&#x27;</span>]) <span class="comment">// &#123;&quot;a&quot;:10,&quot;b&quot;:20&#125;</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(obj[<span class="string">&#x27;arr&#x27;</span>]) <span class="comment">// [1,2]</span></span><br><span class="line">obj[<span class="string">&#x27;sayHi&#x27;</span>](<span class="string">&#x27;dengke&#x27;</span>) <span class="comment">// hi,dengke</span></span><br></pre></td></tr></table></figure>
+
+<p>3.[] 和 . 的区别<br>1、[]中括号法：可以用变量作为属性名或访问，而 . 不可以;</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> one = <span class="string">&#x27;name&#x27;</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(obj.<span class="property">one</span>);    <span class="comment">//undefined</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(obj[one]);    <span class="comment">//first</span></span><br></pre></td></tr></table></figure>
+<p>2、[]中括号法：可以用数字作为属性名，而 . 不可以;</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">obj[<span class="number">2</span>] = <span class="number">2</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(obj);    <span class="comment">//&#123;2: 2, name: &#x27;first&#x27;, inner: &#123;…&#125;, arr: Array(2), sayHi: ƒ&#125;</span></span><br></pre></td></tr></table></figure>
+<p>3、[]中括号法：可以动态访问的属性名，可以在程序运行时创建和修改属性， . 就不行；</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> customer=&#123;&#125;;</span><br><span class="line"><span class="keyword">var</span> addr=[<span class="string">&#x27;北京&#x27;</span>,<span class="string">&#x27;上海&#x27;</span>,<span class="string">&#x27;广州&#x27;</span>,<span class="string">&#x27;深圳&#x27;</span>];</span><br><span class="line">addr.<span class="title function_">forEach</span>(<span class="function">(<span class="params">item,index</span>)=&gt;</span>&#123;</span><br><span class="line">    customer[<span class="string">&quot;address&quot;</span>+index]=item;</span><br><span class="line">&#125;)</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(customer);    <span class="comment">//&#123;address0: &#x27;北京&#x27;, address1: &#x27;上海&#x27;, address2: &#x27;广州&#x27;, address3: &#x27;深圳&#x27;&#125;</span></span><br></pre></td></tr></table></figure>
+<p>4、如果属性名中包含会导致语法错误的字符，或者属性名是关键字或者保留字，也可以使用方括号表示法</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">obj[<span class="string">&#x27;first name&#x27;</span>] =<span class="string">&#x27;twice&#x27;</span>;</span><br></pre></td></tr></table></figure>
+
+<h2 id="2-x3D-操作符"><a href="#2-x3D-操作符" class="headerlink" title="2. ?. ?? || ??&#x3D; 操作符"></a>2. ?. ?? || ??&#x3D; 操作符</h2><p>1、?.（可选链式操作符） （es11）<br>数组和对象都可使用（首先：数组和对象都必定存在）</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> first = &#123;&#125;    <span class="comment">//var first = []</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(first?.<span class="property">length</span>?.<span class="property">one</span>); <span class="comment">//数组0；对象undefined</span></span><br></pre></td></tr></table></figure>
+<p>?. 可以无限链下去，不论有多少属性，只要有最后可以访问到属性，就会直接赋值最后的属性值。否则当任何一个链出现问题，立刻停止，而后赋值undefined。</p>
+<p>2、??（空值合并运算符）和 ||<br>?? 双问号后面是默认值（可常量、可变量）。<br>在 ?? 前面没有值得时候会默认 ?? 后边的值（类似于三木运算符中的:后面赋值）。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> obj = &#123; </span><br><span class="line">    <span class="attr">a</span>: <span class="string">&#x27;&#x27;</span>,</span><br><span class="line">    <span class="attr">b</span>: <span class="number">0</span>, </span><br><span class="line">    <span class="attr">c</span>: <span class="literal">null</span>,</span><br><span class="line">    <span class="attr">d</span>: <span class="literal">undefined</span></span><br><span class="line">&#125;;</span><br><span class="line"> </span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(obj.<span class="property">a</span> ?? <span class="string">&#x27;a为空字符串&#x27;</span>);    <span class="comment">//空</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(obj.<span class="property">a</span> || <span class="string">&#x27;a为空字符串&#x27;</span>);    <span class="comment">//a为空字符串</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(obj.<span class="property">b</span> ?? <span class="string">&#x27;b为0&#x27;</span>);          <span class="comment">//0</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(obj.<span class="property">b</span> || <span class="string">&#x27;b为0&#x27;</span>);          <span class="comment">//b为0</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(obj.<span class="property">c</span> ?? <span class="string">&#x27;c为null&#x27;</span>);       <span class="comment">//c为null</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(obj.<span class="property">c</span> || <span class="string">&#x27;c为null&#x27;</span>);       <span class="comment">//c为null</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(obj.<span class="property">d</span> ?? <span class="string">&#x27;d为undefined&#x27;</span>);  <span class="comment">//d为undefined</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(obj.<span class="property">d</span> || <span class="string">&#x27;d为undefined&#x27;</span>);  <span class="comment">//d为undefined</span></span><br></pre></td></tr></table></figure>
+<p>??和||运算符的区别：</p>
+<pre><code>1. || 只会在左边的值为假值时返回右边的值 (0, &#39;&#39;, undefined, null, false 等都为假值)
+2. ?? 是在左边的值为undefined或者null时才会返回右边的值
+3. ??是判断有没有值，||是判断真假。
+</code></pre>
+<p>3、??&#x3D;(空值赋值运算符)</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">obj.<span class="property">b</span> ??= obj.<span class="property">d</span>    <span class="comment">//&#123;a: &#x27;&#x27;, b: 0, c: null, d: undefined&#125;</span></span><br><span class="line">obj.<span class="property">f</span> ??= obj.<span class="property">d</span>    <span class="comment">//&#123;a: &#x27;&#x27;, b: 0, c: null, d: undefined, f: undefined&#125;</span></span><br></pre></td></tr></table></figure>
+<p>当??&#x3D;左侧的值为null、undefined的时候,才会将右侧变量的值赋值给左侧变量.其他所有值都不会进行赋值</p>
+<h2 id="3-删除对象属性"><a href="#3-删除对象属性" class="headerlink" title="3.删除对象属性"></a>3.删除对象属性</h2><p>利用关键字 <code>delete</code></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">delete</span> obj.<span class="property">b</span> </span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(obj) <span class="comment">// &#123; m: 20 &#125;</span></span><br><span class="line"><span class="comment">// 删除对象的属性后，在访问返回 undefined</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(obj.<span class="property">p</span>) <span class="comment">// undefined</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="4-遍历枚举对象的属性"><a href="#4-遍历枚举对象的属性" class="headerlink" title="4.遍历枚举对象的属性"></a>4.遍历枚举对象的属性</h2><p>1.for in: 会遍历对象中所有的可枚举属性（包括自有属性和继承属性）</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(key <span class="keyword">in</span> &#123;<span class="attr">a</span>: <span class="string">&#x27;&#x27;</span>,<span class="attr">b</span>: <span class="number">0</span>,<span class="attr">c</span>: <span class="literal">null</span>,<span class="attr">d</span>: <span class="literal">undefined</span>&#125;)&#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(key+<span class="string">&#x27;---&#x27;</span>+obj[key])  </span><br><span class="line">    <span class="comment">//a---</span></span><br><span class="line">    <span class="comment">//b---0</span></span><br><span class="line">    <span class="comment">//c---null</span></span><br><span class="line">    <span class="comment">//d---undefined</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>2.Object.keys()和Object.values()和Object.entries(obj)</p>
+<h2 id="5-Object常用的API"><a href="#5-Object常用的API" class="headerlink" title="5.Object常用的API"></a>5.Object常用的API</h2><h3 id="1-Object-assign"><a href="#1-Object-assign" class="headerlink" title="1.Object.assign()"></a>1.Object.assign()</h3><p>Object.assign(target, …sources)(右赋左)<br>&#x2F;&#x2F; 参数：target 目标参数，sources源对象 返回值：目标对象<br>Object.assign() 方法用于将所有可枚举属性的值从一个或多个源对象分配到目标对象。它将返回目标对象。常用来合并对象。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> obj1 = &#123; <span class="attr">a</span>: <span class="number">1</span>, <span class="attr">b</span>: <span class="number">2</span> &#125;</span><br><span class="line"><span class="keyword">const</span> obj2 = &#123; <span class="attr">b</span>: <span class="number">4</span>, <span class="attr">c</span>: <span class="number">5</span> &#125;</span><br><span class="line"><span class="keyword">const</span> obj5 = &#123; <span class="attr">b</span>: <span class="number">9</span>, <span class="attr">c</span>: <span class="number">3</span>, <span class="attr">d</span>: <span class="number">6</span>, <span class="attr">g</span>: <span class="number">7</span> &#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//obj5合并obj2(其中obj5的b、c替换obj2的b、c)，得到的值赋obj1</span></span><br><span class="line"><span class="keyword">const</span> obj3 = <span class="title class_">Object</span>.<span class="title function_">assign</span>(obj1, obj2, obj5)   </span><br><span class="line"><span class="comment">//目标对象是空，所以只是单纯克隆obj1 </span></span><br><span class="line"><span class="keyword">const</span> obj4 = <span class="title class_">Object</span>.<span class="title function_">assign</span>(&#123;&#125;, obj1) </span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(obj1) <span class="comment">// &#123;a: 1, b: 9, c: 3, d: 6, g: 7&#125; 对同名属性b进行了替换</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(obj2) <span class="comment">// &#123; b: 4, c: 5 &#125;</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(obj3) <span class="comment">// &#123;a: 1, b: 9, c: 3, d: 6, g: 7&#125;</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(obj4) <span class="comment">// &#123;a: 1, b: 9, c: 3, d: 6, g: 7&#125;</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(obj5) <span class="comment">// &#123;b: 9, c: 3, d: 6, g: 7&#125;</span></span><br></pre></td></tr></table></figure>
+<p>注：<br>1.如果目标对象中的属性具有相同的键，则属性将被源对象中的属性覆盖。<br>2.Object.assign 方法只会拷贝源对象自身的并且可枚举的属性到目标对象。<br>3.assign其实是浅拷贝而不是深拷贝。也就是说，如果源对象某个属性的值是对象，那么目标对象拷贝得到的是这个对象的引用。同名属性会替换。<br>4.Object.assign 不会在那些source对象值为null或undefined的时候抛出错误。</p>
+<h3 id="2-Object-keys-和Object-values-和Object-entries-obj"><a href="#2-Object-keys-和Object-values-和Object-entries-obj" class="headerlink" title="2.Object.keys()和Object.values()和Object.entries(obj)"></a>2.Object.keys()和Object.values()和Object.entries(obj)</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> arr = [<span class="string">&#x27;a&#x27;</span>, <span class="string">&#x27;b&#x27;</span>, <span class="string">&#x27;c&#x27;</span>]</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title class_">Object</span>.<span class="title function_">keys</span>(arr)) <span class="comment">// [&#x27;0&#x27;, &#x27;1&#x27;, &#x27;2&#x27;]</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title class_">Object</span>.<span class="title function_">values</span>(arr)) <span class="comment">// [&#x27;a&#x27;, &#x27;b&#x27;, &#x27;c&#x27;]</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title class_">Object</span>.<span class="title function_">entries</span>(arr)) <span class="comment">// [Array(2), Array(2), Array(2)]</span></span><br><span class="line">  </span><br><span class="line"><span class="keyword">const</span> obj = &#123; <span class="number">0</span>: <span class="string">&#x27;a&#x27;</span>, <span class="number">1</span>: <span class="string">&#x27;b&#x27;</span>, <span class="number">2</span>: <span class="string">&#x27;c&#x27;</span> &#125; </span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title class_">Object</span>.<span class="title function_">keys</span>(obj)) <span class="comment">// [&#x27;0&#x27;, &#x27;1&#x27;, &#x27;2&#x27;]</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title class_">Object</span>.<span class="title function_">values</span>(obj)) <span class="comment">// [&#x27;a&#x27;, &#x27;b&#x27;, &#x27;c&#x27;]</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title class_">Object</span>.<span class="title function_">entries</span>(obj)) <span class="comment">// [Array(2), Array(2), Array(2)]</span></span><br><span class="line">  </span><br><span class="line"><span class="keyword">const</span> obj2 = &#123; <span class="number">100</span>: <span class="string">&#x27;a&#x27;</span>, <span class="number">2</span>: <span class="string">&#x27;b&#x27;</span>, <span class="number">7</span>: <span class="string">&#x27;c&#x27;</span> &#125;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title class_">Object</span>.<span class="title function_">keys</span>(obj2)) <span class="comment">// [&#x27;2&#x27;, &#x27;7&#x27;, &#x27;100&#x27;]</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title class_">Object</span>.<span class="title function_">values</span>(obj2)) <span class="comment">// [&#x27;b&#x27;, &#x27;c&#x27;, &#x27;a&#x27;]</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title class_">Object</span>.<span class="title function_">entries</span>(obj2)) <span class="comment">// [Array(2), Array(2), Array(2)]</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="3-Object-fromEntries"><a href="#3-Object-fromEntries" class="headerlink" title="3.Object.fromEntries()"></a>3.Object.fromEntries()</h3><p>Object.fromEntries(iterable)<br>参数：iterable类似Array、Map或者其它实现了可迭代协议的可迭代对象。<br>返回值：一个由该迭代对象条目提供对应属性的新对象。<br>Object.fromEntries() 方法把键值对列表转换为一个对象。与Object.entries()相反。相当于反转了Object.entries()方法返回的数据结构。</p>
+<h3 id="4-Object-hasOwnProperty"><a href="#4-Object-hasOwnProperty" class="headerlink" title="4.Object.hasOwnProperty()"></a>4.Object.hasOwnProperty()</h3><p>Object.hasOwnProperty(prop)<br>参数：要检测的属性的 String 字符串形式表示的名称，或者 Symbol。<br>返回值：用来判断某个对象是否含有指定的属性的布尔值 Boolean。<br>hasOwnProperty()方法用于检测一个对象是否含有特定的自身属性，返回一个布尔值</p>
+<p>描述（自身属性和继承属性）<br>所有继承了 Object 的对象都会继承到 hasOwnProperty 方法。<br>这个方法可以用来检测一个对象是否含有特定的自身属性；和 in 运算符不同，该方法会忽略掉那些从原型链上继承到的属性。</p>
+<p>注：即使属性的值是 null 或 undefined，只要属性存在，hasOwnProperty 依旧会返回 true。</p>
+<p>1.示例：原型链上的继承，for … in会获取到原型链上的可枚举属性，使用hasOwnProperty方法可以过滤掉</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="keyword">let</span> i <span class="keyword">in</span> obj) &#123;</span><br><span class="line"><span class="keyword">if</span>(obj.<span class="title function_">hasOwnProperty</span>(i)) &#123;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(i)</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>2.示例：检测obj对象是否有toString方法<br>检测obj对象是否有toString方法，对象原型上有此方法，所以返回true<br>利用call将this指向改为obj对象，obj对象上并没有此方法，所以返回false</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">      <span class="attr">hasOwnProperty</span>: <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">          <span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">      &#125;</span><br><span class="line">  &#125;;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(obj.<span class="title function_">hasOwnProperty</span>(<span class="string">&#x27;toString&#x27;</span>)); <span class="comment">//true</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title class_">Object</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">hasOwnProperty</span>.<span class="title function_">call</span>(obj, <span class="string">&#x27;toString&#x27;</span>)); <span class="comment">//false</span></span><br></pre></td></tr></table></figure>
+<p>原因是js并没有保护hasOwnproperty属性名，因此，可能包含此属性名的对象，<br>所以使用可扩展的hasOwnProperty方法获取正确结果，可以使用原型链上真正的hasOwnProperty方法</p>
+<p>3.示例: 将 res.data 对象中的 和 this.orderForm 属性名相同的属性值 赋值给 this.orderForm</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//初始化工单详情</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">var</span> prop <span class="keyword">in</span> <span class="variable language_">this</span>.<span class="property">orderForm</span>) &#123;</span><br><span class="line">          <span class="keyword">if</span> (</span><br><span class="line">              <span class="variable language_">this</span>.<span class="property">orderForm</span>.<span class="title function_">hasOwnProperty</span>(prop) &amp;&amp;</span><br><span class="line">              res.<span class="property">data</span>.<span class="title function_">hasOwnProperty</span>(prop)</span><br><span class="line">          ) &#123;</span><br><span class="line">            <span class="variable language_">this</span>.<span class="property">orderForm</span>[prop] = res.<span class="property">data</span>[prop];</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
+
+
+<h1 id="2-对象和数组互转"><a href="#2-对象和数组互转" class="headerlink" title="2.对象和数组互转"></a>2.对象和数组互转</h1><h2 id="1-对象转数组"><a href="#1-对象转数组" class="headerlink" title="1.对象转数组"></a>1.对象转数组</h2><h3 id="1-Object-entries-obj"><a href="#1-Object-entries-obj" class="headerlink" title="1.Object.entries(obj)"></a>1.Object.entries(obj)</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> obj = &#123; <span class="attr">name</span>: <span class="string">&#x27;张三&#x27;</span>, <span class="attr">age</span>: <span class="number">18</span>, <span class="attr">sex</span>: <span class="string">&#x27;男&#x27;</span> &#125;;</span><br><span class="line"><span class="keyword">let</span> arr = <span class="title class_">Object</span>.<span class="title function_">values</span>(obj) <span class="comment">//属性值  </span></span><br><span class="line"><span class="comment">// [&#x27;张三&#x27;, 18, &#x27;男&#x27;]</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> b = <span class="title class_">Object</span>.<span class="title function_">keys</span>(obj) <span class="comment">//属性名  </span></span><br><span class="line"><span class="comment">// [&#x27;name&#x27;, &#x27;age&#x27;, &#x27;sex&#x27;]</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> c = <span class="title class_">Object</span>.<span class="title function_">entries</span>(obj) <span class="comment">//属性名和属性值</span></span><br><span class="line"><span class="comment">//   0:[&#x27;name&#x27;, &#x27;张三&#x27;]: </span></span><br><span class="line"><span class="comment">//   1:[&#x27;age&#x27;, 18]</span></span><br><span class="line"><span class="comment">//   2:[&#x27;sex&#x27;, &#x27;男&#x27;]</span></span><br></pre></td></tr></table></figure>
+
+
+<h2 id="2-数组转对象"><a href="#2-数组转对象" class="headerlink" title="2.数组转对象"></a>2.数组转对象</h2><h3 id="1-展开运算符-…"><a href="#1-展开运算符-…" class="headerlink" title="1.展开运算符 (…)"></a>1.展开运算符 (…)</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> arr = [<span class="string">&#x27;one&#x27;</span>,<span class="string">&#x27;two&#x27;</span>,<span class="string">&#x27;three&#x27;</span>];</span><br><span class="line"><span class="keyword">const</span> obj = &#123;...arr&#125;; </span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(obj);    <span class="comment">//&#123;0: &#x27;one&#x27;, 1: &#x27;two&#x27;, 2: &#x27;three&#x27;&#125;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="2-Objcet-assign-target-…sources"><a href="#2-Objcet-assign-target-…sources" class="headerlink" title="2.Objcet.assign(target, …sources)"></a>2.Objcet.assign(target, …sources)</h3><p>将所有可枚举属性的值从一个或多个源对象分配到目标对象<br>参数： target：目标对象、…sources：源对象<br>返回值：目标对象</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> arr = [<span class="string">&#x27;one&#x27;</span>,<span class="string">&#x27;two&#x27;</span>,<span class="string">&#x27;three&#x27;</span>];</span><br><span class="line"><span class="keyword">const</span> obj = <span class="title class_">Object</span>.<span class="title function_">assign</span>(&#123;&#125;, arr);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(obj); <span class="comment">// &#123; 0: &#x27;one&#x27;, 1: &#x27;tow&#x27;, 2: &#x27;three&#x27; &#125;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="3-Object-fromEntries-iterable"><a href="#3-Object-fromEntries-iterable" class="headerlink" title="3.Object.fromEntries(iterable)"></a>3.Object.fromEntries(iterable)</h3><p>把键值对转换为一个对象。<br>参数：类似Array、Map<br>返回值：由该迭代对象条目提供对应属性的新对象</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> arr = [ [<span class="string">&#x27;a&#x27;</span>, <span class="number">1</span>], [<span class="string">&#x27;b&#x27;</span>, <span class="number">2</span>], [<span class="string">&#x27;c&#x27;</span>, <span class="number">3</span>] ];</span><br><span class="line"><span class="keyword">const</span> obj = <span class="title class_">Object</span>.<span class="title function_">fromEntries</span>(arr);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(obj); <span class="comment">// &#123; a:1 , b: 2, c: 3 &#125;</span></span><br></pre></td></tr></table></figure>
+
+
+<h1 id="3-字符串和对象互转"><a href="#3-字符串和对象互转" class="headerlink" title="3.字符串和对象互转"></a>3.字符串和对象互转</h1><p>1.对象转字符串<br>JSON.stringify() 会将所有日期转换为字符串。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> obj = &#123;<span class="attr">id</span>: <span class="number">0</span>, <span class="attr">name</span>: <span class="string">&#x27;张三&#x27;</span>, <span class="attr">age</span>: <span class="number">12</span> &#125;</span><br><span class="line"><span class="keyword">const</span> str = <span class="title class_">JSON</span>.<span class="title function_">stringify</span>(obj)    <span class="comment">//&#123;&quot;id&quot;:0,&quot;name&quot;:&quot;张三&quot;,&quot;age&quot;:12&#125;</span></span><br></pre></td></tr></table></figure>
+
+<p>2.json字符串转对象<br>JSON.parse()</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> str = <span class="string">&#x27;&#123;&quot;id&quot;:0,&quot;name&quot;:&quot;张三&quot;,&quot;age&quot;:12&#125;&#x27;</span></span><br><span class="line"><span class="keyword">const</span> obj = <span class="title class_">JSON</span>.<span class="title function_">parse</span>(str)    <span class="comment">//&#123;id: 0, name: &#x27;张三&#x27;, age: 12&#125;</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="4-备注"><a href="#4-备注" class="headerlink" title="4.备注"></a>4.备注</h1><h3 id="1-js对象-、null、-的区别"><a href="#1-js对象-、null、-的区别" class="headerlink" title="1. js对象{}、null、[]的区别"></a>1. js对象{}、null、[]的区别</h3><p>在转化布尔值时，对于对象而言，只有null转为false，其他的都为true，因此，一定要注意[]、{}都会被转为true</p>
+<h3 id="2-for…in和for…of"><a href="#2-for…in和for…of" class="headerlink" title="2. for…in和for…of"></a>2. for…in和for…of</h3><p>for…in 循环主要是为了遍历对象而生，不能用于遍历数组<br>for…of 循环可以用来遍历数组、类数组对象，字符串、Set、Map 以及 Generator 对象，不能用于遍历普通对象<br>对于普通对象，没有部署原生的 iterator 接口，直接使用 for…of 会报错</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(key <span class="keyword">in</span> &#123;<span class="attr">a</span>: <span class="string">&#x27;&#x27;</span>,<span class="attr">b</span>: <span class="number">0</span>,<span class="attr">c</span>: <span class="literal">null</span>,<span class="attr">d</span>: <span class="literal">undefined</span>&#125;)&#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(key+<span class="string">&#x27;---&#x27;</span>+obj[key])  </span><br><span class="line">    <span class="comment">//a---</span></span><br><span class="line">    <span class="comment">//b---0</span></span><br><span class="line">    <span class="comment">//c---null</span></span><br><span class="line">    <span class="comment">//d---undefined</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> index <span class="keyword">of</span> [ <span class="string">&#x27;a&#x27;</span> ,  <span class="string">&#x27;b&#x27;</span> ]) &#123;  </span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(index);  </span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//  a   </span></span><br><span class="line"><span class="comment">//  b   </span></span><br></pre></td></tr></table></figure>
+
+            </div>
+
+            
+                <div class="post-copyright-info">
+                    
+<div class="article-copyright-info-container">
+    <ul class="copyright-info-content">
+        <li class="post-title">
+            <span class="type">本文标题</span>：<span class="content">Js对象</span>
+        </li>
+        <li class="post-author">
+            <span class="type">本文作者</span>：<span class="content">immortal</span>
+        </li>
+        <li class="post-time">
+            <span class="type">创建时间</span>：<span class="content">2023-03-14 10:00:06</span>
+        </li>
+        <li class="post-link">
+            <span class="type">本文链接</span>：<span class="content">posts/9492.html</span>
+        </li>
+        <li class="post-license">
+            <span class="type">版权声明</span>：<span class="content">本博客所有文章除特别声明外，均采用 <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> 许可协议。转载请注明出处！</span>
+        </li>
+    </ul>
+    <div class="copy-copyright-info flex-center tooltip" data-content="复制版权信息" data-offset-y="-2px">
+        <i class="fa-solid fa-copy"></i>
+    </div>
+</div>
+
+                </div>
+            
+
+            
+
+            
+                <div class="article-nav">
+                    
+                        <div class="article-prev">
+                            <a class="prev"
+                               rel="prev"
+                               href="/posts/39889.html"
+                            >
+                            <span class="left arrow-icon flex-center">
+                              <i class="fas fa-chevron-left"></i>
+                            </span>
+                                <span class="title flex-center">
+                                <span class="post-nav-title-item">Js字符串方法</span>
+                                <span class="post-nav-item">上一篇</span>
+                            </span>
+                            </a>
+                        </div>
+                    
+                    
+                        <div class="article-next">
+                            <a class="next"
+                               rel="next"
+                               href="/posts/46563.html"
+                            >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">正则表达式</span>
+                                <span class="post-nav-item">下一篇</span>
+                            </span>
+                                <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                            </a>
+                        </div>
+                    
+                </div>
+            
+
+            
+        </div>
+
+        
+            <div class="toc-content-container">
+                <div class="post-toc-wrap">
+    <div class="post-toc">
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-%E5%AF%B9%E8%B1%A1"><span class="nav-number">1.</span> <span class="nav-text">1.对象</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E8%AE%BF%E9%97%AE%E5%AF%B9%E8%B1%A1%E5%B1%9E%E6%80%A7"><span class="nav-number">1.1.</span> <span class="nav-text">1.访问对象属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-x3D-%E6%93%8D%E4%BD%9C%E7%AC%A6"><span class="nav-number">1.2.</span> <span class="nav-text">2. ?. ?? || ??&#x3D; 操作符</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-%E5%88%A0%E9%99%A4%E5%AF%B9%E8%B1%A1%E5%B1%9E%E6%80%A7"><span class="nav-number">1.3.</span> <span class="nav-text">3.删除对象属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-%E9%81%8D%E5%8E%86%E6%9E%9A%E4%B8%BE%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%B1%9E%E6%80%A7"><span class="nav-number">1.4.</span> <span class="nav-text">4.遍历枚举对象的属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-Object%E5%B8%B8%E7%94%A8%E7%9A%84API"><span class="nav-number">1.5.</span> <span class="nav-text">5.Object常用的API</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-Object-assign"><span class="nav-number">1.5.1.</span> <span class="nav-text">1.Object.assign()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-Object-keys-%E5%92%8CObject-values-%E5%92%8CObject-entries-obj"><span class="nav-number">1.5.2.</span> <span class="nav-text">2.Object.keys()和Object.values()和Object.entries(obj)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-Object-fromEntries"><span class="nav-number">1.5.3.</span> <span class="nav-text">3.Object.fromEntries()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-Object-hasOwnProperty"><span class="nav-number">1.5.4.</span> <span class="nav-text">4.Object.hasOwnProperty()</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-%E5%AF%B9%E8%B1%A1%E5%92%8C%E6%95%B0%E7%BB%84%E4%BA%92%E8%BD%AC"><span class="nav-number">2.</span> <span class="nav-text">2.对象和数组互转</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E5%AF%B9%E8%B1%A1%E8%BD%AC%E6%95%B0%E7%BB%84"><span class="nav-number">2.1.</span> <span class="nav-text">1.对象转数组</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-Object-entries-obj"><span class="nav-number">2.1.1.</span> <span class="nav-text">1.Object.entries(obj)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E6%95%B0%E7%BB%84%E8%BD%AC%E5%AF%B9%E8%B1%A1"><span class="nav-number">2.2.</span> <span class="nav-text">2.数组转对象</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E5%B1%95%E5%BC%80%E8%BF%90%E7%AE%97%E7%AC%A6-%E2%80%A6"><span class="nav-number">2.2.1.</span> <span class="nav-text">1.展开运算符 (…)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-Objcet-assign-target-%E2%80%A6sources"><span class="nav-number">2.2.2.</span> <span class="nav-text">2.Objcet.assign(target, …sources)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-Object-fromEntries-iterable"><span class="nav-number">2.2.3.</span> <span class="nav-text">3.Object.fromEntries(iterable)</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%92%8C%E5%AF%B9%E8%B1%A1%E4%BA%92%E8%BD%AC"><span class="nav-number">3.</span> <span class="nav-text">3.字符串和对象互转</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-%E5%A4%87%E6%B3%A8"><span class="nav-number">4.</span> <span class="nav-text">4.备注</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-js%E5%AF%B9%E8%B1%A1-%E3%80%81null%E3%80%81-%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-number">4.0.1.</span> <span class="nav-text">1. js对象{}、null、[]的区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-for%E2%80%A6in%E5%92%8Cfor%E2%80%A6of"><span class="nav-number">4.0.2.</span> <span class="nav-text">2. for…in和for…of</span></a></li></ol></li></ol></li></ol>
+    </div>
+</div>
+
+            </div>
+        
+    </div>
+</div>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            
+<footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+                <span>2023</span> -
+            
+            2023
+            
+                &nbsp;<i class="fas fa-heart icon-animate"></i>
+                &nbsp;<a href="/">immortal</a>
+            
+        </div>
+        
+            <script async data-pjax
+                    src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+            <div class="website-count info-item">
+                
+                    访问人数&nbsp;<span id="busuanzi_value_site_uv"></span>&ensp;
+                
+                
+                    总访问量&nbsp;<span id="busuanzi_value_site_pv"></span>
+                
+            </div>
+        
+        <div class="theme-info info-item">
+            由 <a target="_blank" href="https://hexo.io">Hexo</a> 驱动&nbsp;|&nbsp;主题&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.6.1</a>
+        </div>
+        
+        
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="tools-item flex-center toggle-show-toc">
+                <i class="fas fa-list"></i>
+            </li>
+        
+
+        <!-- go comment -->
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="arrow-up fas fa-arrow-up"></i>
+                <span class="percent"></span>
+            </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    <div class="zoom-in-image-mask">
+    <img class="zoom-in-image">
+</div>
+
+
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="搜索..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="close-popup-btn">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+</main>
+
+
+
+<script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/js/utils.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/js/main.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/js/header-shrink.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/js/back2top.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/js/dark-light-toggle.js"></script>
+
+
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/js/local-search.js"></script>
+
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/js/code-block.js"></script>
+
+
+
+
+<div class="post-scripts pjax">
+    
+        <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/js/post-helper.js"></script>
+        
+            <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/js/libs/anime.min.js"></script>
+        
+        
+            <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/js/toc.js"></script>
+        
+    
+</div>
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/js/libs/pjax.min.js"></script>
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        window.pjax = new Pjax({
+            selectors: [
+                'head title',
+                '.page-container',
+                '.pjax'
+            ],
+            history: true,
+            debug: false,
+            cacheBust: false,
+            timeout: 0,
+            analytics: false,
+            currentUrlFullReload: false,
+            scrollRestoration: false,
+            // scrollTo: true,
+        });
+
+        document.addEventListener('pjax:send', () => {
+            KEEP.utils.pjaxProgressBarStart();
+        });
+
+        document.addEventListener('pjax:complete', () => {
+            KEEP.utils.pjaxProgressBarEnd();
+            window.pjax.executeScripts(document.querySelectorAll('script[data-pjax], .pjax script'));
+            KEEP.refresh();
+        });
+    });
+</script>
+
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/hijiki.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":true},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/"});</script></body>
+</html>

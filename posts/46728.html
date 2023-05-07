@@ -1,234 +1,574 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-
 <head>
-    <meta charset="UTF-8">
-<meta name="viewport"
-      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-<meta http-equiv="X-UA-Compatible" content="ie=edge">
-
-    <meta name="author" content="immortal">
-
-
-
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Keep">
     <meta name="description" content="因过竹院逢僧话,偷得浮生半日闲">
-
-
-
-<title>人情世故 | 浮生 - 因过竹院逢僧话,偷得浮生半日闲。</title>
-
-
-
-    <link rel="icon" href="/favicon.ico">
-
-
-
-
-    <!-- stylesheets list from _config.yml -->
+    <meta name="author" content="immortal">
     
-    <link rel="stylesheet" href="/css/style.css">
-    
-
-
-
-    <!-- scripts list from _config.yml -->
-    
-    <script src="/js/script.js"></script>
-    
-    <script src="/js/tocbot.min.js"></script>
-    
-
-
-
-    
-    
+    <title>
         
+            时光会说话 |
+        
+        唔、
+    </title>
     
+<link rel="stylesheet" href="/css/style.css">
 
-
+    <link rel="shortcut icon" href="/images/favicon.png">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/font/css/fontawesome.min.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/font/css/regular.min.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/font/css/solid.min.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/font/css/brands.min.css">
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {}
+    KEEP.hexo_config = {"hostname":"example.com","root":"/","language":"zh-CN","path":"search.xml"}
+    KEEP.theme_config = {"toc":{"enable":true,"number":true,"expand_all":true,"init_open":true},"style":{"primary_color":"#0066cc","logo":"/images/logo.png","favicon":"/images/favicon.png","avatar":"/images/avatar.jpg","font_size":null,"font_family":null,"hover":{"shadow":true,"scale":true},"first_screen":{"enable":true,"header_transparent":true,"background_img":"/images/bg.svg","description":"表达要简明扼要、 || 做事稳重点，不要急","font_color":null,"hitokoto":false},"scroll":{"progress_bar":true,"percent":true}},"local_search":{"enable":true,"preload":true},"code_copy":{},"code_block":{"tools":{"enable":true,"style":"default"},"highlight_theme":"default"},"side_tools":{},"pjax":{"enable":true},"lazyload":{"enable":false},"comment":{"enable":false,"use":"valine","valine":{"appid":null,"appkey":null,"server_urls":null,"placeholder":null},"gitalk":{"github_id":null,"github_admins":null,"repository":null,"client_id":null,"client_secret":null,"proxy":null},"twikoo":{"env_id":null,"region":null,"version":"1.6.8"},"waline":{"server_url":null,"reaction":false,"version":2}},"post":{"author_label":{"enable":true,"auto":true,"custom_label_list":["Trainee","Engineer","Architect"]},"word_count":{"enable":true,"wordcount":true,"min2read":true},"img_align":"center","copyright_info":true},"version":"3.6.1"}
+    KEEP.language_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 个月前","year":"%s 年前"}
+    KEEP.language_code_block = {"copy":"复制代码","copied":"已复制","fold":"折叠代码块","folded":"已折叠"}
+    KEEP.language_copy_copyright = {"copy":"复制版权信息","copied":"已复制","title":"原文标题","author":"原文作者","link":"原文链接"}
+  </script>
 <meta name="generator" content="Hexo 6.3.0"></head>
 
-<body>
-    <script>
-        // this function is used to check current theme before page loaded.
-        (() => {
-            const currentTheme = window.localStorage && window.localStorage.getItem('theme') || '';
-            const isDark = currentTheme === 'dark';
-            const pagebody = document.getElementsByTagName('body')[0]
-            if (isDark) {
-                pagebody.classList.add('dark-theme');
-                // mobile
-                document.getElementById("mobile-toggle-theme").innerText = "· Dark"
-            } else {
-                pagebody.classList.remove('dark-theme');
-                // mobile
-                document.getElementById("mobile-toggle-theme").innerText = "· Light"
-            }
-        })();
-    </script>
 
-    <div class="wrapper">
-        <header>
-    <nav class="navbar">
-        <div class="container">
-            <div class="navbar-header header-logo"><a href="/">浮生</a></div>
-            <div class="menu navbar-right">
-                
-                    <a class="menu-item" href="/archives">Posts</a>
-                
-                    <a class="menu-item" href="/category">Categories</a>
-                
-                    <a class="menu-item" href="/tag">Tags</a>
-                
-                    <a class="menu-item" href="/about">About</a>
-                
-                <input id="switch_default" type="checkbox" class="switch_default">
-                <label for="switch_default" class="toggleBtn"></label>
-            </div>
-        </div>
-    </nav>
+<body>
+<div class="progress-bar-container">
+    
+        <span class="scroll-progress-bar"></span>
+    
 
     
-    <nav class="navbar-mobile" id="nav-mobile">
-        <div class="container">
-            <div class="navbar-header">
-                <div>
-                    <a href="/">浮生</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
-                </div>
-                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+        <span class="pjax-progress-bar"></span>
+        <i class="pjax-progress-icon fas fa-circle-notch fa-spin"></i>
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            
+<header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            
+                <a class="logo-image" href="/">
+                    <img src="/images/logo.png">
+                </a>
+            
+            <a class="logo-title" href="/">
+               唔、
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                首页
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                归档
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/categories"
+                            >
+                                分类
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/tags"
+                            >
+                                标签
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/links"
+                            >
+                                友链
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/about"
+                            >
+                                关于
+                            </a>
+                        </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas fa-search"></i>
+                        </li>
+                    
+                </ul>
             </div>
-            <div class="menu" id="mobile-menu">
+            <div class="mobile">
                 
-                    <a class="menu-item" href="/archives">Posts</a>
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
                 
-                    <a class="menu-item" href="/category">Categories</a>
-                
-                    <a class="menu-item" href="/tag">Tags</a>
-                
-                    <a class="menu-item" href="/about">About</a>
-                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
             </div>
         </div>
-    </nav>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/">首页</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives">归档</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/categories">分类</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/tags">标签</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/links">友链</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/about">关于</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
 
 </header>
-<script>
-    var mobileBtn = function f() {
-        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
-        var mobileMenu = document.getElementById("mobile-menu");
-        if(toggleMenu.classList.contains("active")){
-           toggleMenu.classList.remove("active")
-            mobileMenu.classList.remove("active")
-        }else{
-            toggleMenu.classList.add("active")
-            mobileMenu.classList.add("active")
-        }
-    }
-</script>
-            <div class="main">
-                <div class="container">
-    
-    
 
-    
-    <article class="post-wrap">
-        <header class="post-header">
-            <h1 class="post-title">人情世故</h1>
-            
-                <div class="post-meta">
-                    
-                        Author: <a itemprop="author" rel="author" href="/">immortal</a>
-                    
-
-                    
-                        <span class="post-time">
-                        Date: <a href="#">二月 28, 2023&nbsp;&nbsp;14:53:06</a>
-                        </span>
-                    
-                    
-                        <span class="post-category">
-                    Category:
-                            
-                                <a href="/categories/%E9%9A%8F%E7%AC%94/">随笔</a>
-                            
-                        </span>
-                    
-                </div>
-            
-        </header>
-
-        <div class="post-content">
-            <ol>
-<li>给自己自信的资本</li>
-<li>有什么事不对先自己认真查看理由，超过五分钟之后确定解决不了再麻烦别人，不要一惊一乍的去麻烦别人。</li>
-<li></li>
-</ol>
 
         </div>
 
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="post-page-container">
+        <div class="article-content-container">
+
+            <div class="article-title">
+                <span class="title-hover-animation">时光会说话</span>
+            </div>
+
+            
+                <div class="article-header">
+                    <div class="avatar">
+                        <img src="/images/avatar.jpg">
+                    </div>
+                    <div class="info">
+                        <div class="author">
+                            <span class="name">immortal</span>
+                            
+                                <span class="author-label">Lv4</span>
+                            
+                        </div>
+                        <div class="meta-info">
+                            
+<div class="article-meta-info">
+    <span class="article-date article-meta-item">
         
-            <section class="post-copyright">
+            <i class="fa-regular fa-calendar-plus"></i>&nbsp;
+        
+        <span class="pc">2023-03-09 15:53:06</span>
+        <span class="mobile">2023-03-09 15:53</span>
+    </span>
+    
+        <span class="article-update-date article-meta-item">
+        <i class="fas fa-file-pen"></i>&nbsp;
+        <span class="pc">2023-05-07 14:46:15</span>
+    </span>
+    
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fas fa-tags"></i>&nbsp;
+            <ul>
                 
-                    <p class="copyright-item">
-                        <span>Author:</span>
-                        <span>immortal</span>
-                    </p>
+                    <li>
+                        <a href="/tags/%E7%9B%B8%E5%A4%84/">相处</a>&nbsp;
+                    </li>
                 
-                
-                    <p class="copyright-item">
-                        <span>Permalink:</span>
-                        <span><a href="http://example.com/posts/46728.html">http://example.com/posts/46728.html</a></span>
-                    </p>
-                
-                
-                    <p class="copyright-item">
-                        <span>License:</span>
-                        <span>Copyright (c) 2019 <a target="_blank" rel="noopener" href="http://creativecommons.org/licenses/by-nc/4.0/">CC-BY-NC-4.0</a> LICENSE</span>
-                    </p>
-                
-                
-                     <p class="copyright-item">
-                         <span>Slogan:</span>
-                         <span>Do you believe in <strong>DESTINY</strong>?</span>
-                     </p>
+            </ul>
+        </span>
+    
+
+    
+    
+        <span class="article-wordcount article-meta-item">
+            <i class="fas fa-file-word"></i>&nbsp;<span>1 字</span>
+        </span>
+    
+    
+        <span class="article-min2read article-meta-item">
+            <i class="fas fa-clock"></i>&nbsp;<span>1 分钟</span>
+        </span>
+    
+    
+        <span class="article-pv article-meta-item">
+            <i class="fas fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+        </span>
+    
+</div>
+
+                        </div>
+                    </div>
+                </div>
+            
+
+            <div class="article-content keep-markdown-body">
                 
 
-            </section>
-        
-        <section class="post-tags">
-            <div>
-                <span>Tag(s):</span>
-                <span class="tag">
+                <div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="Oh, this is an invalid password. Check and try again, please." data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
+  <script id="hbeData" type="hbeData" data-hmacdigest="8915750736fc15ccda0a580bbea52fd3119812fc3205877ab727f7610eee8ee8">4630436162ade97ba2718b7d0c4b3b63501b8b0e90dd70c68cacef77fafaa69c7615ceb54e5ef518fa55603c1163429c753e2e990ebca07912b43ce5739730467a8b0a5493575b7c86255d75304433d5cd06ebabcd66be97cf56b6174a1c24623a7293220adad07b4a15f6f448a825a5f4f99bc3de35249c43a23cbc4ea0a2c46b2561c5021ac37ce995b839f80f683f46271d4e0074352c78a6438c1610fe2d099fdaf320f4a2e82352759a5a05404504f4ba81ea0e540fa3ec04b91514ceaafe0fafed3cc3913e55421399cd7f9b5acab848a6da8bd615157a9b6a6f7227a638a367b5f13aee9304bf747ca76164fa9ec650caff2591aa4f3835729659fb7db853408429f03c7902c13abc8bb659d2cb3d240eab36c952f227de61e054e2d80379f75f963f0c017c1f950c8109b31f1ca52e12328e5a4c85717db38f5a71b85f52dab747416c118633ff98616c2e60e19556d2dbdaa03663b889bc7716d02af8f29aef52766f364629a233ee258959853303218fcf0c241567e748046c12bd4909fbf3ce5ede0a0c16bb0602ed6022213b1c5ca8f4af86b6d403ffde95eb75aaf0b5b98ae6a9e4bb627120b31a12ced90d6b14d1b58b937fb3337645ca3eea13cabb0e76683919b7576334326437229957ef75212f8d8b3c414f3d04e4a84d0d235153ce0e97eb526d37d5446d510129211ff404e18adde1ce5230d8395fd7f065107a7c495a53c69fd1dcd5baa6fd7d2b437df35bb1be4c6bb20cf32d27d2de3f0ff928ad6ac48dffd1c897b3974f64046941170be68b459835d51e2013a225fa72fa9d0de739419b057a8cffe5d081373f666eb8721268004da532c69632eacffd196578291bd718a800a565a95e2a615bb6ef007a12e6a22375af11d5a3008f72b7cfcab013a9cb4e7d4d097211424268c7a519ed9084d746e7214a4c9fe82acffcd578f0ac5774224cc682178888b10999afa958c41413fcbf10f515b8aa6e413ee1a801ddad0bdebc7c96226eb743ffd9c80f6d697e7b1f3ffede305c8b636c25f8841820fa4b7b669b0428e5d1439092fc13a78bb54697c4ee6471c61d4ccdc4508792b64a44e4641c0d7aa3f6ec3e0018321f6bdefbbebf405043eeabdc9978d5776038b0acef421ca73729205203eaac54dfd28effaf8a436ee8e69b95811f3e8da3bf2821d271aad53b3b02dd62905b8613761c52780c25189e30b42b10d5264a18492e99736cd6ea7e68c69fca282bdf5946a8920e22f97e6271286effd7a4a5af3b69ea6d58f49eb52c533491e143afff2fda5777448f0e9eb4d3f7d1d4e263fc9324e11c3e736629437b73c7d444e89ddfa4a17144783d74a30d3b68a06fadc144b617d7270584e4b7299189f237224dac564b3af1f206821676f8e178c841d5d2fc1a3f9e546be0759efea631855e8b5f86cc8c5535fcb9b2221133746046933b53154f8af3b9f4fba92c1e9f683c79086dbd2b7defb1c250aa10fb55dc61bdb11f8103e3d44ea7ed71296ac48ae3a881d93ccd94a2021dd5505980d5a389e3c60f9cc6681e2d74390c8f0e8c3027765e744a0750071d53922452c4bea7fcf93203157c3f7a57d5987a07ebdfa771e016cdf6c8663c3eecbd22c1617cb81318d25925d19e9deec836891b23d301e0644860680da6be21840e3b4750b3ca0dc1997a8a56261d5d90e4cf016e2253471d8fae836ee6df934a2b4a9cdcc161ec067a553d12bd39910869bc24c2a7b8761977bdeac8f415a660704604b630173d5de39eeed56030197bab4985dce84a8c4fd8b13cec97c93504add04f78fa3d733bccb49a92de77f991df11c0de0eb778dbcf265b8cb140dc7cba7366c75910e1b356d1938e3d4f9f95f4a17cfe10cc52e1fa938aaf2cc1d43884f588f010ad1bfdc23014d7dfe0d72ccc0f7d50c3bf2bbc891999a97609dd817806bb292e14c32a01b9c33d0f3c143c3a5fc5977c6beb8339be7579b168b5c5a17888e73599625d0575ec85c244378d1dbc8ebe22df84f150aad3fdd24606b1b795721817e8c0e914771cba73822e1e43eee3ddb26d921c11c35e5925c441277601d1859fe84571ed3bb31b927a618d94cf65aaef633d933e2cb2609491d7e323c70289e958b7041bf49fe0234bc9ed11d498821f50c64fe8816074ca3b1a9fe289e6ae7c8e1446a3399051e2656dbb0dc97f41c7f46a9cf27af31e27e3f3351bfe726ed415cb9d1136acd4d4d87cb068af13403f06ab0d8fee2f86b74848bc2ef86164d44f970225ff32a9047e041acfe484f63d171891c7e407dcde52aabbd1900bf8dbcb636ec62dc7bcf86ce4b5093416617e67ed8bd42794020b1d1cb59b486c0dcd6b9d9fd8a2c4478e4056da9b7a57f4768bd8bfc37cb5dc417f2cc519cff5f878a0358ede297b93c20129ad07ca9481d8e7fef10c15231fa1a42c8c96036c93eda504d1d5a9530bcf0f18761fdfe3d5c8d1c64fb3487a2614ffd6a715d1d1bc691e4cfc9dc9b61574c92bbb94db9134b0205c6343325fe27f7deb7b71100bfc040ec6855f94d1cd9b4eabeac5118344d1622a5903c1bb6b6cb3b28883b925c079bcf9c3044b531fbb605666f7fa8ad639764e641e1754f911696b71363e182c9bc079d1d5332af879afcd675df03402dc052b0e451e4300af4be827a49c1af2b64f70df8696f2641a2f8797a91409b1414c4aede6988dbd87f9ee52db2ae8779040187dd1511436d19bc92dd42336f688e864364fd8391f4a0746b2997a92837d6f834ab8138264af05be2a53245b89cfecb04e8bf42831d4029c0285ff862f3dcad7b623514aeafb8d9c39756e9075019ea40fad422f792d925a91b74a91a572885b46503d745eac24e004b7506c003d481b50d9ee8ce03703842d26ddead7dbf1457c18f072585edc1c7b74cf888de8a0021deb97c24ceccdfb79d88289a3ce9e11bdfab5c41cb146c82b5d35485a35bd7266b622ac70954db10646d655e414357cb6e05f508b0f52278c2107c9c2fec70b17d353e5fb60a9c6aef6ed624df05eed1609175c8e1175953f02aebe4759a27aa34a29f9de30c057956385cd21ad28367800655be83e27020ee3b5349f1d3e9e539a34cec1481a1fc8b871da15a8633279aa2b1b124c0fc07066c47dae2319ab83f30469e09cf543a2df019c2f6acab67f1c4376037f6438b6287a1a1290f800ce26e0635c9a8bab330505352e24fed56afa1812ec1c60842c2800b2c99f9d47aa1ae78b18c1ec99ec9d4c44bb567c25df78587a29062adeec8e31df5312991793d600a981ad8e952a19d734f8c390ec5da386315be8ab0817686ef2efa7100bcabd0881344625cdb1590aa411de3bc7a3976c6b3fd30b8a715ff597f8102b9629c3f2176e25d23136997df0e054023cfa0f815026b1ad5ddc0d4b74924ecf46e06ca19fc3ea94e9e139ccf445b7b32a41c7dc42acc60331fa0b9a219369caf3f389dca3b48323a1a5a5230ebeff76c3955a6141bfb7701e04ea607f3d6a1d27a2a9f11e66e79de65073751c5f246ec257b4c273b90f938c0eaf224fd4e1145635d5fe61b917142c8779fae7f5ef56d4d44b38474d1dee398d4556f577146f8dca3c3579acfd9f8951602f1c4468f25be51fb094fa08b856d73a43d984d5c2f5fba4bba3d735f46cc894bf49bc6d417d91adaf2b9b5473285adc96e19229e75c1cfd100b965e8c32ea0b541cc0baf9da3001b6f35c271996021d7d77b7b343bbac4ecc47b8ffc97b6236b980fbc2f8130df1aeceddad5dea5dc3e9ff81f8fd528e8101a083960b0ded910844262bc6c1d1d1c2574402e3b2505cd6a009c3cfe2a2dac2fd389cbe761cbd7f7e96802e625176d6ab36814adf655b199c8f179347e47c6da8ff8683fca8aa16d635b602de1febd127352bb952f780137cedc8ec6d353642ba30d656b19fb95c486045cb93085d8b019c700a3fd505fe8c26b9529d32f242f6a5f632ec02577329d49f0c8131823654919ef70dd900240da8930cebf736e6de6ba9998b903a3c4ffc8f3142bf80a66a8a4d7ac8e7f520e8ea4512eab709d2c9e34a89d5c06395d21e6a6e5f8f5575883c3cfcc9ffaaab7823be38e7ed8ff0274dfc48734ddc1b0d336c6b2eb55e064d6d00d9787ea19fe9af94d1aecaf74a9a124a87715551af358469d33cfb902431f41e19b87f7d1a848de822fee7e3e6e178c34da197080148d57b903b9d1bf789d687cea0b5d6e77db8b0198e10778bc72dec8f7719667340d787e9201934c35f38d5e8ddee5ff8dd2b10f7c9a94c783a2e040e40acbda96006800cbb3dddd710cb8b73774c29b99395b5b0fb346df1c6867d3bd2d564aa25d5b20e158faa9b23b48339697e5c02f271bb7d71ec1b654aa6203481a08b3a38fb8b0775b9258f6e87b8e1f47c281b3981a756f9206d47efc2f2ae02a02ff439de547adf662b35738bca510c4af25c6abcc759f575014eb8965ca8d680001fab8d6af79e99cc21c1502d3de40c568b217ed574802ddfdb4ca5f982eaa02c4b8e3033c5998db3dbd9ed0c4a15b117801cdc55105917ed38400b5a9f414fcac96b5769a4389d3e7df791a8056479d328a6a93890813963dbdb305a58e2046f625f5f36f84bfaf6ecd74c91f016df8425178a7b11d64d430c9a3839a0469b40cf9f28dd3c568db16856cad72f7780be477969604ad2b6cd6239b6c0a5d8fab6af7546abc704c89ee7507556a4d9fa8598f06d6ff5426edf77f5f68c28d51f8f7a09dd41b7ebd2977f6ff91bb42cc6fc0ae42db7bf5e8209670cf4a4d5cb32a6f854aa9826af0fa77d42debc54dfc23f25a5c52251f758fe27c8226b31d226cf9c604f76abf46926e268d7c83f8e544eadf2cc1b73fb51bba8f270d7ee9cf9e8180f3734c8c5bf9c9d026138aa942325f6ff5fca6a66fac0e1b53c7288ee4b40303a824032f230c1644f8f067a7f1902fd7d1d93f0d88302a0f8cc43d72d8eeabc968d73ebc36fbce957331325af39397b399936c8d37546d5316dc9fc78fbd18a05e7439d5f9cd7ffe420096722e56f94759cc8f57b8a141f7536e2ac48afd1c93d8ceb7d0bb708cc9592618488c3b0ba1fa0a0e9e0293be04c7d45faf250427e6844264a3ae671c23a21a79a00b4ed12789e6b493c648dd5ba43e30fb77f5c3f84f692d2cf488d4dd89ff2bd47631a727823a5449469693a98bbe3a7f8c17bd3633943727273589c05085f8e8b7e4f81a8054655781403cb84b2a4f27467659cebb289bcaf36eb9f5dc463a641f34c9f38becd6fe480574bd9d27ee21becf910d16f92980ed2845b48a44b88572455ed5a36be9c396847b5cbd2165c5735aeaf67ce4ac46a7922b99b3da2462098f5ac5e11f7164362c58d5195da2d1d9a0321818b5f897c327e66889adc87ce17f10510484dfe47c4b215f91b8fe668f7189d208f2a5b18e3a1a2fb4f7804cdc0444ed023b125844a87535fe811f4130f46c5f7131b34cb84457ac947eb0f8e96e76772a5fc0cfb5d58ff680bbebb7176842c10f3e7cf0e9bc6dddcda9e29d77c2aa0821ac11f41c4f1f3b8090e89462012778c7c782a03bb68c07bbb6b8e9ceec63f41ee5576c3c8c727611392198bb3e9bad67dc017f17f4ac833af5f70157a4f8da48b04ae9e2c78c96876aec5c71a77bf30a76c32548a77e48b784013231b0335087f822faa65049dda3c9a72f908fc5fa8a596b705bf5b6c8b9090542359bd757549ed2f25c3127809873865683df955b872660fd18ad041250f5b301bc93e6975df701298da897d35c745f405369422e27a6ccbc8e5d9059b5bef3d72c34ffc4c9b007e6de774ca5173b846ce426de40ef6b8aebe3c5fd7f6a9ddaa6409c704d52eab21c84ba6648c885616c4b4a5c5f5c62a2a4dd1baca79b64ec35355fa48784ae439e2a168b2d703273cb09a795fba3bab24e344432f8a216ef23c9f9749ba8c269b22f939d04dba4541339c01d91e7cbcbdf0951082c14a6a62f808f63f89fa58cb79f81606066121a453b10998a9f2e27d0740bb2a25fa5b29e54af51508270bc261e00987321aa7964ffe93cd82d13ce23912799ccc382f979b285e45e1114d4856191a40fd82a838b4d202e3906ed52737453d119a60ddf9cba5bb4ecff3ebf16d80884ba09f09264012a817f7f90b7a9755c7ed5091b841c225dcae8e0347fdaa64fa913d9d8ea1aa02157e546aaefdb208aece688ca2a4a5e739339f69701a61a68ba0a3ace0bb8a7f58da2cfeee8472f5d7674e2d4e9f53c4661a122d1e9ad02ea0c44544d7d959704c1d49ad986e1f03d2383117c77319939b4b4fae079a9325f3587fc26427ed4dfbe18ee34e3285d7fb0ce02d529c33119d3c979506453b0b60aad76efaf5d33f9177a73c149fe7f1b70d867060f3a9bee750615285eeb8a18f2777d24c58bff035a1b355499107961132d56980652438f5a37eda812d9f8bea2b71ffbc1fd08623a1841939cc387831026efcf8fe3d8ded212d22c03abca2434a5e57c603bae01d4c59b94935022acb5d037ffa68a4554991202d8d736f300bf21ea47b006b97fa35cd19fcbdcf2f63aa112188564e4f96537feca7eef86b6c2e2487d35b8b496509c3b1e7f90358a2613daa772cdd0c34a485142e4868f21d134bc43a5b92b0aada553cd56d687e24771af14c6725f195a45d2e58b2a3d054126a6ceac2c53759f6c26f38e140adaff3630a7a84dbe117efc876be1172c1ffd3e0dc7af3a3e0d28871798c743a162e1109eca12a355008558860c06360241d2ffc60210ad478508e1d0a340750b3325cd27c35f64f7121a6413a5ccf3ea4ae34236c9f0eb6a5667df2a37de9a92815ca7d72907d6b922c2ff690f28b8a7591be163a6846f3aeda7c664b116df28b7c2302b8827b37b2dfa232ede3de24990c2abb35dd960af6c7624ea9c72bc746b1c48b5bba883a95c6e84961001b67d8b7914544f9380fff8eb94c8218972106574426d2eaa47da1d2ea6555582edb5d64869731c9815c6919034f4579a71a7e77c34ba39447beaa5a96d74310fa637e9cd5947da31ae7af9cc90d2ff8d01fafe1400523e27c117dfe3b98e955bb40f242aeeb14470692b82eee62c011120f8e2227099ab579af0a3f996a1d24dfb104a84172317576186ddc878f838cc149406d6487a06abb9c703cf8041ab6a60946fa37c36c2226519679cef5e4b7ebc3a42da6769b8101605aabd165e27e2145414077991ffb79b23b9022cca805902ad8269851792b9bb0bd5d52611c209b92371167debed44de2ea3b404c17416654aa9e4200a959cc7b7bbd490d6be5585ecda22543d85672e60a0e791c9f7443ce440e45f258e68002c56aa4ec7012a1ed65d59175768148b31bfb24174e8dac730b1e1ce8509ea735cf0e71aa28b2c09a6c64cdaa45d1cca83a2e44ac142451b49e06bea5d017ef938387adad92d5ef4f6dd3d6b60c725754edbae357b224b445e0805587d2fe01807afb7c9cce0dbad437cd4dc3a4e1421eb59c06982c1f353dd951dc1dc90dcad2694384147cec247e8ac0fbd31051502ae3ef1ec727b0ff211518e096f7e22938a78d</script>
+  <div class="hbe hbe-content">
+    <div class="hbe hbe-input hbe-input-default">
+      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
+      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">
+        <span class="hbe hbe-input-label-content hbe-input-label-content-default">------</span>
+      </label>
+    </div>
+  </div>
+</div>
+<script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">
+            </div>
+
+            
+                <div class="post-copyright-info">
                     
-                </span>
-            </div>
-            <div>
-                <a href="javascript:window.history.back();">back</a>
-                <span>· </span>
-                <a href="/">home</a>
-            </div>
-        </section>
-        <section class="post-nav">
-            
-                <a class="prev" rel="prev" href="/posts/3799.html">垂直水平居中</a>
-            
-            
-            <a class="next" rel="next" href="/posts/8426.html">敲代码的注意事件</a>
-            
-        </section>
+<div class="article-copyright-info-container">
+    <ul class="copyright-info-content">
+        <li class="post-title">
+            <span class="type">本文标题</span>：<span class="content">时光会说话</span>
+        </li>
+        <li class="post-author">
+            <span class="type">本文作者</span>：<span class="content">immortal</span>
+        </li>
+        <li class="post-time">
+            <span class="type">创建时间</span>：<span class="content">2023-03-09 15:53:06</span>
+        </li>
+        <li class="post-link">
+            <span class="type">本文链接</span>：<span class="content">posts/46728.html</span>
+        </li>
+        <li class="post-license">
+            <span class="type">版权声明</span>：<span class="content">本博客所有文章除特别声明外，均采用 <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> 许可协议。转载请注明出处！</span>
+        </li>
+    </ul>
+    <div class="copy-copyright-info flex-center tooltip" data-content="复制版权信息" data-offset-y="-2px">
+        <i class="fa-solid fa-copy"></i>
+    </div>
+</div>
 
+                </div>
+            
 
-    </article>
+            
+                <ul class="post-tags-box">
+                    
+                        <li class="tag-item">
+                            <a href="/tags/%E7%9B%B8%E5%A4%84/">#相处</a>&nbsp;
+                        </li>
+                    
+                </ul>
+            
+
+            
+                <div class="article-nav">
+                    
+                        <div class="article-prev">
+                            <a class="prev"
+                               rel="prev"
+                               href="/posts/7065.html"
+                            >
+                            <span class="left arrow-icon flex-center">
+                              <i class="fas fa-chevron-left"></i>
+                            </span>
+                                <span class="title flex-center">
+                                <span class="post-nav-title-item">Git常用命令</span>
+                                <span class="post-nav-item">上一篇</span>
+                            </span>
+                            </a>
+                        </div>
+                    
+                    
+                        <div class="article-next">
+                            <a class="next"
+                               rel="next"
+                               href="/posts/21016.html"
+                            >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">echarts图表</span>
+                                <span class="post-nav-item">下一篇</span>
+                            </span>
+                                <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                            </a>
+                        </div>
+                    
+                </div>
+            
+
+            
+        </div>
+
+        
+            <div class="toc-content-container">
+                <div class="post-toc-wrap">
+    <div class="post-toc">
+        
+    </div>
 </div>
 
             </div>
-            <footer id="footer" class="footer">
-    <div class="copyright">
-        <span>© immortal | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+        
+    </div>
+</div>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            
+<footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+                <span>2023</span> -
+            
+            2023
+            
+                &nbsp;<i class="fas fa-heart icon-animate"></i>
+                &nbsp;<a href="/">immortal</a>
+            
+        </div>
+        
+            <script async data-pjax
+                    src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+            <div class="website-count info-item">
+                
+                    访问人数&nbsp;<span id="busuanzi_value_site_uv"></span>&ensp;
+                
+                
+                    总访问量&nbsp;<span id="busuanzi_value_site_pv"></span>
+                
+            </div>
+        
+        <div class="theme-info info-item">
+            由 <a target="_blank" href="https://hexo.io">Hexo</a> 驱动&nbsp;|&nbsp;主题&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.6.1</a>
+        </div>
+        
+        
     </div>
 </footer>
 
+        </div>
     </div>
-<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/hijiki.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":true},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/"});</script></body>
 
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="tools-item flex-center toggle-show-toc">
+                <i class="fas fa-list"></i>
+            </li>
+        
+
+        <!-- go comment -->
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="arrow-up fas fa-arrow-up"></i>
+                <span class="percent"></span>
+            </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    <div class="zoom-in-image-mask">
+    <img class="zoom-in-image">
+</div>
+
+
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="搜索..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="close-popup-btn">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+</main>
+
+
+
+<script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/js/utils.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/js/main.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/js/header-shrink.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/js/back2top.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/js/dark-light-toggle.js"></script>
+
+
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/js/local-search.js"></script>
+
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/js/code-block.js"></script>
+
+
+
+
+<div class="post-scripts pjax">
+    
+        <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/js/post-helper.js"></script>
+        
+            <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/js/libs/anime.min.js"></script>
+        
+        
+            <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/js/toc.js"></script>
+        
+    
+</div>
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/js/libs/pjax.min.js"></script>
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        window.pjax = new Pjax({
+            selectors: [
+                'head title',
+                '.page-container',
+                '.pjax'
+            ],
+            history: true,
+            debug: false,
+            cacheBust: false,
+            timeout: 0,
+            analytics: false,
+            currentUrlFullReload: false,
+            scrollRestoration: false,
+            // scrollTo: true,
+        });
+
+        document.addEventListener('pjax:send', () => {
+            KEEP.utils.pjaxProgressBarStart();
+        });
+
+        document.addEventListener('pjax:complete', () => {
+            KEEP.utils.pjaxProgressBarEnd();
+            window.pjax.executeScripts(document.querySelectorAll('script[data-pjax], .pjax script'));
+            KEEP.refresh();
+        });
+    });
+</script>
+
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/hijiki.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":true},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/"});</script></body>
 </html>
