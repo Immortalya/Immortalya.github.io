@@ -22,7 +22,7 @@
     <script id="hexo-configurations">
     let KEEP = window.KEEP || {}
     KEEP.hexo_config = {"hostname":"example.com","root":"/","language":"zh-CN","path":"search.xml"}
-    KEEP.theme_config = {"toc":{"enable":true,"number":true,"expand_all":true,"init_open":true},"style":{"primary_color":"#0066cc","logo":"/images/logo.png","favicon":"/images/favicon.png","avatar":"/images/avatar.jpg","font_size":null,"font_family":null,"hover":{"shadow":true,"scale":true},"first_screen":{"enable":true,"header_transparent":true,"background_img":"/images/bg.svg","description":"表达要简明扼要、 || 做事稳重点，不要急","font_color":null,"hitokoto":false},"scroll":{"progress_bar":true,"percent":true}},"local_search":{"enable":true,"preload":true},"code_copy":{},"code_block":{"tools":{"enable":true,"style":"default"},"highlight_theme":"default"},"side_tools":{},"pjax":{"enable":true},"lazyload":{"enable":false},"comment":{"enable":false,"use":"valine","valine":{"appid":null,"appkey":null,"server_urls":null,"placeholder":null},"gitalk":{"github_id":null,"github_admins":null,"repository":null,"client_id":null,"client_secret":null,"proxy":null},"twikoo":{"env_id":null,"region":null,"version":"1.6.8"},"waline":{"server_url":null,"reaction":false,"version":2}},"post":{"author_label":{"enable":true,"auto":true,"custom_label_list":["Trainee","Engineer","Architect"]},"word_count":{"enable":true,"wordcount":true,"min2read":true},"img_align":"center","copyright_info":true},"version":"3.6.1"}
+    KEEP.theme_config = {"toc":{"enable":true,"number":false,"expand_all":true,"init_open":true},"style":{"primary_color":"#0066cc","logo":"/images/logo.png","favicon":"/images/favicon.png","avatar":"/images/avatar.jpg","font_size":null,"font_family":null,"hover":{"shadow":true,"scale":true},"first_screen":{"enable":true,"header_transparent":true,"background_img":"/images/bg.svg","description":"表达要简明扼要、 || 仰天大笑出门去，我辈岂是蓬蒿人？","font_color":null,"hitokoto":false},"scroll":{"progress_bar":true,"percent":true}},"local_search":{"enable":true,"preload":true},"code_copy":{},"code_block":{"tools":{"enable":true,"style":"default"},"highlight_theme":"default"},"side_tools":{},"pjax":{"enable":true},"lazyload":{"enable":false},"comment":{"enable":false,"use":"valine","valine":{"appid":null,"appkey":null,"server_urls":null,"placeholder":null},"gitalk":{"github_id":null,"github_admins":null,"repository":null,"client_id":null,"client_secret":null,"proxy":null},"twikoo":{"env_id":null,"region":null,"version":"1.6.8"},"waline":{"server_url":null,"reaction":false,"version":2}},"post":{"author_label":{"enable":true,"auto":true,"custom_label_list":["Trainee","Engineer","Architect"]},"word_count":{"enable":true,"wordcount":true,"min2read":true},"img_align":"center","copyright_info":true},"version":"3.6.1"}
     KEEP.language_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 个月前","year":"%s 年前"}
     KEEP.language_code_block = {"copy":"复制代码","copied":"已复制","fold":"折叠代码块","folded":"已折叠"}
     KEEP.language_copy_copyright = {"copy":"复制版权信息","copied":"已复制","title":"原文标题","author":"原文作者","link":"原文链接"}
@@ -191,14 +191,39 @@
                 
 
                 <h3 class="home-article-title">
-                    <a href="/posts/19988.html">
-                        动态修改dom
+                    <a href="/posts/34185.html">
+                        css选择器
                     </a>
                 </h3>
 
                 <div class="home-article-content keep-markdown-body">
                     
-                        
+                        1.伪类选择器
+
+
+伪类选择器
+备注
+
+
+
+动态伪类
+
+
+
+:link
+链接没有被访问前的样式效果
+
+
+:visited
+链接被访问后的样式效果
+
+
+:hover
+鼠标悬停在元素上面时的样式效果
+
+
+:active
+点击元素时的样式效果，即按下鼠标左...
                     
                 </div>
 
@@ -214,7 +239,7 @@
         
     </div>
 
-    <a class="read-more" href="/posts/19988.html">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
+    <a class="read-more" href="/posts/34185.html">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
 </div>
 
             </li>
@@ -224,24 +249,15 @@
                 
 
                 <h3 class="home-article-title">
-                    <a href="/posts/62269.html">
-                        监听事件
+                    <a href="/posts/22846.html">
+                        表单
                     </a>
                 </h3>
 
                 <div class="home-article-content keep-markdown-body">
                     
-                        https://blog.csdn.net/handsomeAndHero/article/details/125315491
-1.input事件
-
-
-事件
-触发条件
-
-
-
-@input（或v-on:input）
-输入框里面内容发生改变（且不用失去焦...
+                        1.uni-forms表单验证标签里的required做样式显示，data里的rules做字段限制
+123456789101112131415161718192021&lt;uni-forms :modelValue=&quot;orderForm&...
                     
                 </div>
 
@@ -257,7 +273,248 @@
         
     </div>
 
-    <a class="read-more" href="/posts/62269.html">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
+    <a class="read-more" href="/posts/22846.html">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
+</div>
+
+            </li>
+        
+            <li class="home-article-item">
+
+                
+
+                <h3 class="home-article-title">
+                    <a href="/posts/40293.html">
+                        跳转页面
+                    </a>
+                </h3>
+
+                <div class="home-article-content keep-markdown-body">
+                    
+                        1.uniapp页面跳转uni-app的页面跳转只能跳转本地页面，且目标页面必须在pages.json中注册。跳转方式与小程序&#x2F;vue的极为相似，只是方法和标签有所不同，分为标签跳转和方法跳转两种。
+1.标签跳转：类似Vue的标签&lt;n...
+                    
+                </div>
+
+                <div class="home-article-meta-info-container">
+    <div class="home-article-meta-info">
+        <span>
+            <i class="fas fa-history"></i>&nbsp;
+            <span class="home-article-date" data-updated="Sun May 07 2023 14:46:15 GMT+0800">
+                2023-05-07
+            </span>
+        </span>
+        
+        
+    </div>
+
+    <a class="read-more" href="/posts/40293.html">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
+</div>
+
+            </li>
+        
+            <li class="home-article-item">
+
+                
+
+                <h3 class="home-article-title">
+                    <a href="/posts/44976.html">
+                        页面生命周期
+                    </a>
+                </h3>
+
+                <div class="home-article-content keep-markdown-body">
+                    
+                        1.页面更新
+123onShow()&#123;  console.log(&#x27;onShow&#x27;)&#125;,
+
+2.跳转页面接收参数
+123456onLoad: function (option) &#123;  //option...
+                    
+                </div>
+
+                <div class="home-article-meta-info-container">
+    <div class="home-article-meta-info">
+        <span>
+            <i class="fas fa-history"></i>&nbsp;
+            <span class="home-article-date" data-updated="Sun May 07 2023 14:46:15 GMT+0800">
+                2023-05-07
+            </span>
+        </span>
+        
+        
+    </div>
+
+    <a class="read-more" href="/posts/44976.html">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
+</div>
+
+            </li>
+        
+            <li class="home-article-item">
+
+                
+
+                <h3 class="home-article-title">
+                    <a href="/posts/25508.html">
+                        图片文件类型转换
+                    </a>
+                </h3>
+
+                <div class="home-article-content keep-markdown-body">
+                    
+                        图片类型分：blob对象、文件对象、base64
+1.uniapp图片上传123456789101112131415161718192021&lt;uni-file-picker              limit=&quot;1&quot;   ...
+                    
+                </div>
+
+                <div class="home-article-meta-info-container">
+    <div class="home-article-meta-info">
+        <span>
+            <i class="fas fa-history"></i>&nbsp;
+            <span class="home-article-date" data-updated="Sun May 07 2023 14:46:15 GMT+0800">
+                2023-05-07
+            </span>
+        </span>
+        
+        
+    </div>
+
+    <a class="read-more" href="/posts/25508.html">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
+</div>
+
+            </li>
+        
+            <li class="home-article-item">
+
+                
+
+                <h3 class="home-article-title">
+                    <a href="/posts/54796.html">
+                        uni-app
+                    </a>
+                </h3>
+
+                <div class="home-article-content keep-markdown-body">
+                    
+                        1.uni-popup组件1.h5页面的uni-popup组件内部元素滚动用 scroll-view 即可2.uniapp在不隐藏tab栏的情况下uni-popup遮住tab栏可以使用 position: fixed 和 z-index 属性来实现。...
+                    
+                </div>
+
+                <div class="home-article-meta-info-container">
+    <div class="home-article-meta-info">
+        <span>
+            <i class="fas fa-history"></i>&nbsp;
+            <span class="home-article-date" data-updated="Sun May 07 2023 14:46:15 GMT+0800">
+                2023-05-07
+            </span>
+        </span>
+        
+        
+    </div>
+
+    <a class="read-more" href="/posts/54796.html">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
+</div>
+
+            </li>
+        
+            <li class="home-article-item">
+
+                
+
+                <h3 class="home-article-title">
+                    <a href="/posts/47155.html">
+                        盒子
+                    </a>
+                </h3>
+
+                <div class="home-article-content keep-markdown-body">
+                    
+                        1.border-radius圆：   border-radius: 50%;
+2.box-shadowbox-shadow 属性接受值最多由五个不同的部分组成。box-shadow: offset-x offset-y blur spread co...
+                    
+                </div>
+
+                <div class="home-article-meta-info-container">
+    <div class="home-article-meta-info">
+        <span>
+            <i class="fas fa-history"></i>&nbsp;
+            <span class="home-article-date" data-updated="Sun May 07 2023 14:46:15 GMT+0800">
+                2023-05-07
+            </span>
+        </span>
+        
+        
+    </div>
+
+    <a class="read-more" href="/posts/47155.html">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
+</div>
+
+            </li>
+        
+            <li class="home-article-item">
+
+                
+
+                <h3 class="home-article-title">
+                    <a href="/posts/57376.html">
+                        vuex
+                    </a>
+                </h3>
+
+                <div class="home-article-content keep-markdown-body">
+                    
+                        1.语法1.安装vuexvue2	npm install vuex@3.6.2 –save
+
+2.statestate相当于组件中的data，专门存放全局的数据1.store&#x2F;index.js定义
+123state: &#123;     ...
+                    
+                </div>
+
+                <div class="home-article-meta-info-container">
+    <div class="home-article-meta-info">
+        <span>
+            <i class="fas fa-history"></i>&nbsp;
+            <span class="home-article-date" data-updated="Sun May 07 2023 14:46:15 GMT+0800">
+                2023-05-07
+            </span>
+        </span>
+        
+        
+    </div>
+
+    <a class="read-more" href="/posts/57376.html">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
+</div>
+
+            </li>
+        
+            <li class="home-article-item">
+
+                
+
+                <h3 class="home-article-title">
+                    <a href="/posts/19988.html">
+                        动态修改dom
+                    </a>
+                </h3>
+
+                <div class="home-article-content keep-markdown-body">
+                    
+                        1.$vm2.ref
+                    
+                </div>
+
+                <div class="home-article-meta-info-container">
+    <div class="home-article-meta-info">
+        <span>
+            <i class="fas fa-history"></i>&nbsp;
+            <span class="home-article-date" data-updated="Sat Jun 17 2023 22:02:01 GMT+0800">
+                2023-06-17
+            </span>
+        </span>
+        
+        
+    </div>
+
+    <a class="read-more" href="/posts/19988.html">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
 </div>
 
             </li>
@@ -292,273 +549,6 @@
     </div>
 
     <a class="read-more" href="/posts/58494.html">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
-</div>
-
-            </li>
-        
-            <li class="home-article-item">
-
-                
-
-                <h3 class="home-article-title">
-                    <a href="/posts/54547.html">
-                        疯子
-                    </a>
-                </h3>
-
-                <div class="home-article-content keep-markdown-body">
-                    
-                        ----
-                    
-                </div>
-
-                <div class="home-article-meta-info-container">
-    <div class="home-article-meta-info">
-        <span>
-            <i class="fas fa-history"></i>&nbsp;
-            <span class="home-article-date" data-updated="Sun May 07 2023 14:46:15 GMT+0800">
-                2023-05-07
-            </span>
-        </span>
-        
-        
-    </div>
-
-    <a class="read-more" href="/posts/54547.html">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
-</div>
-
-            </li>
-        
-            <li class="home-article-item">
-
-                
-
-                <h3 class="home-article-title">
-                    <a href="/posts/61857.html">
-                        mqtt连接
-                    </a>
-                </h3>
-
-                <div class="home-article-content keep-markdown-body">
-                    
-                        ----
-                    
-                </div>
-
-                <div class="home-article-meta-info-container">
-    <div class="home-article-meta-info">
-        <span>
-            <i class="fas fa-history"></i>&nbsp;
-            <span class="home-article-date" data-updated="Sun May 07 2023 14:46:15 GMT+0800">
-                2023-05-07
-            </span>
-        </span>
-        
-        
-    </div>
-
-    <a class="read-more" href="/posts/61857.html">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
-</div>
-
-            </li>
-        
-            <li class="home-article-item">
-
-                
-
-                <h3 class="home-article-title">
-                    <a href="/posts/52519.html">
-                        半面妆
-                    </a>
-                </h3>
-
-                <div class="home-article-content keep-markdown-body">
-                    
-                        1.妆1.正视镜子，坑的地方用高光，凸的地方用阴影，2亮2阴2.仪态，抬起头来，自信能为你的气质添色不少3.右眼不舒服大概是因为麦粒肿，麦粒肿导致眼皮边缘变肿出现倒睫，可以用红霉素眼膏涂涂就好了4.长时间用眼眼睛干涩要不就用热水蒸蒸，全都是红血丝挺可...
-                    
-                </div>
-
-                <div class="home-article-meta-info-container">
-    <div class="home-article-meta-info">
-        <span>
-            <i class="fas fa-history"></i>&nbsp;
-            <span class="home-article-date" data-updated="Sun May 07 2023 16:34:37 GMT+0800">
-                2023-05-07
-            </span>
-        </span>
-        
-        
-    </div>
-
-    <a class="read-more" href="/posts/52519.html">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
-</div>
-
-            </li>
-        
-            <li class="home-article-item">
-
-                
-
-                <h3 class="home-article-title">
-                    <a href="/posts/60269.html">
-                        高德地图组件
-                    </a>
-                </h3>
-
-                <div class="home-article-content keep-markdown-body">
-                    
-                        ----
-                    
-                </div>
-
-                <div class="home-article-meta-info-container">
-    <div class="home-article-meta-info">
-        <span>
-            <i class="fas fa-history"></i>&nbsp;
-            <span class="home-article-date" data-updated="Sun May 07 2023 14:46:15 GMT+0800">
-                2023-05-07
-            </span>
-        </span>
-        
-        
-    </div>
-
-    <a class="read-more" href="/posts/60269.html">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
-</div>
-
-            </li>
-        
-            <li class="home-article-item">
-
-                
-
-                <h3 class="home-article-title">
-                    <a href="/posts/20356.html">
-                        快捷键
-                    </a>
-                </h3>
-
-                <div class="home-article-content keep-markdown-body">
-                    
-                        1.vscode
-
-
-命令
-快捷键
-
-
-
-切割线（空选）
-Ctrl+X
-
-
-复制行（空选）
-Ctrl+C
-
-
-粘贴
-Ctrl+V
-
-
-在下方插入一行
-Ctrl+Enter
-
-
-代码行下移
-Alt+向下
-
-
-代码行上移
-Alt+向上
-
-
-向下复制行
-S...
-                    
-                </div>
-
-                <div class="home-article-meta-info-container">
-    <div class="home-article-meta-info">
-        <span>
-            <i class="fas fa-history"></i>&nbsp;
-            <span class="home-article-date" data-updated="Sun May 07 2023 14:46:15 GMT+0800">
-                2023-05-07
-            </span>
-        </span>
-        
-        
-    </div>
-
-    <a class="read-more" href="/posts/20356.html">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
-</div>
-
-            </li>
-        
-            <li class="home-article-item">
-
-                
-
-                <h3 class="home-article-title">
-                    <a href="/posts/7913.html">
-                        妾薄命
-                    </a>
-                </h3>
-
-                <div class="home-article-content keep-markdown-body">
-                    
-                        原文妾薄命·为曾南丰作陈师道 〔宋代〕
-主家十二楼，一身当三千。古来妾薄命，事主不尽年。起舞为主寿，相送南阳阡。忍著主衣裳，为人作春妍。有声当彻天，有泪当彻泉。死者恐无知，妾身长自怜。
-叶落风不起，山空花自红。捐世不待老，惠妾无其终。一死尚可忍，百岁...
-                    
-                </div>
-
-                <div class="home-article-meta-info-container">
-    <div class="home-article-meta-info">
-        <span>
-            <i class="fas fa-history"></i>&nbsp;
-            <span class="home-article-date" data-updated="Sun May 07 2023 14:46:16 GMT+0800">
-                2023-05-07
-            </span>
-        </span>
-        
-        
-    </div>
-
-    <a class="read-more" href="/posts/7913.html">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
-</div>
-
-            </li>
-        
-            <li class="home-article-item">
-
-                
-
-                <h3 class="home-article-title">
-                    <a href="/posts/9493.html">
-                        ES6新增
-                    </a>
-                </h3>
-
-                <div class="home-article-content keep-markdown-body">
-                    
-                        1. ECMASript 6 新特性1. let关键字1.变量不能重复声明2.块级作用域  全局, 函数, eval。如：if else while for 
-1234&#123;    let girl = &#x27;周扬青&#x27;;&#12...
-                    
-                </div>
-
-                <div class="home-article-meta-info-container">
-    <div class="home-article-meta-info">
-        <span>
-            <i class="fas fa-history"></i>&nbsp;
-            <span class="home-article-date" data-updated="Sun May 07 2023 14:46:15 GMT+0800">
-                2023-05-07
-            </span>
-        </span>
-        
-        
-    </div>
-
-    <a class="read-more" href="/posts/9493.html">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
 </div>
 
             </li>
