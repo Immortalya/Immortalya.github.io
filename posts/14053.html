@@ -9,7 +9,7 @@
     
     <title>
         
-            hexo搭建网站 |
+            面试 |
         
         唔、
     </title>
@@ -190,7 +190,7 @@
         <div class="article-content-container">
 
             <div class="article-title">
-                <span class="title-hover-animation">hexo搭建网站</span>
+                <span class="title-hover-animation">面试</span>
             </div>
 
             
@@ -212,38 +212,38 @@
         
             <i class="fa-regular fa-calendar-plus"></i>&nbsp;
         
-        <span class="pc">2023-02-28 09:54:06</span>
-        <span class="mobile">2023-02-28 09:54</span>
+        <span class="pc">2023-06-25 16:42:06</span>
+        <span class="mobile">2023-06-25 16:42</span>
     </span>
     
         <span class="article-update-date article-meta-item">
         <i class="fas fa-file-pen"></i>&nbsp;
-        <span class="pc">2023-06-25 15:55:13</span>
+        <span class="pc">2023-06-30 20:21:50</span>
     </span>
     
     
-        <span class="article-categories article-meta-item">
-            <i class="fas fa-folder"></i>&nbsp;
+    
+        <span class="article-tags article-meta-item">
+            <i class="fas fa-tags"></i>&nbsp;
             <ul>
                 
                     <li>
-                        <a href="/categories/hexo/">hexo</a>&nbsp;
+                        <a href="/tags/%E7%9B%B8%E5%A4%84/">相处</a>&nbsp;
                     </li>
                 
             </ul>
         </span>
     
-    
 
     
     
         <span class="article-wordcount article-meta-item">
-            <i class="fas fa-file-word"></i>&nbsp;<span>1.3k 字</span>
+            <i class="fas fa-file-word"></i>&nbsp;<span>23 字</span>
         </span>
     
     
         <span class="article-min2read article-meta-item">
-            <i class="fas fa-clock"></i>&nbsp;<span>5 分钟</span>
+            <i class="fas fa-clock"></i>&nbsp;<span>1 分钟</span>
         </span>
     
     
@@ -261,135 +261,7 @@
             <div class="article-content keep-markdown-body">
                 
 
-                <h1 id="1-Hexo搭建网站"><a href="#1-Hexo搭建网站" class="headerlink" title="1.Hexo搭建网站"></a>1.Hexo搭建网站</h1><h3 id="1-安装Git"><a href="#1-安装Git" class="headerlink" title="1. 安装Git"></a>1. 安装Git</h3><pre><code>      下载地址：https://gitforwindows.org/
-
-    git教程：https://www.liaoxuefeng.com/wiki/896043488029600
-
-    安装好后，用git --version 来查看一下版本
-</code></pre>
-<h3 id="2-安装Node-js"><a href="#2-安装Node-js" class="headerlink" title="2. 安装Node.js"></a>2. 安装Node.js</h3><pre><code>    下载地址：https://nodejs.org/en/download/
-    windows：nodejs选择LTS版本就行了。
-    
-    安装完后，打开命令行
-     node -v npm -v
-    检查一下有没有安装成功
-
-    顺便说一下，windows在git安装完后，就可以直接使用git bash来敲命令行了，不用自带的cmd，cmd有点难用。
-</code></pre>
-<h3 id="3-安装Hexo-git-bash命令"><a href="#3-安装Hexo-git-bash命令" class="headerlink" title="3. 安装Hexo(git bash命令)"></a>3. 安装Hexo(git bash命令)</h3><pre><code>    前面git和nodejs安装好后，就可以安装hexo了，你可以先创建一个文件夹myblog，然后cd到该文件夹下（或者在该文件夹下直接右键git bash打开）。
-    
-    输入命令:npm install -g hexo-cli
-
-    用hexo -v查看一下版本
-    
-    初始化hexo：hexo init myblog
-
-    新建：npm install
-
-    hexo g(确保能运行)
-    运行：hexo server
-    
-    打开hexo的服务，在浏览器输入localhost:4000就可以看到你生成的博客了。
-
-新建完成后，指定文件夹目录下有：
-
-    node_modules: 依赖包
-    public：存放生成的页面
-    scaffolds：生成文章的一些模板
-    source：用来存放你的文章
-    themes：主题
-    ** _config.yml: 博客的配置文件**
-</code></pre>
-<h3 id="4-GitHub创建个人仓库"><a href="#4-GitHub创建个人仓库" class="headerlink" title="4. GitHub创建个人仓库"></a>4. GitHub创建个人仓库</h3><pre><code>    登录后，在GitHub.com中看到一个New repository，新建仓库
-
-    创建一个和你用户名相同的仓库，后面加.github.io，只有这样，将来要部署到GitHub page的时候，才会被识别，也就是xxxx.github.io，其中xxx就是你注册GitHub的用户名。
-    
-    点击create repository。
-</code></pre>
-<h3 id="5-生成SSH添加到GitHub"><a href="#5-生成SSH添加到GitHub" class="headerlink" title="5. 生成SSH添加到GitHub"></a>5. 生成SSH添加到GitHub</h3><pre><code>    回到你的git bash中
-        git config --global user.name &quot;yourname&quot;
-        git config --global user.email &quot;youremail&quot;
-
-    然后创建SSH，一路回车
-        ssh-keygen -t rsa -C &quot;youremail&quot;
-        一路回车
-
-    C:\Users\LSM\.ssh文件夹找到id_rsa.pub文件打开点击全部复制
-
-    而后在GitHub的setting中，找到SSH keys的设置选项，点击New SSH key，把id_rsa.pub里面的信息复制进去。
-
-    在gitbash中，查看是否成功
-        ssh -T git@github.com
-
-
-ssh，简单来讲，就是一个秘钥，其中，id_rsa是你这台电脑的私人秘钥，不能给别人看的，id_rsa.pub是公共秘钥，可以随便给别人看。把这个公钥放在GitHub上，这样当你链接GitHub自己的账户时，它就会根据公钥匹配你的私钥，当能够相互匹配时，才能够顺利的通过git上传你的文件到GitHub上。
-</code></pre>
-<h3 id="6-将hexo部署到GitHub"><a href="#6-将hexo部署到GitHub" class="headerlink" title="6. 将hexo部署到GitHub"></a>6. 将hexo部署到GitHub</h3><pre><code>这一步，我们就可以将hexo和GitHub关联起来，也就是将hexo生成的文章部署到GitHub上，打开站点配置文件 _config.yml，翻到最后，修改为YourgithubName就是你的GitHub账户
-
-    deploy:
-      type: git
-      #repo: https://github.com/Immortalya/Immortalya.github.io.git
-      repo: git@github.com:Immortalya/Immortalya.github.io.git
-      branch: main
-
-这个时候需要先安装deploy-git ，也就是部署的命令,这样你才能用命令部署到GitHub。
-
-    npm install hexo-deployer-git --save
-    hexo clean	//清除缓存，也可以不加。
-    hexo generate	//生成静态文章，可以用 hexo g缩写（提交到本地）
-    hexo deploy	//部署文章，可以用hexo d缩写（提交到git）
-</code></pre>
-<h3 id="7-运行三件套"><a href="#7-运行三件套" class="headerlink" title="7. 运行三件套"></a>7. 运行三件套</h3><pre><code>    修改配置文件需要重新运行，修改文章不需要
-    hexo cl	//清除缓存，也可以不加。
-    hexo generate	//生成静态文章，可以用 hexo g缩写
-    hexo server	//部署文章，可以用hexo s缩写
-</code></pre>
-<h1 id="2-写作"><a href="#2-写作" class="headerlink" title="2.写作"></a>2.写作</h1><h3 id="1-发布文章"><a href="#1-发布文章" class="headerlink" title="1.发布文章"></a>1.发布文章</h3><pre><code>    hexo new [layout] &lt;title&gt;
-    Hexo支持3种布局方式：post、page、draft，
-
-    发布文章：hexo new post &quot;我的第一篇博客&quot;
-    post布局的文章会被创建到source/_posts目录下，表示这是要被发表的文章；
-
-    发布草稿：hexo new draft &quot;我的第一篇草稿&quot;
-    page布局的文章会被创建到source/_drafts目录下，表示这是一个草稿
-    预览草稿：hexo server --draft
-    草稿发布：
-        hexo publish 我的第一篇草稿  
-        或直接将该文件转移到_posts目录下
-
-    发布页面：hexo new page learn
-    page布局会被创建到sourse目录下，表示这是一个页面
-    文件夹被创建成功后去该主题的_config.yml文件夹menu下添加Learn: learn，重新运行，即可查看新发布的页面标签
-</code></pre>
-<h3 id="2-Front-matter"><a href="#2-Front-matter" class="headerlink" title="2.Front-matter"></a>2.Front-matter</h3><p>Front-matter 是文件最上方以 - - - 分隔的区域，用于指定个别文件的变量</p>
-<pre><code>1.页面模板（比如分类）
----
-title: categories
-date: 2014-12-22 12:39:04
-type: &quot;categories&quot;
----
-
-2.文章模板
-只有文章支持分类和标签，您可以在 Front-matter 中设置
----
-title: hello
-categories:
-  - vue组件
-tags:
-  - null
-abbrlink: 27101（自动生成）
-date: 2023-02-28 15:54:06
----
-</code></pre>
-<h1 id="3-hexo转移电脑"><a href="#3-hexo转移电脑" class="headerlink" title="3.hexo转移电脑"></a>3.hexo转移电脑</h1><pre><code>npm i
-git init
-git pull
-hexo cl &amp;&amp; hexo g &amp;&amp; hexo s
-npm install hexo-deployer-git --save
-hexo cl &amp;&amp; hexo g &amp;&amp; hexo d
-</code></pre>
-<p>报错：<code>ERROR Cannot find module &#39;hexo&#39;</code><br>原因：node_modules为空<br>解决：新建一个博客，把node_modules文件夹整个copy过来<br>缺点：就算把文件夹拷贝过来，之后还是不能执行<code>npm i</code></p>
-<h1 id="4-更新"><a href="#4-更新" class="headerlink" title="4.更新"></a>4.更新</h1><p>Keep 主题更新：<code>npm install hexo-theme-keep@latest</code></p>
+                <p>1.自我介绍<br>2.介绍自己做过的项目<br>3.vue的了解程度<br>4.es6</p>
 
             </div>
 
@@ -399,16 +271,16 @@ hexo cl &amp;&amp; hexo g &amp;&amp; hexo d
 <div class="article-copyright-info-container">
     <ul class="copyright-info-content">
         <li class="post-title">
-            <span class="type">本文标题</span>：<span class="content">hexo搭建网站</span>
+            <span class="type">本文标题</span>：<span class="content">面试</span>
         </li>
         <li class="post-author">
             <span class="type">本文作者</span>：<span class="content">immortal</span>
         </li>
         <li class="post-time">
-            <span class="type">创建时间</span>：<span class="content">2023-02-28 09:54:06</span>
+            <span class="type">创建时间</span>：<span class="content">2023-06-25 16:42:06</span>
         </li>
         <li class="post-link">
-            <span class="type">本文链接</span>：<span class="content">posts/23416.html</span>
+            <span class="type">本文链接</span>：<span class="content">posts/14053.html</span>
         </li>
         <li class="post-license">
             <span class="type">版权声明</span>：<span class="content">本博客所有文章除特别声明外，均采用 <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> 许可协议。转载请注明出处！</span>
@@ -423,33 +295,26 @@ hexo cl &amp;&amp; hexo g &amp;&amp; hexo d
             
 
             
+                <ul class="post-tags-box">
+                    
+                        <li class="tag-item">
+                            <a href="/tags/%E7%9B%B8%E5%A4%84/">#相处</a>&nbsp;
+                        </li>
+                    
+                </ul>
+            
 
             
                 <div class="article-nav">
-                    
-                        <div class="article-prev">
-                            <a class="prev"
-                               rel="prev"
-                               href="/posts/43390.html"
-                            >
-                            <span class="left arrow-icon flex-center">
-                              <i class="fas fa-chevron-left"></i>
-                            </span>
-                                <span class="title flex-center">
-                                <span class="post-nav-title-item">hexo目录</span>
-                                <span class="post-nav-item">上一篇</span>
-                            </span>
-                            </a>
-                        </div>
                     
                     
                         <div class="article-next">
                             <a class="next"
                                rel="next"
-                               href="/posts/35490.html"
+                               href="/posts/44601.html"
                             >
                             <span class="title flex-center">
-                                <span class="post-nav-title-item">hexo配置butterfly主题</span>
+                                <span class="post-nav-title-item">怡江苑</span>
                                 <span class="post-nav-item">下一篇</span>
                             </span>
                                 <span class="right arrow-icon flex-center">
@@ -468,7 +333,7 @@ hexo cl &amp;&amp; hexo g &amp;&amp; hexo d
             <div class="toc-content-container">
                 <div class="post-toc-wrap">
     <div class="post-toc">
-        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-Hexo%E6%90%AD%E5%BB%BA%E7%BD%91%E7%AB%99"><span class="nav-text">1.Hexo搭建网站</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E5%AE%89%E8%A3%85Git"><span class="nav-text">1. 安装Git</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E5%AE%89%E8%A3%85Node-js"><span class="nav-text">2. 安装Node.js</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E5%AE%89%E8%A3%85Hexo-git-bash%E5%91%BD%E4%BB%A4"><span class="nav-text">3. 安装Hexo(git bash命令)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-GitHub%E5%88%9B%E5%BB%BA%E4%B8%AA%E4%BA%BA%E4%BB%93%E5%BA%93"><span class="nav-text">4. GitHub创建个人仓库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-%E7%94%9F%E6%88%90SSH%E6%B7%BB%E5%8A%A0%E5%88%B0GitHub"><span class="nav-text">5. 生成SSH添加到GitHub</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-%E5%B0%86hexo%E9%83%A8%E7%BD%B2%E5%88%B0GitHub"><span class="nav-text">6. 将hexo部署到GitHub</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-%E8%BF%90%E8%A1%8C%E4%B8%89%E4%BB%B6%E5%A5%97"><span class="nav-text">7. 运行三件套</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-%E5%86%99%E4%BD%9C"><span class="nav-text">2.写作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E5%8F%91%E5%B8%83%E6%96%87%E7%AB%A0"><span class="nav-text">1.发布文章</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-Front-matter"><span class="nav-text">2.Front-matter</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-hexo%E8%BD%AC%E7%A7%BB%E7%94%B5%E8%84%91"><span class="nav-text">3.hexo转移电脑</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-%E6%9B%B4%E6%96%B0"><span class="nav-text">4.更新</span></a></li></ol>
+        
     </div>
 </div>
 
