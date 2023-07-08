@@ -9,7 +9,7 @@
     
     <title>
         
-            盒子 |
+            HTML标签 |
         
         唔、
     </title>
@@ -190,7 +190,7 @@
         <div class="article-content-container">
 
             <div class="article-title">
-                <span class="title-hover-animation">盒子</span>
+                <span class="title-hover-animation">HTML标签</span>
             </div>
 
             
@@ -212,13 +212,13 @@
         
             <i class="fa-regular fa-calendar-plus"></i>&nbsp;
         
-        <span class="pc">2023-04-06 11:27:16</span>
-        <span class="mobile">2023-04-06 11:27</span>
+        <span class="pc">2023-07-21 11:21:06</span>
+        <span class="mobile">2023-07-21 11:21</span>
     </span>
     
         <span class="article-update-date article-meta-item">
         <i class="fas fa-file-pen"></i>&nbsp;
-        <span class="pc">2023-05-07 14:46:15</span>
+        <span class="pc">2023-07-08 22:24:05</span>
     </span>
     
     
@@ -227,7 +227,7 @@
             <ul>
                 
                     <li>
-                        <a href="/categories/css/">css</a>&nbsp;
+                        <a href="/categories/HTML/">HTML</a>&nbsp;
                     </li>
                 
             </ul>
@@ -238,7 +238,7 @@
     
     
         <span class="article-wordcount article-meta-item">
-            <i class="fas fa-file-word"></i>&nbsp;<span>717 字</span>
+            <i class="fas fa-file-word"></i>&nbsp;<span>965 字</span>
         </span>
     
     
@@ -261,35 +261,26 @@
             <div class="article-content keep-markdown-body">
                 
 
-                <h1 id="1-border-radius"><a href="#1-border-radius" class="headerlink" title="1.border-radius"></a>1.border-radius</h1><p>圆：   <code>border-radius: 50%;</code></p>
-<h1 id="2-box-shadow"><a href="#2-box-shadow" class="headerlink" title="2.box-shadow"></a>2.box-shadow</h1><p>box-shadow 属性接受值最多由五个不同的部分组成。<br>box-shadow: offset-x offset-y blur spread color position;<br>换句说： 对象选择器 {box-shadow:X轴偏移量 Y轴偏移量 阴影模糊半径 阴影扩展半径 阴影颜色 投影方式 }</p>
-<pre><code>offset-x: 阴影水平方向的偏移，即阴影在 x 轴的位置。值为正数时，阴影在元素的右侧；值为负数时，阴影在元素的左侧。
-offset-y: 阴影竖直方向的偏移，即阴影在 y 轴的位置。值为正数时，阴影在元素的下方；值为负数时，阴影在元素的上方。
-blur: 阴影的模糊半径，举例来说，就是你在设计软件中使用 高斯模糊 滤波器带来的效果。值为 0 意味着该阴影是固态而锋利的，完全完全没有模糊效果。blur 值越大，阴影则更不锋利而更朦胧 / 模糊。负值是不合法的，会被修正成 0。
-spread: 阴影扩展半径，其值可以是正负值，如果值为正，则整个阴影都延展扩大，反之值为负值是，则缩小。前提是存在阴影模糊半径。
-color: 指阴影的颜色。它可以是任意的颜色单元 （见 在 CSS 中与颜色打交道）。
-position: 此参数是一个可选值，如果不设值，其默认的投影方式是外阴影；
-如果取其唯一值“inset”,就是将外阴影变成内阴影，也就是说设置阴影类型为“inset”时，其投影就是内阴影。
+                <h3 id="DTD（文档类型声明）"><a href="#DTD（文档类型声明）" class="headerlink" title="DTD（文档类型声明）"></a>DTD（文档类型声明）</h3><p>在 HTML 4.01 中，&lt;!DOCTYPE&gt; 声明引用 DTD，因为 HTML 4.01 基于 SGML。DTD 规定了标记语言的规则，这样浏览器才能正确地呈现内容。 HTML5 不基于 SGML，所以不需要引用 DTD。<br>HTML 4.01或XHTML声明中必须引用dtd<br>    <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><br>    <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd"><br>在 HTML5 中只有一种： <!DOCTYPE html></p>
+<h3 id="html元素分类"><a href="#html元素分类" class="headerlink" title="html元素分类"></a>html元素分类</h3><p>1.块元素  行内元素  空元素<br>空元素<br>    常见：br、hr、img、input、link、meta<br>    不常见：area、base、col、command、embed、keygen、param、source、track、wbr<br>块级元素<br>    div ul ol li dl dt dd h1 h2 h4…p hr address  blockquote  dir  menu  pre<br>行内元素<br>    a b span img input select strong sup sub small  textarea<br>       u abbr  strike  var  kbd  label  font  em  select</p>
+<p>2.语义元素  非语义元素<br>语义元素：header  nav  section  actcle  aside  footer<br>无语义元素：div、span</p>
+<h3 id="html5新增规范"><a href="#html5新增规范" class="headerlink" title="html5新增规范"></a>html5新增规范</h3><p>HTML5是HTML、XHTML以及HTML、DOM的新标准<br>①用于绘画canvas元素<br>②用于媒介回放的video和audio元素<br>      ③对本地离线存储的更好支持<br>④新的结构元素。如：article、section、nav、header、footer、aside<br>       ⑤新的表单控件，比如：calendar、date、time、email、URL、search<br>progress：可以通过此标签创建一个进度条，并且进度条可以使用JS脚本来进行控制。<br>data-list：通过此标签的与input一起应用可以定义可选数据的列表。与 input 元素配合使用，就可以制作出输入值的下拉列表。</p>
+<h3 id="html5新增元素"><a href="#html5新增元素" class="headerlink" title="html5新增元素"></a>html5新增元素</h3><p>表单元素：datalist  keygen  output<br>html图形<br>  canvas：js  调用canvas对象的getContext()方法来获取绘图环境<br>  svg：xml<br>html媒体（对象）：embed  object<br>audio(音频)：autoplay controls muted preload loop src<br>video(视频)：src autoplay controls height width muted preload loop poster</p>
+<h3 id="keygen"><a href="#keygen" class="headerlink" title="keygen"></a>keygen</h3><pre><code>&lt;keygen&gt; 标签规定用于表单的密钥对生成器字段。当提交表单时，私钥存储在本地，公钥发送到服务器。
+在git版本管理工具中，我们每次push上传项目到github或码云远程仓库时可以选择两种方式： 1）使用http上传，这样每次上传都要登录账号(windows凭据未保存密码)； 2）***h上传，这时我们需要ssh-keygen生成一对公钥(锁)和私钥(钥匙)，公钥设置在远程仓库，私钥留在自己电脑上C盘/用户/.../.ssh中，每次上传文件会自动配对，实现免密码传输。
 </code></pre>
-<p>示例：<code>box-shadow:0px 4px 4px 4px rgba(0, 0, 0, 0.08)</code></p>
-<h1 id="3-flex"><a href="#3-flex" class="headerlink" title="3.flex"></a>3.flex</h1><p>1.元素放一行，水平方向自适应</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="selector-class">.orderLine</span>&#123;</span><br><span class="line">    <span class="attribute">display</span>: flex;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.oneLine</span>&#123;</span><br><span class="line">      <span class="attribute">flex</span>:<span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>2.元素放多行，水平方向自适应</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="selector-class">.orderLine</span>&#123;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.oneLine</span>&#123;</span><br><span class="line">      <span class="attribute">float</span>: left;</span><br><span class="line">      <span class="attribute">width</span>:<span class="number">33.3%</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>3.动态样式<br><code>:style=&quot;&#39;background:&#39;+item.background&quot;</code><br>3.示例<br><img src="/posts/47155/2023-04-06-17-24-33.png"></p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">view</span> <span class="attr">class</span>=<span class="string">&quot;orderLine&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">view</span> <span class="attr">v-for</span>=<span class="string">&quot;item in orderItems&quot;</span> <span class="attr">:key</span>=<span class="string">&quot;item.index&quot;</span> <span class="attr">:style</span>=<span class="string">&quot;&#x27;color:&#x27;+item.color&quot;</span> <span class="attr">class</span>=<span class="string">&quot;oneLine&quot;</span> @<span class="attr">click</span>=<span class="string">&quot;gonavigate(item.index)&quot;</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">view</span> <span class="attr">class</span>=<span class="string">&quot;imgView&quot;</span> <span class="attr">:style</span>=<span class="string">&quot;&#x27;background:&#x27;+item.background&quot;</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">image</span> <span class="attr">class</span>=<span class="string">&quot;img&quot;</span> <span class="attr">:src</span>=<span class="string">&quot;item.img&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">image</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">view</span>&gt;</span>&#123;&#123; item.name &#125;&#125;<span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">view</span>&gt;</span>&#123;&#123; orderStatusCount[item.index] &#125;&#125;<span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript"><span class="title function_">data</span>(<span class="params"></span>) &#123;</span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">return</span> &#123;</span></span><br><span class="line"><span class="language-javascript">      <span class="attr">orderItems</span>:[</span></span><br><span class="line"><span class="language-javascript">        &#123;</span></span><br><span class="line"><span class="language-javascript">          <span class="attr">name</span>:<span class="string">&#x27;全工单&#x27;</span>,</span></span><br><span class="line"><span class="language-javascript">          <span class="attr">color</span>:<span class="string">&#x27;#4c81d1&#x27;</span>,</span></span><br><span class="line"><span class="language-javascript">          <span class="attr">background</span>:<span class="string">&#x27;#e4edfd&#x27;</span>,</span></span><br><span class="line"><span class="language-javascript">          <span class="attr">index</span>:<span class="number">5</span>,</span></span><br><span class="line"><span class="language-javascript">          <span class="attr">img</span>:<span class="built_in">require</span>(<span class="string">&#x27;@/static/images/icons/全工单.png&#x27;</span>)</span></span><br><span class="line"><span class="language-javascript">        &#125;,</span></span><br><span class="line"><span class="language-javascript">        &#123;</span></span><br><span class="line"><span class="language-javascript">          <span class="attr">name</span>:<span class="string">&#x27;已完成&#x27;</span>,</span></span><br><span class="line"><span class="language-javascript">          <span class="attr">color</span>:<span class="string">&#x27;#7ee918&#x27;</span>,</span></span><br><span class="line"><span class="language-javascript">          <span class="attr">background</span>:<span class="string">&#x27;#f2fde3&#x27;</span>,</span></span><br><span class="line"><span class="language-javascript">          <span class="attr">index</span>:<span class="number">0</span>,</span></span><br><span class="line"><span class="language-javascript">          <span class="attr">img</span>:<span class="built_in">require</span>(<span class="string">&#x27;@/static/images/icons/已完成.png&#x27;</span>)</span></span><br><span class="line"><span class="language-javascript">        &#125;,</span></span><br><span class="line"><span class="language-javascript">      ],</span></span><br><span class="line"><span class="language-javascript">    &#125;;</span></span><br><span class="line"><span class="language-javascript">  &#125;,</span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">style</span> <span class="attr">lang</span>=<span class="string">&quot;scss&quot;</span> <span class="attr">scoped</span>&gt;</span><span class="language-css"></span></span><br><span class="line"><span class="language-css">  <span class="selector-class">.orderLine</span>&#123;</span></span><br><span class="line"><span class="language-css">    <span class="selector-class">.oneLine</span>&#123;</span></span><br><span class="line"><span class="language-css">      <span class="attribute">width</span>:<span class="number">33.3%</span>;</span></span><br><span class="line"><span class="language-css">      <span class="attribute">height</span>:<span class="number">200</span>rpx;</span></span><br><span class="line"><span class="language-css">      <span class="attribute">text-align</span>: center;</span></span><br><span class="line"><span class="language-css">      <span class="attribute">float</span>: left;</span></span><br><span class="line"><span class="language-css">      <span class="selector-class">.imgView</span>&#123;</span></span><br><span class="line"><span class="language-css">        <span class="attribute">display</span>:flex;</span></span><br><span class="line"><span class="language-css">        <span class="attribute">justify-content</span>:center;</span></span><br><span class="line"><span class="language-css">        <span class="attribute">align-items</span>:center;</span></span><br><span class="line"><span class="language-css">        <span class="attribute">width</span>: <span class="number">100</span>rpx;</span></span><br><span class="line"><span class="language-css">        <span class="attribute">height</span>: <span class="number">100</span>rpx;</span></span><br><span class="line"><span class="language-css">        <span class="attribute">margin</span>:auto;</span></span><br><span class="line"><span class="language-css">        <span class="attribute">border-radius</span>: <span class="number">50%</span>;</span></span><br><span class="line"><span class="language-css">        <span class="selector-class">.img</span>&#123;</span></span><br><span class="line"><span class="language-css">          <span class="attribute">width</span>: <span class="number">80%</span>;</span></span><br><span class="line"><span class="language-css">          <span class="attribute">height</span>: <span class="number">80%</span></span></span><br><span class="line"><span class="language-css">        &#125;</span></span><br><span class="line"><span class="language-css">      &#125;</span></span><br><span class="line"><span class="language-css">    &#125;</span></span><br><span class="line"><span class="language-css">  &#125;</span></span><br><span class="line"><span class="language-css"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-
-
-
-
-
-
-
-
-
-
-
+<h3 id="使用link和-import导入css的区别？"><a href="#使用link和-import导入css的区别？" class="headerlink" title="使用link和@import导入css的区别？"></a>使用link和@import导入css的区别？</h3><pre><code>1：link属于html标签。@import在css中使用表示导入外部样式表；
+2：@import的兼容性比link差
+3：加载顺序差别，浏览器先加载的标签link，后加载@import
+4：link 支持使用javascript改变样式 （document.styleSheets），后者不可
+</code></pre>
+<h3 id="title和h1、b和strong、i和em"><a href="#title和h1、b和strong、i和em" class="headerlink" title="title和h1、b和strong、i和em"></a>title和h1、b和strong、i和em</h3><p>title和h1<br>    title：概括了网站信息，告诉搜索引擎或者用户关于网站的内容主题<br>    h1：文章主题内容<br>区别：<br>    title显示在网页标题上，h1显示在网页内容上<br>    title比h1重要    对于SEO的了解</p>
+<p>b和strong、i和em<br>    b &#x2F; i:  实体标签，给文字加粗&#x2F;倾斜<br>    strong &#x2F; em：逻辑标签，用来加强字符语气<br>区别：<br>    b&#x2F; i:  标签只有加粗&#x2F;倾斜的样式没有实际含义。<br>    strong &#x2F; em：表示标签内字符比较重要，用于强调<br>    em一般用于术语</p>
+<h3 id="img的title和alt区别"><a href="#img的title和alt区别" class="headerlink" title="img的title和alt区别"></a>img的title和alt区别</h3><pre><code>title：鼠标移入到图片显示的内容
+alt：图标无法加载时显示的内容
+</code></pre>
+<p>在seo的层面上，蜘蛛抓取不到图片的内容，所以在写img标签的时候为了增加SEO效果加入alt属性描述图片的内容或者关键字</p>
+<h3 id="png、jpg、gif、webp"><a href="#png、jpg、gif、webp" class="headerlink" title="png、jpg、gif、webp"></a>png、jpg、gif、webp</h3><p>png：无损压缩，尺寸体积比jpg&#x2F;jpeg大，适合做小图标<br>jpg：采用压缩算法，有失真，比png体积小，适合做中大图片<br>gif：一般做动图<br>webp：同时支持有损或者无损压缩，相同质量的图片，webp具有更小的体积，但兼容性不太好</p>
 
             </div>
 
@@ -299,16 +290,16 @@ position: 此参数是一个可选值，如果不设值，其默认的投影方�
 <div class="article-copyright-info-container">
     <ul class="copyright-info-content">
         <li class="post-title">
-            <span class="type">本文标题</span>：<span class="content">盒子</span>
+            <span class="type">本文标题</span>：<span class="content">HTML标签</span>
         </li>
         <li class="post-author">
             <span class="type">本文作者</span>：<span class="content">immortal</span>
         </li>
         <li class="post-time">
-            <span class="type">创建时间</span>：<span class="content">2023-04-06 11:27:16</span>
+            <span class="type">创建时间</span>：<span class="content">2023-07-21 11:21:06</span>
         </li>
         <li class="post-link">
-            <span class="type">本文链接</span>：<span class="content">posts/47155.html</span>
+            <span class="type">本文链接</span>：<span class="content">posts/60663.html</span>
         </li>
         <li class="post-license">
             <span class="type">版权声明</span>：<span class="content">本博客所有文章除特别声明外，均采用 <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> 许可协议。转载请注明出处！</span>
@@ -330,13 +321,13 @@ position: 此参数是一个可选值，如果不设值，其默认的投影方�
                         <div class="article-prev">
                             <a class="prev"
                                rel="prev"
-                               href="/posts/54796.html"
+                               href="/posts/30103.html"
                             >
                             <span class="left arrow-icon flex-center">
                               <i class="fas fa-chevron-left"></i>
                             </span>
                                 <span class="title flex-center">
-                                <span class="post-nav-title-item">uni-app</span>
+                                <span class="post-nav-title-item">HTML+HTML5</span>
                                 <span class="post-nav-item">上一篇</span>
                             </span>
                             </a>
@@ -346,10 +337,10 @@ position: 此参数是一个可选值，如果不设值，其默认的投影方�
                         <div class="article-next">
                             <a class="next"
                                rel="next"
-                               href="/posts/19988.html"
+                               href="/posts/54626.html"
                             >
                             <span class="title flex-center">
-                                <span class="post-nav-title-item">动态修改dom</span>
+                                <span class="post-nav-title-item">HTML元信息</span>
                                 <span class="post-nav-item">下一篇</span>
                             </span>
                                 <span class="right arrow-icon flex-center">
@@ -368,7 +359,7 @@ position: 此参数是一个可选值，如果不设值，其默认的投影方�
             <div class="toc-content-container">
                 <div class="post-toc-wrap">
     <div class="post-toc">
-        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-border-radius"><span class="nav-text">1.border-radius</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-box-shadow"><span class="nav-text">2.box-shadow</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-flex"><span class="nav-text">3.flex</span></a></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#DTD%EF%BC%88%E6%96%87%E6%A1%A3%E7%B1%BB%E5%9E%8B%E5%A3%B0%E6%98%8E%EF%BC%89"><span class="nav-text">DTD（文档类型声明）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#html%E5%85%83%E7%B4%A0%E5%88%86%E7%B1%BB"><span class="nav-text">html元素分类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#html5%E6%96%B0%E5%A2%9E%E8%A7%84%E8%8C%83"><span class="nav-text">html5新增规范</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#html5%E6%96%B0%E5%A2%9E%E5%85%83%E7%B4%A0"><span class="nav-text">html5新增元素</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#keygen"><span class="nav-text">keygen</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8link%E5%92%8C-import%E5%AF%BC%E5%85%A5css%E7%9A%84%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="nav-text">使用link和@import导入css的区别？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#title%E5%92%8Ch1%E3%80%81b%E5%92%8Cstrong%E3%80%81i%E5%92%8Cem"><span class="nav-text">title和h1、b和strong、i和em</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#img%E7%9A%84title%E5%92%8Calt%E5%8C%BA%E5%88%AB"><span class="nav-text">img的title和alt区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#png%E3%80%81jpg%E3%80%81gif%E3%80%81webp"><span class="nav-text">png、jpg、gif、webp</span></a></li></ol>
     </div>
 </div>
 

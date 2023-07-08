@@ -304,7 +304,7 @@
 </tbody></table>
 <h3 id="1-input"><a href="#1-input" class="headerlink" title="1.@input"></a>1.@input</h3><p>每输入一个字符都会触发该事件，用于实时查询。</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">placeholder</span>=<span class="string">&quot;通过乘车人/订单号查询&quot;</span> <span class="attr">v-model</span>=<span class="string">&quot;inputVal&quot;</span>  @<span class="attr">input</span>=<span class="string">&quot;search&quot;</span> <span class="attr">value</span>=<span class="string">&quot;&quot;</span> /&gt;</span></span><br></pre></td></tr></table></figure>
-<h3 id="x32-46-64-107-101-x79-117-112-46-x65-110-116-x65-x72"><a href="#x32-46-64-107-101-x79-117-112-46-x65-110-116-x65-x72" class="headerlink" title="&#x32;&#46;&#64;&#107;&#101;&#x79;&#117;&#112;&#46;&#x65;&#110;&#116;&#x65;&#x72;"></a><a class="link" href="mailto:&#x32;&#46;&#64;&#107;&#101;&#x79;&#117;&#112;&#46;&#x65;&#110;&#116;&#x65;&#x72;">&#x32;&#46;&#64;&#107;&#101;&#x79;&#117;&#112;&#46;&#x65;&#110;&#116;&#x65;&#x72;<i class="fas fa-external-link-alt"></i></a></h3><p>该事件与v-on:input事件的区别在于：input事件是实时监控的，每次输入都会调用，<br>@keyup.enter事件则是在pc上需要点击回车键触发，而在手机上则是需要点击输入键盘上的确定键才可触发。</p>
+<h3 id="x32-46-x40-x6b-x65-121-117-112-x2e-101-x6e-x74-101-114"><a href="#x32-46-x40-x6b-x65-121-117-112-x2e-101-x6e-x74-101-114" class="headerlink" title="&#x32;&#46;&#x40;&#x6b;&#x65;&#121;&#117;&#112;&#x2e;&#101;&#x6e;&#x74;&#101;&#114;"></a><a class="link" href="mailto:&#x32;&#46;&#x40;&#x6b;&#x65;&#121;&#117;&#112;&#x2e;&#101;&#x6e;&#x74;&#101;&#114;">&#x32;&#46;&#x40;&#x6b;&#x65;&#121;&#117;&#112;&#x2e;&#101;&#x6e;&#x74;&#101;&#114;<i class="fas fa-external-link-alt"></i></a></h3><p>该事件与v-on:input事件的区别在于：input事件是实时监控的，每次输入都会调用，<br>@keyup.enter事件则是在pc上需要点击回车键触发，而在手机上则是需要点击输入键盘上的确定键才可触发。</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">placeholder</span>=<span class="string">&quot;通过乘车人/订单号查询&quot;</span> <span class="attr">v-model</span>=<span class="string">&quot;inputVal&quot;</span>  @<span class="attr">keyup.enter</span>=<span class="string">&quot;search&quot;</span> <span class="attr">value</span>=<span class="string">&quot;&quot;</span> /&gt;</span></span><br></pre></td></tr></table></figure>
 
 <p>若是element组件封装的，加.native<br>因为：vue封装@click这些方法时阻止了原生的DOM事件，而native就是释放DOM原生事件</p>
@@ -369,13 +369,13 @@
                         <div class="article-prev">
                             <a class="prev"
                                rel="prev"
-                               href="/posts/58494.html"
+                               href="/posts/57376.html"
                             >
                             <span class="left arrow-icon flex-center">
                               <i class="fas fa-chevron-left"></i>
                             </span>
                                 <span class="title flex-center">
-                                <span class="post-nav-title-item">js杂项</span>
+                                <span class="post-nav-title-item">vuex</span>
                                 <span class="post-nav-item">上一篇</span>
                             </span>
                             </a>
@@ -385,10 +385,10 @@
                         <div class="article-next">
                             <a class="next"
                                rel="next"
-                               href="/posts/3742.html"
+                               href="/posts/58494.html"
                             >
                             <span class="title flex-center">
-                                <span class="post-nav-title-item">离职交接</span>
+                                <span class="post-nav-title-item">js杂项</span>
                                 <span class="post-nav-item">下一篇</span>
                             </span>
                                 <span class="right arrow-icon flex-center">
@@ -407,7 +407,7 @@
             <div class="toc-content-container">
                 <div class="post-toc-wrap">
     <div class="post-toc">
-        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-input%E4%BA%8B%E4%BB%B6"><span class="nav-text">1.input事件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-input"><span class="nav-text">1.@input</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#x32-46-64-107-101-x79-117-112-46-x65-110-116-x65-x72"><span class="nav-text">2.@keyup.enter</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-change"><span class="nav-text">3.@change</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-blur%EF%BC%88%E5%85%83%E7%B4%A0%E5%A4%B1%E5%8E%BB%E7%84%A6%E7%82%B9%E6%97%B6%E6%89%80%E8%A7%A6%E5%8F%91%E7%9A%84%E4%BA%8B%E4%BB%B6%EF%BC%89"><span class="nav-text">4.@blur（元素失去焦点时所触发的事件）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-focus%EF%BC%88%E5%85%83%E7%B4%A0%E8%8E%B7%E5%8F%96%E7%84%A6%E7%82%B9%E6%97%B6%E6%89%80%E8%A7%A6%E5%8F%91%E7%9A%84%E4%BA%8B%E4%BB%B6%EF%BC%89"><span class="nav-text">5.@focus（元素获取焦点时所触发的事件）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-input%E6%A0%A1%E9%AA%8C"><span class="nav-text">6.input校验</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-addEventListener"><span class="nav-text">2.addEventListener</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E5%8F%82%E6%95%B0"><span class="nav-text">1.参数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E4%BA%8B%E4%BB%B6"><span class="nav-text">2.事件</span></a></li></ol></li></ol></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-input%E4%BA%8B%E4%BB%B6"><span class="nav-text">1.input事件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-input"><span class="nav-text">1.@input</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#x32-46-x40-x6b-x65-121-117-112-x2e-101-x6e-x74-101-114"><span class="nav-text">2.@keyup.enter</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-change"><span class="nav-text">3.@change</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-blur%EF%BC%88%E5%85%83%E7%B4%A0%E5%A4%B1%E5%8E%BB%E7%84%A6%E7%82%B9%E6%97%B6%E6%89%80%E8%A7%A6%E5%8F%91%E7%9A%84%E4%BA%8B%E4%BB%B6%EF%BC%89"><span class="nav-text">4.@blur（元素失去焦点时所触发的事件）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-focus%EF%BC%88%E5%85%83%E7%B4%A0%E8%8E%B7%E5%8F%96%E7%84%A6%E7%82%B9%E6%97%B6%E6%89%80%E8%A7%A6%E5%8F%91%E7%9A%84%E4%BA%8B%E4%BB%B6%EF%BC%89"><span class="nav-text">5.@focus（元素获取焦点时所触发的事件）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-input%E6%A0%A1%E9%AA%8C"><span class="nav-text">6.input校验</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-addEventListener"><span class="nav-text">2.addEventListener</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E5%8F%82%E6%95%B0"><span class="nav-text">1.参数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E4%BA%8B%E4%BB%B6"><span class="nav-text">2.事件</span></a></li></ol></li></ol></li></ol>
     </div>
 </div>
 
