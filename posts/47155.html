@@ -218,7 +218,7 @@
     
         <span class="article-update-date article-meta-item">
         <i class="fas fa-file-pen"></i>&nbsp;
-        <span class="pc">2023-05-07 14:46:15</span>
+        <span class="pc">2023-07-12 14:21:47</span>
     </span>
     
     
@@ -238,12 +238,12 @@
     
     
         <span class="article-wordcount article-meta-item">
-            <i class="fas fa-file-word"></i>&nbsp;<span>717 字</span>
+            <i class="fas fa-file-word"></i>&nbsp;<span>2.7k 字</span>
         </span>
     
     
         <span class="article-min2read article-meta-item">
-            <i class="fas fa-clock"></i>&nbsp;<span>3 分钟</span>
+            <i class="fas fa-clock"></i>&nbsp;<span>11 分钟</span>
         </span>
     
     
@@ -261,8 +261,18 @@
             <div class="article-content keep-markdown-body">
                 
 
-                <h1 id="1-border-radius"><a href="#1-border-radius" class="headerlink" title="1.border-radius"></a>1.border-radius</h1><p>圆：   <code>border-radius: 50%;</code></p>
-<h1 id="2-box-shadow"><a href="#2-box-shadow" class="headerlink" title="2.box-shadow"></a>2.box-shadow</h1><p>box-shadow 属性接受值最多由五个不同的部分组成。<br>box-shadow: offset-x offset-y blur spread color position;<br>换句说： 对象选择器 {box-shadow:X轴偏移量 Y轴偏移量 阴影模糊半径 阴影扩展半径 阴影颜色 投影方式 }</p>
+                <h1 id="1-块级盒子-和-内联盒子"><a href="#1-块级盒子-和-内联盒子" class="headerlink" title="1.块级盒子 和 内联盒子"></a>1.块级盒子 和 内联盒子</h1><p>1.块级盒子表现出以下行为：<br>①盒子会在内联的方向上扩展并占据父容器在该方向上的所有可用空间，在绝大数情况下意味着盒子会和父容器一样宽<br>②每个盒子都会换行<br>③width 和 height 属性可以发挥作用<br>④内边距（padding）, 外边距（margin）和 边框（border）会将其他元素从当前盒子周围“推开”</p>
+<p>2.内联盒子表现出以下行为：<br>①盒子不会产生换行。<br>②width 和 height 属性将不起作用。<br>③垂直方向的内边距、外边距以及边框会被应用但是不会把其他处于 inline 状态的盒子推开。<br>④水平方向的内边距、外边距以及边框会被应用且会把其他处于 inline 状态的盒子推开。</p>
+<p>3.补充<br>css 的 box 模型有一个外部显示类型，来决定盒子是块级还是内联。<br>盒模型还有内部显示类型，它决定了盒子内部元素是如何布局的。</p>
+<p>默认情况下是按照 **正常文档流 **布局。<br>如果设置 display: flex，在一个元素上，外部显示类型是 block，但是内部显示类型修改为 flex。<br>该盒子的所有直接子元素都会成为 flex 元素，会根据弹性盒子（Flexbox）规则进行布局</p>
+<p>display 属性可以改变盒子的外部显示类型是块级还是内联。</p>
+<h1 id="2-盒模型"><a href="#2-盒模型" class="headerlink" title="2.盒模型"></a>2.盒模型</h1><p>盒模型的组成：元素内容（content）、内边距（padding）、边框（border）、外边距（margin）四个要素。<br>CSS3中的盒模型有两种：标准盒子模型、IE盒子模型<br><img src="/posts/47155/image-2.png"><br><img src="/posts/47155/image-1.png"></p>
+<p>1.标准盒模型和IE盒模型的区别<br>标准盒模型的width和height属性的范围只包含了content。<br>IE盒模型的width和height属性的范围包含了border、padding和content。</p>
+<p>2.box-sizing 属性<br><code>box-sizing: content-box</code>: 标准盒模型（默认值）<br><code>box-sizing: border-box</code>: IE盒模型</p>
+<h1 id="3-border"><a href="#3-border" class="headerlink" title="3.border"></a>3.border</h1><p>边框有三部分组成：边框宽度、边框样式以及边框颜色。<br>语法格式：<code>border: border-width || border-style || border-color</code><br>例如：<code>border: 1px solid red;</code> </p>
+<p>1.<code>border-style</code>取值:<br>none、hidden(不显示边框)、solid(实线)、dotted(圆点)、dashed(方形虚线)、double(双实线)、groove(有雕刻效果的边框)、ridge(有浮雕效果的边框)、inset(有陷入效果的边框)、outset(有突出效果的边框)、</p>
+<p>2.<code>border-radius</code><br>border-radius：设置元素的外边框圆角<br>圆：   <code>border-radius: 50%;</code><br>该属性是一个简写属性，可以跟四个值，分别代表左上角、右上角、右下角、左下角<br>分开写：<code>border-top-left-radius</code>、<code>border-top-right-radius</code>、<code>border-bottom-right-radius</code> 和 <code>border-bottom-left-radius</code></p>
+<p>3.<code>box-shadow</code><br><code>box-shadow</code> 属性接受值最多由五个不同的部分组成, 为盒子添加阴影。<br><code>box-shadow: offset-x offset-y blur spread color position;</code><br>换句说： 对象选择器 {box-shadow:X轴偏移量 Y轴偏移量 阴影模糊半径 阴影扩展半径 阴影颜色 投影方式 }</p>
 <pre><code>offset-x: 阴影水平方向的偏移，即阴影在 x 轴的位置。值为正数时，阴影在元素的右侧；值为负数时，阴影在元素的左侧。
 offset-y: 阴影竖直方向的偏移，即阴影在 y 轴的位置。值为正数时，阴影在元素的下方；值为负数时，阴影在元素的上方。
 blur: 阴影的模糊半径，举例来说，就是你在设计软件中使用 高斯模糊 滤波器带来的效果。值为 0 意味着该阴影是固态而锋利的，完全完全没有模糊效果。blur 值越大，阴影则更不锋利而更朦胧 / 模糊。负值是不合法的，会被修正成 0。
@@ -272,6 +282,25 @@ position: 此参数是一个可选值，如果不设值，其默认的投影方�
 如果取其唯一值“inset”,就是将外阴影变成内阴影，也就是说设置阴影类型为“inset”时，其投影就是内阴影。
 </code></pre>
 <p>示例：<code>box-shadow:0px 4px 4px 4px rgba(0, 0, 0, 0.08)</code></p>
+<p>4.<code>border-collapse</code>: 是用来决定表格的边框是分开的还是合并的<br><code>border-collapse: collapse || separate</code> 合并||分隔</p>
+<h1 id="4-border-image"><a href="#4-border-image" class="headerlink" title="4.border-image"></a>4.border-image</h1><p>参考：<a class="link" target="_blank" rel="noopener" href="https://blog.csdn.net/foreverling_ling/article/details/52247649">https://blog.csdn.net/foreverling_ling/article/details/52247649<i class="fas fa-external-link-alt"></i></a></p>
+<p>语法：<code>border-image = &lt;&#39;border-image-source&#39;&gt; || &lt;&#39;border-image-slice&#39;&gt; [ / &lt;&#39;border-image-width&#39;&gt; | / &lt;&#39;border-image-width&#39;&gt;? / &lt;&#39;border-image-outset&#39;&gt; ]?  ||&lt;&#39;border-image-repeat&#39;&gt; </code><br>例如：<code>border-image: url(&quot;/images/border.png&quot;) 30 30 repeat;</code><br>1.border-image-source：边框图片，格式为：url(“…”)。<br>2.border-image-slice: 图片边框向内偏移的距离。<br>格式：<code>border-image-slice：top right bottom left</code><br>分别指切割背景图片的四条线距离上右下左的距离。<br>该距离接受数值，百分数。默认数值的单位是px,但是不能在数值后面加px，否则这句css将不被浏览器解析。<br><img src="/posts/47155/image-3.png"></p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">border-image-slice</span>: <span class="number">10</span>;   <span class="comment">/*距离上下左右均为10px;*/</span></span><br><span class="line"><span class="attribute">border-image-slice</span>: <span class="number">10</span> <span class="number">30</span>;   <span class="comment">/*距离上下10px,左右30px;*/</span></span><br><span class="line"><span class="attribute">border-image-slice</span>: <span class="number">10</span> <span class="number">30</span> <span class="number">20</span>;   <span class="comment">/*距离上10px,下20px,左右30px;*/</span></span><br><span class="line"><span class="attribute">border-image-slice</span>: <span class="number">10</span> <span class="number">30</span> <span class="number">20</span> <span class="number">40</span>;   <span class="comment">/*距离上10px,右30px,下20px,左40px;*/</span></span><br></pre></td></tr></table></figure>
+<p>四条线将背景图分割成了9个部分，其中1,2,3,4,6,7,8,9这八个区域将会被切割，作为图片边框，如果除了设置数值或者百分数，还加了一个“fill”，那么区域5就会作为背景填充进元素content，如:<br><code>border-image-slice: 25 11 fill;</code><br>注意：slice不接受负值；如果slice切割的左右距离之和大于背景图的宽，则上下边框不显示。如果slice切割的上下距离之和大于背景图的高，则左右边框不显示。</p>
+<p>3.border-image-width：边界图像的宽度。<br>取值：百分比、数值、auto<br><code>border-image-width</code> 属性的值可用以下方式进行设定：<br>当指定 一个 值时，它将作用到 四个方向 ；<br>当指定 两个 值时，它将分别作用到 垂直方向 和 水平方向 ；<br>当指定 三个 值时，它将分别作用到 上方、水平方向、和下方；<br>当指定 四个 值时，它将分别作用到 上方、右方、下方和左方。</p>
+<p>4.border-image-repeat: 定义图片如何填充边框<br>语法：<code>border-image-repeat =  [ stretch | repeat | round | space ]&#123;1,2&#125;  </code><br>stretch：拉伸图片以填充边框。<br>repeat：平铺图片以填充边框。<br>round：平铺图像。当不能整数次平铺时，根据情况放大或缩小图像。<br>space：平铺图像。当不能整数次平铺时，会用空白间隙填充在图像周围（不会放大或缩小图像）。</p>
+<p>单个值，设置所有的边框；两个值，分别设置水平与垂直的边框。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="language-css"></span></span><br><span class="line"><span class="language-css">  <span class="selector-class">.box2</span>&#123;</span></span><br><span class="line"><span class="language-css">    <span class="attribute">margin-left</span>: <span class="number">100px</span>;</span></span><br><span class="line"><span class="language-css">    <span class="attribute">width</span>: <span class="number">120px</span>;</span></span><br><span class="line"><span class="language-css">    <span class="attribute">height</span>: <span class="number">120px</span>;</span></span><br><span class="line"><span class="language-css">    <span class="attribute">display</span>: block;</span></span><br><span class="line"><span class="language-css">    <span class="attribute">border</span>: <span class="number">60px</span> solid transparent;</span></span><br><span class="line"><span class="language-css">    <span class="attribute">border-image-source</span>: <span class="built_in">url</span>(<span class="string">&quot;img/image.png&quot;</span>);</span></span><br><span class="line"><span class="language-css">    <span class="attribute">border-image-slice</span>: <span class="number">27</span> fill;</span></span><br><span class="line"><span class="language-css">    <span class="attribute">border-image-width</span>: <span class="number">60px</span>;</span></span><br><span class="line"><span class="language-css">    <span class="attribute">border-image-repeat</span>: stretch;</span></span><br><span class="line"><span class="language-css">  &#125;</span></span><br><span class="line"><span class="language-css"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;box2&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><img src="/posts/47155/image.png"></p>
+<h1 id="5-background"><a href="#5-background" class="headerlink" title="5.background"></a>5.background</h1><p>1.<code>background-color</code>：背景颜色<br>2.<code>background-image</code>：背景图像</p>
+<p>3.<code>background-repeat</code>：控制图像的平铺行为<br>取值：<br>no-repeat：阻止背景重复平铺。<br>repeat-x：仅水平方向上重复平铺。<br>repeat-y：仅垂直方向上重复平铺<br>repeat：默认值，在水平和垂直两个方向重复平铺。</p>
+<p>4.<code>background-size</code>：调整背景图像的大小<br>取值：<br>①设置长度或百分比值<br>②cover：使图像足够大，使它完全覆盖了盒子区域，同时仍然保持其宽高比<br>③contain：浏览器会将图像调整到适合框内的尺寸。如果图像的长宽比与盒子的长宽比不同，可能会出现空隙。</p>
+<p>5.<code>background-position</code>：背景图像定位<br>取值：<br>①top、bottom、left、right<br>②使用长度和百分比值<br>③将关键字与长度或百分比混合在一起<br><code>background-position: 20px top;</code><br>④使用四值语法来指示到盒子的某些边的距离<br><code>background-position: top 20px right 10px;/*将背景定位在距顶部 20px 和右侧 10px 处*/</code></p>
+<p>6.渐变背景<br>格式：<code>background-image: linear-gradient( 方向/角度 , 颜色1，颜色2，颜色3....);</code><br>例如：<code> background-image: linear-gradient(105deg, rgba(0,249,255,1) 39%, rgba(51,56,57,1) 96%);</code></p>
+<p>CSS 定义了两种渐变类型：<br>线性渐变（向下&#x2F;向上&#x2F;向左&#x2F;向右&#x2F;对角线）；<br>to bottom、to top、to left、to right、to bottom right、90deg(90度)<br>径向渐变（由中心向周围展开）；<br><code>background-image: radial-gradient(circle at center, #FFFFFF, #000000);</code></p>
+<p>7.多个背景图像<br>在单个属性值中指定多个 background-image 值，用逗号分隔每个值。<br>当你这样做时，你可能会出现背景图片相互重叠的情况。背景将分层，最后列出的背景图片位于最下层。<br><code>background:url(&#39;img/image.png&#39;),url(&#39;img/image2.png&#39;)&#125;</code></p>
+<p>8.background-attachment：指定内容滚动时的滚动方式<br>取值：<br>①scroll：使元素的背景在页面滚动时滚动。<br>②fixed：使元素的背景固定在视口上，这样当页面或元素内容滚动时，它就不会滚动。它将始终保持在屏幕上相同的位置。<br>③local：将背景固定在它所设置的元素上，所以当你滚动该元素时，背景也随之滚动。</p>
+<h1 id="6-轮廓"><a href="#6-轮廓" class="headerlink" title="6.	轮廓"></a>6.	轮廓</h1><p>轮廓（outline）位于边框边缘的外围，可起到突出元素的作用。CSS outline 属性规定元素轮廓的颜色outline-color、样式outline-style和宽度outline-width。<br>outline-width属性值： thin（细），medium（默认），thick（粗），length（自定义）</p>
 <h1 id="3-flex"><a href="#3-flex" class="headerlink" title="3.flex"></a>3.flex</h1><p>1.元素放一行，水平方向自适应</p>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="selector-class">.orderLine</span>&#123;</span><br><span class="line">    <span class="attribute">display</span>: flex;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.oneLine</span>&#123;</span><br><span class="line">      <span class="attribute">flex</span>:<span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>2.元素放多行，水平方向自适应</p>
@@ -368,7 +397,7 @@ position: 此参数是一个可选值，如果不设值，其默认的投影方�
             <div class="toc-content-container">
                 <div class="post-toc-wrap">
     <div class="post-toc">
-        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-border-radius"><span class="nav-text">1.border-radius</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-box-shadow"><span class="nav-text">2.box-shadow</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-flex"><span class="nav-text">3.flex</span></a></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-%E5%9D%97%E7%BA%A7%E7%9B%92%E5%AD%90-%E5%92%8C-%E5%86%85%E8%81%94%E7%9B%92%E5%AD%90"><span class="nav-text">1.块级盒子 和 内联盒子</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-%E7%9B%92%E6%A8%A1%E5%9E%8B"><span class="nav-text">2.盒模型</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-border"><span class="nav-text">3.border</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-border-image"><span class="nav-text">4.border-image</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#5-background"><span class="nav-text">5.background</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#6-%E8%BD%AE%E5%BB%93"><span class="nav-text">6.	轮廓</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-flex"><span class="nav-text">3.flex</span></a></li></ol>
     </div>
 </div>
 

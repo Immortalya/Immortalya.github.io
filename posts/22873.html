@@ -9,7 +9,7 @@
     
     <title>
         
-            面试 |
+            层叠和继承 |
         
         唔、
     </title>
@@ -190,7 +190,7 @@
         <div class="article-content-container">
 
             <div class="article-title">
-                <span class="title-hover-animation">面试</span>
+                <span class="title-hover-animation">层叠和继承</span>
             </div>
 
             
@@ -212,38 +212,38 @@
         
             <i class="fa-regular fa-calendar-plus"></i>&nbsp;
         
-        <span class="pc">2023-06-25 16:42:06</span>
-        <span class="mobile">2023-06-25 16:42</span>
+        <span class="pc">2023-07-10 17:48:06</span>
+        <span class="mobile">2023-07-10 17:48</span>
     </span>
     
         <span class="article-update-date article-meta-item">
         <i class="fas fa-file-pen"></i>&nbsp;
-        <span class="pc">2023-06-30 20:21:50</span>
+        <span class="pc">2023-07-12 14:22:41</span>
     </span>
     
     
-    
-        <span class="article-tags article-meta-item">
-            <i class="fas fa-tags"></i>&nbsp;
+        <span class="article-categories article-meta-item">
+            <i class="fas fa-folder"></i>&nbsp;
             <ul>
                 
                     <li>
-                        <a href="/tags/%E7%9B%B8%E5%A4%84/">相处</a>&nbsp;
+                        <a href="/categories/css/">css</a>&nbsp;
                     </li>
                 
             </ul>
         </span>
     
+    
 
     
     
         <span class="article-wordcount article-meta-item">
-            <i class="fas fa-file-word"></i>&nbsp;<span>23 字</span>
+            <i class="fas fa-file-word"></i>&nbsp;<span>1.2k 字</span>
         </span>
     
     
         <span class="article-min2read article-meta-item">
-            <i class="fas fa-clock"></i>&nbsp;<span>1 分钟</span>
+            <i class="fas fa-clock"></i>&nbsp;<span>4 分钟</span>
         </span>
     
     
@@ -261,7 +261,24 @@
             <div class="article-content keep-markdown-body">
                 
 
-                <p>1.自我介绍<br>2.介绍自己做过的项目<br>3.vue的了解程度<br>4.es6</p>
+                <h3 id="1-冲突规则"><a href="#1-冲突规则" class="headerlink" title="1.冲突规则"></a>1.冲突规则</h3><p>CSS 代表层叠样式表（Cascading Style Sheets）</p>
+<p>在某些时候，在做一个项目过程中你会发现一些应该产生效果的样式没有生效。</p>
+<p>通常的原因是你创建了两个应用于同一个元素的规则。与层叠密切相关的概念是优先级，决定在发生冲突的时候应该使用哪条规则。<br>这里也有继承的概念，也就是在默认情况下，一些 css 属性继承当前元素的父元素上设置的值，有些则不继承。这也可能导致一些和期望不同的结果。</p>
+<h3 id="2-继承"><a href="#2-继承" class="headerlink" title="2.继承"></a>2.继承</h3><p>一些设置在父元素上的 CSS 属性是可以被子元素继承的，有些则不能。</p>
+<p>1.如果一个标签没有设置过样式，他的某个祖先级层设置过，在浏览器中该标签也加载了这些样式，这些样式都是从祖先及继承而来，这种现象就是继承性。<br>2.能够被继承的样式是所有的文字相关样式属性，其他的属性都不能被继承。<br>3.继承性可以将页面中出现最多的文字样式设置给一个较大的祖先级标签比如<code>&lt;body&gt;</code>，后期所有后代标签都可以从<code>&lt;body&gt;</code>继承。</p>
+<p>控制继承<br>CSS 为控制继承提供了五个特殊的通用属性值。每个 CSS 属性都接收这些值。</p>
+<p>inherit:使子元素属性继承父元素，即：开启继承。<br>initial：将其属性重置为默认值。每一个CSS属性都有一个初始（默认）值。<br>unset：不做设置。与css是否继承属性相关，如果属性是可继承属性那么就是 inherit，否则和 initial 一样<br>revert：将应用于选定元素的属性值重置为浏览器的默认样式，而不是应用于该属性的默认值。目前不清楚<br>revert-layer：将应用于选定元素的属性值重置为在上一个层叠层中建立的值。目前不清楚</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span> <span class="attr">type</span>=<span class="string">&quot;text/css&quot;</span>&gt;</span><span class="language-css"></span></span><br><span class="line"><span class="language-css">    <span class="selector-tag">body</span> &#123;</span></span><br><span class="line"><span class="language-css">        <span class="attribute">color</span>: green;</span></span><br><span class="line"><span class="language-css">    &#125;</span></span><br><span class="line"><span class="language-css">            </span></span><br><span class="line"><span class="language-css">    <span class="selector-class">.my-class-1</span> <span class="selector-tag">a</span> &#123;</span></span><br><span class="line"><span class="language-css">        <span class="attribute">color</span>: inherit;</span></span><br><span class="line"><span class="language-css">    &#125;</span></span><br><span class="line"><span class="language-css">            </span></span><br><span class="line"><span class="language-css">    <span class="selector-class">.my-class-2</span> <span class="selector-tag">a</span> &#123;</span></span><br><span class="line"><span class="language-css">        <span class="attribute">color</span>: initial;</span></span><br><span class="line"><span class="language-css">    &#125;</span></span><br><span class="line"><span class="language-css">            </span></span><br><span class="line"><span class="language-css">    <span class="selector-class">.my-class-3</span> <span class="selector-tag">a</span> &#123;</span></span><br><span class="line"><span class="language-css">        <span class="attribute">color</span>: unset;</span></span><br><span class="line"><span class="language-css">    &#125;</span></span><br><span class="line"><span class="language-css"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span>Default <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;#&quot;</span>&gt;</span>link<span class="tag">&lt;/<span class="name">a</span>&gt;</span> color<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">&quot;my-class-1&quot;</span>&gt;</span>Inherit the <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;#&quot;</span>&gt;</span>link<span class="tag">&lt;/<span class="name">a</span>&gt;</span> color<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">&quot;my-class-2&quot;</span>&gt;</span>Reset the <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;#&quot;</span>&gt;</span>link<span class="tag">&lt;/<span class="name">a</span>&gt;</span> color<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">&quot;my-class-3&quot;</span>&gt;</span>Unset the <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;#&quot;</span>&gt;</span>link<span class="tag">&lt;/<span class="name">a</span>&gt;</span> color<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><img src="/posts/22873/image.png"></p>
+<h3 id="3-重叠"><a href="#3-重叠" class="headerlink" title="3.重叠"></a>3.重叠</h3><p>层叠性解决同一个属性设置多次的冲突问题。</p>
+<p>多个选择器进行对比，最终只会有一个属性加载成功，他会层叠覆盖掉其他的属性。</p>
+<p>1.选择器选中 目标标签<br>①比较多个选择器的权重，权重高的层叠权重低的。<br>②基础选择器权重：根据选择范围，范围越大权重越小，权重比较 * &lt; 标签选择器 &lt; 类选择器 &lt; id选择器<br>③高级选择器权重：依次比较组成高级选择器的id的个数，类的个数，标签的个数，如果前面能够比较出大小后面不再比较，如果前面相等就往后比较，直到比出大小。<br>④如果选择器权重都相同，需要比较css中代码的书写顺序，后面的层叠前面的。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span> <span class="attr">type</span>=<span class="string">&quot;text/css&quot;</span>&gt;</span><span class="language-css"></span></span><br><span class="line"><span class="language-css">    <span class="selector-class">.main-heading</span> &#123; </span></span><br><span class="line"><span class="language-css">        <span class="attribute">color</span>: red; <span class="comment">/*生效*/</span></span></span><br><span class="line"><span class="language-css">    &#125;</span></span><br><span class="line"><span class="language-css">    <span class="selector-tag">h1</span> &#123; </span></span><br><span class="line"><span class="language-css">        <span class="attribute">color</span>: blue; </span></span><br><span class="line"><span class="language-css">    &#125;</span></span><br><span class="line"><span class="language-css"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">h1</span> <span class="attr">class</span>=<span class="string">&quot;main-heading&quot;</span>&gt;</span>This is my heading.<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>2.选择器选中 目标标签的祖先级<br>如果选择器选中的是祖先元素，文字的样式可以被继承<br>第一步：比较就近原则，比较选择器选中的祖先级在HTML结构中距离目标标签的远近，近的层叠远的。<br>第二步：如果选中的祖先级距离目标标签一样近(同一个祖先级)，比较选择器权重，权重大的层叠小的。<br>第三步：如果距离一样近，权重也相同，最后比较css中的书写顺序，后面的层叠掉前面的。</p>
+<p>3.important<br>①如果在比较选择器权重的过程中，遇见一个!important关键字，可以将某条css样式属性的权重提升到最大。<br>②在某个css属性的属性值后面空格加!important。<br>注：<br>就近原则中，不需要比较选择器权重，所有important会失效。<br>important不能提升选择器权重，只能提升某条属性的权重到最大。</p>
+<p>4.行内式： 行内样式与内嵌或外链式比较权重最高，但是与!important关键字相比较权重低。</p>
+<h3 id="4-级联层的顺序"><a href="#4-级联层的顺序" class="headerlink" title="4.级联层的顺序"></a>4.级联层的顺序</h3><p>@layer<br><a class="link" target="_blank" rel="noopener" href="https://blog.csdn.net/callmeGood123/article/details/129170388">https://blog.csdn.net/callmeGood123/article/details/129170388<i class="fas fa-external-link-alt"></i></a></p>
 
             </div>
 
@@ -271,16 +288,16 @@
 <div class="article-copyright-info-container">
     <ul class="copyright-info-content">
         <li class="post-title">
-            <span class="type">本文标题</span>：<span class="content">面试</span>
+            <span class="type">本文标题</span>：<span class="content">层叠和继承</span>
         </li>
         <li class="post-author">
             <span class="type">本文作者</span>：<span class="content">immortal</span>
         </li>
         <li class="post-time">
-            <span class="type">创建时间</span>：<span class="content">2023-06-25 16:42:06</span>
+            <span class="type">创建时间</span>：<span class="content">2023-07-10 17:48:06</span>
         </li>
         <li class="post-link">
-            <span class="type">本文链接</span>：<span class="content">posts/14053.html</span>
+            <span class="type">本文链接</span>：<span class="content">posts/22873.html</span>
         </li>
         <li class="post-license">
             <span class="type">版权声明</span>：<span class="content">本博客所有文章除特别声明外，均采用 <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> 许可协议。转载请注明出处！</span>
@@ -295,14 +312,6 @@
             
 
             
-                <ul class="post-tags-box">
-                    
-                        <li class="tag-item">
-                            <a href="/tags/%E7%9B%B8%E5%A4%84/">#相处</a>&nbsp;
-                        </li>
-                    
-                </ul>
-            
 
             
                 <div class="article-nav">
@@ -310,13 +319,13 @@
                         <div class="article-prev">
                             <a class="prev"
                                rel="prev"
-                               href="/posts/21115.html"
+                               href="/posts/45816.html"
                             >
                             <span class="left arrow-icon flex-center">
                               <i class="fas fa-chevron-left"></i>
                             </span>
                                 <span class="title flex-center">
-                                <span class="post-nav-title-item">情绪自控（李筱懿）</span>
+                                <span class="post-nav-title-item">CSS布局</span>
                                 <span class="post-nav-item">上一篇</span>
                             </span>
                             </a>
@@ -326,10 +335,10 @@
                         <div class="article-next">
                             <a class="next"
                                rel="next"
-                               href="/posts/44601.html"
+                               href="/posts/10604.html"
                             >
                             <span class="title flex-center">
-                                <span class="post-nav-title-item">怡江苑</span>
+                                <span class="post-nav-title-item">CSS基础</span>
                                 <span class="post-nav-item">下一篇</span>
                             </span>
                                 <span class="right arrow-icon flex-center">
@@ -348,7 +357,7 @@
             <div class="toc-content-container">
                 <div class="post-toc-wrap">
     <div class="post-toc">
-        
+        <ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E5%86%B2%E7%AA%81%E8%A7%84%E5%88%99"><span class="nav-text">1.冲突规则</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E7%BB%A7%E6%89%BF"><span class="nav-text">2.继承</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E9%87%8D%E5%8F%A0"><span class="nav-text">3.重叠</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-%E7%BA%A7%E8%81%94%E5%B1%82%E7%9A%84%E9%A1%BA%E5%BA%8F"><span class="nav-text">4.级联层的顺序</span></a></li></ol>
     </div>
 </div>
 
