@@ -9,7 +9,7 @@
     
     <title>
         
-            HTML标签 |
+            组件 |
         
         唔、
     </title>
@@ -190,7 +190,7 @@
         <div class="article-content-container">
 
             <div class="article-title">
-                <span class="title-hover-animation">HTML标签</span>
+                <span class="title-hover-animation">组件</span>
             </div>
 
             
@@ -212,13 +212,13 @@
         
             <i class="fa-regular fa-calendar-plus"></i>&nbsp;
         
-        <span class="pc">2023-07-21 11:21:06</span>
-        <span class="mobile">2023-07-21 11:21</span>
+        <span class="pc">2023-07-13 16:34:06</span>
+        <span class="mobile">2023-07-13 16:34</span>
     </span>
     
         <span class="article-update-date article-meta-item">
         <i class="fas fa-file-pen"></i>&nbsp;
-        <span class="pc">2023-07-08 22:24:05</span>
+        <span class="pc">2023-07-15 22:25:15</span>
     </span>
     
     
@@ -227,7 +227,7 @@
             <ul>
                 
                     <li>
-                        <a href="/categories/HTML/">HTML</a>&nbsp;
+                        <a href="/categories/vue/">vue</a>&nbsp;
                     </li>
                 
             </ul>
@@ -238,7 +238,7 @@
     
     
         <span class="article-wordcount article-meta-item">
-            <i class="fas fa-file-word"></i>&nbsp;<span>965 字</span>
+            <i class="fas fa-file-word"></i>&nbsp;<span>792 字</span>
         </span>
     
     
@@ -261,26 +261,30 @@
             <div class="article-content keep-markdown-body">
                 
 
-                <h3 id="DTD（文档类型声明）"><a href="#DTD（文档类型声明）" class="headerlink" title="DTD（文档类型声明）"></a>DTD（文档类型声明）</h3><p>在 HTML 4.01 中，&lt;!DOCTYPE&gt; 声明引用 DTD，因为 HTML 4.01 基于 SGML。DTD 规定了标记语言的规则，这样浏览器才能正确地呈现内容。 HTML5 不基于 SGML，所以不需要引用 DTD。<br>HTML 4.01或XHTML声明中必须引用dtd<br>    <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><br>    <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd"><br>在 HTML5 中只有一种： <!DOCTYPE html></p>
-<h3 id="html元素分类"><a href="#html元素分类" class="headerlink" title="html元素分类"></a>html元素分类</h3><p>1.块元素  行内元素  空元素<br>空元素<br>    常见：br、hr、img、input、link、meta<br>    不常见：area、base、col、command、embed、keygen、param、source、track、wbr<br>块级元素<br>    div ul ol li dl dt dd h1 h2 h4…p hr address  blockquote  dir  menu  pre<br>行内元素<br>    a b span img input select strong sup sub small  textarea<br>       u abbr  strike  var  kbd  label  font  em  select</p>
-<p>2.语义元素  非语义元素<br>语义元素：header  nav  section  actcle  aside  footer<br>无语义元素：div、span</p>
-<h3 id="html5新增规范"><a href="#html5新增规范" class="headerlink" title="html5新增规范"></a>html5新增规范</h3><p>HTML5是HTML、XHTML以及HTML、DOM的新标准<br>①用于绘画canvas元素<br>②用于媒介回放的video和audio元素<br>      ③对本地离线存储的更好支持<br>④新的结构元素。如：article、section、nav、header、footer、aside<br>       ⑤新的表单控件，比如：calendar、date、time、email、URL、search<br>progress：可以通过此标签创建一个进度条，并且进度条可以使用JS脚本来进行控制。<br>data-list：通过此标签的与input一起应用可以定义可选数据的列表。与 input 元素配合使用，就可以制作出输入值的下拉列表。</p>
-<h3 id="html5新增元素"><a href="#html5新增元素" class="headerlink" title="html5新增元素"></a>html5新增元素</h3><p>表单元素：datalist  keygen  output<br>html图形<br>  canvas：js  调用canvas对象的getContext()方法来获取绘图环境<br>  svg：xml<br>html媒体（对象）：embed  object<br>audio(音频)：autoplay controls muted preload loop src<br>video(视频)：src autoplay controls height width muted preload loop poster</p>
-<h3 id="keygen"><a href="#keygen" class="headerlink" title="keygen"></a>keygen</h3><pre><code>&lt;keygen&gt; 标签规定用于表单的密钥对生成器字段。当提交表单时，私钥存储在本地，公钥发送到服务器。
-在git版本管理工具中，我们每次push上传项目到github或码云远程仓库时可以选择两种方式： 1）使用http上传，这样每次上传都要登录账号(windows凭据未保存密码)； 2）***h上传，这时我们需要ssh-keygen生成一对公钥(锁)和私钥(钥匙)，公钥设置在远程仓库，私钥留在自己电脑上C盘/用户/.../.ssh中，每次上传文件会自动配对，实现免密码传输。
-</code></pre>
-<h3 id="使用link和-import导入css的区别？"><a href="#使用link和-import导入css的区别？" class="headerlink" title="使用link和@import导入css的区别？"></a>使用link和@import导入css的区别？</h3><pre><code>1：link属于html标签。@import在css中使用表示导入外部样式表；
-2：@import的兼容性比link差
-3：加载顺序差别，浏览器先加载的标签link，后加载@import
-4：link 支持使用javascript改变样式 （document.styleSheets），后者不可
-</code></pre>
-<h3 id="title和h1、b和strong、i和em"><a href="#title和h1、b和strong、i和em" class="headerlink" title="title和h1、b和strong、i和em"></a>title和h1、b和strong、i和em</h3><p>title和h1<br>    title：概括了网站信息，告诉搜索引擎或者用户关于网站的内容主题<br>    h1：文章主题内容<br>区别：<br>    title显示在网页标题上，h1显示在网页内容上<br>    title比h1重要    对于SEO的了解</p>
-<p>b和strong、i和em<br>    b &#x2F; i:  实体标签，给文字加粗&#x2F;倾斜<br>    strong &#x2F; em：逻辑标签，用来加强字符语气<br>区别：<br>    b&#x2F; i:  标签只有加粗&#x2F;倾斜的样式没有实际含义。<br>    strong &#x2F; em：表示标签内字符比较重要，用于强调<br>    em一般用于术语</p>
-<h3 id="img的title和alt区别"><a href="#img的title和alt区别" class="headerlink" title="img的title和alt区别"></a>img的title和alt区别</h3><pre><code>title：鼠标移入到图片显示的内容
-alt：图标无法加载时显示的内容
-</code></pre>
-<p>在seo的层面上，蜘蛛抓取不到图片的内容，所以在写img标签的时候为了增加SEO效果加入alt属性描述图片的内容或者关键字</p>
-<h3 id="png、jpg、gif、webp"><a href="#png、jpg、gif、webp" class="headerlink" title="png、jpg、gif、webp"></a>png、jpg、gif、webp</h3><p>png：无损压缩，尺寸体积比jpg&#x2F;jpeg大，适合做小图标<br>jpg：采用压缩算法，有失真，比png体积小，适合做中大图片<br>gif：一般做动图<br>webp：同时支持有损或者无损压缩，相同质量的图片，webp具有更小的体积，但兼容性不太好</p>
+                <h1 id="1-组件注册"><a href="#1-组件注册" class="headerlink" title="1.组件注册"></a>1.组件注册</h1><p>组件有两种注册类型：全局注册和局部注册。</p>
+<p>组件注册 html标签<br>1.data数据（必须是函数）<br>2.template模板内容（必须是单个html根元素），可以是模板字符串<br>3.methods组件绑定方法</p>
+<h3 id="1-全局注册"><a href="#1-全局注册" class="headerlink" title="1.全局注册"></a>1.全局注册</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 定义一个名为 button-counter 的新组件</span></span><br><span class="line"><span class="title class_">Vue</span>.<span class="title function_">component</span>(<span class="string">&#x27;button-counter&#x27;</span>, &#123;</span><br><span class="line">  <span class="attr">data</span>: <span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">      <span class="attr">count</span>: <span class="number">0</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">template</span>: <span class="string">&#x27;&lt;button v-on:click=&quot;count++&quot;&gt;You clicked me &#123;&#123; count &#125;&#125; times.&lt;/button&gt;&#x27;</span></span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">//引入组件</span></span><br><span class="line">&lt;div id=<span class="string">&quot;components-demo&quot;</span>&gt;</span><br><span class="line">  <span class="language-xml"><span class="tag">&lt;<span class="name">button-counter</span>&gt;</span><span class="tag">&lt;/<span class="name">button-counter</span>&gt;</span></span></span><br><span class="line">&lt;/div&gt;</span><br><span class="line"></span><br><span class="line"><span class="keyword">new</span> <span class="title class_">Vue</span>(&#123; <span class="attr">el</span>: <span class="string">&#x27;#components-demo&#x27;</span> &#125;)</span><br></pre></td></tr></table></figure>
+
+<h3 id="1-局部注册"><a href="#1-局部注册" class="headerlink" title="1.局部注册"></a>1.局部注册</h3><p>方法一</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 定义新组件</span></span><br><span class="line"><span class="keyword">var</span> <span class="title class_">ComponentA</span> = &#123; <span class="comment">/* ... */</span> &#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//引入组件</span></span><br><span class="line">&lt;div id=<span class="string">&quot;components-demo&quot;</span>&gt;</span><br><span class="line">  <span class="language-xml"><span class="tag">&lt;<span class="name">component-a</span>&gt;</span><span class="tag">&lt;/<span class="name">component-a</span>&gt;</span></span></span><br><span class="line">&lt;/div&gt;</span><br><span class="line"></span><br><span class="line"><span class="keyword">new</span> <span class="title class_">Vue</span>(&#123;</span><br><span class="line">  <span class="attr">el</span>: <span class="string">&#x27;#app&#x27;</span>,</span><br><span class="line">  <span class="attr">components</span>: &#123;</span><br><span class="line">    <span class="string">&#x27;component-a&#x27;</span>: <span class="title class_">ComponentA</span>,</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>方法二</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id=<span class="string">&quot;components-demo&quot;</span>&gt;</span><br><span class="line">  <span class="language-xml"><span class="tag">&lt;<span class="name">component-a</span>&gt;</span><span class="tag">&lt;/<span class="name">component-a</span>&gt;</span></span></span><br><span class="line">  <span class="language-xml"><span class="tag">&lt;<span class="name">component-c</span>&gt;</span><span class="tag">&lt;/<span class="name">component-c</span>&gt;</span></span></span><br><span class="line">&lt;/div&gt;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="title class_">ComponentA</span> <span class="keyword">from</span> <span class="string">&#x27;./ComponentA&#x27;</span></span><br><span class="line"><span class="keyword">import</span> <span class="title class_">ComponentC</span> <span class="keyword">from</span> <span class="string">&#x27;./ComponentC&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">  <span class="attr">components</span>: &#123;</span><br><span class="line">    <span class="title class_">ComponentA</span>,</span><br><span class="line">    <span class="title class_">ComponentC</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="2-prop"><a href="#2-prop" class="headerlink" title="2. prop"></a>2. prop</h1><h3 id="1-prop类型"><a href="#1-prop类型" class="headerlink" title="1.prop类型"></a>1.prop类型</h3><p>String、Number、Boolean、Array、Object、Date、Function、Symbol</p>
+<p>props: [‘title’, ‘likes’, ‘isPublished’, ‘commentIds’, ‘author’]</p>
+<h3 id="2-传递静态或动态-Prop"><a href="#2-传递静态或动态-Prop" class="headerlink" title="2.传递静态或动态 Prop"></a>2.传递静态或动态 Prop</h3><p>静态：<code>&lt;blog-post title=&quot;My journey with Vue&quot;&gt;&lt;/blog-post&gt;</code><br>动态：<br>动态赋予一个变量的值<br><code>&lt;blog-post v-bind:title=&quot;post.title&quot;&gt;&lt;/blog-post&gt;</code><br>动态赋予一个复杂表达式的值<br><code>&lt;blog-post v-bind:title=&quot;post.title + &#39; by &#39; + post.author.name&quot;&gt;&lt;/blog-post&gt;</code></p>
+<p>所有的 prop 都使得其父子 prop 之间形成了一个单向下行绑定：父级 prop 的更新会向下流动到子组件中，但是反过来则不行。</p>
+<h3 id="3-Prop-验证"><a href="#3-Prop-验证" class="headerlink" title="3.Prop 验证"></a>3.Prop 验证</h3><p>类型：type<br>默认值：default<br>必填：required<br>自定义验证：validator</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Vue</span>.<span class="title function_">component</span>(<span class="string">&#x27;my-component&#x27;</span>, &#123;</span><br><span class="line">  <span class="attr">props</span>: &#123;</span><br><span class="line">    <span class="comment">// 基础的类型检查 (`null` 和 `undefined` 会通过任何类型验证)</span></span><br><span class="line">    <span class="attr">propA</span>: <span class="title class_">Number</span>,</span><br><span class="line">    <span class="comment">// 多个可能的类型</span></span><br><span class="line">    <span class="attr">propB</span>: [<span class="title class_">String</span>, <span class="title class_">Number</span>],</span><br><span class="line">    <span class="comment">// 必填的字符串</span></span><br><span class="line">    <span class="attr">propC</span>: &#123;</span><br><span class="line">      <span class="attr">type</span>: <span class="title class_">String</span>,</span><br><span class="line">      <span class="attr">required</span>: <span class="literal">true</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="comment">// 带有默认值的数字</span></span><br><span class="line">    <span class="attr">propD</span>: &#123;</span><br><span class="line">      <span class="attr">type</span>: <span class="title class_">Number</span>,</span><br><span class="line">      <span class="attr">default</span>: <span class="number">100</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="comment">// 带有默认值的对象</span></span><br><span class="line">    <span class="attr">propE</span>: &#123;</span><br><span class="line">      <span class="attr">type</span>: <span class="title class_">Object</span>,</span><br><span class="line">      <span class="comment">// 对象或数组默认值必须从一个工厂函数获取</span></span><br><span class="line">      <span class="attr">default</span>: <span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> &#123; <span class="attr">message</span>: <span class="string">&#x27;hello&#x27;</span> &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="comment">// 自定义验证函数</span></span><br><span class="line">    <span class="attr">propF</span>: &#123;</span><br><span class="line">      <span class="attr">validator</span>: <span class="keyword">function</span> (<span class="params">value</span>) &#123;</span><br><span class="line">        <span class="comment">// 这个值必须匹配下列字符串中的一个</span></span><br><span class="line">        <span class="keyword">return</span> [<span class="string">&#x27;success&#x27;</span>, <span class="string">&#x27;warning&#x27;</span>, <span class="string">&#x27;danger&#x27;</span>].<span class="title function_">includes</span>(value)</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h3 id="4-非-Prop-的-Attribute"><a href="#4-非-Prop-的-Attribute" class="headerlink" title="4.非 Prop 的 Attribute"></a>4.非 Prop 的 Attribute</h3><p><code>&lt;bootstrap-date-input data-date-picker=&quot;activated&quot;&gt;&lt;/bootstrap-date-input&gt;</code><br>然后这个 <code>data-date-picker=&quot;activated&quot;</code> attribute 就会自动添加到 <code>&lt;bootstrap-date-input&gt;</code> 的根元素上。</p>
+<p>对于绝大多数 attribute 来说，从外部提供给组件的值会替换掉组件内部设置好的值。<br>庆幸的是，class 和 style attribute 会稍微智能一些，即两边的值会被合并起来，从而得到最终的值</p>
+<p>如果你不希望组件的根元素继承 attribute，你可以在组件的选项中设置 <code>inheritAttrs: false</code>。</p>
+<h1 id="3-自定义事件"><a href="#3-自定义事件" class="headerlink" title="3.自定义事件"></a>3.自定义事件</h1><p>详见父子组件传值</p>
+<h1 id="4-插槽"><a href="#4-插槽" class="headerlink" title="4.插槽"></a>4.插槽</h1><p>详见slot插槽</p>
+<h1 id="5-动态组件和异步组件"><a href="#5-动态组件和异步组件" class="headerlink" title="5.动态组件和异步组件"></a>5.动态组件和异步组件</h1><p>详见动态组件和异步组件</p>
+<h1 id="6-路由"><a href="#6-路由" class="headerlink" title="6.路由"></a>6.路由</h1><p>详见路由</p>
 
             </div>
 
@@ -290,16 +294,16 @@ alt：图标无法加载时显示的内容
 <div class="article-copyright-info-container">
     <ul class="copyright-info-content">
         <li class="post-title">
-            <span class="type">本文标题</span>：<span class="content">HTML标签</span>
+            <span class="type">本文标题</span>：<span class="content">组件</span>
         </li>
         <li class="post-author">
             <span class="type">本文作者</span>：<span class="content">immortal</span>
         </li>
         <li class="post-time">
-            <span class="type">创建时间</span>：<span class="content">2023-07-21 11:21:06</span>
+            <span class="type">创建时间</span>：<span class="content">2023-07-13 16:34:06</span>
         </li>
         <li class="post-link">
-            <span class="type">本文链接</span>：<span class="content">posts/60663.html</span>
+            <span class="type">本文链接</span>：<span class="content">posts/19816.html</span>
         </li>
         <li class="post-license">
             <span class="type">版权声明</span>：<span class="content">本博客所有文章除特别声明外，均采用 <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> 许可协议。转载请注明出处！</span>
@@ -321,13 +325,13 @@ alt：图标无法加载时显示的内容
                         <div class="article-prev">
                             <a class="prev"
                                rel="prev"
-                               href="/posts/30103.html"
+                               href="/posts/63615.html"
                             >
                             <span class="left arrow-icon flex-center">
                               <i class="fas fa-chevron-left"></i>
                             </span>
                                 <span class="title flex-center">
-                                <span class="post-nav-title-item">HTML+HTML5</span>
+                                <span class="post-nav-title-item">动态组件和异步组件</span>
                                 <span class="post-nav-item">上一篇</span>
                             </span>
                             </a>
@@ -337,10 +341,10 @@ alt：图标无法加载时显示的内容
                         <div class="article-next">
                             <a class="next"
                                rel="next"
-                               href="/posts/42460.html"
+                               href="/posts/22846.html"
                             >
                             <span class="title flex-center">
-                                <span class="post-nav-title-item">路由</span>
+                                <span class="post-nav-title-item">表单</span>
                                 <span class="post-nav-item">下一篇</span>
                             </span>
                                 <span class="right arrow-icon flex-center">
@@ -359,7 +363,7 @@ alt：图标无法加载时显示的内容
             <div class="toc-content-container">
                 <div class="post-toc-wrap">
     <div class="post-toc">
-        <ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#DTD%EF%BC%88%E6%96%87%E6%A1%A3%E7%B1%BB%E5%9E%8B%E5%A3%B0%E6%98%8E%EF%BC%89"><span class="nav-text">DTD（文档类型声明）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#html%E5%85%83%E7%B4%A0%E5%88%86%E7%B1%BB"><span class="nav-text">html元素分类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#html5%E6%96%B0%E5%A2%9E%E8%A7%84%E8%8C%83"><span class="nav-text">html5新增规范</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#html5%E6%96%B0%E5%A2%9E%E5%85%83%E7%B4%A0"><span class="nav-text">html5新增元素</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#keygen"><span class="nav-text">keygen</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8link%E5%92%8C-import%E5%AF%BC%E5%85%A5css%E7%9A%84%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="nav-text">使用link和@import导入css的区别？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#title%E5%92%8Ch1%E3%80%81b%E5%92%8Cstrong%E3%80%81i%E5%92%8Cem"><span class="nav-text">title和h1、b和strong、i和em</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#img%E7%9A%84title%E5%92%8Calt%E5%8C%BA%E5%88%AB"><span class="nav-text">img的title和alt区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#png%E3%80%81jpg%E3%80%81gif%E3%80%81webp"><span class="nav-text">png、jpg、gif、webp</span></a></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-%E7%BB%84%E4%BB%B6%E6%B3%A8%E5%86%8C"><span class="nav-text">1.组件注册</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E5%85%A8%E5%B1%80%E6%B3%A8%E5%86%8C"><span class="nav-text">1.全局注册</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E5%B1%80%E9%83%A8%E6%B3%A8%E5%86%8C"><span class="nav-text">1.局部注册</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-prop"><span class="nav-text">2. prop</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-prop%E7%B1%BB%E5%9E%8B"><span class="nav-text">1.prop类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E4%BC%A0%E9%80%92%E9%9D%99%E6%80%81%E6%88%96%E5%8A%A8%E6%80%81-Prop"><span class="nav-text">2.传递静态或动态 Prop</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-Prop-%E9%AA%8C%E8%AF%81"><span class="nav-text">3.Prop 验证</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-%E9%9D%9E-Prop-%E7%9A%84-Attribute"><span class="nav-text">4.非 Prop 的 Attribute</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-%E8%87%AA%E5%AE%9A%E4%B9%89%E4%BA%8B%E4%BB%B6"><span class="nav-text">3.自定义事件</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-%E6%8F%92%E6%A7%BD"><span class="nav-text">4.插槽</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#5-%E5%8A%A8%E6%80%81%E7%BB%84%E4%BB%B6%E5%92%8C%E5%BC%82%E6%AD%A5%E7%BB%84%E4%BB%B6"><span class="nav-text">5.动态组件和异步组件</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#6-%E8%B7%AF%E7%94%B1"><span class="nav-text">6.路由</span></a></li></ol>
     </div>
 </div>
 
