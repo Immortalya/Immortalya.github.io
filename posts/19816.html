@@ -218,7 +218,7 @@
     
         <span class="article-update-date article-meta-item">
         <i class="fas fa-file-pen"></i>&nbsp;
-        <span class="pc">2023-07-15 22:25:15</span>
+        <span class="pc">2023-07-16 21:38:08</span>
     </span>
     
     
@@ -238,7 +238,7 @@
     
     
         <span class="article-wordcount article-meta-item">
-            <i class="fas fa-file-word"></i>&nbsp;<span>792 字</span>
+            <i class="fas fa-file-word"></i>&nbsp;<span>819 字</span>
         </span>
     
     
@@ -284,8 +284,8 @@
 <h1 id="3-自定义事件"><a href="#3-自定义事件" class="headerlink" title="3.自定义事件"></a>3.自定义事件</h1><p>详见父子组件传值</p>
 <h1 id="4-插槽"><a href="#4-插槽" class="headerlink" title="4.插槽"></a>4.插槽</h1><p>详见slot插槽</p>
 <h1 id="5-动态组件和异步组件"><a href="#5-动态组件和异步组件" class="headerlink" title="5.动态组件和异步组件"></a>5.动态组件和异步组件</h1><p>详见动态组件和异步组件</p>
-<h1 id="6-路由"><a href="#6-路由" class="headerlink" title="6.路由"></a>6.路由</h1><p>详见路由</p>
-
+<h1 id="6-处理边界情况"><a href="#6-处理边界情况" class="headerlink" title="6.处理边界情况"></a>6.处理边界情况</h1><h3 id="1-访问元素-amp-组件"><a href="#1-访问元素-amp-组件" class="headerlink" title="1.访问元素 &amp; 组件"></a>1.访问元素 &amp; 组件</h3><p>详见实例 property</p>
+<h3 id="2-程序化的事件侦听器（实例方法）"><a href="#2-程序化的事件侦听器（实例方法）" class="headerlink" title="2.程序化的事件侦听器（实例方法）"></a>2.程序化的事件侦听器（实例方法）</h3>
             </div>
 
             
@@ -363,7 +363,7 @@
             <div class="toc-content-container">
                 <div class="post-toc-wrap">
     <div class="post-toc">
-        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-%E7%BB%84%E4%BB%B6%E6%B3%A8%E5%86%8C"><span class="nav-text">1.组件注册</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E5%85%A8%E5%B1%80%E6%B3%A8%E5%86%8C"><span class="nav-text">1.全局注册</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E5%B1%80%E9%83%A8%E6%B3%A8%E5%86%8C"><span class="nav-text">1.局部注册</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-prop"><span class="nav-text">2. prop</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-prop%E7%B1%BB%E5%9E%8B"><span class="nav-text">1.prop类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E4%BC%A0%E9%80%92%E9%9D%99%E6%80%81%E6%88%96%E5%8A%A8%E6%80%81-Prop"><span class="nav-text">2.传递静态或动态 Prop</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-Prop-%E9%AA%8C%E8%AF%81"><span class="nav-text">3.Prop 验证</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-%E9%9D%9E-Prop-%E7%9A%84-Attribute"><span class="nav-text">4.非 Prop 的 Attribute</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-%E8%87%AA%E5%AE%9A%E4%B9%89%E4%BA%8B%E4%BB%B6"><span class="nav-text">3.自定义事件</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-%E6%8F%92%E6%A7%BD"><span class="nav-text">4.插槽</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#5-%E5%8A%A8%E6%80%81%E7%BB%84%E4%BB%B6%E5%92%8C%E5%BC%82%E6%AD%A5%E7%BB%84%E4%BB%B6"><span class="nav-text">5.动态组件和异步组件</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#6-%E8%B7%AF%E7%94%B1"><span class="nav-text">6.路由</span></a></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-%E7%BB%84%E4%BB%B6%E6%B3%A8%E5%86%8C"><span class="nav-text">1.组件注册</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E5%85%A8%E5%B1%80%E6%B3%A8%E5%86%8C"><span class="nav-text">1.全局注册</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E5%B1%80%E9%83%A8%E6%B3%A8%E5%86%8C"><span class="nav-text">1.局部注册</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-prop"><span class="nav-text">2. prop</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-prop%E7%B1%BB%E5%9E%8B"><span class="nav-text">1.prop类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E4%BC%A0%E9%80%92%E9%9D%99%E6%80%81%E6%88%96%E5%8A%A8%E6%80%81-Prop"><span class="nav-text">2.传递静态或动态 Prop</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-Prop-%E9%AA%8C%E8%AF%81"><span class="nav-text">3.Prop 验证</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-%E9%9D%9E-Prop-%E7%9A%84-Attribute"><span class="nav-text">4.非 Prop 的 Attribute</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-%E8%87%AA%E5%AE%9A%E4%B9%89%E4%BA%8B%E4%BB%B6"><span class="nav-text">3.自定义事件</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-%E6%8F%92%E6%A7%BD"><span class="nav-text">4.插槽</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#5-%E5%8A%A8%E6%80%81%E7%BB%84%E4%BB%B6%E5%92%8C%E5%BC%82%E6%AD%A5%E7%BB%84%E4%BB%B6"><span class="nav-text">5.动态组件和异步组件</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#6-%E5%A4%84%E7%90%86%E8%BE%B9%E7%95%8C%E6%83%85%E5%86%B5"><span class="nav-text">6.处理边界情况</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E8%AE%BF%E9%97%AE%E5%85%83%E7%B4%A0-amp-%E7%BB%84%E4%BB%B6"><span class="nav-text">1.访问元素 &amp; 组件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E7%A8%8B%E5%BA%8F%E5%8C%96%E7%9A%84%E4%BA%8B%E4%BB%B6%E4%BE%A6%E5%90%AC%E5%99%A8%EF%BC%88%E5%AE%9E%E4%BE%8B%E6%96%B9%E6%B3%95%EF%BC%89"><span class="nav-text">2.程序化的事件侦听器（实例方法）</span></a></li></ol></li></ol></li></ol>
     </div>
 </div>
 
