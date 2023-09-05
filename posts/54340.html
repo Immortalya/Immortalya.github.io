@@ -9,7 +9,7 @@
     
     <title>
         
-            CSS布局 |
+            媒体查询 |
         
         唔、
     </title>
@@ -196,7 +196,7 @@
         <div class="article-content-container border-box">
 
             <div class="article-title">
-                <span class="title-hover-animation">CSS布局</span>
+                <span class="title-hover-animation">媒体查询</span>
             </div>
 
             
@@ -224,13 +224,13 @@
         
             <span class="meta-info-item article-create-date">
                 <i class="icon fa-solid fa-calendar-check"></i>&nbsp;
-                <span class="pc">2023-07-11 14:11:06</span>
-                <span class="mobile">2023-07-11 14:11</span>
+                <span class="pc">2023-09-05 17:23:06</span>
+                <span class="mobile">2023-09-05 17:23</span>
             </span>
 
             <span class="meta-info-item article-update-date">
                 <i class="icon fa-solid fa-file-pen"></i>&nbsp;
-                <span class="pc">2023-09-05 16:48:06</span>
+                <span class="pc">2023-09-05 20:24:07</span>
             </span>
         
 
@@ -260,12 +260,12 @@
         
         
             <span class="meta-info-item article-wordcount">
-                <i class="icon fas fa-file-word"></i>&nbsp;<span>125 字</span>
+                <i class="icon fas fa-file-word"></i>&nbsp;<span>1.5k 字</span>
             </span>
         
         
             <span class="meta-info-item article-min2read">
-                <i class="icon fas fa-clock"></i>&nbsp;<span>1 分钟</span>
+                <i class="icon fas fa-clock"></i>&nbsp;<span>5 分钟</span>
             </span>
         
         
@@ -286,10 +286,64 @@
             <div class="article-content keep-markdown-body">
                 
 
-                <h1 id="1-常规流布局"><a href="#1-常规流布局" class="headerlink" title="1.常规流布局"></a>1.常规流布局</h1><p>首先，取得元素的内容并将其放在一个独立的元素盒子中，然后在其周边加上内边距、边框和外边距——就是我们所说的盒子模型。</p>
-<h1 id="2-弹性盒子"><a href="#2-弹性盒子" class="headerlink" title="2.弹性盒子"></a>2.弹性盒子</h1><p>弹性盒子是一种用于按行或按列布局元素的一维布局方法。元素可以膨胀以填充额外的空间，收缩以适应更小的空间。<br>float、positon、flex</p>
-<h1 id="3-网格-grid"><a href="#3-网格-grid" class="headerlink" title="3.网格 grid"></a>3.网格 grid</h1><p>grid</p>
-<h1 id="4-媒体查询-media"><a href="#4-媒体查询-media" class="headerlink" title="4.媒体查询 @media"></a>4.媒体查询 @media</h1>
+                <h3 id="1-简介"><a href="#1-简介" class="headerlink" title="1.简介"></a>1.简介</h3><p>媒体查询，简单来说就是检测用户浏览当前网页所使用的设备。常见的媒体设备包括电脑、智能手机、平板电脑、屏幕阅读器、打印设备等。除了查询用户所使用的设备类型，我们可能还需要知道设备的屏幕尺寸、分辨率、设备方向等信息，以便我们制作出可以在各种设备上查看的网页效果。</p>
+<p>媒体查询包含两部分：媒体类型查询和媒体参数查询。媒体类型查询主要检测用户所使用的设备类型；而媒体参数查询则是检测该设备的某些参数，如宽高、分辨率等。</p>
+<p>媒体查询与弹性盒布局的适用情况：<br>媒体查询：当页面的结构发生变化的话最好使用媒体查询。 ​<br>弹性盒：如果只是宽高的变化，尽量使用弹性盒</p>
+<h3 id="2-使用方法"><a href="#2-使用方法" class="headerlink" title="2.使用方法"></a>2.使用方法</h3><p>1.使用 link 标签引入外部样式表<br><code>&lt;link rel=&quot;stylesheet&quot; media=&quot;(min-width: 800px)&quot; href=&quot;example.css&quot; /&gt;</code><br><code>min-width: 800px</code> 表示当屏幕宽度大于等于800px时，该样式生效。</p>
+<p>2.第二种：使用内部样式表，写在 style 标签里面</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="language-css"></span></span><br><span class="line"><span class="language-css"><span class="keyword">@media</span> (<span class="attribute">max-width</span>: <span class="number">600px</span>) &#123;</span></span><br><span class="line"><span class="language-css">  <span class="selector-class">.class</span> &#123;</span></span><br><span class="line"><span class="language-css">    <span class="attribute">display</span>: none;</span></span><br><span class="line"><span class="language-css">  &#125;</span></span><br><span class="line"><span class="language-css">&#125;</span></span><br><span class="line"><span class="language-css"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="3-语法"><a href="#3-语法" class="headerlink" title="3.语法"></a>3.语法</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* @media 媒体类型 and （媒体特性）&#123;你的样式&#125; */</span></span><br><span class="line"><span class="keyword">@media</span> (<span class="keyword">only</span>) mediaType <span class="keyword">and</span>|<span class="keyword">not</span>|<span class="keyword">only</span> (media feature) &#123;<span class="selector-class">.btn</span> &#123; ... &#125;...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>1.mediaType<br>mediaType指代媒体类型，当存在多个值时，可以用逗号隔开。<br>媒体类型有：</p>
+<ul>
+<li>all：所有设备</li>
+<li>print：打印设备</li>
+<li>screen：屏幕设备</li>
+<li>speech：屏幕阅读器</li>
+</ul>
+<p>2.and|not|only 关键字</p>
+<p>and、not、only是媒体查询支持的三个逻辑连接词，用于表示后续参数的限制类型。<br>and表示逻辑与，表示当前设备需要满足后续参数，当前样式才生效；<br>not表示逻辑非，表示当前设备不满足后续参数时，样式才会生效；<br>only是一个特殊的逻辑词，它没有实际含义，一般只用在媒体类型前面，用于兼容不支持媒体查询的旧浏览器。</p>
+<p>3.（media feature）<br>（media feature）设定了设备参数，如最大宽度、分辨率等，通过and或not可以设置多个参数。在满足这些参数的设备上，媒体查询中所定义的样式将会生效。</p>
+<p>4.媒体参数查询</p>
+<ul>
+<li>width：设备的宽度，可加max min前缀</li>
+<li>height：设备的高度，可加max min前缀</li>
+<li>orientation：横屏竖屏, portrait竖屏&#x2F;landscape横屏</li>
+</ul>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 竖屏样式 */</span></span><br><span class="line"><span class="keyword">@media</span> screen <span class="keyword">and</span> (<span class="attribute">orientation</span>: portrait)&#123; ... &#125;</span><br><span class="line"><span class="comment">/* 横屏样式 */</span></span><br><span class="line"><span class="keyword">@media</span> screen <span class="keyword">and</span> (<span class="attribute">orientation</span>: landscape)&#123; ... &#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>aspect-ratio：页面可见区域宽高比, 可加max min前缀<br><code>@media screen and (max-aspect-ratio: 20/11) &#123; ... &#125;</code></li>
+<li>device-aspect-ratio：宽高比</li>
+<li>color：色彩模式, 定义当前设备表示颜色时每个原色的位数, 可加max min前缀分别表示最小原色位数和最大原色位数</li>
+</ul>
+<p>不同屏幕能显示的色彩数量可能是不同的。一般来说，rgb颜色表示法要求将红、绿、蓝的数量分别用8个比特位来表示，也就是11111111这样的值，它能表示的单个原色范围是0-255。这样的设备，其color值就是8。<br>但也有一些更低端或更高端的设备，不使用8比特位表示一个原色的数量，它们使用的位数，就是该设备的color值。如果各个原色所使用的位数不同，则color取最小的那个值。</p>
+<p><code>@media screen and (min-color: 8)&#123; ... &#125;</code><br>这里为单个原色小于8位的设备定义样式。</p>
+<ul>
+<li>color-index：当前设备所使用的的索引色数量，可加max min前缀分别表示当前设备支持的最大索引颜色数量和最小索引颜色数量。</li>
+</ul>
+<p>索引色是将设备支持的所有颜色编撰为一个列表，每个颜色有自己特定的索引值，使用特定的索引，即可找到该颜色。因此，索引色的数量就是设备支持的最大颜色数量。<br><code>@media screen and (min-color-index: 256)&#123; ... &#125;</code><br>这里为索引色数量小于256的设备使用的样式。</p>
+<ul>
+<li>monochrome：定义单色设备上每个像素点的颜色位数，可加max min前缀分别表示最小位数和最大位数</li>
+</ul>
+<p>如果当前设备仅支持一种颜色，那么我们就不需要像rgb颜色模式下使用r、g、b三个参数来表示一个颜色的数量，我们只需要指定设备所支持的这个颜色的数量即可。同rgb一样，它也是一个二进制数，它的位数就是该单色设备的monochrome值。<br>如果当前设备是彩色设备，那么monochrome的值始终为0。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 彩色设备 */</span></span><br><span class="line"><span class="keyword">@media</span> screen <span class="keyword">and</span> (<span class="attribute">monochrome</span>: <span class="number">0</span>)&#123; ... &#125;</span><br><span class="line"><span class="comment">/* 单色设备 */</span></span><br><span class="line"><span class="keyword">@media</span> screen <span class="keyword">and</span> (<span class="attribute">monochrome</span>)&#123; ... &#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>resolution：检测当前设备的分辨率，也叫像素密度。可加max min前缀</li>
+</ul>
+<p>所谓分辨率，指的是在单位面积内像素点的数量。这个单位可能是英寸、厘米等，对应的单位为dpi、dpcm，其中1dpi ≈ 0.39dpcm，而1dpcm ≈ 2.54dpi。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@media</span> screen <span class="keyword">and</span> (<span class="attribute">min-resolution</span>: <span class="number">96dpi</span>)&#123; ... &#125;</span><br><span class="line"><span class="keyword">@media</span> screen <span class="keyword">and</span> (<span class="attribute">max-resolution</span>: <span class="number">32dpcm</span>)&#123; ... &#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>scan：定义与扫描装置有关的参数。interlace&#x2F;progressive</li>
+</ul>
+<p>当启用了扫描设备，如扫描仪时，该参数可以判断被扫描的图像是如何绘制到屏幕上的。<br>该参数支持两个值：interlace和progressive。interlace表示图像被扫描仪扫描之后，是按照奇数行和偶数行交替被绘制到屏幕上的（一些电视机使用这种隔行扫描）；progressive表示图像是被逐行绘制到屏幕上的（所有的电脑屏幕都使用逐行扫描）。</p>
+<ul>
+<li>grid：用于检测当前设备是否为基于点阵或网格的风格，基于二进制位图的设备，grid参数值为0，基于网格或点阵的，grid值为1。</li>
+</ul>
+<p><a class="link" target="_blank" rel="noopener" href="http://www.taodudu.cc/news/show-3613749.html?action=onClick">http://www.taodudu.cc/news/show-3613749.html?action=onClick<i class="fas fa-external-link-alt"></i></a></p>
+
             </div>
 
             
@@ -298,16 +352,16 @@
 <div class="article-copyright-info-container">
     <ul class="copyright-info-content">
         <li class="post-title">
-            <span class="type">本文标题</span>：<span class="content">CSS布局</span>
+            <span class="type">本文标题</span>：<span class="content">媒体查询</span>
         </li>
         <li class="post-author">
             <span class="type">本文作者</span>：<span class="content">immortal</span>
         </li>
         <li class="post-time">
-            <span class="type">创建时间</span>：<span class="content">2023-07-11 14:11:06</span>
+            <span class="type">创建时间</span>：<span class="content">2023-09-05 17:23:06</span>
         </li>
         <li class="post-link">
-            <span class="type">本文链接</span>：<span class="content">posts/45816.html</span>
+            <span class="type">本文链接</span>：<span class="content">posts/54340.html</span>
         </li>
         <li class="post-license">
             <span class="type">版权声明</span>：<span class="content">本博客所有文章除特别声明外，均采用 <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> 许可协议。转载请注明出处！</span>
@@ -329,13 +383,13 @@
                         <div class="article-prev">
                             <a class="prev"
                                rel="prev"
-                               href="/posts/19580.html"
+                               href="/posts/3633.html"
                             >
                             <span class="left arrow-icon flex-center">
                               <i class="fas fa-chevron-left"></i>
                             </span>
                                 <span class="title flex-center">
-                                <span class="post-nav-title-item text-ellipsis">css面试题</span>
+                                <span class="post-nav-title-item text-ellipsis">动画</span>
                                 <span class="post-nav-item">上一篇</span>
                             </span>
                             </a>
@@ -345,10 +399,10 @@
                         <div class="article-next">
                             <a class="next"
                                rel="next"
-                               href="/posts/22873.html"
+                               href="/posts/61398.html"
                             >
                             <span class="title flex-center">
-                                <span class="post-nav-title-item text-ellipsis">层叠和继承</span>
+                                <span class="post-nav-title-item text-ellipsis">grid布局</span>
                                 <span class="post-nav-item">下一篇</span>
                             </span>
                                 <span class="right arrow-icon flex-center">
@@ -375,7 +429,7 @@
             <div class="pc-post-toc right-toc">
                 <div class="post-toc-wrap">
     <div class="post-toc">
-        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-%E5%B8%B8%E8%A7%84%E6%B5%81%E5%B8%83%E5%B1%80"><span class="nav-text">1.常规流布局</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-%E5%BC%B9%E6%80%A7%E7%9B%92%E5%AD%90"><span class="nav-text">2.弹性盒子</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-%E7%BD%91%E6%A0%BC-grid"><span class="nav-text">3.网格 grid</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-%E5%AA%92%E4%BD%93%E6%9F%A5%E8%AF%A2-media"><span class="nav-text">4.媒体查询 @media</span></a></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E7%AE%80%E4%BB%8B"><span class="nav-text">1.简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95"><span class="nav-text">2.使用方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E8%AF%AD%E6%B3%95"><span class="nav-text">3.语法</span></a></li></ol>
     </div>
 </div>
 
@@ -548,7 +602,7 @@
             <div class="tablet-post-toc">
                 <div class="post-toc-wrap">
     <div class="post-toc">
-        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-%E5%B8%B8%E8%A7%84%E6%B5%81%E5%B8%83%E5%B1%80"><span class="nav-text">1.常规流布局</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-%E5%BC%B9%E6%80%A7%E7%9B%92%E5%AD%90"><span class="nav-text">2.弹性盒子</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-%E7%BD%91%E6%A0%BC-grid"><span class="nav-text">3.网格 grid</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-%E5%AA%92%E4%BD%93%E6%9F%A5%E8%AF%A2-media"><span class="nav-text">4.媒体查询 @media</span></a></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E7%AE%80%E4%BB%8B"><span class="nav-text">1.简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95"><span class="nav-text">2.使用方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E8%AF%AD%E6%B3%95"><span class="nav-text">3.语法</span></a></li></ol>
     </div>
 </div>
 
