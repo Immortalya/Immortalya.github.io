@@ -32,6 +32,7 @@
   --article-aging-tips-color: #b78d0f;
   --article-aging-tips-background-color: rgba(183,141,15,0.1);
   --article-aging-tips-border-color: rgba(183,141,15,0.6);
+  --post-h-bottom-border-color: rgba(80,80,92,0.15);
 }
 @media (prefers-color-scheme: light) {
   :root {
@@ -68,6 +69,7 @@
     --article-aging-tips-color: #b78d0f;
     --article-aging-tips-background-color: rgba(183,141,15,0.1);
     --article-aging-tips-border-color: rgba(183,141,15,0.6);
+    --post-h-bottom-border-color: rgba(80,80,92,0.15);
   }
 }
 @media (prefers-color-scheme: dark) {
@@ -77,34 +79,35 @@
     --primary-color-light-2: #0a85ff;
     --primary-color-dark-1: #005cb8;
     --primary-color-dark-2: #0052a3;
-    --background-color-1: #383940;
-    --background-color-2: #3d3f46;
-    --background-color-3: #43444c;
-    --content-background-color: #37383f;
-    --text-color-1: #c5c5cc;
-    --text-color-2: #c1c1c9;
-    --text-color-3: #bebec6;
-    --text-color-4: #9595a2;
-    --text-color-5: #5b5b67;
-    --text-color-6: #36363e;
-    --toc-text-color: #9f9fab;
-    --badge-color: #4a4c55;
-    --badge-background-color: #d8d8dd;
-    --border-color: #6f717e;
+    --background-color-1: #22272e;
+    --background-color-2: #292f38;
+    --background-color-3: #313842;
+    --content-background-color: #21262d;
+    --text-color-1: #b7c2cc;
+    --text-color-2: #b2bec8;
+    --text-color-3: #adbac5;
+    --text-color-4: #6c8397;
+    --text-color-5: #4d5e6c;
+    --text-color-6: #2e3841;
+    --toc-text-color: #8296a6;
+    --badge-color: #343c47;
+    --badge-background-color: #ced6dc;
+    --border-color: #596678;
     --selection-color: #005ebc;
     --shadow-color: rgba(128,128,128,0.2);
     --shadow-hover-color: rgba(128,128,128,0.28);
-    --scrollbar-color: #32333a;
-    --scrollbar-background-color: #5c5e6a;
-    --toc-scrollbar-color: rgba(190,190,198,0.1);
+    --scrollbar-color: #1f2329;
+    --scrollbar-background-color: #47515f;
+    --toc-scrollbar-color: rgba(173,186,197,0.1);
     --copyright-info-color: #a30029;
     --avatar-background-color: #004a93;
-    --header-transparent-background-1: rgba(56,57,64,0.28);
-    --header-transparent-background-2: rgba(56,57,64,0.4);
+    --header-transparent-background-1: rgba(34,39,46,0.28);
+    --header-transparent-background-2: rgba(34,39,46,0.4);
     --pjax-progress-bar-color: linear-gradient(45deg, #ea404a, #ea722f, #e9a71f, #67e559, #18ecec, #1b85f1, #ee1dee);
     --article-aging-tips-color: #ecc34d;
     --article-aging-tips-background-color: rgba(236,195,77,0.1);
     --article-aging-tips-border-color: rgba(236,195,77,0.6);
+    --post-h-bottom-border-color: rgba(173,186,197,0.15);
   }
 }
 .light-mode {
@@ -141,6 +144,7 @@
   --article-aging-tips-color: #b78d0f;
   --article-aging-tips-background-color: rgba(183,141,15,0.1);
   --article-aging-tips-border-color: rgba(183,141,15,0.6);
+  --post-h-bottom-border-color: rgba(80,80,92,0.15);
 }
 .dark-mode {
   --primary-color: #06c;
@@ -148,34 +152,35 @@
   --primary-color-light-2: #0a85ff;
   --primary-color-dark-1: #005cb8;
   --primary-color-dark-2: #0052a3;
-  --background-color-1: #383940;
-  --background-color-2: #3d3f46;
-  --background-color-3: #43444c;
-  --content-background-color: #37383f;
-  --text-color-1: #c5c5cc;
-  --text-color-2: #c1c1c9;
-  --text-color-3: #bebec6;
-  --text-color-4: #9595a2;
-  --text-color-5: #5b5b67;
-  --text-color-6: #36363e;
-  --toc-text-color: #9f9fab;
-  --badge-color: #4a4c55;
-  --badge-background-color: #d8d8dd;
-  --border-color: #6f717e;
+  --background-color-1: #22272e;
+  --background-color-2: #292f38;
+  --background-color-3: #313842;
+  --content-background-color: #21262d;
+  --text-color-1: #b7c2cc;
+  --text-color-2: #b2bec8;
+  --text-color-3: #adbac5;
+  --text-color-4: #6c8397;
+  --text-color-5: #4d5e6c;
+  --text-color-6: #2e3841;
+  --toc-text-color: #8296a6;
+  --badge-color: #343c47;
+  --badge-background-color: #ced6dc;
+  --border-color: #596678;
   --selection-color: #005ebc;
   --shadow-color: rgba(128,128,128,0.2);
   --shadow-hover-color: rgba(128,128,128,0.28);
-  --scrollbar-color: #32333a;
-  --scrollbar-background-color: #5c5e6a;
-  --toc-scrollbar-color: rgba(190,190,198,0.1);
+  --scrollbar-color: #1f2329;
+  --scrollbar-background-color: #47515f;
+  --toc-scrollbar-color: rgba(173,186,197,0.1);
   --copyright-info-color: #a30029;
   --avatar-background-color: #004a93;
-  --header-transparent-background-1: rgba(56,57,64,0.28);
-  --header-transparent-background-2: rgba(56,57,64,0.4);
+  --header-transparent-background-1: rgba(34,39,46,0.28);
+  --header-transparent-background-2: rgba(34,39,46,0.4);
   --pjax-progress-bar-color: linear-gradient(45deg, #ea404a, #ea722f, #e9a71f, #67e559, #18ecec, #1b85f1, #ee1dee);
   --article-aging-tips-color: #ecc34d;
   --article-aging-tips-background-color: rgba(236,195,77,0.1);
   --article-aging-tips-border-color: rgba(236,195,77,0.6);
+  --post-h-bottom-border-color: rgba(173,186,197,0.15);
 }
 .fade-in-down-animation {
   animation-name: fade-in-down;
@@ -249,7 +254,7 @@
     opacity: 1;
   }
 }
-@-moz-keyframes icon-animate {
+@-moz-keyframes heartbeat-animate {
   0%, 100% {
     transform: scale(1);
   }
@@ -263,7 +268,7 @@
     transform: scale(1.08);
   }
 }
-@-webkit-keyframes icon-animate {
+@-webkit-keyframes heartbeat-animate {
   0%, 100% {
     transform: scale(1);
   }
@@ -277,7 +282,7 @@
     transform: scale(1.08);
   }
 }
-@-o-keyframes icon-animate {
+@-o-keyframes heartbeat-animate {
   0%, 100% {
     transform: scale(1);
   }
@@ -291,7 +296,7 @@
     transform: scale(1.08);
   }
 }
-@keyframes icon-animate {
+@keyframes heartbeat-animate {
   0%, 100% {
     transform: scale(1);
   }
@@ -351,10 +356,10 @@ body {
   margin: 0;
   padding: 0;
   color: var(--text-color-3);
-  font-weight: 400;
-  font-size: 15.2px;
-  font-family: Optima-Regular, Optima, PingFang SC, Microsoft YaHei, sans-serif;
-  line-height: 22px;
+  font-weight: var(--base-font-weight);
+  font-size: var(--base-font-size);
+  font-family: var(--base-font-family);
+  line-height: var(--base-line-height);
   letter-spacing: 0.2px;
   background: var(--background-color-1);
 }
@@ -380,15 +385,15 @@ body::-webkit-scrollbar {
 @media (max-width: 800px) {
   html,
   body {
-    font-size: 14.591999999999999px;
-    line-height: 21.119999999999997px;
+    font-size: calc(var(--base-font-size) * 0.95) !important;
+    line-height: calc(var(--base-line-height) * 0.95) !important;
   }
 }
 @media (max-width: 500px) {
   html,
   body {
-    font-size: 13.68px;
-    line-height: 19.8px;
+    font-size: calc(var(--base-font-size) * 0.9) !important;
+    line-height: calc(var(--base-line-height) * 0.9) !important;
   }
 }
 ::selection {
@@ -420,6 +425,12 @@ a:active i,
 a:hover span,
 a:active span {
   color: var(--primary-color);
+}
+.dark-mode img {
+  filter: brightness(0.9);
+}
+.dark-mode img:hover {
+  filter: brightness(1);
 }
 img[lazyload] {
   position: relative;
@@ -480,17 +491,9 @@ button {
   white-space: nowrap;
   text-align: center;
   background: var(--background-color-1);
-  border-radius: 5px;
-  cursor: pointer;
+  border-radius: 0.3rem;
   box-shadow: 2px 2px 5px var(--shadow-color);
-  transition-delay: 0s, 0s, 0s, 0s, 0s;
-  transition-timing-function: ease, ease, ease, ease, linear;
-  transition-duration: 0.2s, 0.2s, 0.2s, 0.2s, 0.2s;
-  transition-property: color, background, box-shadow, border-color, transform;
-}
-.btn:hover {
-  transform: scaleX(1.06) scaleY(1.06);
-  box-shadow: 2px 2px 8px var(--shadow-hover-color);
+  cursor: pointer;
 }
 .btn:hover {
   color: var(--background-color-1);
@@ -500,6 +503,15 @@ button {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+.border-box {
+  position: relative;
+  box-sizing: border-box;
+}
+.text-ellipsis {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 .clear::after {
   display: block;
