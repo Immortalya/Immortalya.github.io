@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Keep">
+    <meta name="description" content="因过竹院逢僧话,偷得浮生半日闲">
+    <meta name="author" content="immortal">
+    
+    <title>
+        
+            Set 和 Map 数据结构 |
+        
+        唔、
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    
+        <link rel="shortcut icon" href="/images/favicon.png">
+    
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.4/source/font/css/fontawesome.min.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.4/source/font/css/regular.min.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.4/source/font/css/solid.min.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.4/source/font/css/brands.min.css">
+    
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {}
+    KEEP.hexo_config = {"hostname":"example.com","root":"/","language":"zh-CN","path":"search.xml"}
+    KEEP.theme_config = {"toc":{"enable":true,"number":false,"expand_all":true,"init_open":true},"style":{"primary_color":"#0066cc","logo":"/images/logo.png","favicon":"/images/favicon.png","avatar":"/images/avatar.jpg","font_size":null,"font_family":null,"hover":{"shadow":true,"scale":true},"first_screen":{"enable":true,"header_transparent":true,"background_img":"/images/bg.svg","description":"建立自信不是相信自己，而是掌握面对未知的力量。","font_color":null,"hitokoto":false},"scroll":{"progress_bar":true,"percent":true}},"local_search":{"enable":true,"preload":true},"code_block":{"tools":{"enable":true,"style":"default"},"highlight_theme":"default"},"side_tools":{},"pjax":{"enable":true},"lazyload":{"enable":false},"comment":{"enable":false,"use":"valine","valine":{"appid":null,"appkey":null,"server_urls":null,"placeholder":null},"gitalk":{"github_id":null,"github_admins":null,"repository":null,"client_id":null,"client_secret":null,"proxy":null},"twikoo":{"env_id":null,"region":null,"version":"1.6.8"},"waline":{"server_url":null,"reaction":false,"version":2}},"post":{"author_label":{"enable":true,"auto":true,"custom_label_list":["Trainee","Engineer","Architect"]},"word_count":{"enable":true,"wordcount":true,"min2read":true},"img_align":"center","copyright_info":true},"website_count":{"busuanzi_count":{"enable":true,"site_uv":true,"site_pv":true,"page_pv":true}},"version":"3.7.4"}
+    KEEP.language_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 个月前","year":"%s 年前"}
+    KEEP.language_code_block = {"copy":"复制代码","copied":"已复制","fold":"折叠代码块","folded":"已折叠"}
+    KEEP.language_copy_copyright = {"copy":"复制版权信息","copied":"已复制","title":"原文标题","author":"原文作者","link":"原文链接"}
+  </script>
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+        <span class="scroll-progress-bar"></span>
+    
+
+    
+        <span class="pjax-progress-bar"></span>
+        <i class="pjax-progress-icon fas fa-circle-notch fa-spin"></i>
+    
+</div>
+
+
+<main class="page-container border-box">
+
+    <!-- home first screen  -->
+    
+
+    <!-- page content -->
+    <div class="page-main-content border-box">
+        <div class="page-main-content-top">
+            
+<header class="header-wrapper">
+
+    <div class="border-box header-content">
+        <div class="left border-box">
+            
+                <a class="logo-image border-box" href="/">
+                    <img src="/images/logo.png">
+                </a>
+            
+            <a class="site-name border-box" href="/">
+               唔、
+            </a>
+        </div>
+
+        <div class="right border-box">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                首页
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                归档
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/categories"
+                            >
+                                分类
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/tags"
+                            >
+                                标签
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/links"
+                            >
+                                友链
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/about"
+                            >
+                                关于
+                            </a>
+                        </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas fa-search"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/">首页</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives">归档</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/categories">分类</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/tags">标签</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/links">友链</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/about">关于</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle border-box">
+
+            <div class="main-content border-box">
+
+                
+
+                    <div class="fade-in-down-animation">
+    <div class="post-page-container border-box">
+
+        <div class="article-content-container border-box">
+
+            <div class="article-title">
+                <span class="title-hover-animation">Set 和 Map 数据结构</span>
+            </div>
+
+            
+                <div class="article-header border-box">
+                    
+                        <div class="avatar-box border-box">
+                            <img src="/images/avatar.jpg">
+                        </div>
+                    
+                    <div class="info-box">
+                        <div class="author">
+                            <span class="name">immortal</span>
+                            
+                                <span class="author-label">Lv5</span>
+                            
+                        </div>
+                        <div class="meta-info border-box">
+                            
+
+<div class="article-meta-info-container border-box post">
+    <div class="article-meta-info border-box">
+        
+
+
+        
+            <span class="meta-info-item article-create-date">
+                <i class="icon fa-solid fa-calendar-check"></i>&nbsp;
+                <span class="pc">2023-09-23 18:07:06</span>
+                <span class="mobile">2023-09-23 18:07</span>
+            </span>
+
+            <span class="meta-info-item article-update-date">
+                <i class="icon fa-solid fa-file-pen"></i>&nbsp;
+                <span class="pc">2023-09-23 21:50:06</span>
+            </span>
+        
+
+        
+            <span class="meta-info-item article-category border-box"><i class="icon fas fa-folder"></i>&nbsp;
+                <ul>
+                    
+                            <li class="category-item">
+                                
+                                <a href="/categories/JavaScript/">JavaScript</a>
+                            </li>
+                        
+                    
+                </ul>
+            </span>
+        
+
+        
+            <span class="article-tag meta-info-item border-box">
+                <i class="icon fas fa-tags"></i>&nbsp;
+                <ul>
+                    
+                </ul>
+            </span>
+        
+
+        
+        
+            <span class="meta-info-item article-wordcount">
+                <i class="icon fas fa-file-word"></i>&nbsp;<span>1.6k 字</span>
+            </span>
+        
+        
+            <span class="meta-info-item article-min2read">
+                <i class="icon fas fa-clock"></i>&nbsp;<span>7 分钟</span>
+            </span>
+        
+        
+            <span class="meta-info-item article-pv">
+                <i class="icon fas fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+            </span>
+        
+    </div>
+
+    
+</div>
+
+                        </div>
+                    </div>
+                </div>
+            
+
+            <div class="article-content keep-markdown-body">
+                
+
+                <p><a class="link" target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_43359799/article/details/123131917">https://blog.csdn.net/weixin_43359799/article/details/123131917<i class="fas fa-external-link-alt"></i></a></p>
+<p>Set 是一种叫做集合的数据结构，Map 是一种叫做字典的数据结构。Set 和 Map 主要的应用场景在于 数据重组 和 数据储存。<br>共同点：集合、字典 可以储存不重复的值<br>不同点：集合 是以 [value, value]的形式储存元素，字典 是以 [key, value] 的形式储存</p>
+<h1 id="1-Set"><a href="#1-Set" class="headerlink" title="1.Set"></a>1.Set</h1><p>ES6 新增的一种新的数据结构，类似于数组，成员唯一（内部元素没有重复的值）。且使用键对数据排序即顺序存储。<br>Set 对象允许你储存任何类型的唯一值，无论是原始值或者是对象引用。</p>
+<p>Set本身是一个构造函数，用来生成 Set 数据结构。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> s = <span class="keyword">new</span> <span class="title class_">Set</span>();</span><br><span class="line"></span><br><span class="line">[<span class="number">2</span>, <span class="number">3</span>, <span class="number">5</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">2</span>, <span class="number">2</span>].<span class="title function_">forEach</span>(<span class="function"><span class="params">x</span> =&gt;</span> s.<span class="title function_">add</span>(x));</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i <span class="keyword">of</span> s) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(i);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 2 3 5 4</span></span><br></pre></td></tr></table></figure>
+<p>Set函数可以接受一个数组（或者具有 iterable 接口的其他数据结构）作为参数，用来初始化。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 例一</span></span><br><span class="line"><span class="keyword">const</span> set = <span class="keyword">new</span> <span class="title class_">Set</span>([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">4</span>]);</span><br><span class="line">[...set]</span><br><span class="line"><span class="comment">// [1, 2, 3, 4]</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 例二</span></span><br><span class="line"><span class="keyword">const</span> items = <span class="keyword">new</span> <span class="title class_">Set</span>([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">5</span>, <span class="number">5</span>, <span class="number">5</span>]);</span><br><span class="line">items.<span class="property">size</span> <span class="comment">// 5</span></span><br></pre></td></tr></table></figure>
+
+<p>数组去重和字符串去重</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">2</span>, <span class="number">1</span>, <span class="number">1</span>]</span><br><span class="line"><span class="keyword">let</span> arr2 = [... <span class="keyword">new</span> <span class="title class_">Set</span>(arr)]</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(arr2); <span class="comment">//(3) [1, 2, 3]</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(arr);   <span class="comment">//[1, 2, 3, 2, 1, 1]</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 去除字符串里面的重复字符</span></span><br><span class="line">[...<span class="keyword">new</span> <span class="title class_">Set</span>(<span class="string">&#x27;ababbc&#x27;</span>)].<span class="title function_">join</span>(<span class="string">&#x27;&#x27;</span>) <span class="comment">// &quot;abc&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>操作方法：</p>
+<pre><code>add(value)：新增，相当于 array里的push，返回Set对象本身；
+delete(value)：存在即删除集合中value，返回boolean类型；
+has(value)：判断集合中是否存在 value，返回boolean类型；
+clear()：清空集合，没有返回值；
+keys()：返回一个包含集合中所有键的迭代器。
+values()：返回一个包含集合中所有值得迭代器。
+entries()：返回一个包含Set对象中所有元素得键值对迭代器。
+forEach(callbackFn[, thisArg])：用于对集合成员执行callbackFn操作，如果提供了 thisArg 参数，回调中的this会是这个参数，没有返回值。
+</code></pre>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> set = <span class="keyword">new</span> <span class="title class_">Set</span>();</span><br><span class="line"><span class="keyword">let</span> a = <span class="title class_">NaN</span>;</span><br><span class="line"><span class="keyword">let</span> b = <span class="title class_">NaN</span>;</span><br><span class="line">set.<span class="title function_">add</span>(a);</span><br><span class="line">set.<span class="title function_">add</span>(b);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(set) <span class="comment">// Set &#123;NaN&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//  Set 内部判断两个值是否不同，使用的算法叫做“Same-value-zero equality”，它类似于精确相等运算符（===）</span></span><br><span class="line"><span class="comment">// 主要的区别是NaN等于自身，而精确相等运算符认为NaN不等于自身。</span></span><br><span class="line"><span class="keyword">let</span> set1 = <span class="keyword">new</span> <span class="title class_">Set</span>()</span><br><span class="line">set1.<span class="title function_">add</span>(a);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(set1)	<span class="comment">// Set &#123;NaN&#125;</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(set==set1); <span class="comment">//false</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//  向 Set 加入值的时候，不会发生类型转换，所以5和&quot;5&quot;是两个不同的值</span></span><br><span class="line"><span class="keyword">let</span> set2 = <span class="keyword">new</span> <span class="title class_">Set</span>()</span><br><span class="line">set2.<span class="title function_">add</span>(<span class="number">5</span>)</span><br><span class="line">set2.<span class="title function_">add</span>(<span class="string">&#x27;5&#x27;</span>)</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>([...set2])	<span class="comment">// [5, &quot;5&quot;]</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="2-Map"><a href="#2-Map" class="headerlink" title="2.Map"></a>2.Map</h1><p>Map 数据结构它类似于对象，也是键值对的集合，但是“键”的范围不限于字符串，各种类型的值（包括对象）都可以当作键。也就是说，Object 结构提供了“字符串—值”的对应，Map 结构提供了“值—值”的对应，是一种更完善的 Hash 结构实现。如果你需要“键值对”的数据结构，Map 比 Object 更合适。</p>
+<p>Map 对象是键值对的集合。Map 中的一个键只能出现一次；它在 Map 的集合中是独一无二的。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> m = <span class="keyword">new</span> <span class="title class_">Map</span>([</span><br><span class="line">	[<span class="string">&quot;小明&quot;</span>, <span class="number">100</span>],</span><br><span class="line">	[<span class="string">&quot;小红&quot;</span>, <span class="number">90</span>],</span><br><span class="line">	[<span class="string">&quot;小兰&quot;</span>, <span class="number">99</span>]</span><br><span class="line">]);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(m);</span><br><span class="line"><span class="comment">// Map(3) &#123;0:&#123;key:&quot;小明&quot;,value:100&#125;, 1:&#123;key:&#x27;小红&#x27;,value:90&#125;, 2:&#123;key:&#x27;小兰&#x27;,value:99&#125;&#125;</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(...m);</span><br><span class="line"><span class="comment">// (2) [&#x27;小明&#x27;, 100] (2) [&#x27;小红&#x27;, 90] (2) [&#x27;小兰&#x27;, 99]</span></span><br></pre></td></tr></table></figure>
+
+<p>操作方法：</p>
+<pre><code>set(key, value)：向字典中添加新元素。
+get(key)：通过键查找特定的数值并返回。
+has(key)：判断字典中是否存在键key。
+delete(key)：通过键 key 从字典中移除对应的数据。
+clear()：将这个字典中的所有元素删除。
+</code></pre>
+<p>遍历方法：</p>
+<pre><code>Keys()：将字典中包含的所有键名以迭代器形式返回。
+values()：将字典中包含的所有数值以迭代器形式返回。
+entries()：返回所有成员的迭代器。
+forEach()：遍历字典的所有成员。
+</code></pre>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> m = <span class="keyword">new</span> <span class="title class_">Map</span>();</span><br><span class="line">m.<span class="title function_">set</span>(<span class="string">&quot;小明&quot;</span>, <span class="number">100</span>).<span class="title function_">set</span>(<span class="string">&quot;小红&quot;</span>, <span class="number">100</span>);</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(m.<span class="title function_">get</span>(<span class="string">&quot;小红&quot;</span>));<span class="comment">// 100</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(m.<span class="title function_">get</span>(<span class="string">&quot;abc&quot;</span>));<span class="comment">// undefined</span></span><br><span class="line"></span><br><span class="line"><span class="title class_">Array</span>.<span class="title function_">from</span>(m.<span class="title function_">keys</span>()); <span class="comment">// [&#x27;小明&#x27;, &#x27;小红&#x27;]</span></span><br><span class="line"><span class="title class_">Array</span>.<span class="title function_">from</span>(m.<span class="title function_">values</span>()); <span class="comment">// [100, 100]</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="Map与其他数据结构的互相转换"><a href="#Map与其他数据结构的互相转换" class="headerlink" title="Map与其他数据结构的互相转换"></a>Map与其他数据结构的互相转换</h3><p>1.Map 和 数组</p>
+<p>Map 转为 数组<br>Map 转为数组最方便的方法，就是使用扩展运算符（…）。<br><code>[...myMap]</code></p>
+<p>数组 转为 Map<br>将数组传入 Map 构造函数，就可以转为 Map。<br><code>new Map([ [true, 7], [&#123;foo: 3&#125;, [&#39;abc&#39;]] ])</code></p>
+<p>2.Map 和 对象</p>
+<p>Map 转为 对象<br>如果所有 Map 的键都是字符串，它可以无损地转为对象。<br>如果有非字符串的键名，那么这个键名会被转成字符串，再作为对象的键名。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">strMapToObj</span>(<span class="params">strMap</span>) &#123;</span><br><span class="line">  <span class="keyword">let</span> obj = <span class="title class_">Object</span>.<span class="title function_">create</span>(<span class="literal">null</span>);</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> [k,v] <span class="keyword">of</span> strMap) &#123;</span><br><span class="line">    obj[k] = v;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> obj;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> myMap = <span class="keyword">new</span> <span class="title class_">Map</span>()</span><br><span class="line">  .<span class="title function_">set</span>(<span class="string">&#x27;yes&#x27;</span>, <span class="literal">true</span>)</span><br><span class="line">  .<span class="title function_">set</span>(<span class="string">&#x27;no&#x27;</span>, <span class="literal">false</span>);</span><br><span class="line"><span class="title function_">strMapToObj</span>(myMap)</span><br><span class="line"><span class="comment">// &#123; yes: true, no: false &#125;</span></span><br></pre></td></tr></table></figure>
+
+<p>对象 转为 Map<br>对象转为 Map 可以通过Object.entries()。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> obj = &#123;<span class="string">&quot;a&quot;</span>:<span class="number">1</span>, <span class="string">&quot;b&quot;</span>:<span class="number">2</span>&#125;;</span><br><span class="line"><span class="keyword">let</span> map = <span class="keyword">new</span> <span class="title class_">Map</span>(<span class="title class_">Object</span>.<span class="title function_">entries</span>(obj));</span><br></pre></td></tr></table></figure>
+
+<p>3.Map 和 JSON</p>
+<p>Map 转为 JSON</p>
+<p>Map 转为 JSON 要区分两种情况。<br>一种情况是，Map 的键名都是字符串，这时可以选择转为对象 JSON。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">strMapToJson</span>(<span class="params">strMap</span>) &#123;</span><br><span class="line">    <span class="comment">//该方法在 Map 转为 对象 区域</span></span><br><span class="line">  <span class="keyword">return</span> <span class="title class_">JSON</span>.<span class="title function_">stringify</span>(<span class="title function_">strMapToObj</span>(strMap));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> myMap = <span class="keyword">new</span> <span class="title class_">Map</span>().<span class="title function_">set</span>(<span class="string">&#x27;yes&#x27;</span>, <span class="literal">true</span>).<span class="title function_">set</span>(<span class="string">&#x27;no&#x27;</span>, <span class="literal">false</span>);</span><br><span class="line"><span class="title function_">strMapToJson</span>(myMap)</span><br><span class="line"><span class="comment">// &#x27;&#123;&quot;yes&quot;:true,&quot;no&quot;:false&#125;&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<p>另一种情况是，Map 的键名有非字符串，这时可以选择转为数组 JSON。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">mapToArrayJson</span>(<span class="params">map</span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="title class_">JSON</span>.<span class="title function_">stringify</span>([...map]);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> myMap = <span class="keyword">new</span> <span class="title class_">Map</span>().<span class="title function_">set</span>(<span class="literal">true</span>, <span class="number">7</span>).<span class="title function_">set</span>(&#123;<span class="attr">foo</span>: <span class="number">3</span>&#125;, [<span class="string">&#x27;abc&#x27;</span>]);</span><br><span class="line"><span class="title function_">mapToArrayJson</span>(myMap)</span><br><span class="line"><span class="comment">// &#x27;[[true,7],[&#123;&quot;foo&quot;:3&#125;,[&quot;abc&quot;]]]&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<p>JSON 转为 Map<br>JSON 转为 Map，正常情况下，所有键名都是字符串。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">jsonToStrMap</span>(<span class="params">jsonStr</span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="title function_">objToStrMap</span>(<span class="title class_">JSON</span>.<span class="title function_">parse</span>(jsonStr));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="title function_">jsonToStrMap</span>(<span class="string">&#x27;&#123;&quot;yes&quot;: true, &quot;no&quot;: false&#125;&#x27;</span>)</span><br><span class="line"><span class="comment">// Map &#123;&#x27;yes&#x27; =&gt; true, &#x27;no&#x27; =&gt; false&#125;</span></span><br></pre></td></tr></table></figure>
+
+<p>但是，有一种特殊情况，整个 JSON 就是一个数组，且每个数组成员本身，又是一个有两个成员的数组。这时，它可以一一对应地转为 Map。这往往是 Map 转为数组 JSON 的逆操作。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">jsonToMap</span>(<span class="params">jsonStr</span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">Map</span>(<span class="title class_">JSON</span>.<span class="title function_">parse</span>(jsonStr));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="title function_">jsonToMap</span>(<span class="string">&#x27;[[true,7],[&#123;&quot;foo&quot;:3&#125;,[&quot;abc&quot;]]]&#x27;</span>)</span><br><span class="line"><span class="comment">// Map &#123;true =&gt; 7, Object &#123;foo: 3&#125; =&gt; [&#x27;abc&#x27;]&#125;</span></span><br></pre></td></tr></table></figure>
+            </div>
+
+            
+                <div class="post-copyright-info">
+                    
+<div class="article-copyright-info-container">
+    <ul class="copyright-info-content">
+        <li class="post-title">
+            <span class="type">本文标题</span>：<span class="content">Set 和 Map 数据结构</span>
+        </li>
+        <li class="post-author">
+            <span class="type">本文作者</span>：<span class="content">immortal</span>
+        </li>
+        <li class="post-time">
+            <span class="type">创建时间</span>：<span class="content">2023-09-23 18:07:06</span>
+        </li>
+        <li class="post-link">
+            <span class="type">本文链接</span>：<span class="content">posts/9322.html</span>
+        </li>
+        <li class="post-license">
+            <span class="type">版权声明</span>：<span class="content">本博客所有文章除特别声明外，均采用 <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> 许可协议。转载请注明出处！</span>
+        </li>
+    </ul>
+    <div class="copy-copyright-info flex-center tooltip" data-content="复制版权信息" data-offset-y="-2px">
+        <i class="fa-solid fa-copy"></i>
+    </div>
+</div>
+
+                </div>
+            
+
+            
+
+            
+                <div class="article-nav">
+                    
+                    
+                        <div class="article-next">
+                            <a class="next"
+                               rel="next"
+                               href="/posts/25314.html"
+                            >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item text-ellipsis">数组的扩展</span>
+                                <span class="post-nav-item">下一篇</span>
+                            </span>
+                                <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                            </a>
+                        </div>
+                    
+                </div>
+            
+
+            
+                
+
+
+
+
+
+
+            
+        </div>
+
+        
+            <div class="pc-post-toc right-toc">
+                <div class="post-toc-wrap">
+    <div class="post-toc">
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-Set"><span class="nav-text">1.Set</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-Map"><span class="nav-text">2.Map</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Map%E4%B8%8E%E5%85%B6%E4%BB%96%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%9A%84%E4%BA%92%E7%9B%B8%E8%BD%AC%E6%8D%A2"><span class="nav-text">Map与其他数据结构的互相转换</span></a></li></ol></li></ol></li></ol>
+    </div>
+</div>
+
+            </div>
+        
+    </div>
+</div>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom border-box">
+            
+<footer class="footer border-box">
+    <div class="border-box website-info-box default">
+        
+            <div class="copyright-info info-item default">
+                &copy;&nbsp;<span>2023</span>&nbsp;-&nbsp;2023
+                
+                    &nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;&nbsp;<a href="/">immortal</a>
+                
+            </div>
+
+            <div class="theme-info info-item default">
+                由&nbsp;<a target="_blank" href="https://hexo.io">Hexo</a>&nbsp;驱动&nbsp;&&nbsp;主题&nbsp;<a class="keep-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep</a>
+            </div>
+
+            
+
+            
+        
+
+        <div class="count-item info-item default">
+            
+
+            
+                <span class="count-box border-box uv">
+                    <span class="item-type border-box">访问人数</span>
+                    <span class="item-value border-box uv" id="busuanzi_value_site_uv"></span>
+                </span>
+            
+
+            
+                <span class="count-box border-box pv">
+                    <span class="item-type border-box">总访问量</span>
+                    <span class="item-value border-box pv" id="busuanzi_value_site_pv"></span>
+                </span>
+            
+        </div>
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+    <!-- post tools -->
+    
+        <div class="post-tools right-toc">
+            <div class="post-tools-container border-box">
+    <ul class="tools-list border-box">
+        <!-- PC TOC show toggle -->
+        
+            <li class="tools-item flex-center toggle-show-toc">
+                <i class="fas fa-list"></i>
+            </li>
+        
+
+        <!-- PC go comment -->
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <!-- side tools -->
+    <div class="side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        
+            <li class="tools-item toggle-show-toc-tablet flex-center">
+                <i class="fas fa-list"></i>
+            </li>
+        
+
+        
+
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="arrow-up fas fa-arrow-up"></i>
+                <span class="percent"></span>
+            </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    <!-- image mask -->
+    <div class="zoom-in-image-mask">
+    <img class="zoom-in-image">
+</div>
+
+
+    <!-- local search -->
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="搜索..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="close-popup-btn">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+    <!-- tablet toc -->
+    
+        <div class="tablet-post-toc-mask">
+            <div class="tablet-post-toc">
+                <div class="post-toc-wrap">
+    <div class="post-toc">
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-Set"><span class="nav-text">1.Set</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-Map"><span class="nav-text">2.Map</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Map%E4%B8%8E%E5%85%B6%E4%BB%96%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%9A%84%E4%BA%92%E7%9B%B8%E8%BD%AC%E6%8D%A2"><span class="nav-text">Map与其他数据结构的互相转换</span></a></li></ol></li></ol></li></ol>
+    </div>
+</div>
+
+            </div>
+        </div>
+    
+</main>
+
+
+
+<script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.4/source/js/utils.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.4/source/js/main.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.4/source/js/header-shrink.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.4/source/js/back2top.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.4/source/js/dark-light-toggle.js"></script>
+
+
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.4/source/js/local-search.js"></script>
+
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.4/source/js/code-block.js"></script>
+
+
+
+
+<div class="post-scripts pjax">
+    
+        <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.4/source/js/post-helper.js"></script>
+        
+            <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.4/source/js/libs/anime.min.js"></script>
+        
+        
+            <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.4/source/js/toc.js"></script>
+        
+    
+    
+    
+</div>
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.4/source/js/libs/pjax.min.js"></script>
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        window.pjax = new Pjax({
+            selectors: [
+                'head title',
+                '.page-container',
+                '.pjax'
+            ],
+            history: true,
+            debug: false,
+            cacheBust: false,
+            timeout: 0,
+            analytics: false,
+            currentUrlFullReload: false,
+            scrollRestoration: false,
+            // scrollTo: true,
+        });
+
+        document.addEventListener('pjax:send', () => {
+            KEEP.utils.pjaxProgressBarStart();
+        });
+
+        document.addEventListener('pjax:complete', () => {
+            KEEP.utils.pjaxProgressBarEnd();
+            window.pjax.executeScripts(document.querySelectorAll('script[data-pjax], .pjax script'));
+            KEEP.refresh();
+        });
+    });
+</script>
+
+
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/hijiki.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":true},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/"});</script></body>
+</html>

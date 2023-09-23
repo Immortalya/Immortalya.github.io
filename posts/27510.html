@@ -9,7 +9,7 @@
     
     <title>
         
-            element-css |
+            pages.json |
         
         唔、
     </title>
@@ -196,7 +196,7 @@
         <div class="article-content-container border-box">
 
             <div class="article-title">
-                <span class="title-hover-animation">element-css</span>
+                <span class="title-hover-animation">pages.json</span>
             </div>
 
             
@@ -224,19 +224,25 @@
         
             <span class="meta-info-item article-create-date">
                 <i class="icon fa-solid fa-calendar-check"></i>&nbsp;
-                <span class="pc">2023-02-28 15:45:06</span>
-                <span class="mobile">2023-02-28 15:45</span>
+                <span class="pc">2023-09-06 16:44:06</span>
+                <span class="mobile">2023-09-06 16:44</span>
             </span>
 
             <span class="meta-info-item article-update-date">
                 <i class="icon fa-solid fa-file-pen"></i>&nbsp;
-                <span class="pc">2023-09-05 16:48:07</span>
+                <span class="pc">2023-09-22 16:36:49</span>
             </span>
         
 
         
             <span class="meta-info-item article-category border-box"><i class="icon fas fa-folder"></i>&nbsp;
                 <ul>
+                    
+                            <li class="category-item">
+                                
+                                <a href="/categories/uniApp/">uniApp</a>
+                            </li>
+                        
                     
                 </ul>
             </span>
@@ -247,9 +253,6 @@
                 <i class="icon fas fa-tags"></i>&nbsp;
                 <ul>
                     
-                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/css/">css</a></li>
-                        
-                    
                 </ul>
             </span>
         
@@ -257,12 +260,12 @@
         
         
             <span class="meta-info-item article-wordcount">
-                <i class="icon fas fa-file-word"></i>&nbsp;<span>295 字</span>
+                <i class="icon fas fa-file-word"></i>&nbsp;<span>668 字</span>
             </span>
         
         
             <span class="meta-info-item article-min2read">
-                <i class="icon fas fa-clock"></i>&nbsp;<span>1 分钟</span>
+                <i class="icon fas fa-clock"></i>&nbsp;<span>2 分钟</span>
             </span>
         
         
@@ -283,13 +286,147 @@
             <div class="article-content keep-markdown-body">
                 
 
-                <h3 id="1-notify"><a href="#1-notify" class="headerlink" title="1.$notify"></a>1.$notify</h3><p>notify的样式修改是在body外样式才能生效，body设置以下样式即可实现f11全屏效果</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="language-css"></span></span><br><span class="line"><span class="language-css"><span class="selector-class">.body</span>&#123;</span></span><br><span class="line"><span class="language-css">  <span class="attribute">margin</span>: <span class="number">0</span>;</span></span><br><span class="line"><span class="language-css">  <span class="attribute">padding</span>: <span class="number">0</span>;</span></span><br><span class="line"><span class="language-css">  <span class="attribute">width</span>: <span class="number">100vw</span>;</span></span><br><span class="line"><span class="language-css">  <span class="attribute">height</span>: <span class="number">100vh</span>;</span></span><br><span class="line"><span class="language-css">  <span class="attribute">overflow</span>: hidden;</span></span><br><span class="line"><span class="language-css">&#125;</span></span><br><span class="line"><span class="language-css"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure>
+                <p>配置项</p>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>类型</th>
+<th>必填</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>pages</td>
+<td>Array</td>
+<td>是</td>
+<td>设置页面路径及窗口表现</td>
+</tr>
+<tr>
+<td>condition</td>
+<td>Object</td>
+<td>否</td>
+<td>启动模式配置（仅开发期间生效）</td>
+</tr>
+<tr>
+<td>globalStyle</td>
+<td>Object</td>
+<td>否</td>
+<td>设置默认页面的窗口表现</td>
+</tr>
+<tr>
+<td>tabBar</td>
+<td>Object</td>
+<td>否</td>
+<td>设置底部 tab 的表现</td>
+</tr>
+<tr>
+<td>subPackages</td>
+<td>Array</td>
+<td>否</td>
+<td>分包加载配置</td>
+</tr>
+</tbody></table>
+<h1 id="1-globalStyle"><a href="#1-globalStyle" class="headerlink" title="1.globalStyle"></a>1.globalStyle</h1><p>用于设置应用的状态栏、导航条、标题、窗口背景色等。</p>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>类型</th>
+<th>默认值</th>
+<th>描述</th>
+<th>平台差异说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>navigationBarBackgroundColor</td>
+<td>HexColor</td>
+<td>#F8F8F8</td>
+<td>导航栏背景颜色（同状态栏背景色）</td>
+<td>APP与H5为#F8F8F8，小程序平台请参考相应小程序文档</td>
+</tr>
+<tr>
+<td>navigationBarTextStyle</td>
+<td>String</td>
+<td>black</td>
+<td>导航栏标题颜色及状态栏前景颜色，仅支持 black&#x2F;white</td>
+<td>支付宝小程序不支持，请使用 my.setNavigationBar</td>
+</tr>
+<tr>
+<td>navigationBarTitleText</td>
+<td>String</td>
+<td>-</td>
+<td>导航栏标题文字内容</td>
+<td></td>
+</tr>
+<tr>
+<td>navigationStyle</td>
+<td>String</td>
+<td>default</td>
+<td>导航栏样式，仅支持 default&#x2F;custom。custom即取消默认的原生导航栏，可以使用自定义导航栏</td>
+<td>微信小程序 7.0+、百度小程序、H5、App（2.0.3+）</td>
+</tr>
+<tr>
+<td>enablePullDownRefresh</td>
+<td>Boolean</td>
+<td>false</td>
+<td>是否开启下拉刷新，详见页面生命周期。</td>
+<td>微信小程序</td>
+</tr>
+<tr>
+<td>backgroundTextStyle</td>
+<td>String</td>
+<td>dark</td>
+<td>下拉 loading 的样式，仅支持 dark &#x2F; light</td>
+<td>微信小程序</td>
+</tr>
+<tr>
+<td>backgroundColor</td>
+<td>HexColor</td>
+<td>#ffffff</td>
+<td>下拉显示出来的窗口的背景色</td>
+<td>微信小程序</td>
+</tr>
+<tr>
+<td>onReachBottomDistance</td>
+<td>Number</td>
+<td>50</td>
+<td>页面上拉触底事件触发时距页面底部距离，单位只支持px，详见页面生命周期</td>
+<td></td>
+</tr>
+</tbody></table>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">&quot;globalStyle&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">	<span class="attr">&quot;navigationBarTextStyle&quot;</span><span class="punctuation">:</span> <span class="string">&quot;black&quot;</span><span class="punctuation">,</span></span><br><span class="line">	<span class="attr">&quot;navigationBarTitleText&quot;</span><span class="punctuation">:</span> <span class="string">&quot;演示&quot;</span><span class="punctuation">,</span></span><br><span class="line">	<span class="attr">&quot;navigationBarBackgroundColor&quot;</span><span class="punctuation">:</span> <span class="string">&quot;#F8F8F8&quot;</span><span class="punctuation">,</span></span><br><span class="line">	<span class="attr">&quot;backgroundColor&quot;</span><span class="punctuation">:</span> <span class="string">&quot;#F8F8F8&quot;</span><span class="punctuation">,</span></span><br><span class="line">	<span class="attr">&quot;usingComponents&quot;</span><span class="punctuation">:</span><span class="punctuation">&#123;</span></span><br><span class="line">		<span class="attr">&quot;collapse-tree-item&quot;</span><span class="punctuation">:</span><span class="string">&quot;/components/collapse-tree-item&quot;</span></span><br><span class="line">	<span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">	<span class="attr">&quot;renderingMode&quot;</span><span class="punctuation">:</span> <span class="string">&quot;seperated&quot;</span><span class="punctuation">,</span> <span class="comment">// 仅微信小程序，webrtc 无法正常时尝试强制关闭同层渲染</span></span><br><span class="line">	<span class="attr">&quot;pageOrientation&quot;</span><span class="punctuation">:</span> <span class="string">&quot;portrait&quot;</span><span class="punctuation">,</span> <span class="comment">//横屏配置，全局屏幕旋转设置(仅 APP/微信/QQ小程序)，支持 auto / portrait / landscape</span></span><br><span class="line">	<span class="attr">&quot;rpxCalcMaxDeviceWidth&quot;</span><span class="punctuation">:</span> <span class="number">960</span><span class="punctuation">,</span></span><br><span class="line">	<span class="attr">&quot;rpxCalcBaseDeviceWidth&quot;</span><span class="punctuation">:</span> <span class="number">375</span><span class="punctuation">,</span></span><br><span class="line">	<span class="attr">&quot;rpxCalcIncludeWidth&quot;</span><span class="punctuation">:</span> <span class="number">750</span></span><br><span class="line"><span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br></pre></td></tr></table></figure>
 
-<h3 id="3-el-carousel定义宽高"><a href="#3-el-carousel定义宽高" class="headerlink" title="3.el-carousel定义宽高"></a>3.el-carousel定义宽高</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;card1&quot;</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;carousel&quot;</span> <span class="attr">v-show</span>=<span class="string">&quot;!searchData3&quot;</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">el-carousel</span> <span class="attr">:interval</span>=<span class="string">&quot;50000&quot;</span> <span class="attr">class</span>=<span class="string">&quot;imgClass&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">el-carousel-item</span> <span class="attr">v-for</span>=<span class="string">&quot;item in 4&quot;</span> <span class="attr">:key</span>=<span class="string">&quot;item&quot;</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">h3</span> <span class="attr">class</span>=<span class="string">&quot;small&quot;</span>&gt;</span>&#123;&#123; item &#125;&#125;<span class="tag">&lt;/<span class="name">h3</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">el-carousel-item</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">el-carousel</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span>  </span><br><span class="line"> <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">style</span> <span class="attr">lang</span>=<span class="string">&quot;scss&quot;</span> <span class="attr">scoped</span>&gt;</span><span class="language-css"></span></span><br><span class="line"><span class="language-css"><span class="selector-class">.card1</span> &#123;</span></span><br><span class="line"><span class="language-css">  <span class="attribute">position</span>: relative;</span></span><br><span class="line"><span class="language-css">  <span class="attribute">height</span>: <span class="number">100%</span>;</span></span><br><span class="line"><span class="language-css">  <span class="attribute">width</span>: <span class="number">100%</span>;</span></span><br><span class="line"><span class="language-css">  <span class="attribute">padding</span>:<span class="number">4.5vh</span> <span class="number">1vw</span> <span class="number">1.5vh</span> <span class="number">1vw</span>;</span></span><br><span class="line"><span class="language-css">  <span class="attribute">box-sizing</span>: border-box;</span></span><br><span class="line"><span class="language-css">  <span class="selector-class">.carousel</span> &#123;</span></span><br><span class="line"><span class="language-css">    <span class="attribute">height</span>: <span class="number">100%</span>;</span></span><br><span class="line"><span class="language-css">    <span class="attribute">background</span>: <span class="number">#000</span>;</span></span><br><span class="line"><span class="language-css">    <span class="selector-class">.imgClass</span>&#123;</span></span><br><span class="line"><span class="language-css">	    <span class="attribute">width</span>:<span class="number">100%</span>;</span></span><br><span class="line"><span class="language-css">	    <span class="attribute">height</span>:<span class="number">100%</span>;</span></span><br><span class="line"><span class="language-css">	    <span class="attribute">background</span>:red;</span></span><br><span class="line"><span class="language-css">	    <span class="attribute">box-sizing</span>: border-box;</span></span><br><span class="line"><span class="language-css">  	&#125;</span></span><br><span class="line"><span class="language-css">  	::v-deep .el-carousel__container&#123;</span></span><br><span class="line"><span class="language-css">   	 <span class="attribute">height</span>:<span class="number">100%</span></span></span><br><span class="line"><span class="language-css">  	&#125;	</span></span><br><span class="line"><span class="language-css">  &#125;</span></span><br><span class="line"><span class="language-css">&#125;</span></span><br><span class="line"><span class="language-css"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="5-el-switch"><a href="#5-el-switch" class="headerlink" title="5.el-switch"></a>5.el-switch</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">el-form-item</span> <span class="attr">:label</span>=<span class="string">&quot;item.label&quot;</span> <span class="attr">label-width</span>=<span class="string">&quot;140px&quot;</span>&gt;</span></span><br><span class="line">              <span class="tag">&lt;<span class="name">el-switch</span></span></span><br><span class="line"><span class="tag">                <span class="attr">v-if</span>=<span class="string">&quot;[0, 1].includes(lampAlarmParams[item.key])&quot;</span></span></span><br><span class="line"><span class="tag">                <span class="attr">v-model</span>=<span class="string">&quot;lampAlarmParams[item.key]&quot;</span></span></span><br><span class="line"><span class="tag">                <span class="attr">:active-value</span>=<span class="string">&quot;1&quot;</span></span></span><br><span class="line"><span class="tag">                <span class="attr">:inactive-value</span>=<span class="string">&quot;0&quot;</span></span></span><br><span class="line"><span class="tag">                @<span class="attr">change</span>=<span class="string">&quot;onSwitch&quot;</span></span></span><br><span class="line"><span class="tag">              /&gt;</span></span><br><span class="line">              <span class="tag">&lt;<span class="name">el-switch</span></span></span><br><span class="line"><span class="tag">                <span class="attr">v-else</span></span></span><br><span class="line"><span class="tag">                <span class="attr">v-model</span>=<span class="string">&quot;lampAlarmParams[item.key]&quot;</span></span></span><br><span class="line"><span class="tag">                <span class="attr">:active-value</span>=<span class="string">&quot;2&quot;</span></span></span><br><span class="line"><span class="tag">                <span class="attr">:inactive-value</span>=<span class="string">&quot;0&quot;</span></span></span><br><span class="line"><span class="tag">                @<span class="attr">change</span>=<span class="string">&quot;onSwitch&quot;</span></span></span><br><span class="line"><span class="tag">              /&gt;</span></span><br><span class="line">              <span class="comment">&lt;!-- @change=&quot;changeStatus($event, index, item.key)&quot; --&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">el-form-item</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
+<h1 id="2-pages"><a href="#2-pages" class="headerlink" title="2.pages"></a>2.pages</h1><p>uni-app 通过 pages 节点配置应用由哪些页面组成，pages 节点接收一个数组，数组每个项都是一个对象，其属性值如下：</p>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>类型</th>
+<th>默认值</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>path</td>
+<td>String</td>
+<td></td>
+<td>配置页面路径</td>
+</tr>
+<tr>
+<td>style</td>
+<td>Object</td>
+<td>否</td>
+<td>配置页面窗口表现，配置项参考下方 pageStyle</td>
+</tr>
+</tbody></table>
+<p>Tips：</p>
+<ul>
+<li>pages节点的第一项为应用入口页（即首页）</li>
+<li>应用中新增&#x2F;减少页面，都需要对 pages 数组进行修改</li>
+<li>文件名不需要写后缀，框架会自动寻找路径下的页面资源</li>
+</ul>
+<h3 id="style"><a href="#style" class="headerlink" title="style"></a>style</h3><p>用于设置每个页面的状态栏、导航条、标题、窗口背景色等。<br>页面中配置项会覆盖 globalStyle 中相同的配置项<br>暂未发现globalStyle中的属性 page的style不可使用</p>
 
             </div>
 
@@ -299,16 +436,16 @@
 <div class="article-copyright-info-container">
     <ul class="copyright-info-content">
         <li class="post-title">
-            <span class="type">本文标题</span>：<span class="content">element-css</span>
+            <span class="type">本文标题</span>：<span class="content">pages.json</span>
         </li>
         <li class="post-author">
             <span class="type">本文作者</span>：<span class="content">immortal</span>
         </li>
         <li class="post-time">
-            <span class="type">创建时间</span>：<span class="content">2023-02-28 15:45:06</span>
+            <span class="type">创建时间</span>：<span class="content">2023-09-06 16:44:06</span>
         </li>
         <li class="post-link">
-            <span class="type">本文链接</span>：<span class="content">posts/35692.html</span>
+            <span class="type">本文链接</span>：<span class="content">posts/27510.html</span>
         </li>
         <li class="post-license">
             <span class="type">版权声明</span>：<span class="content">本博客所有文章除特别声明外，均采用 <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> 许可协议。转载请注明出处！</span>
@@ -323,14 +460,6 @@
             
 
             
-                <ul class="post-tags-box">
-                    
-                        <li class="tag-item">
-                            <a href="/tags/css/"><i class="icon fas fa-hashtag"></i>css</a>&nbsp;
-                        </li>
-                    
-                </ul>
-            
 
             
                 <div class="article-nav">
@@ -338,13 +467,13 @@
                         <div class="article-prev">
                             <a class="prev"
                                rel="prev"
-                               href="/posts/38895.html"
+                               href="/posts/11283.html"
                             >
                             <span class="left arrow-icon flex-center">
                               <i class="fas fa-chevron-left"></i>
                             </span>
                                 <span class="title flex-center">
-                                <span class="post-nav-title-item text-ellipsis">父子组件传值</span>
+                                <span class="post-nav-title-item text-ellipsis">白石岩下径行田诗</span>
                                 <span class="post-nav-item">上一篇</span>
                             </span>
                             </a>
@@ -354,10 +483,10 @@
                         <div class="article-next">
                             <a class="next"
                                rel="next"
-                               href="/posts/60587.html"
+                               href="/posts/2168.html"
                             >
                             <span class="title flex-center">
-                                <span class="post-nav-title-item text-ellipsis">css中对溢出内容的处理</span>
+                                <span class="post-nav-title-item text-ellipsis">过渡</span>
                                 <span class="post-nav-item">下一篇</span>
                             </span>
                                 <span class="right arrow-icon flex-center">
@@ -384,7 +513,7 @@
             <div class="pc-post-toc right-toc">
                 <div class="post-toc-wrap">
     <div class="post-toc">
-        <ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-notify"><span class="nav-text">1.$notify</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-el-carousel%E5%AE%9A%E4%B9%89%E5%AE%BD%E9%AB%98"><span class="nav-text">3.el-carousel定义宽高</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-el-switch"><span class="nav-text">5.el-switch</span></a></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-globalStyle"><span class="nav-text">1.globalStyle</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-pages"><span class="nav-text">2.pages</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#style"><span class="nav-text">style</span></a></li></ol></li></ol></li></ol>
     </div>
 </div>
 
@@ -557,7 +686,7 @@
             <div class="tablet-post-toc">
                 <div class="post-toc-wrap">
     <div class="post-toc">
-        <ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-notify"><span class="nav-text">1.$notify</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-el-carousel%E5%AE%9A%E4%B9%89%E5%AE%BD%E9%AB%98"><span class="nav-text">3.el-carousel定义宽高</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-el-switch"><span class="nav-text">5.el-switch</span></a></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-globalStyle"><span class="nav-text">1.globalStyle</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-pages"><span class="nav-text">2.pages</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#style"><span class="nav-text">style</span></a></li></ol></li></ol></li></ol>
     </div>
 </div>
 

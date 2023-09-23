@@ -230,7 +230,7 @@
 
             <span class="meta-info-item article-update-date">
                 <i class="icon fa-solid fa-file-pen"></i>&nbsp;
-                <span class="pc">2023-09-05 21:58:45</span>
+                <span class="pc">2023-09-06 16:05:58</span>
             </span>
         
 
@@ -259,9 +259,13 @@
 
         
         
+            <span class="meta-info-item article-wordcount">
+                <i class="icon fas fa-file-word"></i>&nbsp;<span>1.5k 字</span>
+            </span>
+        
         
             <span class="meta-info-item article-min2read">
-                <i class="icon fas fa-clock"></i>&nbsp;<span>1 分钟</span>
+                <i class="icon fas fa-clock"></i>&nbsp;<span>6 分钟</span>
             </span>
         
         
@@ -282,7 +286,120 @@
             <div class="article-content keep-markdown-body">
                 
 
-                
+                <p>动画( animation)是CSS3中具有颠覆性的特征之ー,可通过设置多个节点来精确控制一个或一组动画常用来实现复杂的动画效果。<br>相比较过渡，动画可以实现更多变化，更多控制，连续自动插放等效果。</p>
+<p>制作动画分为两步：</p>
+<ul>
+<li>定义动画 @keyframes</li>
+<li>使用(调用)</li>
+</ul>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 样式正常写，隐藏icon内容 */</span></span><br><span class="line"><span class="selector-class">.icon</span> &#123;</span><br><span class="line">  <span class="attribute">opacity</span>: <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/* 动态显示icon内容 */</span></span><br><span class="line"><span class="selector-class">.iconShow</span> &#123;</span><br><span class="line">  <span class="attribute">animation</span>: iconShow <span class="number">0.1s</span> ease forwards;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/* 动画 从0到1 */</span></span><br><span class="line"><span class="keyword">@keyframes</span> iconShow &#123;</span><br><span class="line">    <span class="number">0%</span> &#123;</span><br><span class="line">      <span class="attribute">opacity</span>: <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="number">100%</span> &#123;</span><br><span class="line">      <span class="attribute">opacity</span>: <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="1-keyframes"><a href="#1-keyframes" class="headerlink" title="1.@keyframes"></a>1.@keyframes</h3><p>@keyframes 规则用来定义动画各个阶段的属性值，类似于 flash 动画中的关键帧，语法格式如下：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@keyframes</span> animationName &#123;</span><br><span class="line">    <span class="selector-tag">from</span> &#123;</span><br><span class="line">        properties: value;</span><br><span class="line">    &#125;</span><br><span class="line">    percentage &#123;</span><br><span class="line">        properties: value;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="selector-tag">to</span> &#123;</span><br><span class="line">        properties: value;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/* 或者 */</span></span><br><span class="line"><span class="keyword">@keyframes</span> animationName &#123;</span><br><span class="line">    <span class="number">0%</span> &#123;</span><br><span class="line">        properties: value;</span><br><span class="line">    &#125;</span><br><span class="line">    percentage &#123;</span><br><span class="line">        properties: value;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="number">100%</span> &#123;</span><br><span class="line">        properties: value;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 示例 */</span></span><br><span class="line"><span class="keyword">@keyframes</span> ball &#123;</span><br><span class="line">    <span class="number">0%</span> &#123; <span class="attribute">top</span>: <span class="number">0px</span>; <span class="attribute">left</span>: <span class="number">0px</span>;&#125;</span><br><span class="line">    <span class="number">25%</span> &#123; <span class="attribute">top</span>: <span class="number">0px</span>; <span class="attribute">left</span>: <span class="number">350px</span>;&#125;</span><br><span class="line">    <span class="number">50%</span> &#123; <span class="attribute">top</span>: <span class="number">200px</span>; <span class="attribute">left</span>: <span class="number">350px</span>;&#125;</span><br><span class="line">    <span class="number">75%</span> &#123; <span class="attribute">top</span>: <span class="number">200px</span>; <span class="attribute">left</span>: <span class="number">0px</span>;&#125;</span><br><span class="line">    <span class="number">100%</span> &#123; <span class="attribute">top</span>: <span class="number">0px</span>; <span class="attribute">left</span>: <span class="number">0px</span>;&#125; </span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>animationName：表示动画的名称；</li>
+<li>from：定义动画的开头，相当于 0%；</li>
+<li>percentage：定义动画的各个阶段，为百分比值，可以添加多个；</li>
+<li>to：定义动画的结尾，相当于 100%；</li>
+<li>properties：不同的样式属性名称，例如 color、left、width 等等。</li>
+</ul>
+<h3 id="2-动画属性"><a href="#2-动画属性" class="headerlink" title="2.动画属性"></a>2.动画属性</h3><ul>
+<li>animation-name：设置需要绑定到元素的动画名称；</li>
+<li>animation-duration：设置完成动画所需要花费的时间，单位为秒或毫秒，默认为 0；</li>
+<li>animation-timing-function：设置动画的速度曲线，默认为 ease；</li>
+<li>animation-fill-mode：设置当动画不播放时（动画播放完或延迟播放时）的状态；</li>
+<li>animation-delay：设置动画开始之前的延迟时间，默认为 0；</li>
+<li>animation-iteration-count：设置动画被播放的次数，默认为 1；</li>
+<li>animation-direction：设置是否在下一周期逆向播放动画，默认为 normal；</li>
+<li>animation-play-state：设置动画是正在运行running还是暂停paused，默认是 running；</li>
+<li>animation：所有动画属性的简写属性。</li>
+</ul>
+<p>提示：动画若想成功播放，必须要定义 animation-name 和 animation-duration 属性。</p>
+<p>1.animation-timing-function</p>
+<p>animation-timing-function 属性用来设置动画播放的速度曲线，通过速度曲线的设置可以使动画播放的更为平滑<br>animation-timing-function 属性的可选值如下所示：</p>
+<table>
+<thead>
+<tr>
+<th>值</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>linear</td>
+<td>动画从开始到结束的速度是相同的，等同于 cubic-bezier(0,0,1,1)</td>
+</tr>
+<tr>
+<td>ease</td>
+<td>默认值，动画以低速开始，然后加快，在结束前变慢 cubic-bezier(0.25,0.1,0.25,1)</td>
+</tr>
+<tr>
+<td>ease-in</td>
+<td>动画以低速开始，等同于 cubic-bezier(0.42,0,1,1)</td>
+</tr>
+<tr>
+<td>ease-out</td>
+<td>动画以低速结束，等同于 cubic-bezier(0,0,0.58,1)</td>
+</tr>
+<tr>
+<td>ease-in-out</td>
+<td>动画以低速开始，并以低速结束，等同于 cubic-bezier(0.42,0,0.58,1)</td>
+</tr>
+<tr>
+<td>cubic-bezier(n, n, n, n)</td>
+<td>使用 cubic-bezier() 函数来定义动画的播放速度，参数的取值范围为 0 到 1 之间的数值</td>
+</tr>
+</tbody></table>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="language-css"></span></span><br><span class="line"><span class="language-css">        <span class="keyword">@keyframes</span> ball &#123;</span></span><br><span class="line"><span class="language-css">            <span class="number">0%</span> &#123;<span class="attribute">left</span>: <span class="number">0px</span>;&#125;</span></span><br><span class="line"><span class="language-css">            <span class="number">50%</span> &#123;<span class="attribute">left</span>: <span class="number">350px</span>;&#125;</span></span><br><span class="line"><span class="language-css">            <span class="number">100%</span> &#123;<span class="attribute">left</span>: <span class="number">0px</span>;&#125;</span></span><br><span class="line"><span class="language-css">        &#125;</span></span><br><span class="line"><span class="language-css">        <span class="selector-tag">div</span> &#123;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">width</span>: <span class="number">100px</span>;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">height</span>: <span class="number">100px</span>;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">border-radius</span>: <span class="number">50%</span>;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">border</span>: <span class="number">3px</span> solid black;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">text-align</span>: center;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">line-height</span>: <span class="number">100px</span>;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">position</span>: relative;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">animation-name</span>: ball;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">animation-duration</span>: <span class="number">2s</span>;</span></span><br><span class="line"><span class="language-css">        &#125;</span></span><br><span class="line"><span class="language-css">        <span class="selector-class">.one</span> &#123;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">animation-timing-function</span>: ease;</span></span><br><span class="line"><span class="language-css">        &#125;</span></span><br><span class="line"><span class="language-css">        <span class="selector-class">.two</span> &#123;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">animation-timing-function</span>: ease-in;</span></span><br><span class="line"><span class="language-css">        &#125;</span></span><br><span class="line"><span class="language-css">        <span class="selector-class">.three</span> &#123;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">animation-timing-function</span>: ease-out;</span></span><br><span class="line"><span class="language-css">        &#125;</span></span><br><span class="line"><span class="language-css">        <span class="selector-class">.four</span> &#123;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">animation-timing-function</span>: ease-in-out;</span></span><br><span class="line"><span class="language-css">        &#125;</span></span><br><span class="line"><span class="language-css">    </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;one&quot;</span>&gt;</span>ease<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;two&quot;</span>&gt;</span>ease-in<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;three&quot;</span>&gt;</span>ease-out<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;four&quot;</span>&gt;</span>ease-in-out<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>2.animation-fill-mode<br>animation-fill-mode 属性用来设置当动画不播放时（开始播放之前或播放结束之后）动画的状态（样式），属性的可选值如下：</p>
+<table>
+<thead>
+<tr>
+<th>值</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>none</td>
+<td>不改变动画的默认行为</td>
+</tr>
+<tr>
+<td>forwards</td>
+<td>当动画播放完成后，保持动画最后一个关键帧中的样式</td>
+</tr>
+<tr>
+<td>backwards</td>
+<td>在 animation-delay 所指定的时间段内，应用动画第一个关键帧中的样式</td>
+</tr>
+<tr>
+<td>both</td>
+<td>同时遵循 forwards 和 backwards 的规则</td>
+</tr>
+</tbody></table>
+<p>3.animation-delay<br>animation-delay 属性用来定义动画开始播放前的延迟时间，单位为秒或者毫秒<br>其中参数 time 就是动画播放前的延迟时间，参数 time 既可以为正值也可以为负值。参数值为正时，表示延迟指定时间开始播放；参数为负时，表示提前指定时间播放动画。</p>
+<p>4.animation-iteration-count<br>animation-iteration-count 属性用来定义动画播放的次数，属性的可选值如下：</p>
+<ul>
+<li>n：使用具体数值定义动画播放的次数，默认值为 1</li>
+<li>infinite：定义动画无限次播放</li>
+</ul>
+<p>5.animation-direction<br>animation-direction 属性用来设置是否轮流反向播放动画，属性的可选值如下：</p>
+<ul>
+<li>normal：以正常的方式播放动画</li>
+<li>reverse：以相反的方向播放动画</li>
+<li>alternate：播放动画时，奇数次（1、3、5 等）正常播放，偶数次（2、4、6 等）反向播放</li>
+<li>alternate-reverse：播放动画时，奇数次（1、3、5 等）反向播放，偶数次（2、4、6 等）正常播放</li>
+</ul>
+<p>6.animation-play-state<br>animation-play-state 属性用来设置动画是播放还是暂停，属性的可选值如下：</p>
+<ul>
+<li>paused：暂停动画的播放</li>
+<li>running：正常播放动画</li>
+</ul>
+<p>4.animation<br>animation 属性是 animation-name、animation-duration、animation-timing-function、animation-delay、animation-iteration-count、animation-direction、animation-fill-mode、animation-play-state 几个属性的简写形式，通过 animation 属性可以同时定义上述的多个属性，语法格式如下：<br><code>animation: animation-name animation-duration animation-timing-function animation-delay animation-iteration-count animation-direction animation-fill-mode animation-play-state;</code></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="language-css"></span></span><br><span class="line"><span class="language-css">        <span class="keyword">@keyframes</span> box &#123;</span></span><br><span class="line"><span class="language-css">            <span class="number">0%</span> &#123;<span class="attribute">transform</span>: <span class="built_in">rotate</span>(<span class="number">0</span>);&#125;</span></span><br><span class="line"><span class="language-css">            <span class="number">50%</span> &#123;<span class="attribute">transform</span>: <span class="built_in">rotate</span>(<span class="number">0.5turn</span>);&#125;</span></span><br><span class="line"><span class="language-css">            <span class="number">100%</span> &#123;<span class="attribute">transform</span>: <span class="built_in">rotate</span>(<span class="number">1turn</span>);&#125;</span></span><br><span class="line"><span class="language-css">        &#125;</span></span><br><span class="line"><span class="language-css">        <span class="selector-tag">div</span> &#123;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">width</span>: <span class="number">100px</span>;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">height</span>: <span class="number">100px</span>;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">border-radius</span>: <span class="number">50%</span>;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">float</span>: left;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">border</span>: <span class="number">3px</span> solid black;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">text-align</span>: center;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">line-height</span>: <span class="number">100px</span>;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">position</span>: relative;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">animation</span>: box <span class="number">2s</span> linear <span class="number">0s</span> infinite alternate;</span></span><br><span class="line"><span class="language-css">        &#125;</span></span><br><span class="line"><span class="language-css">    </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span>&gt;</span>animation<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p><a class="link" target="_blank" rel="noopener" href="https://blog.csdn.net/qq_43923146/article/details/127510508">https://blog.csdn.net/qq_43923146/article/details/127510508<i class="fas fa-external-link-alt"></i></a></p>
+
             </div>
 
             
@@ -368,7 +485,7 @@
             <div class="pc-post-toc right-toc">
                 <div class="post-toc-wrap">
     <div class="post-toc">
-        
+        <ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-keyframes"><span class="nav-text">1.@keyframes</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E5%8A%A8%E7%94%BB%E5%B1%9E%E6%80%A7"><span class="nav-text">2.动画属性</span></a></li></ol>
     </div>
 </div>
 
@@ -541,7 +658,7 @@
             <div class="tablet-post-toc">
                 <div class="post-toc-wrap">
     <div class="post-toc">
-        
+        <ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-keyframes"><span class="nav-text">1.@keyframes</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E5%8A%A8%E7%94%BB%E5%B1%9E%E6%80%A7"><span class="nav-text">2.动画属性</span></a></li></ol>
     </div>
 </div>
 

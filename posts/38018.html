@@ -9,7 +9,7 @@
     
     <title>
         
-            element-css |
+            js面试题 |
         
         唔、
     </title>
@@ -196,7 +196,7 @@
         <div class="article-content-container border-box">
 
             <div class="article-title">
-                <span class="title-hover-animation">element-css</span>
+                <span class="title-hover-animation">js面试题</span>
             </div>
 
             
@@ -224,19 +224,25 @@
         
             <span class="meta-info-item article-create-date">
                 <i class="icon fa-solid fa-calendar-check"></i>&nbsp;
-                <span class="pc">2023-02-28 15:45:06</span>
-                <span class="mobile">2023-02-28 15:45</span>
+                <span class="pc">2023-09-23 16:15:06</span>
+                <span class="mobile">2023-09-23 16:15</span>
             </span>
 
             <span class="meta-info-item article-update-date">
                 <i class="icon fa-solid fa-file-pen"></i>&nbsp;
-                <span class="pc">2023-09-05 16:48:07</span>
+                <span class="pc">2023-09-23 21:50:06</span>
             </span>
         
 
         
             <span class="meta-info-item article-category border-box"><i class="icon fas fa-folder"></i>&nbsp;
                 <ul>
+                    
+                            <li class="category-item">
+                                
+                                <a href="/categories/JavaScript/">JavaScript</a>
+                            </li>
+                        
                     
                 </ul>
             </span>
@@ -247,9 +253,6 @@
                 <i class="icon fas fa-tags"></i>&nbsp;
                 <ul>
                     
-                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/css/">css</a></li>
-                        
-                    
                 </ul>
             </span>
         
@@ -257,12 +260,12 @@
         
         
             <span class="meta-info-item article-wordcount">
-                <i class="icon fas fa-file-word"></i>&nbsp;<span>295 字</span>
+                <i class="icon fas fa-file-word"></i>&nbsp;<span>647 字</span>
             </span>
         
         
             <span class="meta-info-item article-min2read">
-                <i class="icon fas fa-clock"></i>&nbsp;<span>1 分钟</span>
+                <i class="icon fas fa-clock"></i>&nbsp;<span>2 分钟</span>
             </span>
         
         
@@ -283,14 +286,25 @@
             <div class="article-content keep-markdown-body">
                 
 
-                <h3 id="1-notify"><a href="#1-notify" class="headerlink" title="1.$notify"></a>1.$notify</h3><p>notify的样式修改是在body外样式才能生效，body设置以下样式即可实现f11全屏效果</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="language-css"></span></span><br><span class="line"><span class="language-css"><span class="selector-class">.body</span>&#123;</span></span><br><span class="line"><span class="language-css">  <span class="attribute">margin</span>: <span class="number">0</span>;</span></span><br><span class="line"><span class="language-css">  <span class="attribute">padding</span>: <span class="number">0</span>;</span></span><br><span class="line"><span class="language-css">  <span class="attribute">width</span>: <span class="number">100vw</span>;</span></span><br><span class="line"><span class="language-css">  <span class="attribute">height</span>: <span class="number">100vh</span>;</span></span><br><span class="line"><span class="language-css">  <span class="attribute">overflow</span>: hidden;</span></span><br><span class="line"><span class="language-css">&#125;</span></span><br><span class="line"><span class="language-css"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure>
+                <h3 id="1-浅拷贝和深拷贝"><a href="#1-浅拷贝和深拷贝" class="headerlink" title="1.浅拷贝和深拷贝"></a>1.浅拷贝和深拷贝</h3><p><a class="link" target="_blank" rel="noopener" href="https://blog.csdn.net/qq_43886365/article/details/129255034">https://blog.csdn.net/qq_43886365/article/details/129255034<i class="fas fa-external-link-alt"></i></a></p>
+<p>浅拷贝：只拷贝值的引用，不拷贝内存；对源或副本的更改可能也会导致其他对象的更改；<br>深拷贝：既拷贝值又拷贝内存；改动副本的数据不会对原数据产生影响；</p>
+<p>浅拷贝实现<br>1.Object.assign()<br>2.Object.slice()<br>3.Object.concat()<br>4.扩展运算符（…）</p>
+<p>深拷贝实现<br>1.使用JSON对象的parse和stringify<br>JSON.stringify()：是目前前端开发过程中最常用的深拷贝方式，原理是把一个对象序列化成为一个JSON字符串，将对象的内容转换成字符串的形式保存到栈空间，再用JSON.parse()反序列化将JSON字符串变成一个新的对象（新对象是保存在堆空间的）所以可以实现深拷贝，但也有一系列缺点；</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> arr = [<span class="number">2</span>, <span class="number">3</span>, [<span class="number">4</span>, <span class="number">6</span>]]</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> arr1 = <span class="title class_">JSON</span>.<span class="title function_">parse</span>( <span class="title class_">JSON</span>.<span class="title function_">stringify</span>(arr) )</span><br><span class="line"><span class="comment">// 通过数组转字符串再字符串转数组的方法进行了深拷贝</span></span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(arr === arr1)</span><br><span class="line"><span class="comment">// false，可以看到深拷贝的数组arr1和arr指向的是不同的内存地址</span></span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(arr[<span class="number">2</span>] === arr1[<span class="number">2</span>])</span><br><span class="line"><span class="comment">// false，即使是数组里第二层级的数组也是不相同</span></span><br></pre></td></tr></table></figure>
 
-<h3 id="3-el-carousel定义宽高"><a href="#3-el-carousel定义宽高" class="headerlink" title="3.el-carousel定义宽高"></a>3.el-carousel定义宽高</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;card1&quot;</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;carousel&quot;</span> <span class="attr">v-show</span>=<span class="string">&quot;!searchData3&quot;</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">el-carousel</span> <span class="attr">:interval</span>=<span class="string">&quot;50000&quot;</span> <span class="attr">class</span>=<span class="string">&quot;imgClass&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">el-carousel-item</span> <span class="attr">v-for</span>=<span class="string">&quot;item in 4&quot;</span> <span class="attr">:key</span>=<span class="string">&quot;item&quot;</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">h3</span> <span class="attr">class</span>=<span class="string">&quot;small&quot;</span>&gt;</span>&#123;&#123; item &#125;&#125;<span class="tag">&lt;/<span class="name">h3</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">el-carousel-item</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">el-carousel</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span>  </span><br><span class="line"> <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">style</span> <span class="attr">lang</span>=<span class="string">&quot;scss&quot;</span> <span class="attr">scoped</span>&gt;</span><span class="language-css"></span></span><br><span class="line"><span class="language-css"><span class="selector-class">.card1</span> &#123;</span></span><br><span class="line"><span class="language-css">  <span class="attribute">position</span>: relative;</span></span><br><span class="line"><span class="language-css">  <span class="attribute">height</span>: <span class="number">100%</span>;</span></span><br><span class="line"><span class="language-css">  <span class="attribute">width</span>: <span class="number">100%</span>;</span></span><br><span class="line"><span class="language-css">  <span class="attribute">padding</span>:<span class="number">4.5vh</span> <span class="number">1vw</span> <span class="number">1.5vh</span> <span class="number">1vw</span>;</span></span><br><span class="line"><span class="language-css">  <span class="attribute">box-sizing</span>: border-box;</span></span><br><span class="line"><span class="language-css">  <span class="selector-class">.carousel</span> &#123;</span></span><br><span class="line"><span class="language-css">    <span class="attribute">height</span>: <span class="number">100%</span>;</span></span><br><span class="line"><span class="language-css">    <span class="attribute">background</span>: <span class="number">#000</span>;</span></span><br><span class="line"><span class="language-css">    <span class="selector-class">.imgClass</span>&#123;</span></span><br><span class="line"><span class="language-css">	    <span class="attribute">width</span>:<span class="number">100%</span>;</span></span><br><span class="line"><span class="language-css">	    <span class="attribute">height</span>:<span class="number">100%</span>;</span></span><br><span class="line"><span class="language-css">	    <span class="attribute">background</span>:red;</span></span><br><span class="line"><span class="language-css">	    <span class="attribute">box-sizing</span>: border-box;</span></span><br><span class="line"><span class="language-css">  	&#125;</span></span><br><span class="line"><span class="language-css">  	::v-deep .el-carousel__container&#123;</span></span><br><span class="line"><span class="language-css">   	 <span class="attribute">height</span>:<span class="number">100%</span></span></span><br><span class="line"><span class="language-css">  	&#125;	</span></span><br><span class="line"><span class="language-css">  &#125;</span></span><br><span class="line"><span class="language-css">&#125;</span></span><br><span class="line"><span class="language-css"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>通过JSON.stringify实现深拷贝有几点要注意：</p>
+<ul>
+<li>拷贝的对象的值中如果有函数,undefined,symbol则经过JSON.stringify()序列化后的JSON字符串中这个键值对会消失</li>
+<li>无法拷贝不可枚举的属性，无法拷贝对象的原型链上的属性</li>
+<li>拷贝Date引用类型会变成字符串</li>
+<li>拷贝RegExp引用类型会变成空对象</li>
+<li>对象中含有NaN、Infinity和-Infinity，则序列化的结果会变成null</li>
+<li>无法拷贝对象的循环应用(即obj[key] &#x3D; obj)</li>
+</ul>
+<p>2.自定义函数进行深拷贝</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> arr = [<span class="string">&#x27;华佗&#x27;</span>,<span class="string">&#x27;李时珍&#x27;</span>,<span class="string">&#x27;张仲景&#x27;</span>,[<span class="string">&#x27;白起&#x27;</span>,<span class="string">&#x27;王翦&#x27;</span>],<span class="string">&#x27;扁鹊&#x27;</span>,<span class="string">&#x27;喜来乐&#x27;</span>];</span><br><span class="line"><span class="comment">// 自定义函数进行深浅拷贝 </span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">deepCopy</span>(<span class="params">object</span>)&#123;</span><br><span class="line">    <span class="keyword">let</span> result;</span><br><span class="line">    <span class="keyword">if</span> (<span class="title class_">Object</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">toString</span>.<span class="title function_">call</span>(object) == <span class="string">&#x27;[object Object]&#x27;</span>)&#123;</span><br><span class="line">        result = &#123;&#125;;</span><br><span class="line">    &#125;<span class="keyword">else</span> <span class="keyword">if</span> (<span class="title class_">Object</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">toString</span>.<span class="title function_">call</span>(object) == <span class="string">&#x27;[object Array]&#x27;</span>)&#123;</span><br><span class="line">        result = [];</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&#x27;不符合深拷贝的数据类型&#x27;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 遍历空对象或者是空数组  也就是要拷贝的对象</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">let</span> key <span class="keyword">in</span> object)&#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">typeof</span> object[key] == <span class="string">&#x27;object&#x27;</span>)&#123;</span><br><span class="line">            result[key] = <span class="title function_">deepCopy</span>(object[key]);</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            result[key] = object[key];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title function_">deepCopy</span>(arr));  <span class="comment">//[object Array]</span></span><br><span class="line"><span class="comment">// [ &#x27;华佗&#x27;, &#x27;李时珍&#x27;, &#x27;张仲景&#x27;, [ &#x27;白起&#x27;, &#x27;王翦&#x27; ], &#x27;扁鹊&#x27;, &#x27;喜来乐&#x27; ]</span></span><br></pre></td></tr></table></figure>
 
-<h3 id="5-el-switch"><a href="#5-el-switch" class="headerlink" title="5.el-switch"></a>5.el-switch</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">el-form-item</span> <span class="attr">:label</span>=<span class="string">&quot;item.label&quot;</span> <span class="attr">label-width</span>=<span class="string">&quot;140px&quot;</span>&gt;</span></span><br><span class="line">              <span class="tag">&lt;<span class="name">el-switch</span></span></span><br><span class="line"><span class="tag">                <span class="attr">v-if</span>=<span class="string">&quot;[0, 1].includes(lampAlarmParams[item.key])&quot;</span></span></span><br><span class="line"><span class="tag">                <span class="attr">v-model</span>=<span class="string">&quot;lampAlarmParams[item.key]&quot;</span></span></span><br><span class="line"><span class="tag">                <span class="attr">:active-value</span>=<span class="string">&quot;1&quot;</span></span></span><br><span class="line"><span class="tag">                <span class="attr">:inactive-value</span>=<span class="string">&quot;0&quot;</span></span></span><br><span class="line"><span class="tag">                @<span class="attr">change</span>=<span class="string">&quot;onSwitch&quot;</span></span></span><br><span class="line"><span class="tag">              /&gt;</span></span><br><span class="line">              <span class="tag">&lt;<span class="name">el-switch</span></span></span><br><span class="line"><span class="tag">                <span class="attr">v-else</span></span></span><br><span class="line"><span class="tag">                <span class="attr">v-model</span>=<span class="string">&quot;lampAlarmParams[item.key]&quot;</span></span></span><br><span class="line"><span class="tag">                <span class="attr">:active-value</span>=<span class="string">&quot;2&quot;</span></span></span><br><span class="line"><span class="tag">                <span class="attr">:inactive-value</span>=<span class="string">&quot;0&quot;</span></span></span><br><span class="line"><span class="tag">                @<span class="attr">change</span>=<span class="string">&quot;onSwitch&quot;</span></span></span><br><span class="line"><span class="tag">              /&gt;</span></span><br><span class="line">              <span class="comment">&lt;!-- @change=&quot;changeStatus($event, index, item.key)&quot; --&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">el-form-item</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-
+<h3 id="2"><a href="#2" class="headerlink" title="2."></a>2.</h3>
             </div>
 
             
@@ -299,16 +313,16 @@
 <div class="article-copyright-info-container">
     <ul class="copyright-info-content">
         <li class="post-title">
-            <span class="type">本文标题</span>：<span class="content">element-css</span>
+            <span class="type">本文标题</span>：<span class="content">js面试题</span>
         </li>
         <li class="post-author">
             <span class="type">本文作者</span>：<span class="content">immortal</span>
         </li>
         <li class="post-time">
-            <span class="type">创建时间</span>：<span class="content">2023-02-28 15:45:06</span>
+            <span class="type">创建时间</span>：<span class="content">2023-09-23 16:15:06</span>
         </li>
         <li class="post-link">
-            <span class="type">本文链接</span>：<span class="content">posts/35692.html</span>
+            <span class="type">本文链接</span>：<span class="content">posts/38018.html</span>
         </li>
         <li class="post-license">
             <span class="type">版权声明</span>：<span class="content">本博客所有文章除特别声明外，均采用 <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> 许可协议。转载请注明出处！</span>
@@ -323,14 +337,6 @@
             
 
             
-                <ul class="post-tags-box">
-                    
-                        <li class="tag-item">
-                            <a href="/tags/css/"><i class="icon fas fa-hashtag"></i>css</a>&nbsp;
-                        </li>
-                    
-                </ul>
-            
 
             
                 <div class="article-nav">
@@ -338,13 +344,13 @@
                         <div class="article-prev">
                             <a class="prev"
                                rel="prev"
-                               href="/posts/38895.html"
+                               href="/posts/25314.html"
                             >
                             <span class="left arrow-icon flex-center">
                               <i class="fas fa-chevron-left"></i>
                             </span>
                                 <span class="title flex-center">
-                                <span class="post-nav-title-item text-ellipsis">父子组件传值</span>
+                                <span class="post-nav-title-item text-ellipsis">数组的扩展</span>
                                 <span class="post-nav-item">上一篇</span>
                             </span>
                             </a>
@@ -354,10 +360,10 @@
                         <div class="article-next">
                             <a class="next"
                                rel="next"
-                               href="/posts/60587.html"
+                               href="/posts/55422.html"
                             >
                             <span class="title flex-center">
-                                <span class="post-nav-title-item text-ellipsis">css中对溢出内容的处理</span>
+                                <span class="post-nav-title-item text-ellipsis">函数扩展</span>
                                 <span class="post-nav-item">下一篇</span>
                             </span>
                                 <span class="right arrow-icon flex-center">
@@ -384,7 +390,7 @@
             <div class="pc-post-toc right-toc">
                 <div class="post-toc-wrap">
     <div class="post-toc">
-        <ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-notify"><span class="nav-text">1.$notify</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-el-carousel%E5%AE%9A%E4%B9%89%E5%AE%BD%E9%AB%98"><span class="nav-text">3.el-carousel定义宽高</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-el-switch"><span class="nav-text">5.el-switch</span></a></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E6%B5%85%E6%8B%B7%E8%B4%9D%E5%92%8C%E6%B7%B1%E6%8B%B7%E8%B4%9D"><span class="nav-text">1.浅拷贝和深拷贝</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2"><span class="nav-text">2.</span></a></li></ol>
     </div>
 </div>
 
@@ -557,7 +563,7 @@
             <div class="tablet-post-toc">
                 <div class="post-toc-wrap">
     <div class="post-toc">
-        <ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-notify"><span class="nav-text">1.$notify</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-el-carousel%E5%AE%9A%E4%B9%89%E5%AE%BD%E9%AB%98"><span class="nav-text">3.el-carousel定义宽高</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-el-switch"><span class="nav-text">5.el-switch</span></a></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E6%B5%85%E6%8B%B7%E8%B4%9D%E5%92%8C%E6%B7%B1%E6%8B%B7%E8%B4%9D"><span class="nav-text">1.浅拷贝和深拷贝</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2"><span class="nav-text">2.</span></a></li></ol>
     </div>
 </div>
 

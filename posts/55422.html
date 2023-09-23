@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Keep">
+    <meta name="description" content="因过竹院逢僧话,偷得浮生半日闲">
+    <meta name="author" content="immortal">
+    
+    <title>
+        
+            函数扩展 |
+        
+        唔、
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    
+        <link rel="shortcut icon" href="/images/favicon.png">
+    
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.4/source/font/css/fontawesome.min.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.4/source/font/css/regular.min.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.4/source/font/css/solid.min.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.4/source/font/css/brands.min.css">
+    
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {}
+    KEEP.hexo_config = {"hostname":"example.com","root":"/","language":"zh-CN","path":"search.xml"}
+    KEEP.theme_config = {"toc":{"enable":true,"number":false,"expand_all":true,"init_open":true},"style":{"primary_color":"#0066cc","logo":"/images/logo.png","favicon":"/images/favicon.png","avatar":"/images/avatar.jpg","font_size":null,"font_family":null,"hover":{"shadow":true,"scale":true},"first_screen":{"enable":true,"header_transparent":true,"background_img":"/images/bg.svg","description":"建立自信不是相信自己，而是掌握面对未知的力量。","font_color":null,"hitokoto":false},"scroll":{"progress_bar":true,"percent":true}},"local_search":{"enable":true,"preload":true},"code_block":{"tools":{"enable":true,"style":"default"},"highlight_theme":"default"},"side_tools":{},"pjax":{"enable":true},"lazyload":{"enable":false},"comment":{"enable":false,"use":"valine","valine":{"appid":null,"appkey":null,"server_urls":null,"placeholder":null},"gitalk":{"github_id":null,"github_admins":null,"repository":null,"client_id":null,"client_secret":null,"proxy":null},"twikoo":{"env_id":null,"region":null,"version":"1.6.8"},"waline":{"server_url":null,"reaction":false,"version":2}},"post":{"author_label":{"enable":true,"auto":true,"custom_label_list":["Trainee","Engineer","Architect"]},"word_count":{"enable":true,"wordcount":true,"min2read":true},"img_align":"center","copyright_info":true},"website_count":{"busuanzi_count":{"enable":true,"site_uv":true,"site_pv":true,"page_pv":true}},"version":"3.7.4"}
+    KEEP.language_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 个月前","year":"%s 年前"}
+    KEEP.language_code_block = {"copy":"复制代码","copied":"已复制","fold":"折叠代码块","folded":"已折叠"}
+    KEEP.language_copy_copyright = {"copy":"复制版权信息","copied":"已复制","title":"原文标题","author":"原文作者","link":"原文链接"}
+  </script>
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+        <span class="scroll-progress-bar"></span>
+    
+
+    
+        <span class="pjax-progress-bar"></span>
+        <i class="pjax-progress-icon fas fa-circle-notch fa-spin"></i>
+    
+</div>
+
+
+<main class="page-container border-box">
+
+    <!-- home first screen  -->
+    
+
+    <!-- page content -->
+    <div class="page-main-content border-box">
+        <div class="page-main-content-top">
+            
+<header class="header-wrapper">
+
+    <div class="border-box header-content">
+        <div class="left border-box">
+            
+                <a class="logo-image border-box" href="/">
+                    <img src="/images/logo.png">
+                </a>
+            
+            <a class="site-name border-box" href="/">
+               唔、
+            </a>
+        </div>
+
+        <div class="right border-box">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                首页
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                归档
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/categories"
+                            >
+                                分类
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/tags"
+                            >
+                                标签
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/links"
+                            >
+                                友链
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/about"
+                            >
+                                关于
+                            </a>
+                        </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas fa-search"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/">首页</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives">归档</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/categories">分类</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/tags">标签</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/links">友链</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/about">关于</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle border-box">
+
+            <div class="main-content border-box">
+
+                
+
+                    <div class="fade-in-down-animation">
+    <div class="post-page-container border-box">
+
+        <div class="article-content-container border-box">
+
+            <div class="article-title">
+                <span class="title-hover-animation">函数扩展</span>
+            </div>
+
+            
+                <div class="article-header border-box">
+                    
+                        <div class="avatar-box border-box">
+                            <img src="/images/avatar.jpg">
+                        </div>
+                    
+                    <div class="info-box">
+                        <div class="author">
+                            <span class="name">immortal</span>
+                            
+                                <span class="author-label">Lv5</span>
+                            
+                        </div>
+                        <div class="meta-info border-box">
+                            
+
+<div class="article-meta-info-container border-box post">
+    <div class="article-meta-info border-box">
+        
+
+
+        
+            <span class="meta-info-item article-create-date">
+                <i class="icon fa-solid fa-calendar-check"></i>&nbsp;
+                <span class="pc">2023-09-23 11:39:06</span>
+                <span class="mobile">2023-09-23 11:39</span>
+            </span>
+
+            <span class="meta-info-item article-update-date">
+                <i class="icon fa-solid fa-file-pen"></i>&nbsp;
+                <span class="pc">2023-09-23 21:50:06</span>
+            </span>
+        
+
+        
+            <span class="meta-info-item article-category border-box"><i class="icon fas fa-folder"></i>&nbsp;
+                <ul>
+                    
+                            <li class="category-item">
+                                
+                                <a href="/categories/JavaScript/">JavaScript</a>
+                            </li>
+                        
+                    
+                </ul>
+            </span>
+        
+
+        
+            <span class="article-tag meta-info-item border-box">
+                <i class="icon fas fa-tags"></i>&nbsp;
+                <ul>
+                    
+                </ul>
+            </span>
+        
+
+        
+        
+            <span class="meta-info-item article-wordcount">
+                <i class="icon fas fa-file-word"></i>&nbsp;<span>2.6k 字</span>
+            </span>
+        
+        
+            <span class="meta-info-item article-min2read">
+                <i class="icon fas fa-clock"></i>&nbsp;<span>10 分钟</span>
+            </span>
+        
+        
+            <span class="meta-info-item article-pv">
+                <i class="icon fas fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+            </span>
+        
+    </div>
+
+    
+</div>
+
+                        </div>
+                    </div>
+                </div>
+            
+
+            <div class="article-content keep-markdown-body">
+                
+
+                <p><a class="link" target="_blank" rel="noopener" href="https://es6.ruanyifeng.com/#docs/function">https://es6.ruanyifeng.com/#docs/function<i class="fas fa-external-link-alt"></i></a></p>
+<h2 id="1-函数参数默认值"><a href="#1-函数参数默认值" class="headerlink" title="1. 函数参数默认值"></a>1. 函数参数默认值</h2><p>ES6 之前，不能直接为函数的参数指定默认值，只能采用变通的方法。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">log</span>(<span class="params">x, y</span>) &#123;</span><br><span class="line">  y = y || <span class="string">&#x27;World&#x27;</span>;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(x, y);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="title function_">log</span>(<span class="string">&#x27;Hello&#x27;</span>) <span class="comment">// Hello World</span></span><br><span class="line"><span class="title function_">log</span>(<span class="string">&#x27;Hello&#x27;</span>, <span class="string">&#x27;&#x27;</span>) <span class="comment">// Hello World</span></span><br><span class="line"><span class="title function_">log</span>(<span class="string">&#x27;Hello&#x27;</span>, <span class="literal">null</span>) <span class="comment">// Hello World</span></span><br><span class="line"><span class="title function_">log</span>(<span class="string">&#x27;Hello&#x27;</span>, <span class="literal">undefined</span>) <span class="comment">// Hello World</span></span><br><span class="line"><span class="title function_">log</span>(<span class="string">&#x27;Hello&#x27;</span>, <span class="literal">false</span>) <span class="comment">// Hello World</span></span><br></pre></td></tr></table></figure>
+<p>上面代码检查函数log()的参数y有没有赋值，如果没有，则指定默认值为World。这种写法的缺点在于，如果参数y赋值了，但是对应的布尔值为false，则该赋值不起作用。就像上面代码的最后一行，参数y等于空字符，结果被改为默认值。</p>
+<p>为了避免这个问题，通常需要先判断一下参数y是否被赋值，如果没有，再等于默认值。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (<span class="keyword">typeof</span> y === <span class="string">&#x27;undefined&#x27;</span>) &#123;</span><br><span class="line">  y = <span class="string">&#x27;World&#x27;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>ES6 允许为函数的参数设置默认值，即直接写在参数定义的后面。</p>
+<h4 id="1-形参初始值-具有默认值的参数-一般位置要靠后-潜规则"><a href="#1-形参初始值-具有默认值的参数-一般位置要靠后-潜规则" class="headerlink" title="1.形参初始值 具有默认值的参数, 一般位置要靠后(潜规则)"></a>1.形参初始值 具有默认值的参数, 一般位置要靠后(潜规则)</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">log</span>(<span class="params">x, y = <span class="string">&#x27;World&#x27;</span></span>) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(x, y);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="title function_">log</span>(<span class="string">&#x27;Hello&#x27;</span>) <span class="comment">// Hello World</span></span><br><span class="line"><span class="title function_">log</span>(<span class="string">&#x27;Hello&#x27;</span>, <span class="string">&#x27;&#x27;</span>) <span class="comment">// Hello</span></span><br><span class="line"><span class="title function_">log</span>(<span class="string">&#x27;Hello&#x27;</span>, <span class="literal">null</span>) <span class="comment">// Hello null</span></span><br><span class="line"><span class="title function_">log</span>(<span class="string">&#x27;Hello&#x27;</span>, <span class="literal">undefined</span>) <span class="comment">// Hello World</span></span><br><span class="line"><span class="title function_">log</span>(<span class="string">&#x27;Hello&#x27;</span>, <span class="literal">false</span>) <span class="comment">// Hello false</span></span><br></pre></td></tr></table></figure>
+<p>注：参数变量是默认声明的，所以不能用let或const再次声明。</p>
+<h4 id="2-与解构赋值结合"><a href="#2-与解构赋值结合" class="headerlink" title="2.与解构赋值结合"></a>2.与解构赋值结合</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">connect</span>(<span class="params">&#123;host=<span class="string">&quot;127.0.0.1&quot;</span>, username,password, port&#125;</span>)&#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(host)    <span class="comment">//127.0.0.1</span></span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(username)    <span class="comment">//root</span></span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(password)    <span class="comment">//root</span></span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(port)    <span class="comment">//3306</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="title function_">connect</span>(&#123;</span><br><span class="line">    <span class="comment">// host: &#x27;atguigu.com&#x27;,</span></span><br><span class="line">    <span class="attr">username</span>: <span class="string">&#x27;root&#x27;</span>,</span><br><span class="line">    <span class="attr">password</span>: <span class="string">&#x27;root&#x27;</span>,</span><br><span class="line">    <span class="attr">port</span>: <span class="number">3306</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>参数默认值可以与解构赋值的默认值，结合起来使用。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">foo</span>(<span class="params">&#123;x, y = <span class="number">5</span>&#125;</span>) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(x, y);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="title function_">foo</span>(&#123;&#125;) <span class="comment">// undefined 5</span></span><br><span class="line"><span class="title function_">foo</span>(&#123;<span class="attr">x</span>: <span class="number">1</span>&#125;) <span class="comment">// 1 5</span></span><br><span class="line"><span class="title function_">foo</span>(&#123;<span class="attr">x</span>: <span class="number">1</span>, <span class="attr">y</span>: <span class="number">2</span>&#125;) <span class="comment">// 1 2</span></span><br><span class="line"><span class="title function_">foo</span>() <span class="comment">// TypeError: Cannot read property &#x27;x&#x27; of undefined</span></span><br></pre></td></tr></table></figure>
+<p>上面代码只使用了对象的解构赋值默认值，没有使用函数参数的默认值。只有当函数foo()的参数是一个对象时，变量x和y才会通过解构赋值生成。如果函数foo()调用时没提供参数，变量x和y就不会生成，从而报错。通过提供函数参数的默认值，就可以避免这种情况。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//左侧解构赋值，右侧参数默认值</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">foo</span>(<span class="params">&#123;x, y = <span class="number">5</span>&#125; = &#123;&#125;</span>) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(x, y);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="title function_">foo</span>() <span class="comment">// undefined 5</span></span><br></pre></td></tr></table></figure>
+<p>上面代码指定，如果没有提供参数，函数foo的参数默认为一个空对象。</p>
+<p>注意，函数参数的默认值生效以后，参数解构赋值依然会进行。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">f</span>(<span class="params">&#123; a, b = <span class="string">&#x27;world&#x27;</span> &#125; = &#123; a: <span class="string">&#x27;hello&#x27;</span> &#125;</span>) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(a,b);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="title function_">f</span>() <span class="comment">//hello world</span></span><br></pre></td></tr></table></figure>
+<p>上面示例中，函数f()调用时没有参数，所以参数默认值{ a: ‘hello’ }生效，然后再对这个默认值进行解构赋值，从而触发参数变量b的默认值生效。</p>
+<h2 id="2-rest参数"><a href="#2-rest参数" class="headerlink" title="2. rest参数"></a>2. rest参数</h2><p>ES6 引入 rest 参数（形式为 <strong>…变量名</strong>），用于获取函数的多余参数，这样就不需要使用arguments对象了。rest 参数搭配的变量是一个数组，该变量将多余的参数放入数组中。<br>1.ES5 获取实参的方式</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">date</span>(<span class="params"></span>)&#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">arguments</span>);    <span class="comment">//[&#x27;白芷&#x27;,&#x27;阿娇&#x27;,&#x27;思慧&#x27;]</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="title function_">date</span>(<span class="string">&#x27;白芷&#x27;</span>,<span class="string">&#x27;阿娇&#x27;</span>,<span class="string">&#x27;思慧&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<p>arguments对象不是数组，而是一个类似数组的对象。所以为了使用数组的方法，必须使用Array.from先将其转为数组。rest 参数就不存在这个问题，它就是一个真正的数组，数组特有的方法都可以使用。</p>
+<p>2.rest 参数</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">date</span>(<span class="params">...args</span>)&#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(args);<span class="comment">// [&#x27;阿娇&#x27;, &#x27;柏芝&#x27;, &#x27;思慧&#x27;]</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="title function_">date</span>(<span class="string">&#x27;阿娇&#x27;</span>,<span class="string">&#x27;柏芝&#x27;</span>,<span class="string">&#x27;思慧&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//rest 参数必须要放到参数最后</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">fn</span>(<span class="params">a,b,...args</span>)&#123;</span><br><span class="line">     <span class="variable language_">console</span>.<span class="title function_">log</span>(a);    <span class="comment">//1</span></span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(b);    <span class="comment">//2</span></span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(args);    <span class="comment">//[3, 4, 5, 6]</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="title function_">fn</span>(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>);</span><br></pre></td></tr></table></figure>
+
+<p>注意，rest 参数之后不能再有其他参数（即只能是最后一个参数），否则会报错。</p>
+<h2 id="3-箭头函数"><a href="#3-箭头函数" class="headerlink" title="3. 箭头函数"></a>3. 箭头函数</h2><p>ES6 允许使用「箭头」（**&#x3D;&gt;**）定义函数。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> <span class="title function_">f</span> = v =&gt; v;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 等同于</span></span><br><span class="line"><span class="keyword">var</span> f = <span class="keyword">function</span> (<span class="params">v</span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> v;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>如果箭头函数不需要参数或需要多个参数，就使用一个圆括号代表参数部分。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//声明一个函数</span></span><br><span class="line"><span class="comment">// let fn = function()&#123;</span></span><br><span class="line"><span class="comment">// &#125;</span></span><br><span class="line"><span class="keyword">let</span> <span class="title function_">fn</span> = (<span class="params">a,b</span>) =&gt; &#123;</span><br><span class="line">    <span class="keyword">return</span> a + b;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 等同于</span></span><br><span class="line"><span class="keyword">let</span> <span class="title function_">fn</span> = (<span class="params">a,b</span>) =&gt; a + b;</span><br><span class="line"><span class="comment">//调用函数</span></span><br><span class="line"><span class="keyword">let</span> result = <span class="title function_">fn</span>(<span class="number">1</span>, <span class="number">2</span>);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(result);</span><br></pre></td></tr></table></figure>
+
+<p>由于大括号被解释为代码块，所以如果箭头函数直接返回一个对象，必须在对象外面加上括号，否则会报错。<br><code>let getTempItem = id =&gt; (&#123; id: id, name: &quot;Temp&quot; &#125;);</code></p>
+<h3 id="1-声明特性"><a href="#1-声明特性" class="headerlink" title="1.声明特性"></a>1.声明特性</h3><p>1.1.this 是静态的. this 始终指向函数声明时所在作用域下的 this 的值<br>另外，由于箭头函数没有自己的this，所以当然也就不能用call()、apply()、bind()这些方法去改变this的指向。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">getName</span>(<span class="params"></span>)&#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">this</span>.<span class="property">name</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> <span class="title function_">getName2</span> = (<span class="params"></span>) =&gt; &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">this</span>.<span class="property">name</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//设置 window 对象的 name 属性</span></span><br><span class="line"><span class="variable language_">window</span>.<span class="property">name</span> = <span class="string">&#x27;尚硅谷&#x27;</span>;</span><br><span class="line"><span class="keyword">const</span> school = &#123;</span><br><span class="line">    <span class="attr">name</span>: <span class="string">&quot;ATGUIGU&quot;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//直接调用</span></span><br><span class="line"><span class="title function_">getName</span>(); <span class="comment">//尚硅谷</span></span><br><span class="line"><span class="title function_">getName2</span>(); <span class="comment">//尚硅谷</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//call 方法调用，不能被call改变this指向</span></span><br><span class="line">getName.<span class="title function_">call</span>(school);    <span class="comment">//ATGUIGU</span></span><br><span class="line">getName2.<span class="title function_">call</span>(school);    <span class="comment">//尚硅谷</span></span><br></pre></td></tr></table></figure>
+
+<p>2.不可以当作构造函数，也就是说，不可以对箭头函数使用new命令，否则会抛出一个错误。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> <span class="title function_">Person</span> = (<span class="params">name, age</span>) =&gt; &#123;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">name</span> = name;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">age</span> = age;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> me = <span class="keyword">new</span> <span class="title class_">Person</span>(<span class="string">&#x27;xiao&#x27;</span>,<span class="number">30</span>);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(me);</span><br></pre></td></tr></table></figure>
+
+<p>3.不能使用 arguments 变量，该对象在函数体内不存在。如果要用，可以用 rest 参数代替。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> <span class="title function_">fn</span> = (<span class="params"></span>) =&gt; &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">arguments</span>);<span class="comment">//arguments is not defined</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> fn = <span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">     <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">arguments</span>);<span class="comment">//Arguments(3) [1, 2, 3, callee: ƒ, Symbol(Symbol.iterator): ƒ]</span></span><br><span class="line">&#125;        </span><br><span class="line"><span class="title function_">fn</span>(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>);</span><br></pre></td></tr></table></figure>
+
+<p>4.箭头函数的简写</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//1 省略小括号, 当形参有且只有一个的时候</span></span><br><span class="line"><span class="keyword">let</span> <span class="title function_">add</span> = n =&gt; &#123;</span><br><span class="line">    <span class="keyword">return</span> n + n;</span><br><span class="line">&#125;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title function_">add</span>(<span class="number">9</span>));    <span class="comment">//18</span></span><br><span class="line"><span class="comment">//2 省略花括号, 当代码体只有一条语句的时候, 此时 return 必须省略</span></span><br><span class="line"><span class="comment">//而且语句的执行结果就是函数的返回值</span></span><br><span class="line"><span class="keyword">let</span> <span class="title function_">pow</span> = n =&gt; n * n;                </span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title function_">pow</span>(<span class="number">8</span>));    <span class="comment">//64</span></span><br></pre></td></tr></table></figure>
+
+<p>箭头函数适合与this无关的回调，定时器，数组的方法回调<br>箭头函数不适合与this有关的回调，事件回调，对象的方法</p>
+<h2 id="4-尾调用"><a href="#4-尾调用" class="headerlink" title="4. 尾调用"></a>4. 尾调用</h2><p>尾调用，就是指某个函数的最后一步是调用另一个函数。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">f</span>(<span class="params">x</span>)&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="title function_">g</span>(x);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>上面代码中，函数f的最后一步是调用函数g，这就叫尾调用。</p>
+<p>以下三种情况，都不属于尾调用。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 情况一</span></span><br><span class="line"><span class="comment">// 调用函数g之后，还有赋值操作，所以不属于尾调用</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">f</span>(<span class="params">x</span>)&#123;</span><br><span class="line">  <span class="keyword">let</span> y = <span class="title function_">g</span>(x);</span><br><span class="line">  <span class="keyword">return</span> y;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 情况二</span></span><br><span class="line"><span class="comment">// 也属于调用后还有操作，即使写在一行内。</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">f</span>(<span class="params">x</span>)&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="title function_">g</span>(x) + <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 情况三</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">f</span>(<span class="params">x</span>)&#123;</span><br><span class="line">  <span class="title function_">g</span>(x);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//等同于</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">f</span>(<span class="params">x</span>)&#123;</span><br><span class="line">  <span class="title function_">g</span>(x);</span><br><span class="line">  <span class="keyword">return</span> <span class="literal">undefined</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="1-尾调用优化"><a href="#1-尾调用优化" class="headerlink" title="1.尾调用优化"></a>1.尾调用优化</h4><p>尾调用之所以与其他调用不同，就在于它的特殊的调用位置。</p>
+<p>我们知道，函数调用会在内存形成一个“调用记录”，又称“调用帧”（call frame），保存调用位置和内部变量等信息。如果在函数A的内部调用函数B，那么在A的调用帧上方，还会形成一个B的调用帧。等到B运行结束，将结果返回到A，B的调用帧才会消失。如果函数B内部还调用函数C，那就还有一个C的调用帧，以此类推。所有的调用帧，就形成一个“调用栈”（call stack）。</p>
+<p>尾调用由于是函数的最后一步操作，所以不需要保留外层函数的调用帧，因为调用位置、内部变量等信息都不会再用到了，只要直接用内层函数的调用帧，取代外层函数的调用帧就可以了。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">f</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">let</span> m = <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">let</span> n = <span class="number">2</span>;</span><br><span class="line">  <span class="keyword">return</span> <span class="title function_">g</span>(m + n);</span><br><span class="line">&#125;</span><br><span class="line"><span class="title function_">f</span>();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 等同于</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">f</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="title function_">g</span>(<span class="number">3</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="title function_">f</span>();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 等同于</span></span><br><span class="line"><span class="title function_">g</span>(<span class="number">3</span>);</span><br></pre></td></tr></table></figure>
+
+<p>上面代码中，如果函数g不是尾调用，函数f就需要保存内部变量m和n的值、g的调用位置等信息。但由于调用g之后，函数f就结束了，所以执行到最后一步，完全可以删除f(x)的调用帧，只保留g(3)的调用帧。</p>
+<p>这就叫做“尾调用优化”，即只保留内层函数的调用帧。如果所有函数都是尾调用，那么完全可以做到每次执行时，调用帧只有一项，这将大大节省内存。这就是“尾调用优化”的意义。</p>
+<p>注意，只有不再用到外层函数的内部变量，内层函数的调用帧才会取代外层函数的调用帧，否则就无法进行“尾调用优化”。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">addOne</span>(<span class="params">a</span>)&#123;</span><br><span class="line">  <span class="keyword">var</span> one = <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">function</span> <span class="title function_">inner</span>(<span class="params">b</span>)&#123;</span><br><span class="line">    <span class="keyword">return</span> b + one;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> <span class="title function_">inner</span>(a);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>上面的函数不会进行尾调用优化，因为内层函数inner用到了外层函数addOne的内部变量one。</p>
+<h4 id="2-尾递归"><a href="#2-尾递归" class="headerlink" title="2.尾递归"></a>2.尾递归</h4><p>函数调用自身，称为递归。如果尾调用自身，就称为尾递归。<br>递归非常耗费内存，因为需要同时保存成千上百个调用帧，很容易发生“栈溢出”错误。但对于尾递归来说，由于只存在一个调用帧，所以永远不会发生“栈溢出”错误。</p>
+<p>示例：计算n的阶乘</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 最多需要保存n个调用记录，复杂度 O(n)</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">factorial</span>(<span class="params">n</span>) &#123;</span><br><span class="line">  <span class="keyword">if</span> (n === <span class="number">1</span>) <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">return</span> n * <span class="title function_">factorial</span>(n - <span class="number">1</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="title function_">factorial</span>(<span class="number">5</span>) <span class="comment">// 120</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 只保留一个调用记录，复杂度 O(1) 。</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">factorial</span>(<span class="params">n, total</span>) &#123;</span><br><span class="line">  <span class="keyword">if</span> (n === <span class="number">1</span>) <span class="keyword">return</span> total;</span><br><span class="line">  <span class="keyword">return</span> <span class="title function_">factorial</span>(n - <span class="number">1</span>, n * total);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="title function_">factorial</span>(<span class="number">5</span>, <span class="number">1</span>) <span class="comment">// 120</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//改写一：函数式编程有一个概念，叫做柯里化（currying），意思是将多参数的函数转换成单参数的形式。这里也可以使用柯里化。</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">currying</span>(<span class="params">fn, n</span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">function</span> (<span class="params">m</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> fn.<span class="title function_">call</span>(<span class="variable language_">this</span>, m, n);</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">tailFactorial</span>(<span class="params">n, total</span>) &#123;</span><br><span class="line">  <span class="keyword">if</span> (n === <span class="number">1</span>) <span class="keyword">return</span> total;</span><br><span class="line">  <span class="keyword">return</span> <span class="title function_">tailFactorial</span>(n - <span class="number">1</span>, n * total);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> factorial = <span class="title function_">currying</span>(tailFactorial, <span class="number">1</span>);</span><br><span class="line"></span><br><span class="line"><span class="title function_">factorial</span>(<span class="number">5</span>) <span class="comment">// 120</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//改写二：采用 ES6 的函数默认值。</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">factorial</span>(<span class="params">n, total = <span class="number">1</span></span>) &#123;</span><br><span class="line">  <span class="keyword">if</span> (n === <span class="number">1</span>) <span class="keyword">return</span> total;</span><br><span class="line">  <span class="keyword">return</span> <span class="title function_">factorial</span>(n - <span class="number">1</span>, n * total);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="title function_">factorial</span>(<span class="number">5</span>) <span class="comment">// 120</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            </div>
+
+            
+                <div class="post-copyright-info">
+                    
+<div class="article-copyright-info-container">
+    <ul class="copyright-info-content">
+        <li class="post-title">
+            <span class="type">本文标题</span>：<span class="content">函数扩展</span>
+        </li>
+        <li class="post-author">
+            <span class="type">本文作者</span>：<span class="content">immortal</span>
+        </li>
+        <li class="post-time">
+            <span class="type">创建时间</span>：<span class="content">2023-09-23 11:39:06</span>
+        </li>
+        <li class="post-link">
+            <span class="type">本文链接</span>：<span class="content">posts/55422.html</span>
+        </li>
+        <li class="post-license">
+            <span class="type">版权声明</span>：<span class="content">本博客所有文章除特别声明外，均采用 <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> 许可协议。转载请注明出处！</span>
+        </li>
+    </ul>
+    <div class="copy-copyright-info flex-center tooltip" data-content="复制版权信息" data-offset-y="-2px">
+        <i class="fa-solid fa-copy"></i>
+    </div>
+</div>
+
+                </div>
+            
+
+            
+
+            
+                <div class="article-nav">
+                    
+                        <div class="article-prev">
+                            <a class="prev"
+                               rel="prev"
+                               href="/posts/38018.html"
+                            >
+                            <span class="left arrow-icon flex-center">
+                              <i class="fas fa-chevron-left"></i>
+                            </span>
+                                <span class="title flex-center">
+                                <span class="post-nav-title-item text-ellipsis">js面试题</span>
+                                <span class="post-nav-item">上一篇</span>
+                            </span>
+                            </a>
+                        </div>
+                    
+                    
+                        <div class="article-next">
+                            <a class="next"
+                               rel="next"
+                               href="/posts/50915.html"
+                            >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item text-ellipsis">解构赋值</span>
+                                <span class="post-nav-item">下一篇</span>
+                            </span>
+                                <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                            </a>
+                        </div>
+                    
+                </div>
+            
+
+            
+                
+
+
+
+
+
+
+            
+        </div>
+
+        
+            <div class="pc-post-toc right-toc">
+                <div class="post-toc-wrap">
+    <div class="post-toc">
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E5%87%BD%E6%95%B0%E5%8F%82%E6%95%B0%E9%BB%98%E8%AE%A4%E5%80%BC"><span class="nav-text">1. 函数参数默认值</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-%E5%BD%A2%E5%8F%82%E5%88%9D%E5%A7%8B%E5%80%BC-%E5%85%B7%E6%9C%89%E9%BB%98%E8%AE%A4%E5%80%BC%E7%9A%84%E5%8F%82%E6%95%B0-%E4%B8%80%E8%88%AC%E4%BD%8D%E7%BD%AE%E8%A6%81%E9%9D%A0%E5%90%8E-%E6%BD%9C%E8%A7%84%E5%88%99"><span class="nav-text">1.形参初始值 具有默认值的参数, 一般位置要靠后(潜规则)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-%E4%B8%8E%E8%A7%A3%E6%9E%84%E8%B5%8B%E5%80%BC%E7%BB%93%E5%90%88"><span class="nav-text">2.与解构赋值结合</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-rest%E5%8F%82%E6%95%B0"><span class="nav-text">2. rest参数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-%E7%AE%AD%E5%A4%B4%E5%87%BD%E6%95%B0"><span class="nav-text">3. 箭头函数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E5%A3%B0%E6%98%8E%E7%89%B9%E6%80%A7"><span class="nav-text">1.声明特性</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-%E5%B0%BE%E8%B0%83%E7%94%A8"><span class="nav-text">4. 尾调用</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-%E5%B0%BE%E8%B0%83%E7%94%A8%E4%BC%98%E5%8C%96"><span class="nav-text">1.尾调用优化</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-%E5%B0%BE%E9%80%92%E5%BD%92"><span class="nav-text">2.尾递归</span></a></li></ol></li></ol></li></ol>
+    </div>
+</div>
+
+            </div>
+        
+    </div>
+</div>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom border-box">
+            
+<footer class="footer border-box">
+    <div class="border-box website-info-box default">
+        
+            <div class="copyright-info info-item default">
+                &copy;&nbsp;<span>2023</span>&nbsp;-&nbsp;2023
+                
+                    &nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;&nbsp;<a href="/">immortal</a>
+                
+            </div>
+
+            <div class="theme-info info-item default">
+                由&nbsp;<a target="_blank" href="https://hexo.io">Hexo</a>&nbsp;驱动&nbsp;&&nbsp;主题&nbsp;<a class="keep-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep</a>
+            </div>
+
+            
+
+            
+        
+
+        <div class="count-item info-item default">
+            
+
+            
+                <span class="count-box border-box uv">
+                    <span class="item-type border-box">访问人数</span>
+                    <span class="item-value border-box uv" id="busuanzi_value_site_uv"></span>
+                </span>
+            
+
+            
+                <span class="count-box border-box pv">
+                    <span class="item-type border-box">总访问量</span>
+                    <span class="item-value border-box pv" id="busuanzi_value_site_pv"></span>
+                </span>
+            
+        </div>
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+    <!-- post tools -->
+    
+        <div class="post-tools right-toc">
+            <div class="post-tools-container border-box">
+    <ul class="tools-list border-box">
+        <!-- PC TOC show toggle -->
+        
+            <li class="tools-item flex-center toggle-show-toc">
+                <i class="fas fa-list"></i>
+            </li>
+        
+
+        <!-- PC go comment -->
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <!-- side tools -->
+    <div class="side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        
+            <li class="tools-item toggle-show-toc-tablet flex-center">
+                <i class="fas fa-list"></i>
+            </li>
+        
+
+        
+
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="arrow-up fas fa-arrow-up"></i>
+                <span class="percent"></span>
+            </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    <!-- image mask -->
+    <div class="zoom-in-image-mask">
+    <img class="zoom-in-image">
+</div>
+
+
+    <!-- local search -->
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="搜索..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="close-popup-btn">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+    <!-- tablet toc -->
+    
+        <div class="tablet-post-toc-mask">
+            <div class="tablet-post-toc">
+                <div class="post-toc-wrap">
+    <div class="post-toc">
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E5%87%BD%E6%95%B0%E5%8F%82%E6%95%B0%E9%BB%98%E8%AE%A4%E5%80%BC"><span class="nav-text">1. 函数参数默认值</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-%E5%BD%A2%E5%8F%82%E5%88%9D%E5%A7%8B%E5%80%BC-%E5%85%B7%E6%9C%89%E9%BB%98%E8%AE%A4%E5%80%BC%E7%9A%84%E5%8F%82%E6%95%B0-%E4%B8%80%E8%88%AC%E4%BD%8D%E7%BD%AE%E8%A6%81%E9%9D%A0%E5%90%8E-%E6%BD%9C%E8%A7%84%E5%88%99"><span class="nav-text">1.形参初始值 具有默认值的参数, 一般位置要靠后(潜规则)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-%E4%B8%8E%E8%A7%A3%E6%9E%84%E8%B5%8B%E5%80%BC%E7%BB%93%E5%90%88"><span class="nav-text">2.与解构赋值结合</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-rest%E5%8F%82%E6%95%B0"><span class="nav-text">2. rest参数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-%E7%AE%AD%E5%A4%B4%E5%87%BD%E6%95%B0"><span class="nav-text">3. 箭头函数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E5%A3%B0%E6%98%8E%E7%89%B9%E6%80%A7"><span class="nav-text">1.声明特性</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-%E5%B0%BE%E8%B0%83%E7%94%A8"><span class="nav-text">4. 尾调用</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-%E5%B0%BE%E8%B0%83%E7%94%A8%E4%BC%98%E5%8C%96"><span class="nav-text">1.尾调用优化</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-%E5%B0%BE%E9%80%92%E5%BD%92"><span class="nav-text">2.尾递归</span></a></li></ol></li></ol></li></ol>
+    </div>
+</div>
+
+            </div>
+        </div>
+    
+</main>
+
+
+
+<script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.4/source/js/utils.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.4/source/js/main.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.4/source/js/header-shrink.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.4/source/js/back2top.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.4/source/js/dark-light-toggle.js"></script>
+
+
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.4/source/js/local-search.js"></script>
+
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.4/source/js/code-block.js"></script>
+
+
+
+
+<div class="post-scripts pjax">
+    
+        <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.4/source/js/post-helper.js"></script>
+        
+            <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.4/source/js/libs/anime.min.js"></script>
+        
+        
+            <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.4/source/js/toc.js"></script>
+        
+    
+    
+    
+</div>
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.4/source/js/libs/pjax.min.js"></script>
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        window.pjax = new Pjax({
+            selectors: [
+                'head title',
+                '.page-container',
+                '.pjax'
+            ],
+            history: true,
+            debug: false,
+            cacheBust: false,
+            timeout: 0,
+            analytics: false,
+            currentUrlFullReload: false,
+            scrollRestoration: false,
+            // scrollTo: true,
+        });
+
+        document.addEventListener('pjax:send', () => {
+            KEEP.utils.pjaxProgressBarStart();
+        });
+
+        document.addEventListener('pjax:complete', () => {
+            KEEP.utils.pjaxProgressBarEnd();
+            window.pjax.executeScripts(document.querySelectorAll('script[data-pjax], .pjax script'));
+            KEEP.refresh();
+        });
+    });
+</script>
+
+
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/hijiki.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":true},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/"});</script></body>
+</html>
