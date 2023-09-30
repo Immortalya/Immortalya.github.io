@@ -9,7 +9,7 @@
     
     <title>
         
-            js面试题 |
+            古朗月行 |
         
         唔、
     </title>
@@ -196,7 +196,7 @@
         <div class="article-content-container border-box">
 
             <div class="article-title">
-                <span class="title-hover-animation">js面试题</span>
+                <span class="title-hover-animation">古朗月行</span>
             </div>
 
             
@@ -224,25 +224,19 @@
         
             <span class="meta-info-item article-create-date">
                 <i class="icon fa-solid fa-calendar-check"></i>&nbsp;
-                <span class="pc">2023-09-23 16:15:06</span>
-                <span class="mobile">2023-09-23 16:15</span>
+                <span class="pc">2023-09-24 20:29:06</span>
+                <span class="mobile">2023-09-24 20:29</span>
             </span>
 
             <span class="meta-info-item article-update-date">
                 <i class="icon fa-solid fa-file-pen"></i>&nbsp;
-                <span class="pc">2023-09-30 17:34:38</span>
+                <span class="pc">2023-09-30 17:34:55</span>
             </span>
         
 
         
             <span class="meta-info-item article-category border-box"><i class="icon fas fa-folder"></i>&nbsp;
                 <ul>
-                    
-                            <li class="category-item">
-                                
-                                <a href="/categories/JavaScript/">JavaScript</a>
-                            </li>
-                        
                     
                 </ul>
             </span>
@@ -253,6 +247,9 @@
                 <i class="icon fas fa-tags"></i>&nbsp;
                 <ul>
                     
+                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/%E7%BB%83%E5%AD%97/">练字</a></li>
+                        
+                    
                 </ul>
             </span>
         
@@ -260,7 +257,7 @@
         
         
             <span class="meta-info-item article-wordcount">
-                <i class="icon fas fa-file-word"></i>&nbsp;<span>727 字</span>
+                <i class="icon fas fa-file-word"></i>&nbsp;<span>1.1k 字</span>
             </span>
         
         
@@ -286,29 +283,15 @@
             <div class="article-content keep-markdown-body">
                 
 
-                <h3 id="1-浅拷贝和深拷贝"><a href="#1-浅拷贝和深拷贝" class="headerlink" title="1.浅拷贝和深拷贝"></a>1.浅拷贝和深拷贝</h3><p><a class="link" target="_blank" rel="noopener" href="https://blog.csdn.net/qq_43886365/article/details/129255034">https://blog.csdn.net/qq_43886365/article/details/129255034<i class="fas fa-external-link-alt"></i></a></p>
-<p>浅拷贝：只拷贝值的引用，不拷贝内存；对源或副本的更改可能也会导致其他对象的更改；<br>深拷贝：既拷贝值又拷贝内存；改动副本的数据不会对原数据产生影响；</p>
-<p>浅拷贝实现<br>1.Object.assign()<br>2.Object.slice()<br>3.Object.concat()<br>4.扩展运算符（…）</p>
-<p>深拷贝实现<br>1.使用JSON对象的parse和stringify<br>JSON.stringify()：是目前前端开发过程中最常用的深拷贝方式，原理是把一个对象序列化成为一个JSON字符串，将对象的内容转换成字符串的形式保存到栈空间，再用JSON.parse()反序列化将JSON字符串变成一个新的对象（新对象是保存在堆空间的）所以可以实现深拷贝，但也有一系列缺点；</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> arr = [<span class="number">2</span>, <span class="number">3</span>, [<span class="number">4</span>, <span class="number">6</span>]]</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> arr1 = <span class="title class_">JSON</span>.<span class="title function_">parse</span>( <span class="title class_">JSON</span>.<span class="title function_">stringify</span>(arr) )</span><br><span class="line"><span class="comment">// 通过数组转字符串再字符串转数组的方法进行了深拷贝</span></span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(arr === arr1)</span><br><span class="line"><span class="comment">// false，可以看到深拷贝的数组arr1和arr指向的是不同的内存地址</span></span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(arr[<span class="number">2</span>] === arr1[<span class="number">2</span>])</span><br><span class="line"><span class="comment">// false，即使是数组里第二层级的数组也是不相同</span></span><br></pre></td></tr></table></figure>
-
-<p>通过JSON.stringify实现深拷贝有几点要注意：</p>
-<ul>
-<li>拷贝的对象的值中如果有函数,undefined,symbol则经过JSON.stringify()序列化后的JSON字符串中这个键值对会消失</li>
-<li>无法拷贝不可枚举的属性，无法拷贝对象的原型链上的属性</li>
-<li>拷贝Date引用类型会变成字符串</li>
-<li>拷贝RegExp引用类型会变成空对象</li>
-<li>对象中含有NaN、Infinity和-Infinity，则序列化的结果会变成null</li>
-<li>无法拷贝对象的循环应用(即obj[key] &#x3D; obj)</li>
-</ul>
-<p>2.自定义函数进行深拷贝</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> arr = [<span class="string">&#x27;华佗&#x27;</span>,<span class="string">&#x27;李时珍&#x27;</span>,<span class="string">&#x27;张仲景&#x27;</span>,[<span class="string">&#x27;白起&#x27;</span>,<span class="string">&#x27;王翦&#x27;</span>],<span class="string">&#x27;扁鹊&#x27;</span>,<span class="string">&#x27;喜来乐&#x27;</span>];</span><br><span class="line"><span class="comment">// 自定义函数进行深浅拷贝 </span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">deepCopy</span>(<span class="params">object</span>)&#123;</span><br><span class="line">    <span class="keyword">let</span> result;</span><br><span class="line">    <span class="keyword">if</span> (<span class="title class_">Object</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">toString</span>.<span class="title function_">call</span>(object) == <span class="string">&#x27;[object Object]&#x27;</span>)&#123;</span><br><span class="line">        result = &#123;&#125;;</span><br><span class="line">    &#125;<span class="keyword">else</span> <span class="keyword">if</span> (<span class="title class_">Object</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">toString</span>.<span class="title function_">call</span>(object) == <span class="string">&#x27;[object Array]&#x27;</span>)&#123;</span><br><span class="line">        result = [];</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&#x27;不符合深拷贝的数据类型&#x27;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 遍历空对象或者是空数组  也就是要拷贝的对象</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">let</span> key <span class="keyword">in</span> object)&#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">typeof</span> object[key] == <span class="string">&#x27;object&#x27;</span>)&#123;</span><br><span class="line">            result[key] = <span class="title function_">deepCopy</span>(object[key]);</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            result[key] = object[key];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title function_">deepCopy</span>(arr));  <span class="comment">//[object Array]</span></span><br><span class="line"><span class="comment">// [ &#x27;华佗&#x27;, &#x27;李时珍&#x27;, &#x27;张仲景&#x27;, [ &#x27;白起&#x27;, &#x27;王翦&#x27; ], &#x27;扁鹊&#x27;, &#x27;喜来乐&#x27; ]</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="2-this"><a href="#2-this" class="headerlink" title="2.this"></a>2.this</h3><h3 id="2-call-、bind-、-apply"><a href="#2-call-、bind-、-apply" class="headerlink" title="2. call 、bind 、 apply"></a>2. call 、bind 、 apply</h3><p><a class="link" target="_blank" rel="noopener" href="https://blog.csdn.net/qq_43000315/article/details/125360096">https://blog.csdn.net/qq_43000315/article/details/125360096<i class="fas fa-external-link-alt"></i></a></p>
-<p>call()、apply()和bind()方法 三者作用都是 改变this指向</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> year = <span class="number">2021</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">getDate</span>(<span class="params">month, day</span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="variable language_">this</span>.<span class="property">year</span> + <span class="string">&#x27;-&#x27;</span> + month + <span class="string">&#x27;-&#x27;</span> + day</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> obj = &#123;<span class="attr">year</span>: <span class="number">2022</span>&#125;</span><br><span class="line">getDate.<span class="title function_">call</span>(<span class="literal">null</span>, <span class="number">3</span>, <span class="number">8</span>)    <span class="comment">//2021-3-8</span></span><br><span class="line">getDate.<span class="title function_">call</span>(obj, <span class="number">3</span>, <span class="number">8</span>)     <span class="comment">//2022-3-8</span></span><br><span class="line">getDate.<span class="title function_">apply</span>(obj, [<span class="number">6</span>, <span class="number">8</span>])  <span class="comment">//2022-6-8</span></span><br><span class="line">getDate.<span class="title function_">bind</span>(obj)(<span class="number">3</span>, <span class="number">8</span>)     <span class="comment">//2022-3-8</span></span><br></pre></td></tr></table></figure>
-
-
+                <h1 id="原文"><a href="#原文" class="headerlink" title="原文"></a>原文</h1><p>古朗月行<br>李白〔唐代〕</p>
+<p>小时不识月，呼作白玉盘。<br>又疑瑶台镜，飞在青云端。<br>仙人垂两足，桂树何团团。<br>白兔捣药成，问言与谁餐？<br>蟾蜍蚀圆影，大明夜已残。<br>羿昔落九乌，天人清且安。<br>阴精此沦惑，去去不足观。<br>忧来其如何？凄怆摧心肝。</p>
+<h1 id="译文"><a href="#译文" class="headerlink" title="译文"></a>译文</h1><p>小时候不认识月亮， 把它称为白玉盘。<br>又怀疑是瑶台仙镜，飞在夜空青云之上。<br>月中的仙人是垂着双脚吗？月中的桂树为什么长得圆圆的？<br>白兔捣成的仙药，到底是给谁吃的呢？<br>蟾蜍把圆月啃食得残缺不全，皎洁的月儿因此晦暗不明。<br>后羿射下了九个太阳，天上人间免却灾难清明安宁。<br>月亮已经沦没而迷惑不清，没有什么可看的不如远远走开吧。<br>心怀忧虑啊又何忍一走了之，凄惨悲伤让我肝肠寸断。</p>
+<h1 id="赏析"><a href="#赏析" class="headerlink" title="赏析"></a>赏析</h1><p>这是一首乐府诗。“朗月行”，是乐府古题，属《杂曲歌辞》。鲍照有《朗月行》，写佳人对月弦歌。李白采用这个题目，故称《古朗月行》，但没有因袭旧的内容。诗人运用浪漫主义的创作方法，通过丰富的想象，神话传说的巧妙加工，以及强烈的抒情，构成瑰丽神奇而含意深蕴的艺术形象。</p>
+<p>　　诗中前四句“小时不识月，呼作白玉盘。又疑瑶台镜，飞在青云端。”先写儿童时期对月亮稚气的认识，以“白玉盘”、“瑶台镜”作比喻，生动地表现出月亮的形状和月光的皎洁可爱，使人感到非常新颖有趣。“呼”、“疑”这两个动词，传达出儿童的天真烂漫之态。这四句诗，看似信手写来，却是情采俱佳。</p>
+<p>　　然后，又写月亮的升起：“仙人垂两足，桂树何团团？白兔捣药成，问言与谁餐？”古代神话说，月中有仙人、桂树、白兔。当月亮初升的时候，先看见仙人的两只脚，而后逐渐看见仙人和桂树的全形，看见一轮圆月，看见月中白兔在捣药。诗人运用这一神话传说，写出了月亮初生时逐渐明朗和宛若仙境般的景致。</p>
+<p>　　然而好景不长，月亮渐渐地由圆而蚀：“蟾蜍蚀圆影，大明夜已残。”蟾蜍，俗称癞蛤蟆；大明，指月亮。传说月蚀就是蟾蜍食月所造成，月亮被蟾蜍所啮食而残损，变得晦暗不明。“羿昔落九乌，天人清且安”，表现出诗人的感慨和希望。古代善射的后羿，射落了九个太阳，只留下一个，使天、人都免除了灾难。诗人在这里引出这样的英雄来，既是为现实中缺少这样的英雄而感慨，也是希望能有这样的英雄来扫除天下。</p>
+<p>　　然而，现实毕竟是现实，诗人深感失望：“阴精此沦惑，去去不足观。”月亮既然已经沦没而迷惑不清，就没有什么可看的了，不如趁早走开吧。这是无可奈何的办法，心中的忧愤不仅没有解除，反而加深了：“忧来其如何？凄怆摧心肝。”诗人不忍一走了之，内心矛盾重重，忧心如焚。</p>
+<p>　　这首诗，大概是李白针对当时朝政黑暗而发的。唐玄宗晚年沉湎声色，宠幸杨贵妃，权奸、宦官、边将擅权，把国家搞得乌烟瘴气。诗中“蟾蜍蚀圆影，大明夜已残”似是讽刺这一昏暗局面。沈德潜说，这是“暗指贵妃能惑主听”。（《唐诗别裁》）然而诗人的主旨却不明说，而是通篇作隐语，化现实为幻景，以蟾蜍蚀月影射现实，说得十分深婉曲折。诗中一个又一个新颖奇妙的想象，展现出诗人起伏不平的感情，文辞如行云流水，富有魅力，发人深思，体现出李白诗歌的雄奇奔放、清新俊逸的风格。</p>
 
             </div>
 
@@ -318,16 +301,16 @@
 <div class="article-copyright-info-container">
     <ul class="copyright-info-content">
         <li class="post-title">
-            <span class="type">本文标题</span>：<span class="content">js面试题</span>
+            <span class="type">本文标题</span>：<span class="content">古朗月行</span>
         </li>
         <li class="post-author">
             <span class="type">本文作者</span>：<span class="content">immortal</span>
         </li>
         <li class="post-time">
-            <span class="type">创建时间</span>：<span class="content">2023-09-23 16:15:06</span>
+            <span class="type">创建时间</span>：<span class="content">2023-09-24 20:29:06</span>
         </li>
         <li class="post-link">
-            <span class="type">本文链接</span>：<span class="content">posts/38018.html</span>
+            <span class="type">本文链接</span>：<span class="content">posts/23624.html</span>
         </li>
         <li class="post-license">
             <span class="type">版权声明</span>：<span class="content">本博客所有文章除特别声明外，均采用 <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> 许可协议。转载请注明出处！</span>
@@ -342,6 +325,14 @@
             
 
             
+                <ul class="post-tags-box">
+                    
+                        <li class="tag-item">
+                            <a href="/tags/%E7%BB%83%E5%AD%97/"><i class="icon fas fa-hashtag"></i>练字</a>&nbsp;
+                        </li>
+                    
+                </ul>
+            
 
             
                 <div class="article-nav">
@@ -349,13 +340,13 @@
                         <div class="article-prev">
                             <a class="prev"
                                rel="prev"
-                               href="/posts/25314.html"
+                               href="/posts/51806.html"
                             >
                             <span class="left arrow-icon flex-center">
                               <i class="fas fa-chevron-left"></i>
                             </span>
                                 <span class="title flex-center">
-                                <span class="post-nav-title-item text-ellipsis">数组的扩展</span>
+                                <span class="post-nav-title-item text-ellipsis">js导论</span>
                                 <span class="post-nav-item">上一篇</span>
                             </span>
                             </a>
@@ -365,10 +356,10 @@
                         <div class="article-next">
                             <a class="next"
                                rel="next"
-                               href="/posts/55422.html"
+                               href="/posts/9322.html"
                             >
                             <span class="title flex-center">
-                                <span class="post-nav-title-item text-ellipsis">函数扩展</span>
+                                <span class="post-nav-title-item text-ellipsis">Set 和 Map 数据结构</span>
                                 <span class="post-nav-item">下一篇</span>
                             </span>
                                 <span class="right arrow-icon flex-center">
@@ -395,7 +386,7 @@
             <div class="pc-post-toc right-toc">
                 <div class="post-toc-wrap">
     <div class="post-toc">
-        <ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E6%B5%85%E6%8B%B7%E8%B4%9D%E5%92%8C%E6%B7%B1%E6%8B%B7%E8%B4%9D"><span class="nav-text">1.浅拷贝和深拷贝</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-this"><span class="nav-text">2.this</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-call-%E3%80%81bind-%E3%80%81-apply"><span class="nav-text">2. call 、bind 、 apply</span></a></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8E%9F%E6%96%87"><span class="nav-text">原文</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%AF%91%E6%96%87"><span class="nav-text">译文</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%B5%8F%E6%9E%90"><span class="nav-text">赏析</span></a></li></ol>
     </div>
 </div>
 
@@ -568,7 +559,7 @@
             <div class="tablet-post-toc">
                 <div class="post-toc-wrap">
     <div class="post-toc">
-        <ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E6%B5%85%E6%8B%B7%E8%B4%9D%E5%92%8C%E6%B7%B1%E6%8B%B7%E8%B4%9D"><span class="nav-text">1.浅拷贝和深拷贝</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-this"><span class="nav-text">2.this</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-call-%E3%80%81bind-%E3%80%81-apply"><span class="nav-text">2. call 、bind 、 apply</span></a></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8E%9F%E6%96%87"><span class="nav-text">原文</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%AF%91%E6%96%87"><span class="nav-text">译文</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%B5%8F%E6%9E%90"><span class="nav-text">赏析</span></a></li></ol>
     </div>
 </div>
 

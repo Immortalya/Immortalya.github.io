@@ -230,7 +230,7 @@
 
             <span class="meta-info-item article-update-date">
                 <i class="icon fa-solid fa-file-pen"></i>&nbsp;
-                <span class="pc">2023-09-23 21:50:06</span>
+                <span class="pc">2023-09-30 17:14:39</span>
             </span>
         
 
@@ -260,12 +260,12 @@
         
         
             <span class="meta-info-item article-wordcount">
-                <i class="icon fas fa-file-word"></i>&nbsp;<span>620 字</span>
+                <i class="icon fas fa-file-word"></i>&nbsp;<span>1.1k 字</span>
             </span>
         
         
             <span class="meta-info-item article-min2read">
-                <i class="icon fas fa-clock"></i>&nbsp;<span>2 分钟</span>
+                <i class="icon fas fa-clock"></i>&nbsp;<span>4 分钟</span>
             </span>
         
         
@@ -310,6 +310,24 @@
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> divs = <span class="variable language_">document</span>.<span class="title function_">querySelectorAll</span>(<span class="string">&#x27;div&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> divArr = [...divs];</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(divs);<span class="comment">//NodeList(3) [div, div, div]</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(divArr);<span class="comment">// [div, div, div]</span></span><br></pre></td></tr></table></figure>
 
 <h2 id="2-Array-from"><a href="#2-Array-from" class="headerlink" title="2.Array.from()"></a>2.Array.from()</h2><p>Array.from()方法用于将两类对象转为真正的数组：类似数组的对象（array-like object）和可遍历（iterable）的对象（包括 ES6 新增的数据结构 Set 和 Map）。</p>
+<h3 id="1-Array-from-array-fn-this"><a href="#1-Array-from-array-fn-this" class="headerlink" title="1.Array.from(array, fn, this)"></a>1.Array.from(array, fn, this)</h3><p>Array.from()方法就是将一个类数组对象或者可遍历对象转换成一个真正的数组，也是ES6的新增方法。<br>参数：<br>    array：要变换成数组的为数组对象或可迭代对象<br>    fn: 指定了该参数，新数组中的每个元素都会执行该回调函数<br>    this: 执行回调函数时的this对象返回值：一个新的数组实例<br>1、将类数组对象转换为真正数组：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> obj = &#123; <span class="number">0</span>: <span class="string">&#x27;name&#x27;</span>, <span class="number">1</span>: <span class="string">&#x27;age&#x27;</span>, <span class="number">2</span>: <span class="string">&#x27;sex&#x27;</span>, <span class="number">3</span>: <span class="string">&#x27;height&#x27;</span>, <span class="attr">length</span>: <span class="number">3</span>,&#125;</span><br><span class="line"><span class="keyword">const</span> arr = <span class="title class_">Array</span>.<span class="title function_">from</span>(obj);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(arr); <span class="comment">//[&#x27;name&#x27;, &#x27;age&#x27;, &#x27;sex&#x27; ]</span></span><br></pre></td></tr></table></figure>
+<pre><code>类似数组：就是含有length和索引属性的对象
+const obj = &#123; 0: &#39;name&#39;, 1: &#39;age&#39;, 2: &#39;sex&#39;, 3: &#39;height&#39; length: 3,&#125;
+注意：类似数组对象的length的值，决定了返回数组的长度
+可迭代对象：Array、Set、Map和字符串都是可迭代对象
+</code></pre>
+<p>2、将Set结构的数据转换为真正的数组：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> arr = [<span class="number">12</span>,<span class="number">45</span>,<span class="number">97</span>]</span><br><span class="line"><span class="keyword">let</span> obj = <span class="keyword">new</span> <span class="title class_">Set</span>(arr)    <span class="comment">//Set(3) &#123;12, 45, 97&#125; [[Entries]]0: 12 1: 45 2: 97 size: 3[[Prototype]]: Set </span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title class_">Array</span>.<span class="title function_">from</span>(obj)) <span class="comment">//[12, 45, 97]</span></span><br></pre></td></tr></table></figure>
+
+<p>Array.from还可以接受第二个参数，作用类似于数组的map方法，用来对每个元素进行处理，将处理后的值放入返回的数组。如下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> arr = [<span class="number">12</span>,<span class="number">45</span>,<span class="number">97</span>]</span><br><span class="line"><span class="keyword">let</span> set = <span class="keyword">new</span> <span class="title class_">Set</span>(arr)</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title class_">Array</span>.<span class="title function_">from</span>(set, <span class="function"><span class="params">item</span> =&gt;</span> item + <span class="number">1</span>)) <span class="comment">// [ 13, 46, 98 ]</span></span><br></pre></td></tr></table></figure>
+
+<p>3、将字符串转换为数组：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span>  str = <span class="string">&#x27;hello world!&#x27;</span>;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title class_">Array</span>.<span class="title function_">from</span>(str)) <span class="comment">// [&quot;h&quot;, &quot;e&quot;, &quot;l&quot;, &quot;l&quot;, &quot;o&quot;, &quot; &quot;, &quot;w&quot;, &quot;o&quot;, &quot;r&quot;, &quot;l&quot;, &quot;d&quot;, &quot;!&quot;]</span></span><br></pre></td></tr></table></figure>
+<p>4、Array.from参数是一个真正的数组：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title class_">Array</span>.<span class="title function_">from</span>([<span class="number">12</span>,<span class="number">45</span>,<span class="number">47</span>,<span class="number">56</span>,<span class="number">213</span>,<span class="number">4654</span>,<span class="number">154</span>]))</span><br></pre></td></tr></table></figure>
+<p>像这种情况，Array.from会返回一个一模一样的新数组</p>
 <h2 id="3-Array-of"><a href="#3-Array-of" class="headerlink" title="3.Array.of()"></a>3.Array.of()</h2>
             </div>
 
@@ -396,7 +414,7 @@
             <div class="pc-post-toc right-toc">
                 <div class="post-toc-wrap">
     <div class="post-toc">
-        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E6%89%A9%E5%B1%95%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="nav-text">1. 扩展运算符</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%89%A9%E5%B1%95%E8%BF%90%E7%AE%97%E7%AC%A6%E7%9A%84%E5%BA%94%E7%94%A8"><span class="nav-text">扩展运算符的应用</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-Array-from"><span class="nav-text">2.Array.from()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-Array-of"><span class="nav-text">3.Array.of()</span></a></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E6%89%A9%E5%B1%95%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="nav-text">1. 扩展运算符</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%89%A9%E5%B1%95%E8%BF%90%E7%AE%97%E7%AC%A6%E7%9A%84%E5%BA%94%E7%94%A8"><span class="nav-text">扩展运算符的应用</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-Array-from"><span class="nav-text">2.Array.from()</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-Array-from-array-fn-this"><span class="nav-text">1.Array.from(array, fn, this)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-Array-of"><span class="nav-text">3.Array.of()</span></a></li></ol>
     </div>
 </div>
 
@@ -569,7 +587,7 @@
             <div class="tablet-post-toc">
                 <div class="post-toc-wrap">
     <div class="post-toc">
-        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E6%89%A9%E5%B1%95%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="nav-text">1. 扩展运算符</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%89%A9%E5%B1%95%E8%BF%90%E7%AE%97%E7%AC%A6%E7%9A%84%E5%BA%94%E7%94%A8"><span class="nav-text">扩展运算符的应用</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-Array-from"><span class="nav-text">2.Array.from()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-Array-of"><span class="nav-text">3.Array.of()</span></a></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E6%89%A9%E5%B1%95%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="nav-text">1. 扩展运算符</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%89%A9%E5%B1%95%E8%BF%90%E7%AE%97%E7%AC%A6%E7%9A%84%E5%BA%94%E7%94%A8"><span class="nav-text">扩展运算符的应用</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-Array-from"><span class="nav-text">2.Array.from()</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-Array-from-array-fn-this"><span class="nav-text">1.Array.from(array, fn, this)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-Array-of"><span class="nav-text">3.Array.of()</span></a></li></ol>
     </div>
 </div>
 
