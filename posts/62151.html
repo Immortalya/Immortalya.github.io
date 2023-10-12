@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Keep">
+    <meta name="description" content="因过竹院逢僧话,偷得浮生半日闲">
+    <meta name="author" content="immortal">
+    
+    <title>
+        
+            js运算符 |
+        
+        唔、
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    
+        <link rel="shortcut icon" href="/images/favicon.png">
+    
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.4/source/font/css/fontawesome.min.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.4/source/font/css/regular.min.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.4/source/font/css/solid.min.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.4/source/font/css/brands.min.css">
+    
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {}
+    KEEP.hexo_config = {"hostname":"example.com","root":"/","language":"zh-CN","path":"search.xml"}
+    KEEP.theme_config = {"toc":{"enable":true,"number":false,"expand_all":true,"init_open":true},"style":{"primary_color":"#0066cc","logo":"/images/logo.png","favicon":"/images/favicon.png","avatar":"/images/avatar.jpg","font_size":null,"font_family":null,"hover":{"shadow":true,"scale":true},"first_screen":{"enable":true,"header_transparent":true,"background_img":"/images/bg.svg","description":"建立自信不是相信自己，而是掌握面对未知的力量。","font_color":null,"hitokoto":false},"scroll":{"progress_bar":true,"percent":true}},"local_search":{"enable":true,"preload":true},"code_block":{"tools":{"enable":true,"style":"default"},"highlight_theme":"default"},"side_tools":{},"pjax":{"enable":true},"lazyload":{"enable":false},"comment":{"enable":false,"use":"valine","valine":{"appid":null,"appkey":null,"server_urls":null,"placeholder":null},"gitalk":{"github_id":null,"github_admins":null,"repository":null,"client_id":null,"client_secret":null,"proxy":null},"twikoo":{"env_id":null,"region":null,"version":"1.6.8"},"waline":{"server_url":null,"reaction":false,"version":2}},"post":{"author_label":{"enable":true,"auto":true,"custom_label_list":["Trainee","Engineer","Architect"]},"word_count":{"enable":true,"wordcount":true,"min2read":true},"img_align":"center","copyright_info":true},"website_count":{"busuanzi_count":{"enable":true,"site_uv":true,"site_pv":true,"page_pv":true}},"version":"3.7.4"}
+    KEEP.language_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 个月前","year":"%s 年前"}
+    KEEP.language_code_block = {"copy":"复制代码","copied":"已复制","fold":"折叠代码块","folded":"已折叠"}
+    KEEP.language_copy_copyright = {"copy":"复制版权信息","copied":"已复制","title":"原文标题","author":"原文作者","link":"原文链接"}
+  </script>
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+        <span class="scroll-progress-bar"></span>
+    
+
+    
+        <span class="pjax-progress-bar"></span>
+        <i class="pjax-progress-icon fas fa-circle-notch fa-spin"></i>
+    
+</div>
+
+
+<main class="page-container border-box">
+
+    <!-- home first screen  -->
+    
+
+    <!-- page content -->
+    <div class="page-main-content border-box">
+        <div class="page-main-content-top">
+            
+<header class="header-wrapper">
+
+    <div class="border-box header-content">
+        <div class="left border-box">
+            
+                <a class="logo-image border-box" href="/">
+                    <img src="/images/logo.png">
+                </a>
+            
+            <a class="site-name border-box" href="/">
+               唔、
+            </a>
+        </div>
+
+        <div class="right border-box">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                首页
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                归档
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/categories"
+                            >
+                                分类
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/tags"
+                            >
+                                标签
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/links"
+                            >
+                                友链
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/about"
+                            >
+                                关于
+                            </a>
+                        </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas fa-search"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/">首页</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives">归档</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/categories">分类</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/tags">标签</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/links">友链</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/about">关于</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle border-box">
+
+            <div class="main-content border-box">
+
+                
+
+                    <div class="fade-in-down-animation">
+    <div class="post-page-container border-box">
+
+        <div class="article-content-container border-box">
+
+            <div class="article-title">
+                <span class="title-hover-animation">js运算符</span>
+            </div>
+
+            
+                <div class="article-header border-box">
+                    
+                        <div class="avatar-box border-box">
+                            <img src="/images/avatar.jpg">
+                        </div>
+                    
+                    <div class="info-box">
+                        <div class="author">
+                            <span class="name">immortal</span>
+                            
+                                <span class="author-label">Lv5</span>
+                            
+                        </div>
+                        <div class="meta-info border-box">
+                            
+
+<div class="article-meta-info-container border-box post">
+    <div class="article-meta-info border-box">
+        
+
+
+        
+            <span class="meta-info-item article-create-date">
+                <i class="icon fa-solid fa-calendar-check"></i>&nbsp;
+                <span class="pc">2023-10-08 11:09:06</span>
+                <span class="mobile">2023-10-08 11:09</span>
+            </span>
+
+            <span class="meta-info-item article-update-date">
+                <i class="icon fa-solid fa-file-pen"></i>&nbsp;
+                <span class="pc">2023-10-12 11:48:04</span>
+            </span>
+        
+
+        
+            <span class="meta-info-item article-category border-box"><i class="icon fas fa-folder"></i>&nbsp;
+                <ul>
+                    
+                            <li class="category-item">
+                                
+                                <a href="/categories/JavaScript/">JavaScript</a>
+                            </li>
+                        
+                    
+                </ul>
+            </span>
+        
+
+        
+            <span class="article-tag meta-info-item border-box">
+                <i class="icon fas fa-tags"></i>&nbsp;
+                <ul>
+                    
+                </ul>
+            </span>
+        
+
+        
+        
+            <span class="meta-info-item article-wordcount">
+                <i class="icon fas fa-file-word"></i>&nbsp;<span>1.7k 字</span>
+            </span>
+        
+        
+            <span class="meta-info-item article-min2read">
+                <i class="icon fas fa-clock"></i>&nbsp;<span>6 分钟</span>
+            </span>
+        
+        
+            <span class="meta-info-item article-pv">
+                <i class="icon fas fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+            </span>
+        
+    </div>
+
+    
+</div>
+
+                        </div>
+                    </div>
+                </div>
+            
+
+            <div class="article-content keep-markdown-body">
+                
+
+                <p>运算符是处理数据的基本方法，用来从现有的值得到新的值。</p>
+<h3 id="1-算术运算符"><a href="#1-算术运算符" class="headerlink" title="1.算术运算符"></a>1.算术运算符</h3><p>JavaScript 共提供10个算术运算符，用来完成基本的算术运算。</p>
+<p>加法运算符：x + y<br>减法运算符： x - y<br>乘法运算符： x * y<br>除法运算符：x &#x2F; y<br>指数运算符：x ** y<br>余数运算符：x % y<br>自增运算符：++x 或者 x++<br>自减运算符：–x 或者 x–<br>数值运算符： +x<br>负数值运算符：-x</p>
+<h5 id="1-指数运算符"><a href="#1-指数运算符" class="headerlink" title="1.指数运算符"></a>1.指数运算符</h5><p>指数运算符（**）完成指数运算，前一个运算子是底数，后一个运算子是指数。<br>注意，指数运算符是右结合，而不是左结合。即多个指数运算符连用时，先进行最右边的计算。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">2</span> ** <span class="number">4</span> <span class="comment">// 16</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 相当于 2 ** (3 ** 2)</span></span><br><span class="line"><span class="number">2</span> ** <span class="number">3</span> ** <span class="number">2</span></span><br><span class="line"><span class="comment">// 512</span></span><br></pre></td></tr></table></figure>
+
+<h5 id="2-数值运算符和负数值运算符"><a href="#2-数值运算符和负数值运算符" class="headerlink" title="2.数值运算符和负数值运算符"></a>2.数值运算符和负数值运算符</h5><p>数值运算符的作用在于可以将任何值转为数值（与Number函数的作用相同）。<br>负数值运算符（-），也同样具有将一个值转为数值的功能，只不过得到的值正负相反。连用两个负数值运算符，等同于数值运算符。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(+<span class="literal">true</span>);  <span class="comment">//1</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(+<span class="literal">false</span>);  <span class="comment">//0</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(+[]);  <span class="comment">//0</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(+&#123;&#125;);  <span class="comment">//NaN</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(-<span class="literal">true</span>);  <span class="comment">//-1</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(-<span class="literal">false</span>);  <span class="comment">//-0</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(-[]);  <span class="comment">//-0</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(-&#123;&#125;);  <span class="comment">//NaN</span></span><br></pre></td></tr></table></figure>
+<p>数值运算符号和负数值运算符，都会返回一个新的值，而不会改变原始变量的值。</p>
+<h3 id="2-比较运算符"><a href="#2-比较运算符" class="headerlink" title="2.比较运算符"></a>2.比较运算符</h3><p>JavaScript 一共提供了8个比较运算符。<br>注意，比较运算符可以比较各种类型的值，不仅仅是数值。</p>
+<blockquote>
+<p>大于运算符<br>&lt; 小于运算符<br>&lt;&#x3D; 小于或等于运算符<br>&#x3D; 大于或等于运算符<br>&#x3D;&#x3D; 相等运算符<br>&#x3D;&#x3D;&#x3D; 严格相等运算符<br>!&#x3D; 不相等运算符<br>!&#x3D;&#x3D; 严格不相等运算符</p>
+</blockquote>
+<p>这八个比较运算符分成两类：相等比较和非相等比较。两者的规则是不一样的，对于非相等的比较，算法是先看两个运算子是否都是字符串，如果是的，就按照字典顺序比较（实际上是比较 Unicode 码点）；否则，将两个运算子都转成数值，再比较数值的大小。</p>
+<h5 id="1-相等运算符"><a href="#1-相等运算符" class="headerlink" title="1.相等运算符"></a>1.相等运算符</h5><p>JavaScript 提供两种相等运算符：&#x3D;&#x3D;和&#x3D;&#x3D;&#x3D;。</p>
+<p>简单说，它们的区别是相等运算符（&#x3D;&#x3D;）比较两个值是否相等，严格相等运算符（&#x3D;&#x3D;&#x3D;）比较它们是否为“同一个值”。如果两个值不是同一类型，严格相等运算符（&#x3D;&#x3D;&#x3D;）直接返回false，而相等运算符（&#x3D;&#x3D;）会将它们转换成同一个类型，再用严格相等运算符进行比较。</p>
+<p>（1）原始类型值<br>原始类型的值会转换成数值再进行比较。<br>（2）对象与原始类型值比较<br>对象（这里指广义的对象，包括数组和函数）与原始类型的值比较时，对象转换成原始类型的值，再进行比较。<br>（3）undefined 和 null<br>undefined和null只有与自身比较，或者互相比较时，才会返回true；与其他类型的值比较时，结果都为false。<br>（4）相等运算符的缺点<br>相等运算符隐藏的类型转换，会带来一些违反直觉的结果。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span> == <span class="literal">true</span> <span class="comment">// true</span></span><br><span class="line"><span class="comment">// 等同于 1 === Number(true)</span></span><br><span class="line"><span class="number">0</span> == <span class="literal">false</span> <span class="comment">// true</span></span><br><span class="line"><span class="comment">// 等同于 0 === Number(false)</span></span><br><span class="line"><span class="string">&#x27;true&#x27;</span> == <span class="literal">true</span> <span class="comment">// false</span></span><br><span class="line"><span class="comment">// 等同于 Number(&#x27;true&#x27;) === Number(true)</span></span><br><span class="line"><span class="comment">// 等同于 NaN === 1</span></span><br><span class="line"><span class="string">&#x27;&#x27;</span> == <span class="number">0</span> <span class="comment">// true</span></span><br><span class="line"><span class="comment">// 等同于 Number(&#x27;&#x27;) === 0</span></span><br><span class="line"><span class="comment">// 等同于 0 === 0</span></span><br><span class="line"><span class="string">&#x27;&#x27;</span> == <span class="literal">false</span>  <span class="comment">// true</span></span><br><span class="line"><span class="comment">// 等同于 Number(&#x27;&#x27;) === Number(false)</span></span><br><span class="line"><span class="comment">// 等同于 0 === 0</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 数组与数值的比较</span></span><br><span class="line">[<span class="number">1</span>] == <span class="number">1</span> <span class="comment">// true</span></span><br><span class="line"><span class="comment">// 数组与字符串的比较</span></span><br><span class="line">[<span class="number">1</span>] == <span class="string">&#x27;1&#x27;</span> <span class="comment">// true</span></span><br><span class="line">[<span class="number">1</span>, <span class="number">2</span>] == <span class="string">&#x27;1,2&#x27;</span> <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line"><span class="literal">undefined</span> == <span class="literal">undefined</span> <span class="comment">// true</span></span><br><span class="line"><span class="literal">null</span> == <span class="literal">null</span> <span class="comment">// true</span></span><br><span class="line"><span class="literal">undefined</span> == <span class="literal">null</span> <span class="comment">// true</span></span><br><span class="line"><span class="literal">false</span> == <span class="literal">null</span> <span class="comment">// false</span></span><br><span class="line"><span class="literal">false</span> == <span class="literal">undefined</span> <span class="comment">// false</span></span><br><span class="line"></span><br><span class="line"><span class="number">0</span> == <span class="string">&#x27;&#x27;</span>             <span class="comment">// true</span></span><br><span class="line"><span class="number">0</span> == <span class="string">&#x27;0&#x27;</span>            <span class="comment">// true</span></span><br><span class="line"><span class="number">2</span> == <span class="literal">true</span>           <span class="comment">// false</span></span><br><span class="line"><span class="number">2</span> == <span class="literal">false</span>          <span class="comment">// false</span></span><br><span class="line"><span class="literal">false</span> == <span class="string">&#x27;false&#x27;</span>    <span class="comment">// false</span></span><br><span class="line"><span class="literal">false</span> == <span class="string">&#x27;0&#x27;</span>        <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+
+<h5 id="2-不相等运算符"><a href="#2-不相等运算符" class="headerlink" title="2.不相等运算符"></a>2.不相等运算符</h5><p>相等运算符有一个对应的“不相等运算符”（!&#x3D;），它的算法就是先求相等运算符的结果，然后返回相反值。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span> != <span class="string">&#x27;1&#x27;</span> <span class="comment">// false</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 等同于</span></span><br><span class="line">!(<span class="number">1</span> == <span class="string">&#x27;1&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<h5 id="3-严格相等运算符"><a href="#3-严格相等运算符" class="headerlink" title="3.严格相等运算符"></a>3.严格相等运算符</h5><p>（1）不同类型的值<br>如果两个值的类型不同，直接返回false。<br>（2）同一类的原始类型值<br>同一类型的原始类型的值（数值、字符串、布尔值）比较时，值相同就返回true，值不同就返回false。<br>需要注意的是，NaN与任何值都不相等（包括自身）。另外，正0等于负0。<br>（3）复合类型值<br>两个复合类型（对象、数组、函数）的数据比较时，不是比较它们的值是否相等，而是比较它们是否指向同一个地址。<br>（4）undefined 和 null<br>undefined和null与自身严格相等。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span> === <span class="string">&quot;1&quot;</span> <span class="comment">// false</span></span><br><span class="line"><span class="literal">true</span> === <span class="string">&quot;true&quot;</span> <span class="comment">// false</span></span><br><span class="line"></span><br><span class="line"><span class="number">1</span> === <span class="number">0x1</span> <span class="comment">// true</span></span><br><span class="line"><span class="title class_">NaN</span> === <span class="title class_">NaN</span>  <span class="comment">// false</span></span><br><span class="line">+<span class="number">0</span> === -<span class="number">0</span> <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line">&#123;&#125; === &#123;&#125; <span class="comment">// false</span></span><br><span class="line">[] === [] <span class="comment">// false</span></span><br><span class="line">(<span class="keyword">function</span> (<span class="params"></span>) &#123;&#125; === <span class="keyword">function</span> (<span class="params"></span>) &#123;&#125;) <span class="comment">// false</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> v1 = &#123;&#125;;</span><br><span class="line"><span class="keyword">var</span> v2 = v1;</span><br><span class="line">v1 === v2 <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line"><span class="literal">undefined</span> === <span class="literal">undefined</span> <span class="comment">// true</span></span><br><span class="line"><span class="literal">null</span> === <span class="literal">null</span> <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+
+<h5 id="4-严格不相等运算符"><a href="#4-严格不相等运算符" class="headerlink" title="4.严格不相等运算符"></a>4.严格不相等运算符</h5><p>严格相等运算符有一个对应的“严格不相等运算符”（!&#x3D;&#x3D;），它的算法就是先求严格相等运算符的结果，然后返回相反值。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span> !== <span class="string">&#x27;1&#x27;</span> <span class="comment">// true</span></span><br><span class="line"><span class="comment">// 等同于</span></span><br><span class="line">!(<span class="number">1</span> === <span class="string">&#x27;1&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-布尔运算符"><a href="#3-布尔运算符" class="headerlink" title="3.布尔运算符"></a>3.布尔运算符</h3><p>布尔运算符用于将表达式转为布尔值，一共包含四个运算符。<br>取反运算符：!<br>且运算符：&amp;&amp;<br>或运算符：||<br>三元运算符：?:</p>
+<h5 id="取反运算符"><a href="#取反运算符" class="headerlink" title="取反运算符 !"></a>取反运算符 !</h5><p>取反运算符是一个感叹号，用于将布尔值变为相反值，即true变成false，false变成true。</p>
+<p>对于非布尔值，取反运算符会将其转为布尔值。可以这样记忆，以下六个值取反后为true，其他值都为false。<br>undefined，null，false，0，NaN，空字符串（’’）</p>
+<h5 id="三元运算符"><a href="#三元运算符" class="headerlink" title="三元运算符 ?:"></a>三元运算符 ?:</h5><p>三元条件运算符由问号（?）和冒号（:）组成，分隔三个表达式。它是 JavaScript 语言唯一一个需要三个运算子的运算符。如果第一个表达式的布尔值为true，则返回第二个表达式的值，否则返回第三个表达式的值。<br><code>(条件) ? 表达式1 : 表达式2</code><br>通常来说，三元条件表达式与if…else语句具有同样表达效果，前者可以表达的，后者也能表达。但是两者具有一个重大差别，if…else是语句，没有返回值；三元条件表达式是表达式，具有返回值。所以，在需要返回值的场合，只能使用三元条件表达式，而不能使用if..else。<br><code>&#39;t&#39; ? &#39;hello&#39; : &#39;world&#39; // &quot;hello&quot;</code></p>
+
+            </div>
+
+            
+                <div class="post-copyright-info">
+                    
+<div class="article-copyright-info-container">
+    <ul class="copyright-info-content">
+        <li class="post-title">
+            <span class="type">本文标题</span>：<span class="content">js运算符</span>
+        </li>
+        <li class="post-author">
+            <span class="type">本文作者</span>：<span class="content">immortal</span>
+        </li>
+        <li class="post-time">
+            <span class="type">创建时间</span>：<span class="content">2023-10-08 11:09:06</span>
+        </li>
+        <li class="post-link">
+            <span class="type">本文链接</span>：<span class="content">posts/62151.html</span>
+        </li>
+        <li class="post-license">
+            <span class="type">版权声明</span>：<span class="content">本博客所有文章除特别声明外，均采用 <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> 许可协议。转载请注明出处！</span>
+        </li>
+    </ul>
+    <div class="copy-copyright-info flex-center tooltip" data-content="复制版权信息" data-offset-y="-2px">
+        <i class="fa-solid fa-copy"></i>
+    </div>
+</div>
+
+                </div>
+            
+
+            
+
+            
+                <div class="article-nav">
+                    
+                        <div class="article-prev">
+                            <a class="prev"
+                               rel="prev"
+                               href="/posts/31432.html"
+                            >
+                            <span class="left arrow-icon flex-center">
+                              <i class="fas fa-chevron-left"></i>
+                            </span>
+                                <span class="title flex-center">
+                                <span class="post-nav-title-item text-ellipsis">面向对象编程</span>
+                                <span class="post-nav-item">上一篇</span>
+                            </span>
+                            </a>
+                        </div>
+                    
+                    
+                        <div class="article-next">
+                            <a class="next"
+                               rel="next"
+                               href="/posts/50381.html"
+                            >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item text-ellipsis">js函数</span>
+                                <span class="post-nav-item">下一篇</span>
+                            </span>
+                                <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                            </a>
+                        </div>
+                    
+                </div>
+            
+
+            
+                
+
+
+
+
+
+
+            
+        </div>
+
+        
+            <div class="pc-post-toc right-toc">
+                <div class="post-toc-wrap">
+    <div class="post-toc">
+        <ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E7%AE%97%E6%9C%AF%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="nav-text">1.算术运算符</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-%E6%8C%87%E6%95%B0%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="nav-text">1.指数运算符</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-%E6%95%B0%E5%80%BC%E8%BF%90%E7%AE%97%E7%AC%A6%E5%92%8C%E8%B4%9F%E6%95%B0%E5%80%BC%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="nav-text">2.数值运算符和负数值运算符</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E6%AF%94%E8%BE%83%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="nav-text">2.比较运算符</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-%E7%9B%B8%E7%AD%89%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="nav-text">1.相等运算符</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-%E4%B8%8D%E7%9B%B8%E7%AD%89%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="nav-text">2.不相等运算符</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-%E4%B8%A5%E6%A0%BC%E7%9B%B8%E7%AD%89%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="nav-text">3.严格相等运算符</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-%E4%B8%A5%E6%A0%BC%E4%B8%8D%E7%9B%B8%E7%AD%89%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="nav-text">4.严格不相等运算符</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E5%B8%83%E5%B0%94%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="nav-text">3.布尔运算符</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%8F%96%E5%8F%8D%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="nav-text">取反运算符 !</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%B8%89%E5%85%83%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="nav-text">三元运算符 ?:</span></a></li></ol></li></ol></li></ol>
+    </div>
+</div>
+
+            </div>
+        
+    </div>
+</div>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom border-box">
+            
+<footer class="footer border-box">
+    <div class="border-box website-info-box default">
+        
+            <div class="copyright-info info-item default">
+                &copy;&nbsp;<span>2023</span>&nbsp;-&nbsp;2023
+                
+                    &nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;&nbsp;<a href="/">immortal</a>
+                
+            </div>
+
+            <div class="theme-info info-item default">
+                由&nbsp;<a target="_blank" href="https://hexo.io">Hexo</a>&nbsp;驱动&nbsp;&&nbsp;主题&nbsp;<a class="keep-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep</a>
+            </div>
+
+            
+
+            
+        
+
+        <div class="count-item info-item default">
+            
+
+            
+                <span class="count-box border-box uv">
+                    <span class="item-type border-box">访问人数</span>
+                    <span class="item-value border-box uv" id="busuanzi_value_site_uv"></span>
+                </span>
+            
+
+            
+                <span class="count-box border-box pv">
+                    <span class="item-type border-box">总访问量</span>
+                    <span class="item-value border-box pv" id="busuanzi_value_site_pv"></span>
+                </span>
+            
+        </div>
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+    <!-- post tools -->
+    
+        <div class="post-tools right-toc">
+            <div class="post-tools-container border-box">
+    <ul class="tools-list border-box">
+        <!-- PC TOC show toggle -->
+        
+            <li class="tools-item flex-center toggle-show-toc">
+                <i class="fas fa-list"></i>
+            </li>
+        
+
+        <!-- PC go comment -->
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <!-- side tools -->
+    <div class="side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        
+            <li class="tools-item toggle-show-toc-tablet flex-center">
+                <i class="fas fa-list"></i>
+            </li>
+        
+
+        
+
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="arrow-up fas fa-arrow-up"></i>
+                <span class="percent"></span>
+            </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    <!-- image mask -->
+    <div class="zoom-in-image-mask">
+    <img class="zoom-in-image">
+</div>
+
+
+    <!-- local search -->
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="搜索..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="close-popup-btn">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+    <!-- tablet toc -->
+    
+        <div class="tablet-post-toc-mask">
+            <div class="tablet-post-toc">
+                <div class="post-toc-wrap">
+    <div class="post-toc">
+        <ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E7%AE%97%E6%9C%AF%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="nav-text">1.算术运算符</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-%E6%8C%87%E6%95%B0%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="nav-text">1.指数运算符</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-%E6%95%B0%E5%80%BC%E8%BF%90%E7%AE%97%E7%AC%A6%E5%92%8C%E8%B4%9F%E6%95%B0%E5%80%BC%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="nav-text">2.数值运算符和负数值运算符</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E6%AF%94%E8%BE%83%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="nav-text">2.比较运算符</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-%E7%9B%B8%E7%AD%89%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="nav-text">1.相等运算符</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-%E4%B8%8D%E7%9B%B8%E7%AD%89%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="nav-text">2.不相等运算符</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-%E4%B8%A5%E6%A0%BC%E7%9B%B8%E7%AD%89%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="nav-text">3.严格相等运算符</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-%E4%B8%A5%E6%A0%BC%E4%B8%8D%E7%9B%B8%E7%AD%89%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="nav-text">4.严格不相等运算符</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E5%B8%83%E5%B0%94%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="nav-text">3.布尔运算符</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%8F%96%E5%8F%8D%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="nav-text">取反运算符 !</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%B8%89%E5%85%83%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="nav-text">三元运算符 ?:</span></a></li></ol></li></ol></li></ol>
+    </div>
+</div>
+
+            </div>
+        </div>
+    
+</main>
+
+
+
+<script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.4/source/js/utils.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.4/source/js/main.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.4/source/js/header-shrink.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.4/source/js/back2top.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.4/source/js/dark-light-toggle.js"></script>
+
+
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.4/source/js/local-search.js"></script>
+
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.4/source/js/code-block.js"></script>
+
+
+
+
+<div class="post-scripts pjax">
+    
+        <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.4/source/js/post-helper.js"></script>
+        
+            <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.4/source/js/libs/anime.min.js"></script>
+        
+        
+            <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.4/source/js/toc.js"></script>
+        
+    
+    
+    
+</div>
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.4/source/js/libs/pjax.min.js"></script>
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        window.pjax = new Pjax({
+            selectors: [
+                'head title',
+                '.page-container',
+                '.pjax'
+            ],
+            history: true,
+            debug: false,
+            cacheBust: false,
+            timeout: 0,
+            analytics: false,
+            currentUrlFullReload: false,
+            scrollRestoration: false,
+            // scrollTo: true,
+        });
+
+        document.addEventListener('pjax:send', () => {
+            KEEP.utils.pjaxProgressBarStart();
+        });
+
+        document.addEventListener('pjax:complete', () => {
+            KEEP.utils.pjaxProgressBarEnd();
+            window.pjax.executeScripts(document.querySelectorAll('script[data-pjax], .pjax script'));
+            KEEP.refresh();
+        });
+    });
+</script>
+
+
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/hijiki.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":true},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/"});</script></body>
+</html>
