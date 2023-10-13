@@ -230,7 +230,7 @@
 
             <span class="meta-info-item article-update-date">
                 <i class="icon fa-solid fa-file-pen"></i>&nbsp;
-                <span class="pc">2023-05-07 14:46:15</span>
+                <span class="pc">2023-10-13 18:08:01</span>
             </span>
         
 
@@ -260,12 +260,12 @@
         
         
             <span class="meta-info-item article-wordcount">
-                <i class="icon fas fa-file-word"></i>&nbsp;<span>1.3k 字</span>
+                <i class="icon fas fa-file-word"></i>&nbsp;<span>2.7k 字</span>
             </span>
         
         
             <span class="meta-info-item article-min2read">
-                <i class="icon fas fa-clock"></i>&nbsp;<span>5 分钟</span>
+                <i class="icon fas fa-clock"></i>&nbsp;<span>11 分钟</span>
             </span>
         
         
@@ -329,7 +329,7 @@
 </tbody></table>
 <h3 id="1-input"><a href="#1-input" class="headerlink" title="1.@input"></a>1.@input</h3><p>每输入一个字符都会触发该事件，用于实时查询。</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">placeholder</span>=<span class="string">&quot;通过乘车人/订单号查询&quot;</span> <span class="attr">v-model</span>=<span class="string">&quot;inputVal&quot;</span>  @<span class="attr">input</span>=<span class="string">&quot;search&quot;</span> <span class="attr">value</span>=<span class="string">&quot;&quot;</span> /&gt;</span></span><br></pre></td></tr></table></figure>
-<h3 id="x32-46-x40-x6b-101-x79-x75-112-x2e-101-x6e-x74-101-x72"><a href="#x32-46-x40-x6b-101-x79-x75-112-x2e-101-x6e-x74-101-x72" class="headerlink" title="&#x32;&#46;&#x40;&#x6b;&#101;&#x79;&#x75;&#112;&#x2e;&#101;&#x6e;&#x74;&#101;&#x72;"></a><a class="link" href="mailto:&#x32;&#46;&#x40;&#x6b;&#101;&#x79;&#x75;&#112;&#x2e;&#101;&#x6e;&#x74;&#101;&#x72;">&#x32;&#46;&#x40;&#x6b;&#101;&#x79;&#x75;&#112;&#x2e;&#101;&#x6e;&#x74;&#101;&#x72;<i class="fas fa-external-link-alt"></i></a></h3><p>该事件与v-on:input事件的区别在于：input事件是实时监控的，每次输入都会调用，<br>@keyup.enter事件则是在pc上需要点击回车键触发，而在手机上则是需要点击输入键盘上的确定键才可触发。</p>
+<h3 id="50-x2e-x40-107-x65-121-x75-x70-46-101-110-116-x65-x72"><a href="#50-x2e-x40-107-x65-121-x75-x70-46-101-110-116-x65-x72" class="headerlink" title="&#50;&#x2e;&#x40;&#107;&#x65;&#121;&#x75;&#x70;&#46;&#101;&#110;&#116;&#x65;&#x72;"></a><a class="link" href="mailto:&#50;&#x2e;&#x40;&#107;&#x65;&#121;&#x75;&#x70;&#46;&#101;&#110;&#116;&#x65;&#x72;">&#50;&#x2e;&#x40;&#107;&#x65;&#121;&#x75;&#x70;&#46;&#101;&#110;&#116;&#x65;&#x72;<i class="fas fa-external-link-alt"></i></a></h3><p>该事件与v-on:input事件的区别在于：input事件是实时监控的，每次输入都会调用，<br>@keyup.enter事件则是在pc上需要点击回车键触发，而在手机上则是需要点击输入键盘上的确定键才可触发。</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">placeholder</span>=<span class="string">&quot;通过乘车人/订单号查询&quot;</span> <span class="attr">v-model</span>=<span class="string">&quot;inputVal&quot;</span>  @<span class="attr">keyup.enter</span>=<span class="string">&quot;search&quot;</span> <span class="attr">value</span>=<span class="string">&quot;&quot;</span> /&gt;</span></span><br></pre></td></tr></table></figure>
 
 <p>若是element组件封装的，加.native<br>因为：vue封装@click这些方法时阻止了原生的DOM事件，而native就是释放DOM原生事件</p>
@@ -351,9 +351,106 @@
 <p>解决2(单个判断)：绑定input、 change事件<br><code>@input=&quot;numberChange(arguments[0],5)&quot;</code></p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">el-form-item</span> <span class="attr">label</span>=<span class="string">&quot;开始积分&quot;</span> <span class="attr">prop</span>=<span class="string">&quot;startScore&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">el-input</span></span></span><br><span class="line"><span class="tag">         <span class="attr">type</span>=<span class="string">&quot;number&quot;</span></span></span><br><span class="line"><span class="tag">         <span class="attr">max</span>=<span class="string">&quot;5&quot;</span></span></span><br><span class="line"><span class="tag">         <span class="attr">min</span>=<span class="string">&quot;0&quot;</span></span></span><br><span class="line"><span class="tag">          @<span class="attr">input</span>=<span class="string">&quot;numberChange(arguments[0],5)&quot;</span></span></span><br><span class="line"><span class="tag">         @<span class="attr">change</span>=<span class="string">&quot;numberChange(arguments[0],5)&quot;</span></span></span><br><span class="line"><span class="tag">          <span class="attr">v-model</span>=<span class="string">&quot;queryParams.startScore&quot;</span></span></span><br><span class="line"><span class="tag">          <span class="attr">placeholder</span>=<span class="string">&quot;请输入开始积分&quot;</span></span></span><br><span class="line"><span class="tag">          <span class="attr">clearable</span></span></span><br><span class="line"><span class="tag">          <span class="attr">size</span>=<span class="string">&quot;small&quot;</span></span></span><br><span class="line"><span class="tag">          </span></span><br><span class="line"><span class="tag">        /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">el-form-item</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">numberChange (val,maxNum) &#123;</span></span><br><span class="line"><span class="language-javascript">     <span class="comment">//转换数字类型</span></span></span><br><span class="line"><span class="language-javascript">     <span class="variable language_">this</span>.<span class="property">queryParams</span>.<span class="property">startScore</span> = <span class="title class_">Number</span>(val)</span></span><br><span class="line"><span class="language-javascript">     <span class="comment">//重新渲染</span></span></span><br><span class="line"><span class="language-javascript">     <span class="variable language_">this</span>.$nextTick(<span class="function">()=&gt;</span>&#123;</span></span><br><span class="line"><span class="language-javascript">        <span class="comment">//比较输入的值和最大值，返回小的</span></span></span><br><span class="line"><span class="language-javascript">        <span class="keyword">let</span> num = <span class="title class_">Math</span>.<span class="title function_">min</span>(<span class="title class_">Number</span>(val),maxNum)</span></span><br><span class="line"><span class="language-javascript">        <span class="comment">//输入负值的情况下， = 0（可根据实际需求更该）</span></span></span><br><span class="line"><span class="language-javascript">        <span class="keyword">if</span>(num&lt;<span class="number">0</span>) &#123;</span></span><br><span class="line"><span class="language-javascript">            <span class="variable language_">this</span>.<span class="property">queryParams</span>.<span class="property">startScore</span> = <span class="number">0</span></span></span><br><span class="line"><span class="language-javascript">        &#125;<span class="keyword">else</span> &#123;</span></span><br><span class="line"><span class="language-javascript">            <span class="comment">//反之</span></span></span><br><span class="line"><span class="language-javascript">            <span class="variable language_">this</span>.<span class="property">queryParams</span>.<span class="property">startScore</span> = num</span></span><br><span class="line"><span class="language-javascript">        &#125;</span></span><br><span class="line"><span class="language-javascript">     &#125;)</span></span><br><span class="line"><span class="language-javascript">&#125;,</span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-<h1 id="2-addEventListener"><a href="#2-addEventListener" class="headerlink" title="2.addEventListener"></a>2.addEventListener</h1><p>EventTarget.addEventListener() 方法将指定的监听器注册到 EventTarget 上，当该对象触发指定的事件时，指定的回调函数就会被执行。<br>EventTarget可以是一个文档上的元素 Element、Document 和 Window，也可以是任何支持事件的对象（比如 XMLHttpRequest）。</p>
-<h3 id="1-参数"><a href="#1-参数" class="headerlink" title="1.参数"></a>1.参数</h3><p>type：表示监听事件类型的大小写敏感的字符串。</p>
-<h3 id="2-事件"><a href="#2-事件" class="headerlink" title="2.事件"></a>2.事件</h3><p>输入：与 HTML input 元素（如：<input>、<select> 或 </select><textarea>）相关的事件。如：focus()、blur()、select()、click()</textarea></p>
+<h1 id="2-addEventListener"><a href="#2-addEventListener" class="headerlink" title="2.addEventListener"></a>2.addEventListener</h1><p>在JavaScript中，你可以使用监听器来捕获和处理不同类型的事件。</p>
+<p>在JavaScript中，事件监听是通过addEventListener()方法实现的。该方法的基本语法如下：<br><code>element.addEventListener(event, function, useCapture);</code><br>element指的是要监听的HTML元素</p>
+<p>参数：<br>event指的是要监听的事件类型，字符串，必填<br>function指的是在事件发生时要执行的函数，必填。<br>useCapture指的是触发类型，布尔型，可空。true：事件在捕获阶段执行；false：事件在冒泡阶段执行，默认是false。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;button id=<span class="string">&quot;myButton&quot;</span>&gt;<span class="title class_">Click</span> me!&lt;/button&gt;</span><br><span class="line"><span class="keyword">var</span> button = <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&quot;myButton&quot;</span>);</span><br><span class="line">button.<span class="title function_">addEventListener</span>(<span class="string">&quot;click&quot;</span>, <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="title function_">alert</span>(<span class="string">&quot;Button clicked!&quot;</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h3 id="事件类型"><a href="#事件类型" class="headerlink" title="事件类型"></a>事件类型</h3><p><a class="link" target="_blank" rel="noopener" href="https://www.jianshu.com/p/9fa889443a3c">https://www.jianshu.com/p/9fa889443a3c<i class="fas fa-external-link-alt"></i></a></p>
+<pre><code>鼠标事件
+click：用户单击了某个元素。
+dblclick：用户双击了某个元素。
+mousedown：用户按下了鼠标按钮。
+mouseup：用户释放了鼠标按钮。
+mousemove：用户移动了鼠标。
+mouseover：鼠标移到某个元素上。
+mouseout：鼠标从某个元素移开。
+mouseenter 当鼠标移动到元素上时触发。
+mouseleave：当鼠标移出元素时触发。
+
+键盘事件
+keydown：用户按下了键盘上的某个键。
+keyup：用户释放了键盘上的某个键。
+keypress：某个键盘按键被按下并松开。
+
+框架/对象（Frame/Object）事件 window
+scroll：当文档被滚动时发生的事件。
+resize：窗口或框架被重新调整大小。
+abort：图像的加载被中断。
+load：一张页面或一幅图像完成加载
+unload：某个元素被卸载或用户退出页面。
+pageshow：该事件在用户访问页面时触发
+pagehide：该事件在用户离开当前网页跳转到另外一个页面时触发
+beforeunload：该事件在即将离开页面（刷新或关闭）时触发。
+error：在加载文档或图像时发生错误。
+
+表单事件
+change：该事件在表单元素的内容改变时触发
+focus：元素获取焦点时触发
+blur：某个元素失去了焦点时触发
+focusin：元素即将获取焦点是触发
+focusout：元素即将失去焦点是触发
+input：元素获取用户输入是触发
+reset：表单重置时触发
+search：用户向搜索域输入文本时触发
+
+拖动事件
+drag 该事件在元素正在拖动时触发
+dragend 该事件在用户完成元素的拖动时触发
+dragenter 该事件在拖动的元素进入放置目标时触发
+dragleave 该事件在拖动元素离开放置目标时触发
+dragover 该事件在拖动元素在放置目标上时触发
+dragstart 该事件在用户开始拖动元素时触发
+drop 该事件在拖动元素放置在目标区域时触发
+
+多媒体（Media）事件
+abort 事件在视频/音频（audio/video）终止加载时触发。
+canplay 事件在用户可以开始播放视频/音频（audio/video）时触发。
+canplaythrough 事件在视频/音频（audio/video）可以正常播放且无需停顿和缓冲时触发。
+durationchange 事件在视频/音频（audio/video）的时长发生变化时触发。
+emptied The event occurs when the current playlist is empty
+ended 事件在视频/音频（audio/video）播放结束时触发。
+error 事件在视频/音频（audio/video）数据加载期间发生错误时触发。
+loadeddata 事件在浏览器加载视频/音频（audio/video）当前帧时触发触发。
+loadedmetadata 事件在指定视频/音频（audio/video）的元数据加载后触发。
+loadstart 事件在浏览器开始寻找指定视频/音频（audio/video）触发。
+pause 事件在视频/音频（audio/video）暂停时触发。
+play 事件在视频/音频（audio/video）开始播放时触发。
+playing 事件在视频/音频（audio/video）暂停或者在缓冲后准备重新开始播放时触发。
+progress 事件在浏览器下载指定的视频/音频（audio/video）时触发。
+ratechange 事件在视频/音频（audio/video）的播放速度发送改变时触发。
+seeked 事件在用户重新定位视频/音频（audio/video）的播放位置后触发。
+seeking 事件在用户开始重新定位视频/音频（audio/video）时触发。
+stalled 事件在浏览器获取媒体数据，但媒体数据不可用时触发。
+suspend 事件在浏览器读取媒体数据中止时触发。
+timeupdate 事件在当前的播放位置发送改变时触发。
+volumechange 事件在音量发生改变时触发。
+waiting 事件在视频由于要播放下一帧而需要缓冲时触发。
+
+动画事件
+animationend 该事件在 CSS 动画结束播放时触发
+animationiteration 该事件在 CSS 动画重复播放时触发
+animationstart 该事件在 CSS 动画开始播放时触发
+transitionend 该事件在 CSS 完成过渡后触发。
+
+其他事件
+message 该事件通过或者从对象(WebSocket, Web Worker, Event Source 或者子 frame 或父窗口)接收到消息时触发
+online 该事件在浏览器开始在线工作时触发。
+offline 该事件在浏览器开始离线工作时触发。
+storage 该事件在 Web Storage(HTML 5 Web 存储)更新时触发
+toggle 该事件在用户打开或关闭 元素时触发
+wheel 该事件在鼠标滚轮在元素上下滚动时触发
+</code></pre>
+<h3 id="事件对象"><a href="#事件对象" class="headerlink" title="事件对象"></a>事件对象</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id=<span class="string">&quot;myDiv&quot;</span>&gt;学习事件监听&lt;/div&gt;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> div = <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&quot;myDiv&quot;</span>);</span><br><span class="line">div.<span class="title function_">addEventListener</span>(<span class="string">&quot;mouseup&quot;</span>, <span class="keyword">function</span>(<span class="params">event</span>) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;X: &quot;</span> + event.<span class="property">clientX</span> + <span class="string">&quot;, Y: &quot;</span> + event.<span class="property">clientY</span>); <span class="comment">//  X: 102, Y: 17</span></span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(event.<span class="property">type</span>); <span class="comment">//mouseup</span></span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(event.<span class="property">target</span>); <span class="comment">//&lt;div id=&quot;myDiv&quot;&gt;学习事件监听&lt;/div&gt;</span></span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(event.<span class="property">currentTarget</span>); <span class="comment">//&lt;div id=&quot;myDiv&quot;&gt;学习事件监听&lt;/div&gt;</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>以下是一些常用的事件对象属性：</p>
+<pre><code>type：事件类型。
+target：事件目标元素。
+currentTarget：当前正在处理事件的元素。
+clientX/clientY：鼠标相对于浏览器窗口左上角的坐标。
+pageX/pageY：鼠标相对于文档左上角的坐标。
+keyCode：按下的键盘键的键码值。
+</code></pre>
 
             </div>
 
@@ -394,13 +491,13 @@
                         <div class="article-prev">
                             <a class="prev"
                                rel="prev"
-                               href="/posts/58494.html"
+                               href="/posts/57376.html"
                             >
                             <span class="left arrow-icon flex-center">
                               <i class="fas fa-chevron-left"></i>
                             </span>
                                 <span class="title flex-center">
-                                <span class="post-nav-title-item text-ellipsis">js杂项</span>
+                                <span class="post-nav-title-item text-ellipsis">vuex</span>
                                 <span class="post-nav-item">上一篇</span>
                             </span>
                             </a>
@@ -410,10 +507,10 @@
                         <div class="article-next">
                             <a class="next"
                                rel="next"
-                               href="/posts/3742.html"
+                               href="/posts/58494.html"
                             >
                             <span class="title flex-center">
-                                <span class="post-nav-title-item text-ellipsis">离职交接</span>
+                                <span class="post-nav-title-item text-ellipsis">js杂项</span>
                                 <span class="post-nav-item">下一篇</span>
                             </span>
                                 <span class="right arrow-icon flex-center">
@@ -440,7 +537,7 @@
             <div class="pc-post-toc right-toc">
                 <div class="post-toc-wrap">
     <div class="post-toc">
-        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-input%E4%BA%8B%E4%BB%B6"><span class="nav-text">1.input事件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-input"><span class="nav-text">1.@input</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#x32-46-x40-x6b-101-x79-x75-112-x2e-101-x6e-x74-101-x72"><span class="nav-text">2.@keyup.enter</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-change"><span class="nav-text">3.@change</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-blur%EF%BC%88%E5%85%83%E7%B4%A0%E5%A4%B1%E5%8E%BB%E7%84%A6%E7%82%B9%E6%97%B6%E6%89%80%E8%A7%A6%E5%8F%91%E7%9A%84%E4%BA%8B%E4%BB%B6%EF%BC%89"><span class="nav-text">4.@blur（元素失去焦点时所触发的事件）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-focus%EF%BC%88%E5%85%83%E7%B4%A0%E8%8E%B7%E5%8F%96%E7%84%A6%E7%82%B9%E6%97%B6%E6%89%80%E8%A7%A6%E5%8F%91%E7%9A%84%E4%BA%8B%E4%BB%B6%EF%BC%89"><span class="nav-text">5.@focus（元素获取焦点时所触发的事件）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-input%E6%A0%A1%E9%AA%8C"><span class="nav-text">6.input校验</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-addEventListener"><span class="nav-text">2.addEventListener</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E5%8F%82%E6%95%B0"><span class="nav-text">1.参数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E4%BA%8B%E4%BB%B6"><span class="nav-text">2.事件</span></a></li></ol></li></ol></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-input%E4%BA%8B%E4%BB%B6"><span class="nav-text">1.input事件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-input"><span class="nav-text">1.@input</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#50-x2e-x40-107-x65-121-x75-x70-46-101-110-116-x65-x72"><span class="nav-text">2.@keyup.enter</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-change"><span class="nav-text">3.@change</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-blur%EF%BC%88%E5%85%83%E7%B4%A0%E5%A4%B1%E5%8E%BB%E7%84%A6%E7%82%B9%E6%97%B6%E6%89%80%E8%A7%A6%E5%8F%91%E7%9A%84%E4%BA%8B%E4%BB%B6%EF%BC%89"><span class="nav-text">4.@blur（元素失去焦点时所触发的事件）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-focus%EF%BC%88%E5%85%83%E7%B4%A0%E8%8E%B7%E5%8F%96%E7%84%A6%E7%82%B9%E6%97%B6%E6%89%80%E8%A7%A6%E5%8F%91%E7%9A%84%E4%BA%8B%E4%BB%B6%EF%BC%89"><span class="nav-text">5.@focus（元素获取焦点时所触发的事件）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-input%E6%A0%A1%E9%AA%8C"><span class="nav-text">6.input校验</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-addEventListener"><span class="nav-text">2.addEventListener</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%8B%E4%BB%B6%E7%B1%BB%E5%9E%8B"><span class="nav-text">事件类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%8B%E4%BB%B6%E5%AF%B9%E8%B1%A1"><span class="nav-text">事件对象</span></a></li></ol></li></ol></li></ol>
     </div>
 </div>
 
@@ -613,7 +710,7 @@
             <div class="tablet-post-toc">
                 <div class="post-toc-wrap">
     <div class="post-toc">
-        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-input%E4%BA%8B%E4%BB%B6"><span class="nav-text">1.input事件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-input"><span class="nav-text">1.@input</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#x32-46-x40-x6b-101-x79-x75-112-x2e-101-x6e-x74-101-x72"><span class="nav-text">2.@keyup.enter</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-change"><span class="nav-text">3.@change</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-blur%EF%BC%88%E5%85%83%E7%B4%A0%E5%A4%B1%E5%8E%BB%E7%84%A6%E7%82%B9%E6%97%B6%E6%89%80%E8%A7%A6%E5%8F%91%E7%9A%84%E4%BA%8B%E4%BB%B6%EF%BC%89"><span class="nav-text">4.@blur（元素失去焦点时所触发的事件）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-focus%EF%BC%88%E5%85%83%E7%B4%A0%E8%8E%B7%E5%8F%96%E7%84%A6%E7%82%B9%E6%97%B6%E6%89%80%E8%A7%A6%E5%8F%91%E7%9A%84%E4%BA%8B%E4%BB%B6%EF%BC%89"><span class="nav-text">5.@focus（元素获取焦点时所触发的事件）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-input%E6%A0%A1%E9%AA%8C"><span class="nav-text">6.input校验</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-addEventListener"><span class="nav-text">2.addEventListener</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E5%8F%82%E6%95%B0"><span class="nav-text">1.参数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E4%BA%8B%E4%BB%B6"><span class="nav-text">2.事件</span></a></li></ol></li></ol></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-input%E4%BA%8B%E4%BB%B6"><span class="nav-text">1.input事件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-input"><span class="nav-text">1.@input</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#50-x2e-x40-107-x65-121-x75-x70-46-101-110-116-x65-x72"><span class="nav-text">2.@keyup.enter</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-change"><span class="nav-text">3.@change</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-blur%EF%BC%88%E5%85%83%E7%B4%A0%E5%A4%B1%E5%8E%BB%E7%84%A6%E7%82%B9%E6%97%B6%E6%89%80%E8%A7%A6%E5%8F%91%E7%9A%84%E4%BA%8B%E4%BB%B6%EF%BC%89"><span class="nav-text">4.@blur（元素失去焦点时所触发的事件）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-focus%EF%BC%88%E5%85%83%E7%B4%A0%E8%8E%B7%E5%8F%96%E7%84%A6%E7%82%B9%E6%97%B6%E6%89%80%E8%A7%A6%E5%8F%91%E7%9A%84%E4%BA%8B%E4%BB%B6%EF%BC%89"><span class="nav-text">5.@focus（元素获取焦点时所触发的事件）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-input%E6%A0%A1%E9%AA%8C"><span class="nav-text">6.input校验</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-addEventListener"><span class="nav-text">2.addEventListener</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%8B%E4%BB%B6%E7%B1%BB%E5%9E%8B"><span class="nav-text">事件类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%8B%E4%BB%B6%E5%AF%B9%E8%B1%A1"><span class="nav-text">事件对象</span></a></li></ol></li></ol></li></ol>
     </div>
 </div>
 

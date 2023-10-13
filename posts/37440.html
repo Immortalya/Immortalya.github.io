@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Keep">
+    <meta name="description" content="因过竹院逢僧话,偷得浮生半日闲">
+    <meta name="author" content="immortal">
+    
+    <title>
+        
+            Document 节点 |
+        
+        唔、
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    
+        <link rel="shortcut icon" href="/images/favicon.png">
+    
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.4/source/font/css/fontawesome.min.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.4/source/font/css/regular.min.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.4/source/font/css/solid.min.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.4/source/font/css/brands.min.css">
+    
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {}
+    KEEP.hexo_config = {"hostname":"example.com","root":"/","language":"zh-CN","path":"search.xml"}
+    KEEP.theme_config = {"toc":{"enable":true,"number":false,"expand_all":true,"init_open":true},"style":{"primary_color":"#0066cc","logo":"/images/logo.png","favicon":"/images/favicon.png","avatar":"/images/avatar.jpg","font_size":null,"font_family":null,"hover":{"shadow":true,"scale":true},"first_screen":{"enable":true,"header_transparent":true,"background_img":"/images/bg.svg","description":"建立自信不是相信自己，而是掌握面对未知的力量。","font_color":null,"hitokoto":false},"scroll":{"progress_bar":true,"percent":true}},"local_search":{"enable":true,"preload":true},"code_block":{"tools":{"enable":true,"style":"default"},"highlight_theme":"default"},"side_tools":{},"pjax":{"enable":true},"lazyload":{"enable":false},"comment":{"enable":false,"use":"valine","valine":{"appid":null,"appkey":null,"server_urls":null,"placeholder":null},"gitalk":{"github_id":null,"github_admins":null,"repository":null,"client_id":null,"client_secret":null,"proxy":null},"twikoo":{"env_id":null,"region":null,"version":"1.6.8"},"waline":{"server_url":null,"reaction":false,"version":2}},"post":{"author_label":{"enable":true,"auto":true,"custom_label_list":["Trainee","Engineer","Architect"]},"word_count":{"enable":true,"wordcount":true,"min2read":true},"img_align":"center","copyright_info":true},"website_count":{"busuanzi_count":{"enable":true,"site_uv":true,"site_pv":true,"page_pv":true}},"version":"3.7.4"}
+    KEEP.language_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 个月前","year":"%s 年前"}
+    KEEP.language_code_block = {"copy":"复制代码","copied":"已复制","fold":"折叠代码块","folded":"已折叠"}
+    KEEP.language_copy_copyright = {"copy":"复制版权信息","copied":"已复制","title":"原文标题","author":"原文作者","link":"原文链接"}
+  </script>
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+        <span class="scroll-progress-bar"></span>
+    
+
+    
+        <span class="pjax-progress-bar"></span>
+        <i class="pjax-progress-icon fas fa-circle-notch fa-spin"></i>
+    
+</div>
+
+
+<main class="page-container border-box">
+
+    <!-- home first screen  -->
+    
+
+    <!-- page content -->
+    <div class="page-main-content border-box">
+        <div class="page-main-content-top">
+            
+<header class="header-wrapper">
+
+    <div class="border-box header-content">
+        <div class="left border-box">
+            
+                <a class="logo-image border-box" href="/">
+                    <img src="/images/logo.png">
+                </a>
+            
+            <a class="site-name border-box" href="/">
+               唔、
+            </a>
+        </div>
+
+        <div class="right border-box">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                首页
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                归档
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/categories"
+                            >
+                                分类
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/tags"
+                            >
+                                标签
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/links"
+                            >
+                                友链
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/about"
+                            >
+                                关于
+                            </a>
+                        </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas fa-search"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/">首页</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives">归档</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/categories">分类</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/tags">标签</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/links">友链</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/about">关于</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle border-box">
+
+            <div class="main-content border-box">
+
+                
+
+                    <div class="fade-in-down-animation">
+    <div class="post-page-container border-box">
+
+        <div class="article-content-container border-box">
+
+            <div class="article-title">
+                <span class="title-hover-animation">Document 节点</span>
+            </div>
+
+            
+                <div class="article-header border-box">
+                    
+                        <div class="avatar-box border-box">
+                            <img src="/images/avatar.jpg">
+                        </div>
+                    
+                    <div class="info-box">
+                        <div class="author">
+                            <span class="name">immortal</span>
+                            
+                                <span class="author-label">Lv5</span>
+                            
+                        </div>
+                        <div class="meta-info border-box">
+                            
+
+<div class="article-meta-info-container border-box post">
+    <div class="article-meta-info border-box">
+        
+
+
+        
+            <span class="meta-info-item article-create-date">
+                <i class="icon fa-solid fa-calendar-check"></i>&nbsp;
+                <span class="pc">2023-10-13 17:08:06</span>
+                <span class="mobile">2023-10-13 17:08</span>
+            </span>
+
+            <span class="meta-info-item article-update-date">
+                <i class="icon fa-solid fa-file-pen"></i>&nbsp;
+                <span class="pc">2023-10-13 21:18:11</span>
+            </span>
+        
+
+        
+            <span class="meta-info-item article-category border-box"><i class="icon fas fa-folder"></i>&nbsp;
+                <ul>
+                    
+                            <li class="category-item">
+                                
+                                <a href="/categories/JavaScript/">JavaScript</a>
+                            </li>
+                        
+                    
+                </ul>
+            </span>
+        
+
+        
+            <span class="article-tag meta-info-item border-box">
+                <i class="icon fas fa-tags"></i>&nbsp;
+                <ul>
+                    
+                </ul>
+            </span>
+        
+
+        
+        
+            <span class="meta-info-item article-wordcount">
+                <i class="icon fas fa-file-word"></i>&nbsp;<span>3.2k 字</span>
+            </span>
+        
+        
+            <span class="meta-info-item article-min2read">
+                <i class="icon fas fa-clock"></i>&nbsp;<span>12 分钟</span>
+            </span>
+        
+        
+            <span class="meta-info-item article-pv">
+                <i class="icon fas fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+            </span>
+        
+    </div>
+
+    
+</div>
+
+                        </div>
+                    </div>
+                </div>
+            
+
+            <div class="article-content keep-markdown-body">
+                
+
+                <p>document节点对象代表整个文档，每张网页都有自己的document对象。window.document属性就指向这个对象。只要浏览器开始载入 HTML 文档，该对象就存在了，可以直接使用。</p>
+<p>document对象有不同的办法可以获取。</p>
+<ul>
+<li>正常的网页，直接使用document或window.document。</li>
+<li>iframe框架里面的网页，使用iframe节点的contentDocument属性。</li>
+<li>Ajax 操作返回的文档，使用XMLHttpRequest对象的responseXML属性。</li>
+<li>内部节点的ownerDocument属性。</li>
+</ul>
+<p>document对象继承了EventTarget接口和Node接口，并且混入（mixin）了ParentNode接口。这意味着，这些接口的方法都可以在document对象上调用。除此之外，document对象还有很多自己的属性和方法。</p>
+<h1 id="1-属性"><a href="#1-属性" class="headerlink" title="1.属性"></a>1.属性</h1><h3 id="1-快捷方式属性"><a href="#1-快捷方式属性" class="headerlink" title="1.快捷方式属性"></a>1.快捷方式属性</h3><p>以下属性是指向文档内部的某个节点的快捷方式。</p>
+<p>（1）document.defaultView<br>document.defaultView属性返回document对象所属的window对象。如果当前文档不属于window对象，该属性返回null。<br><code>document.defaultView === window</code></p>
+<p>（2）document.doctype<br>对于 HTML 文档来说，document对象一般有两个子节点。第一个子节点是document.doctype，指向<code>&lt;DOCTYPE&gt;</code>节点，即文档类型（简写DTD）节点。HTML 的文档类型节点，一般写成<code>&lt;!DOCTYPE html&gt;</code>。如果网页没有声明 DTD，该属性返回null。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">document</span>.<span class="property">doctype</span>);  <span class="comment">//&quot;&lt;!DOCTYPE html&gt;&quot;</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">document</span>.<span class="property">doctype</span>.<span class="property">name</span>);  <span class="comment">//&quot;html&quot;</span></span><br></pre></td></tr></table></figure>
+<p>document.firstChild通常就返回这个节点。</p>
+<p>（3）document.documentElement<br>document.documentElement属性返回文档的根节点（root）。它通常是document节点的第二个子节点，紧跟在document.doctype节点后面。HTML网页的该属性，一般是<code>&lt;html&gt;</code>节点。</p>
+<p>（4）document.body，document.head<br>document.body属性指向<code>&lt;body&gt;</code>节点，document.head属性指向<code>&lt;head&gt;</code>节点。<br>这两个属性是可写的，如果改写它们的值，相当于移除所有子节点。</p>
+<p>（5）document.scrollingElement<br>document.scrollingElement属性返回文档的滚动元素。也就是说，当文档整体滚动时，到底是哪个元素在滚动。<br>标准模式下，这个属性返回的文档的根元素document.documentElement（即<code>&lt;html&gt;</code>）。兼容（quirk）模式下，返回的是<code>&lt;body&gt;</code>元素，如果该元素不存在，返回null。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 页面滚动到浏览器顶部</span></span><br><span class="line"><span class="variable language_">document</span>.<span class="property">scrollingElement</span>.<span class="property">scrollTop</span> = <span class="number">0</span>;</span><br></pre></td></tr></table></figure>
+
+<p>（6）document.activeElement<br>document.activeElement属性返回获得当前焦点（focus）的 DOM 元素。通常，这个属性返回的是<code>&lt;input&gt;</code>、<code>&lt;textarea&gt;</code>、<code>&lt;select&gt;</code>等表单元素，如果当前没有焦点元素，返回<code>&lt;body&gt;</code>元素或null。</p>
+<p>（7）document.fullscreenElement<br>document.fullscreenElement属性返回当前以全屏状态展示的 DOM 元素。如果不是全屏状态，该属性返回null。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (<span class="variable language_">document</span>.<span class="property">fullscreenElement</span>.<span class="property">nodeName</span> == <span class="string">&#x27;VIDEO&#x27;</span>) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;全屏播放视频&#x27;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>上面代码中，通过document.fullscreenElement可以知道<code>&lt;video&gt;</code>元素有没有处在全屏状态，从而判断用户行为。</p>
+<h3 id="2-文档静态信息属性"><a href="#2-文档静态信息属性" class="headerlink" title="2.文档静态信息属性"></a>2.文档静态信息属性</h3><p>以下属性返回文档信息</p>
+<p>（1）document.documentURI，document.URL<br>document.documentURI属性和document.URL属性都返回一个字符串，表示当前文档的网址。不同之处是它们继承自不同的接口，documentURI继承自Document接口，可用于所有文档；URL继承自HTMLDocument接口，只能用于 HTML 文档。<br><code>console.log(document.documentURI);  //file:///E:/%E5%89%8D%E7%AB%AF/first.html</code><br>如果文档的锚点（#anchor）变化，这两个属性都会跟着变化。</p>
+<p>（2）document.domain<br>document.domain属性返回当前文档的域名，不包含协议和端口。比如，网页的网址是<a class="link" target="_blank" rel="noopener" href="http://www.example.com/hello.html%EF%BC%8C%E9%82%A3%E4%B9%88document.domain%E5%B1%9E%E6%80%A7%E5%B0%B1%E7%AD%89%E4%BA%8Ewww.example.com%E3%80%82%E5%A6%82%E6%9E%9C%E6%97%A0%E6%B3%95%E8%8E%B7%E5%8F%96%E5%9F%9F%E5%90%8D%EF%BC%8C%E8%AF%A5%E5%B1%9E%E6%80%A7%E8%BF%94%E5%9B%9Enull%E3%80%82">http://www.example.com:80/hello.html，那么document.domain属性就等于www.example.com。如果无法获取域名，该属性返回null。<i class="fas fa-external-link-alt"></i></a><br>document.domain基本上是一个只读属性，只有一种情况除外。次级域名的网页，可以把document.domain设为对应的上级域名。</p>
+<p>（3）document.location<br>Location对象是浏览器提供的原生对象，提供 URL 相关的信息和操作方法。通过window.location和document.location属性，可以拿到这个对象。</p>
+<p>（4）document.lastModified<br>document.lastModified属性返回一个字符串，表示当前文档最后修改的时间。不同浏览器的返回值，日期格式是不一样的。<br><code>console.log(document.lastModified); //10/13/2023 17:32:22</code></p>
+<p>（5）document.title<br>document.title属性返回当前文档的标题。默认情况下，返回<code>&lt;title&gt;</code>节点的值。但是该属性是可写的，一旦被修改，就返回修改后的值。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">document</span>.<span class="property">title</span> = <span class="string">&#x27;新标题&#x27;</span>;</span><br><span class="line"><span class="variable language_">document</span>.<span class="property">title</span> <span class="comment">// &quot;新标题&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>（6）document.characterSet<br>document.characterSet属性返回当前文档的编码，比如UTF-8、ISO-8859-1等等。</p>
+<p>（7）document.referrer<br>document.referrer属性返回一个字符串，表示当前文档的访问者来自哪里。<br>如果无法获取来源，或者用户直接键入网址而不是从其他网页点击进入，document.referrer返回一个空字符串。<br>document.referrer的值，总是与 HTTP 头信息的Referer字段保持一致。但是，document.referrer的拼写有两个r，而头信息的Referer字段只有一个r。</p>
+<p>（8）document.compatMode<br>compatMode属性返回浏览器处理文档的模式，可能的值为BackCompat（向后兼容模式）和CSS1Compat（严格模式）。<br>一般来说，如果网页代码的第一行设置了明确的DOCTYPE（比如<code>&lt;!doctype html&gt;</code>），document.compatMode的值都为CSS1Compat。</p>
+<h3 id="3-文档状态属性"><a href="#3-文档状态属性" class="headerlink" title="3.文档状态属性"></a>3.文档状态属性</h3><p>（1）document.hidden<br>document.hidden属性返回一个布尔值，表示当前页面是否可见。如果窗口最小化、浏览器切换了 Tab，都会导致导致页面不可见，使得document.hidden返回true。</p>
+<p>（2）document.visibilityState<br>document.visibilityState返回文档的可见状态。<br>它的值有四种可能。</p>
+<ul>
+<li>visible：页面可见。注意，页面可能是部分可见，即不是焦点窗口，前面被其他窗口部分挡住了。</li>
+<li>hidden：页面不可见，有可能窗口最小化，或者浏览器切换到了另一个 Tab。</li>
+<li>prerender：页面处于正在渲染状态，对于用户来说，该页面不可见。</li>
+<li>unloaded：页面从内存里面卸载了。<br>这个属性可以用在页面加载时，防止加载某些资源；或者页面不可见时，停掉一些页面功能。</li>
+</ul>
+<p>（3）document.readyState<br>document.readyState属性返回当前文档的状态，共有三种可能的值。</p>
+<ul>
+<li>loading：加载 HTML 代码阶段（尚未完成解析）</li>
+<li>interactive：加载外部资源阶段</li>
+<li>complete：加载完成<br>这个属性变化的过程如下。<br>1.浏览器开始解析 HTML 文档，document.readyState属性等于loading。<br>2.浏览器遇到 HTML 文档中的<code>&lt;script&gt;</code>元素，并且没有async或defer属性，就暂停解析，开始执行脚本，这时document.readyState属性还是等于loading。<br>3.HTML 文档解析完成，document.readyState属性变成interactive。<br>4.浏览器等待图片、样式表、字体文件等外部资源加载完成，一旦全部加载完成，document.readyState属性变成complete。</li>
+</ul>
+<h1 id="2-方法"><a href="#2-方法" class="headerlink" title="2.方法"></a>2.方法</h1><h3 id="1-document-open-，document-close"><a href="#1-document-open-，document-close" class="headerlink" title="1.document.open()，document.close()"></a>1.document.open()，document.close()</h3><p>document.open方法清除当前文档所有内容，使得文档处于可写状态，供document.write方法写入内容。<br>document.close方法用来关闭document.open()打开的文档。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">document</span>.<span class="title function_">open</span>();</span><br><span class="line"><span class="variable language_">document</span>.<span class="title function_">write</span>(<span class="string">&#x27;hello world&#x27;</span>);</span><br><span class="line"><span class="variable language_">document</span>.<span class="title function_">close</span>();</span><br><span class="line"><span class="comment">//页面在原先有的内容上添加一句 hello world</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="2-document-write-，document-writeln"><a href="#2-document-write-，document-writeln" class="headerlink" title="2.document.write()，document.writeln()"></a>2.document.write()，document.writeln()</h3><p>document.write方法用于向当前文档写入内容。在网页的首次渲染阶段，只要页面没有关闭写入（即没有执行document.close()），document.write写入的内容就会追加在已有内容的后面。<br>注意，document.write会当作 HTML 代码解析，不会转义。<br><code>document.write(&#39;&lt;p&gt;hello world&lt;/p&gt;&#39;); //document.write会将&lt;p&gt;当作 HTML 标签解释。</code><br>如果页面已经解析完成（DOMContentLoaded事件发生之后），再调用write方法，它会先调用open方法，擦除当前文档所有内容，然后再写入。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">document</span>.<span class="title function_">addEventListener</span>(<span class="string">&#x27;DOMContentLoaded&#x27;</span>, <span class="keyword">function</span> (<span class="params">event</span>) &#123;</span><br><span class="line">  <span class="variable language_">document</span>.<span class="title function_">write</span>(<span class="string">&#x27;&lt;p&gt;Hello World!&lt;/p&gt;&#x27;</span>);</span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">//页面中的原先内容全部被清除，只剩下 Hello World!</span></span><br></pre></td></tr></table></figure>
+
+<p>document.writeln方法与write方法完全一致，除了会在输出内容的尾部添加换行符。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">document</span>.<span class="title function_">write</span>(<span class="number">1</span>);</span><br><span class="line"><span class="variable language_">document</span>.<span class="title function_">write</span>(<span class="number">2</span>);</span><br><span class="line"><span class="comment">// 12</span></span><br><span class="line"></span><br><span class="line"><span class="variable language_">document</span>.<span class="title function_">writeln</span>(<span class="number">1</span>);</span><br><span class="line"><span class="variable language_">document</span>.<span class="title function_">writeln</span>(<span class="number">2</span>);</span><br><span class="line"><span class="comment">// 1</span></span><br><span class="line"><span class="comment">// 2</span></span><br><span class="line"><span class="comment">//</span></span><br></pre></td></tr></table></figure>
+<p>网页上的换行，必须显式写入<br>。</p>
+<h3 id="3-document-getElementById"><a href="#3-document-getElementById" class="headerlink" title="3.document.getElementById()"></a>3.document.getElementById()</h3><p>document.getElementById()方法返回匹配指定id属性的元素节点。如果没有发现匹配的节点，则返回null。<br><code>document.getElementById(&#39;myDiv&#39;)</code><br>注意，该方法的参数是大小写敏感的。比如，如果某个节点的id属性是main，那么document.getElementById(‘Main’)将返回null。</p>
+<p>另外，这个方法只能在document对象上使用，不能在其他元素节点上使用。</p>
+<h3 id="4-document-getElementsByClassName"><a href="#4-document-getElementsByClassName" class="headerlink" title="4.document.getElementsByClassName()"></a>4.document.getElementsByClassName()</h3><p>document.getElementsByClassName()方法返回一个类似数组的对象（HTMLCollection实例），包括了所有class名字符合指定条件的元素，元素的变化实时反映在返回结果中。<br>参数可以是多个class，它们之间使用空格分隔。<br><code>var elements = document.getElementsByClassName(&#39;foo bar&#39;);//返回同时具有foo和bar两个class的元素，foo和bar的顺序不重要。</code></p>
+<p>注意，正常模式下，CSS 的class是大小写敏感的。<br>getElementsByClassName()方法不仅可以在document对象上调用，也可以在任何元素节点上调用。<br><code>var elements = rootElement.getElementsByClassName(names);</code></p>
+<h3 id="5-document-getElementsByName"><a href="#5-document-getElementsByName" class="headerlink" title="5.document.getElementsByName()"></a>5.document.getElementsByName()</h3><p>document.getElementsByName()方法用于选择拥有name属性的 HTML 元素（比如<form>、<radio>、<img>、<frame>、<embed>和<object>等），返回一个类似数组的的对象（NodeList实例），因为name属性相同的元素可能不止一个。</object></radio></form></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 表单为 &lt;form name=&quot;x&quot;&gt;&lt;/form&gt;</span></span><br><span class="line"><span class="keyword">var</span> forms = <span class="variable language_">document</span>.<span class="title function_">getElementsByName</span>(<span class="string">&#x27;x&#x27;</span>);</span><br><span class="line">forms[<span class="number">0</span>].<span class="property">tagName</span> <span class="comment">// &quot;FORM&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="6-document-querySelector-，document-querySelectorAll"><a href="#6-document-querySelector-，document-querySelectorAll" class="headerlink" title="6.document.querySelector()，document.querySelectorAll()"></a>6.document.querySelector()，document.querySelectorAll()</h3><p>document.querySelector方法接受一个 CSS 选择器作为参数，返回匹配该选择器的元素节点。如果有多个节点满足匹配条件，则返回第一个匹配的节点。如果没有发现匹配的节点，则返回null。<br><code>console.log(document.querySelector(&#39;#p1&#39;));</code></p>
+<p>document.querySelectorAll方法与querySelector用法类似，区别是返回一个NodeList对象，包含所有匹配给定选择器的节点。<br>这两个方法的参数，可以是逗号分隔的多个 CSS 选择器，返回匹配其中一个选择器的元素节点，这与 CSS 选择器的规则是一致的。<br>如果querySelectorAll方法的参数是字符串*，则会返回文档中的所有元素节点。另外，querySelectorAll的返回结果不是动态集合，不会实时反映元素节点的变化。</p>
+<p>document.getElementById()方法与document.querySelector()方法都能获取元素节点，不同之处是document.querySelector()方法的参数使用 CSS 选择器语法，document.getElementById()方法的参数是元素的id属性。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&#x27;myElement&#x27;</span>)</span><br><span class="line"><span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&#x27;#myElement&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<p>这两个方法都支持复杂的 CSS 选择器。但是，它们不支持 CSS 伪元素的选择器（比如:first-line和:first-letter）和伪类的选择器（比如:link和:visited），即无法选中伪元素和伪类。<br>最后，这两个方法除了定义在document对象上，还定义在元素节点上，即在元素节点上也可以调用。</p>
+<h3 id="7-document-getElementsByTagName"><a href="#7-document-getElementsByTagName" class="headerlink" title="7.document.getElementsByTagName()"></a>7.document.getElementsByTagName()</h3><p>document.getElementsByTagName()方法搜索 HTML 标签名，返回符合条件的元素。它的返回值是一个类似数组对象（HTMLCollection实例），可以实时反映 HTML 文档的变化。如果没有任何匹配的元素，就返回一个空集。</p>
+<p><code>var paras = document.getElementsByTagName(&#39;p&#39;);</code><br>HTML 标签名是大小写不敏感的，因此getElementsByTagName()方法的参数也是大小写不敏感的。另外，返回结果中，各个成员的顺序就是它们在文档中出现的顺序。<br>如果传入*，就可以返回文档中所有 HTML 元素。</p>
+<p>注意，元素节点本身也定义了getElementsByTagName方法，返回该元素的后代元素中符合条件的元素。也就是说，这个方法不仅可以在document对象上调用，也可以在任何元素节点上调用。</p>
+<h3 id="8-document-createElement"><a href="#8-document-createElement" class="headerlink" title="8.document.createElement()"></a>8.document.createElement()</h3><p>document.createElement方法用来生成元素节点，并返回该节点。<br>createElement方法的参数为元素的标签名，即元素节点的tagName属性，对于 HTML 网页大小写不敏感，即参数为div或DIV返回的是同一种节点。如果参数里面包含尖括号（即&lt;和&gt;）会报错。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;p id=<span class="string">&quot;p1&quot;</span>&gt;<span class="number">111</span>&lt;/p&gt;</span><br><span class="line"><span class="keyword">var</span> father = <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&quot;p1&quot;</span>)</span><br><span class="line"><span class="keyword">var</span> child = <span class="variable language_">document</span>.<span class="title function_">createElement</span>(<span class="string">&#x27;p&#x27;</span>);</span><br><span class="line">child.<span class="property">innerHTML</span>=<span class="string">&#x27;This is a insert child&#x27;</span>;</span><br><span class="line">father.<span class="title function_">appendChild</span>(child);</span><br><span class="line"><span class="comment">// 在111下一行多了句 This is a insert child</span></span><br></pre></td></tr></table></figure>
+<p>注意，document.createElement的参数可以是自定义的标签名。</p>
+<h3 id="9-document-createAttribute"><a href="#9-document-createAttribute" class="headerlink" title="9.document.createAttribute()"></a>9.document.createAttribute()</h3><p>document.createAttribute方法生成一个新的属性节点（Attr实例），并返回它。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id=<span class="string">&quot;myDiv&quot;</span>&gt;学习事件监听&lt;/div&gt;</span><br><span class="line"><span class="keyword">var</span> node = <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&quot;myDiv&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> a = <span class="variable language_">document</span>.<span class="title function_">createAttribute</span>(<span class="string">&quot;my_attr&quot;</span>);</span><br><span class="line">a.<span class="property">value</span> = <span class="string">&quot;newVal&quot;</span>;</span><br><span class="line">node.<span class="title function_">setAttributeNode</span>(a);</span><br><span class="line"><span class="comment">// 或者</span></span><br><span class="line">node.<span class="title function_">setAttribute</span>(<span class="string">&#x27;my_attr&#x27;</span>, <span class="string">&#x27;newVal&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//&lt;div id=&quot;myDiv&quot; my_attr=&quot;newVal&quot;&gt;学习事件监听&lt;/div&gt;</span></span><br></pre></td></tr></table></figure>
+<p>上面代码为div元素添加了一个my_attr属性，属性值是newVal。</p>
+
+            </div>
+
+            
+                <div class="post-copyright-info">
+                    
+<div class="article-copyright-info-container">
+    <ul class="copyright-info-content">
+        <li class="post-title">
+            <span class="type">本文标题</span>：<span class="content">Document 节点</span>
+        </li>
+        <li class="post-author">
+            <span class="type">本文作者</span>：<span class="content">immortal</span>
+        </li>
+        <li class="post-time">
+            <span class="type">创建时间</span>：<span class="content">2023-10-13 17:08:06</span>
+        </li>
+        <li class="post-link">
+            <span class="type">本文链接</span>：<span class="content">posts/37440.html</span>
+        </li>
+        <li class="post-license">
+            <span class="type">版权声明</span>：<span class="content">本博客所有文章除特别声明外，均采用 <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> 许可协议。转载请注明出处！</span>
+        </li>
+    </ul>
+    <div class="copy-copyright-info flex-center tooltip" data-content="复制版权信息" data-offset-y="-2px">
+        <i class="fa-solid fa-copy"></i>
+    </div>
+</div>
+
+                </div>
+            
+
+            
+
+            
+                <div class="article-nav">
+                    
+                    
+                        <div class="article-next">
+                            <a class="next"
+                               rel="next"
+                               href="/posts/48122.html"
+                            >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item text-ellipsis">Element 节点</span>
+                                <span class="post-nav-item">下一篇</span>
+                            </span>
+                                <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                            </a>
+                        </div>
+                    
+                </div>
+            
+
+            
+                
+
+
+
+
+
+
+            
+        </div>
+
+        
+            <div class="pc-post-toc right-toc">
+                <div class="post-toc-wrap">
+    <div class="post-toc">
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-%E5%B1%9E%E6%80%A7"><span class="nav-text">1.属性</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E5%BF%AB%E6%8D%B7%E6%96%B9%E5%BC%8F%E5%B1%9E%E6%80%A7"><span class="nav-text">1.快捷方式属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E6%96%87%E6%A1%A3%E9%9D%99%E6%80%81%E4%BF%A1%E6%81%AF%E5%B1%9E%E6%80%A7"><span class="nav-text">2.文档静态信息属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E6%96%87%E6%A1%A3%E7%8A%B6%E6%80%81%E5%B1%9E%E6%80%A7"><span class="nav-text">3.文档状态属性</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-%E6%96%B9%E6%B3%95"><span class="nav-text">2.方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-document-open-%EF%BC%8Cdocument-close"><span class="nav-text">1.document.open()，document.close()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-document-write-%EF%BC%8Cdocument-writeln"><span class="nav-text">2.document.write()，document.writeln()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-document-getElementById"><span class="nav-text">3.document.getElementById()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-document-getElementsByClassName"><span class="nav-text">4.document.getElementsByClassName()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-document-getElementsByName"><span class="nav-text">5.document.getElementsByName()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-document-querySelector-%EF%BC%8Cdocument-querySelectorAll"><span class="nav-text">6.document.querySelector()，document.querySelectorAll()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-document-getElementsByTagName"><span class="nav-text">7.document.getElementsByTagName()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-document-createElement"><span class="nav-text">8.document.createElement()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-document-createAttribute"><span class="nav-text">9.document.createAttribute()</span></a></li></ol></li></ol></li></ol>
+    </div>
+</div>
+
+            </div>
+        
+    </div>
+</div>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom border-box">
+            
+<footer class="footer border-box">
+    <div class="border-box website-info-box default">
+        
+            <div class="copyright-info info-item default">
+                &copy;&nbsp;<span>2023</span>&nbsp;-&nbsp;2023
+                
+                    &nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;&nbsp;<a href="/">immortal</a>
+                
+            </div>
+
+            <div class="theme-info info-item default">
+                由&nbsp;<a target="_blank" href="https://hexo.io">Hexo</a>&nbsp;驱动&nbsp;&&nbsp;主题&nbsp;<a class="keep-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep</a>
+            </div>
+
+            
+
+            
+        
+
+        <div class="count-item info-item default">
+            
+
+            
+                <span class="count-box border-box uv">
+                    <span class="item-type border-box">访问人数</span>
+                    <span class="item-value border-box uv" id="busuanzi_value_site_uv"></span>
+                </span>
+            
+
+            
+                <span class="count-box border-box pv">
+                    <span class="item-type border-box">总访问量</span>
+                    <span class="item-value border-box pv" id="busuanzi_value_site_pv"></span>
+                </span>
+            
+        </div>
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+    <!-- post tools -->
+    
+        <div class="post-tools right-toc">
+            <div class="post-tools-container border-box">
+    <ul class="tools-list border-box">
+        <!-- PC TOC show toggle -->
+        
+            <li class="tools-item flex-center toggle-show-toc">
+                <i class="fas fa-list"></i>
+            </li>
+        
+
+        <!-- PC go comment -->
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <!-- side tools -->
+    <div class="side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        
+            <li class="tools-item toggle-show-toc-tablet flex-center">
+                <i class="fas fa-list"></i>
+            </li>
+        
+
+        
+
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="arrow-up fas fa-arrow-up"></i>
+                <span class="percent"></span>
+            </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    <!-- image mask -->
+    <div class="zoom-in-image-mask">
+    <img class="zoom-in-image">
+</div>
+
+
+    <!-- local search -->
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="搜索..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="close-popup-btn">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+    <!-- tablet toc -->
+    
+        <div class="tablet-post-toc-mask">
+            <div class="tablet-post-toc">
+                <div class="post-toc-wrap">
+    <div class="post-toc">
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-%E5%B1%9E%E6%80%A7"><span class="nav-text">1.属性</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E5%BF%AB%E6%8D%B7%E6%96%B9%E5%BC%8F%E5%B1%9E%E6%80%A7"><span class="nav-text">1.快捷方式属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E6%96%87%E6%A1%A3%E9%9D%99%E6%80%81%E4%BF%A1%E6%81%AF%E5%B1%9E%E6%80%A7"><span class="nav-text">2.文档静态信息属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E6%96%87%E6%A1%A3%E7%8A%B6%E6%80%81%E5%B1%9E%E6%80%A7"><span class="nav-text">3.文档状态属性</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-%E6%96%B9%E6%B3%95"><span class="nav-text">2.方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-document-open-%EF%BC%8Cdocument-close"><span class="nav-text">1.document.open()，document.close()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-document-write-%EF%BC%8Cdocument-writeln"><span class="nav-text">2.document.write()，document.writeln()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-document-getElementById"><span class="nav-text">3.document.getElementById()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-document-getElementsByClassName"><span class="nav-text">4.document.getElementsByClassName()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-document-getElementsByName"><span class="nav-text">5.document.getElementsByName()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-document-querySelector-%EF%BC%8Cdocument-querySelectorAll"><span class="nav-text">6.document.querySelector()，document.querySelectorAll()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-document-getElementsByTagName"><span class="nav-text">7.document.getElementsByTagName()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-document-createElement"><span class="nav-text">8.document.createElement()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-document-createAttribute"><span class="nav-text">9.document.createAttribute()</span></a></li></ol></li></ol></li></ol>
+    </div>
+</div>
+
+            </div>
+        </div>
+    
+</main>
+
+
+
+<script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.4/source/js/utils.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.4/source/js/main.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.4/source/js/header-shrink.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.4/source/js/back2top.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.4/source/js/dark-light-toggle.js"></script>
+
+
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.4/source/js/local-search.js"></script>
+
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.4/source/js/code-block.js"></script>
+
+
+
+
+<div class="post-scripts pjax">
+    
+        <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.4/source/js/post-helper.js"></script>
+        
+            <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.4/source/js/libs/anime.min.js"></script>
+        
+        
+            <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.4/source/js/toc.js"></script>
+        
+    
+    
+    
+</div>
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.4/source/js/libs/pjax.min.js"></script>
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        window.pjax = new Pjax({
+            selectors: [
+                'head title',
+                '.page-container',
+                '.pjax'
+            ],
+            history: true,
+            debug: false,
+            cacheBust: false,
+            timeout: 0,
+            analytics: false,
+            currentUrlFullReload: false,
+            scrollRestoration: false,
+            // scrollTo: true,
+        });
+
+        document.addEventListener('pjax:send', () => {
+            KEEP.utils.pjaxProgressBarStart();
+        });
+
+        document.addEventListener('pjax:complete', () => {
+            KEEP.utils.pjaxProgressBarEnd();
+            window.pjax.executeScripts(document.querySelectorAll('script[data-pjax], .pjax script'));
+            KEEP.refresh();
+        });
+    });
+</script>
+
+
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/hijiki.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":true},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/"});</script></body>
+</html>

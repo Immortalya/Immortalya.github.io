@@ -9,7 +9,7 @@
     
     <title>
         
-            定时器 |
+            分类: JavaScript |
         
         唔、
     </title>
@@ -92,7 +92,7 @@
                         </li>
                     
                         <li class="menu-item">
-                            <a class=""
+                            <a class="active"
                                href="/categories"
                             >
                                 分类
@@ -155,7 +155,7 @@
                 </li>
             
                 <li class="drawer-menu-item flex-center">
-                    <a class=""
+                    <a class="active"
                        href="/categories">分类</a>
                 </li>
             
@@ -191,204 +191,63 @@
                 
 
                     <div class="fade-in-down-animation">
-    <div class="post-page-container border-box">
-
-        <div class="article-content-container border-box">
-
-            <div class="article-title">
-                <span class="title-hover-animation">定时器</span>
-            </div>
-
+    <div class="category-container">
+        <div class="category-name">
+            <i class="fas fa-folder"></i>&nbsp;JavaScript
+        </div>
+        <div class="category-post-list">
             
-                <div class="article-header border-box">
-                    
-                        <div class="avatar-box border-box">
-                            <img src="/images/avatar.jpg">
-                        </div>
-                    
-                    <div class="info-box">
-                        <div class="author">
-                            <span class="name">immortal</span>
-                            
-                                <span class="author-label">Lv5</span>
-                            
-                        </div>
-                        <div class="meta-info border-box">
-                            
-
-<div class="article-meta-info-container border-box post">
-    <div class="article-meta-info border-box">
-        
-
-
-        
-            <span class="meta-info-item article-create-date">
-                <i class="icon fa-solid fa-calendar-check"></i>&nbsp;
-                <span class="pc">2023-03-02 17:27:06</span>
-                <span class="mobile">2023-03-02 17:27</span>
-            </span>
-
-            <span class="meta-info-item article-update-date">
-                <i class="icon fa-solid fa-file-pen"></i>&nbsp;
-                <span class="pc">2023-05-07 14:46:15</span>
-            </span>
-        
-
-        
-            <span class="meta-info-item article-category border-box"><i class="icon fas fa-folder"></i>&nbsp;
-                <ul>
-                    
-                </ul>
-            </span>
-        
-
-        
-            <span class="article-tag meta-info-item border-box">
-                <i class="icon fas fa-tags"></i>&nbsp;
-                <ul>
-                    
-                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/JavaScript/">JavaScript</a></li>
-                        
-                    
-                </ul>
-            </span>
-        
-
-        
-        
-            <span class="meta-info-item article-wordcount">
-                <i class="icon fas fa-file-word"></i>&nbsp;<span>195 字</span>
-            </span>
-        
-        
-            <span class="meta-info-item article-min2read">
-                <i class="icon fas fa-clock"></i>&nbsp;<span>1 分钟</span>
-            </span>
-        
-        
-            <span class="meta-info-item article-pv">
-                <i class="icon fas fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
-            </span>
-        
-    </div>
-
+<div class="archive-list-container border-box">
+    
+        <section class="archive-item border-box">
+            <div class="archive-item-header border-box">
+                <span class="archive-year">2023</span>
+            </div>
+            <ul class="article-list border-box">
+                
+                    <li class="article-item border-box">
+                        <a class="article-title border-box text-ellipsis"
+                           href="/posts/62336.html"
+                        >Js数组方法</a>
+                        <span class="article-date border-box">02-28</span>
+                    </li>
+                
+            </ul>
+        </section>
     
 </div>
 
-                        </div>
-                    </div>
-                </div>
-            
-
-            <div class="article-content keep-markdown-body">
-                
-
-                <h2 id="1-setTimeout"><a href="#1-setTimeout" class="headerlink" title="1.setTimeout()"></a>1.setTimeout()</h2><p>setTimeout方法用于设置一个定时器，该定时器在定时器到设定时间后执行调用函数。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">this</span>.<span class="property">timer</span> = <span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">        <span class="variable language_">this</span>.<span class="title function_">sendPageType</span>()</span><br><span class="line">      &#125;, <span class="number">10</span>*<span class="number">60</span>*<span class="number">1000</span>);</span><br><span class="line"></span><br><span class="line">清除定时器</span><br><span class="line"><span class="built_in">clearTimeout</span>(<span class="variable language_">this</span>.<span class="property">timer</span>);</span><br></pre></td></tr></table></figure>
-<h2 id="2-setInterval"><a href="#2-setInterval" class="headerlink" title="2.setInterval()"></a>2.setInterval()</h2><p>setInterval()方法重复调用一个函数，每隔这个时间，就去调用一次回调函数。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">  <span class="variable language_">this</span>.<span class="property">timer</span> = <span class="built_in">setInterval</span>(<span class="function">()=&gt;</span>&#123;</span><br><span class="line"><span class="variable language_">this</span>.<span class="title function_">sendPageType</span>()</span><br><span class="line">  &#125;,<span class="number">200</span>)</span><br><span class="line">  </span><br><span class="line">  清除定时器</span><br><span class="line">  <span class="built_in">clearInterval</span>(<span class="variable language_">this</span>.<span class="property">timer</span>)</span><br></pre></td></tr></table></figure>
-<p>注意：<br>1.window 可以省略。<br>2.这个调用函数可以直接写函数，或者写函数名或者采取“字符串（）”的三种形式。第三种不推荐<br>3.延迟的毫秒数省略默认是0，如果写，必须是毫秒。<br>4.因为定时器可能有很多，所以我们经常给定时器赋值一个标识符。</p>
-
-            </div>
-
-            
-                <div class="post-copyright-info">
-                    
-<div class="article-copyright-info-container">
-    <ul class="copyright-info-content">
-        <li class="post-title">
-            <span class="type">本文标题</span>：<span class="content">定时器</span>
-        </li>
-        <li class="post-author">
-            <span class="type">本文作者</span>：<span class="content">immortal</span>
-        </li>
-        <li class="post-time">
-            <span class="type">创建时间</span>：<span class="content">2023-03-02 17:27:06</span>
-        </li>
-        <li class="post-link">
-            <span class="type">本文链接</span>：<span class="content">posts/58232.html</span>
-        </li>
-        <li class="post-license">
-            <span class="type">版权声明</span>：<span class="content">本博客所有文章除特别声明外，均采用 <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> 许可协议。转载请注明出处！</span>
-        </li>
-    </ul>
-    <div class="copy-copyright-info flex-center tooltip" data-content="复制版权信息" data-offset-y="-2px">
-        <i class="fa-solid fa-copy"></i>
+        </div>
     </div>
-</div>
-
-                </div>
-            
-
-            
-                <ul class="post-tags-box">
-                    
-                        <li class="tag-item">
-                            <a href="/tags/JavaScript/"><i class="icon fas fa-hashtag"></i>JavaScript</a>&nbsp;
-                        </li>
-                    
-                </ul>
-            
-
-            
-                <div class="article-nav">
-                    
-                        <div class="article-prev">
-                            <a class="prev"
-                               rel="prev"
-                               href="/posts/61607.html"
-                            >
-                            <span class="left arrow-icon flex-center">
-                              <i class="fas fa-chevron-left"></i>
-                            </span>
-                                <span class="title flex-center">
-                                <span class="post-nav-title-item text-ellipsis">若依普通数组转数型结构</span>
-                                <span class="post-nav-item">上一篇</span>
-                            </span>
-                            </a>
-                        </div>
-                    
-                    
-                        <div class="article-next">
-                            <a class="next"
-                               rel="next"
-                               href="/posts/60589.html"
-                            >
-                            <span class="title flex-center">
-                                <span class="post-nav-title-item text-ellipsis">flex布局</span>
-                                <span class="post-nav-item">下一篇</span>
-                            </span>
-                                <span class="right arrow-icon flex-center">
-                              <i class="fas fa-chevron-right"></i>
-                            </span>
-                            </a>
-                        </div>
-                    
-                </div>
-            
-
-            
-                
-
-
-
-
-
-
-            
+    
+    <div class="paginator border-box flex-center">
+        <div class="btn-wrap allowed">
+            <a class="jump-btn"
+               href="/categories/JavaScript/page/2/"
+            ><i class="fa-solid fa-chevron-left"></i></a>
         </div>
 
-        
-            <div class="pc-post-toc right-toc">
-                <div class="post-toc-wrap">
-    <div class="post-toc">
-        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-setTimeout"><span class="nav-text">1.setTimeout()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-setInterval"><span class="nav-text">2.setInterval()</span></a></li></ol>
-    </div>
-</div>
 
-            </div>
-        
+        <div class="page-number-box border-box flex-center">
+            <input class="page-number-input border-box base-color-size"
+                   type="number"
+                   value="3"
+                   min="1"
+                   max="3"
+            ><span class="delimiter base-color-size">/</span><span class="base-color-size">3</span>
+        </div>
+
+
+        <div class="btn-wrap">
+            <a class="jump-btn"
+               href="/"
+            ><i class="fa-solid fa-chevron-right"></i></a>
+        </div>
     </div>
+
+
+
+
 </div>
 
 
@@ -443,23 +302,6 @@
 
     <!-- post tools -->
     
-        <div class="post-tools right-toc">
-            <div class="post-tools-container border-box">
-    <ul class="tools-list border-box">
-        <!-- PC TOC show toggle -->
-        
-            <li class="tools-item flex-center toggle-show-toc">
-                <i class="fas fa-list"></i>
-            </li>
-        
-
-        <!-- PC go comment -->
-        
-    </ul>
-</div>
-
-        </div>
-    
 
     <!-- side tools -->
     <div class="side-tools">
@@ -488,10 +330,6 @@
     </ul>
 
     <ul class="exposed-tools-list">
-        
-            <li class="tools-item toggle-show-toc-tablet flex-center">
-                <i class="fas fa-list"></i>
-            </li>
         
 
         
@@ -551,17 +389,6 @@
 
     <!-- tablet toc -->
     
-        <div class="tablet-post-toc-mask">
-            <div class="tablet-post-toc">
-                <div class="post-toc-wrap">
-    <div class="post-toc">
-        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-setTimeout"><span class="nav-text">1.setTimeout()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-setInterval"><span class="nav-text">2.setInterval()</span></a></li></ol>
-    </div>
-</div>
-
-            </div>
-        </div>
-    
 </main>
 
 
@@ -581,14 +408,6 @@
 
 
 <div class="post-scripts pjax">
-    
-        <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.4/source/js/post-helper.js"></script>
-        
-            <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.4/source/js/libs/anime.min.js"></script>
-        
-        
-            <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.4/source/js/toc.js"></script>
-        
     
     
     
