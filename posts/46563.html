@@ -230,7 +230,7 @@
 
             <span class="meta-info-item article-update-date">
                 <i class="icon fa-solid fa-file-pen"></i>&nbsp;
-                <span class="pc">2023-10-12 22:33:19</span>
+                <span class="pc">2023-10-15 21:43:32</span>
             </span>
         
 
@@ -257,12 +257,12 @@
         
         
             <span class="meta-info-item article-wordcount">
-                <i class="icon fas fa-file-word"></i>&nbsp;<span>2.9k 字</span>
+                <i class="icon fas fa-file-word"></i>&nbsp;<span>4.5k 字</span>
             </span>
         
         
             <span class="meta-info-item article-min2read">
-                <i class="icon fas fa-clock"></i>&nbsp;<span>11 分钟</span>
+                <i class="icon fas fa-clock"></i>&nbsp;<span>18 分钟</span>
             </span>
         
         
@@ -283,21 +283,82 @@
             <div class="article-content keep-markdown-body">
                 
 
-                <p><a class="link" target="_blank" rel="noopener" href="https://regex101.com/r/T590yZ/1">https://regex101.com/r/T590yZ/1<i class="fas fa-external-link-alt"></i></a><br><a class="link" target="_blank" rel="noopener" href="https://codejiaonang.com/#/course/regex_chapter1/0/2">https://codejiaonang.com/#/course/regex_chapter1/0/2<i class="fas fa-external-link-alt"></i></a><br><a class="link" target="_blank" rel="noopener" href="https://codejiaonang.com/#/course/regex_chapter2">https://codejiaonang.com/#/course/regex_chapter2<i class="fas fa-external-link-alt"></i></a><br><a class="link" target="_blank" rel="noopener" href="https://github.com/ziishaned/learn-regex/tree/master/translations">https://github.com/ziishaned/learn-regex/tree/master/translations<i class="fas fa-external-link-alt"></i></a></p>
-<h1 id="RegExp-对象"><a href="#RegExp-对象" class="headerlink" title="RegExp 对象"></a>RegExp 对象</h1><h1 id="1-基本匹配"><a href="#1-基本匹配" class="headerlink" title="1.基本匹配"></a>1.基本匹配</h1><p>正则表达式是一组由字母和符号组成的特殊文本, 它可以用来从文本中找出满足你想要的格式的句子.</p>
-<p>我们常使用缩写的术语“regex”或“regexp”。 正则表达式可以从一个基础字符串中根据一定的匹配模式替换文本中的字符串、验证表单、提取字符串等等</p>
-<p>正则表达式其实就是在执行搜索时的格式, 它由一些字母和数字组合而成.<br>例如: 一个正则表达式 <code>the</code>, 它表示一个规则: 由字母<code>t</code>开始,接着是<code>h</code>,再接着是<code>e</code>.</p>
-<pre>
-"the" => The fat cat sat on <a href="#learn-regex"><strong>the</strong></a> mat. 
-</pre>
+                <p><a class="link" target="_blank" rel="noopener" href="https://regex101.com/r/T590yZ/1">https://regex101.com/r/T590yZ/1<i class="fas fa-external-link-alt"></i></a></p>
+<h1 id="1-RegExp-对象"><a href="#1-RegExp-对象" class="headerlink" title="1.RegExp 对象"></a>1.RegExp 对象</h1><p>新建正则表达式有两种方法。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 一种是使用字面量，以斜杠表示开始和结束。</span></span><br><span class="line"><span class="keyword">var</span> regex = <span class="regexp">/xyz/</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 等同于</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 一种是使用RegExp构造函数。</span></span><br><span class="line"><span class="keyword">var</span> regex = <span class="keyword">new</span> <span class="title class_">RegExp</span>(<span class="string">&#x27;xyz&#x27;</span>);</span><br></pre></td></tr></table></figure>
+<p>实际应用中，基本上都采用字面量定义正则表达式。</p>
+<p>RegExp构造函数还可以接受第二个参数，表示修饰符。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> regex = <span class="keyword">new</span> <span class="title class_">RegExp</span>(<span class="string">&#x27;xyz&#x27;</span>, <span class="string">&#x27;i&#x27;</span>);</span><br><span class="line"><span class="comment">// 等价于</span></span><br><span class="line"><span class="keyword">var</span> regex = <span class="regexp">/xyz/i</span>;</span><br></pre></td></tr></table></figure>
 
-<p>正则表达式<code>123</code>匹配字符串<code>123</code>. 它逐个字符的与输入的正则表达式做比较.</p>
-<p>正则表达式是大小写敏感的, 所以<code>The</code>不会匹配<code>the</code>.</p>
-<pre>
-"The" => <a href="#learn-regex"><strong>The</strong></a> fat cat sat on the mat.
-</pre>
+<h3 id="1-实例属性"><a href="#1-实例属性" class="headerlink" title="1.实例属性"></a>1.实例属性</h3><p>正则对象的实例属性分成两类。</p>
+<p>一类是修饰符相关，用于了解设置了什么修饰符。</p>
+<ul>
+<li>RegExp.prototype.ignoreCase：返回一个布尔值，表示是否设置了i修饰符。</li>
+<li>RegExp.prototype.global：返回一个布尔值，表示是否设置了g修饰符。</li>
+<li>RegExp.prototype.multiline：返回一个布尔值，表示是否设置了m修饰符。</li>
+<li>RegExp.prototype.flags：返回一个字符串，包含了已经设置的所有修饰符，按字母排序。<br>上面四个属性都是只读的。</li>
+</ul>
+<p>另一类是修饰符无关的，用于了解正则表达式的运行状态。</p>
+<ul>
+<li>RegExp.prototype.lastIndex：返回一个整数，表示下一次开始搜索的位置。该属性可读写，但是只在进行连续搜索时有意义。</li>
+<li>RegExp.prototype.source：返回正则表达式的字符串形式（不包括反斜杠），该属性只读。</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> r = <span class="regexp">/abc/igm</span>;</span><br><span class="line"></span><br><span class="line">r.<span class="property">ignoreCase</span> <span class="comment">// true</span></span><br><span class="line">r.<span class="property">global</span> <span class="comment">// true</span></span><br><span class="line">r.<span class="property">multiline</span> <span class="comment">// true</span></span><br><span class="line">r.<span class="property">flags</span> <span class="comment">// &#x27;gim&#x27;</span></span><br><span class="line"></span><br><span class="line">r.<span class="property">lastIndex</span> <span class="comment">// 0</span></span><br><span class="line">r.<span class="property">source</span> <span class="comment">// &quot;abc&quot;</span></span><br></pre></td></tr></table></figure>
 
-<h1 id="2-元字符"><a href="#2-元字符" class="headerlink" title="2. 元字符"></a>2. 元字符</h1><p>正则表达式主要依赖于元字符.  </p>
+<h3 id="2-实例方法"><a href="#2-实例方法" class="headerlink" title="2.实例方法"></a>2.实例方法</h3><h5 id="1-RegExp-prototype-test"><a href="#1-RegExp-prototype-test" class="headerlink" title="1.RegExp.prototype.test()"></a>1.RegExp.prototype.test()</h5><p>正则实例对象的test方法返回一个布尔值，表示当前模式是否能匹配参数字符串。<br><code>/cat/.test(&#39;cats and dogs&#39;) // true</code><br>上面代码验证参数字符串之中是否包含cat，结果返回true。</p>
+<p>如果正则表达式带有g修饰符，则每一次test方法都从上一次结束的位置开始向后匹配。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> r = <span class="regexp">/x/g</span>;</span><br><span class="line"><span class="keyword">var</span> s = <span class="string">&#x27;_x_x&#x27;</span>;</span><br><span class="line"></span><br><span class="line">r.<span class="property">lastIndex</span> <span class="comment">// 0</span></span><br><span class="line">r.<span class="title function_">test</span>(s) <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line">r.<span class="property">lastIndex</span> <span class="comment">// 2</span></span><br><span class="line">r.<span class="title function_">test</span>(s) <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line">r.<span class="property">lastIndex</span> <span class="comment">// 4</span></span><br><span class="line">r.<span class="title function_">test</span>(s) <span class="comment">// false</span></span><br><span class="line"></span><br><span class="line">r.<span class="property">lastIndex</span> <span class="comment">// 0</span></span><br><span class="line">r.<span class="title function_">test</span>(s) <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+<p>上面代码的正则表达式使用了g修饰符，表示是全局搜索，会有多个结果。第三次从字符串的第五个位置开始搜索，这个位置为空，所以返回false。同时，lastIndex属性重置为0，所以第四次执行r.test(s)会返回true。</p>
+<p>如果正则模式是一个空字符串，则匹配所有字符串。<br><code>new RegExp(&#39;&#39;).test(&#39;abc&#39;) // true</code></p>
+<h5 id="2-RegExp-prototype-exec"><a href="#2-RegExp-prototype-exec" class="headerlink" title="2.RegExp.prototype.exec()"></a>2.RegExp.prototype.exec()</h5><p>正则实例对象的exec()方法，用来返回匹配结果。如果发现匹配，就返回一个数组，成员是匹配成功的子字符串，否则返回null。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> s = <span class="string">&#x27;_x_x&#x27;</span>;</span><br><span class="line"><span class="keyword">var</span> r1 = <span class="regexp">/x/</span>;</span><br><span class="line"><span class="keyword">var</span> r2 = <span class="regexp">/y/</span>;</span><br><span class="line"></span><br><span class="line">r1.<span class="title function_">exec</span>(s) <span class="comment">// [&quot;x&quot;]</span></span><br><span class="line">r2.<span class="title function_">exec</span>(s) <span class="comment">// null</span></span><br></pre></td></tr></table></figure>
+<p>上面代码中，正则对象r1匹配成功，返回一个数组，成员是匹配结果；正则对象r2匹配失败，返回null。</p>
+<p>如果正则表示式包含圆括号（即含有“组匹配”），则返回的数组会包括多个成员。第一个成员是整个匹配成功的结果，后面的成员就是圆括号对应的匹配成功的组。也就是说，第二个成员对应第一个括号，第三个成员对应第二个括号，以此类推。整个数组的length属性等于组匹配的数量再加1。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> s = <span class="string">&#x27;_x_x&#x27;</span>;</span><br><span class="line"><span class="keyword">var</span> r = <span class="regexp">/_(x)/</span>;</span><br><span class="line"></span><br><span class="line">r.<span class="title function_">exec</span>(s) <span class="comment">// [&quot;_x&quot;, &quot;x&quot;]</span></span><br></pre></td></tr></table></figure>
+<p>上面代码的exec()方法，返回一个数组。第一个成员是整个匹配的结果，第二个成员是圆括号匹配的结果。</p>
+<p>exec()方法的返回数组还包含以下两个属性：</p>
+<ul>
+<li>input：整个原字符串。</li>
+<li>index：模式匹配成功的开始位置（从0开始计数）。</li>
+</ul>
+<p>如果正则表达式加上g修饰符，则可以使用多次exec()方法，下一次搜索的位置从上一次匹配成功结束的位置开始。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> reg = <span class="regexp">/a/g</span>;</span><br><span class="line"><span class="keyword">var</span> str = <span class="string">&#x27;abc_abc_abc&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> r1 = reg.<span class="title function_">exec</span>(str);</span><br><span class="line">r1 <span class="comment">// [&quot;a&quot;]</span></span><br><span class="line">r1.<span class="property">index</span> <span class="comment">// 0</span></span><br><span class="line">reg.<span class="property">lastIndex</span> <span class="comment">// 1</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> r2 = reg.<span class="title function_">exec</span>(str);</span><br><span class="line">r2 <span class="comment">// [&quot;a&quot;]</span></span><br><span class="line">r2.<span class="property">index</span> <span class="comment">// 4</span></span><br><span class="line">reg.<span class="property">lastIndex</span> <span class="comment">// 5</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> r3 = reg.<span class="title function_">exec</span>(str);</span><br><span class="line">r3 <span class="comment">// [&quot;a&quot;]</span></span><br><span class="line">r3.<span class="property">index</span> <span class="comment">// 8</span></span><br><span class="line">reg.<span class="property">lastIndex</span> <span class="comment">// 9</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> r4 = reg.<span class="title function_">exec</span>(str);</span><br><span class="line">r4 <span class="comment">// null</span></span><br><span class="line">reg.<span class="property">lastIndex</span> <span class="comment">// 0</span></span><br></pre></td></tr></table></figure>
+<p>上面代码连续用了四次exec()方法，前三次都是从上一次匹配结束的位置向后匹配。当第三次匹配结束以后，整个字符串已经到达尾部，匹配结果返回null，正则实例对象的lastIndex属性也重置为0，意味着第四次匹配将从头开始。</p>
+<p>利用g修饰符允许多次匹配的特点，可以用一个循环完成全部匹配。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> reg = <span class="regexp">/a/g</span>;</span><br><span class="line"><span class="keyword">var</span> str = <span class="string">&#x27;abc_abc_abc&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span>(<span class="literal">true</span>) &#123;</span><br><span class="line">  <span class="keyword">var</span> match = reg.<span class="title function_">exec</span>(str);</span><br><span class="line">  <span class="keyword">if</span> (!match) <span class="keyword">break</span>;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;#&#x27;</span> + match.<span class="property">index</span> + <span class="string">&#x27;:&#x27;</span> + match[<span class="number">0</span>]);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// #0:a</span></span><br><span class="line"><span class="comment">// #4:a</span></span><br><span class="line"><span class="comment">// #8:a</span></span><br></pre></td></tr></table></figure>
+<p>上面代码中，只要exec()方法不返回null，就会一直循环下去，每次输出匹配的位置和匹配的文本。</p>
+<p>正则实例对象的lastIndex属性不仅可读，还可写。设置了g修饰符的时候，只要手动设置了lastIndex的值，就会从指定位置开始匹配。</p>
+<h3 id="3-字符串的实例方法"><a href="#3-字符串的实例方法" class="headerlink" title="3.字符串的实例方法"></a>3.字符串的实例方法</h3><p>字符串的实例方法之中，有4种与正则表达式有关。</p>
+<ul>
+<li>String.prototype.match()：返回一个数组，成员是所有匹配的子字符串。</li>
+<li>String.prototype.search()：按照给定的正则表达式进行搜索，返回一个整数，表示匹配开始的位置。</li>
+<li>String.prototype.replace()：按照给定的正则表达式进行替换，返回替换后的字符串。</li>
+<li>String.prototype.split()：按照给定规则进行字符串分割，返回一个数组，包含分割后的各个成员。</li>
+</ul>
+<h5 id="1-String-prototype-match"><a href="#1-String-prototype-match" class="headerlink" title="1.String.prototype.match()"></a>1.String.prototype.match()</h5><p>字符串实例对象的match方法对字符串进行正则匹配，返回匹配结果。<br>字符串的match方法与正则对象的exec方法非常类似：匹配成功返回一个数组，匹配失败返回null。<br>如果正则表达式带有g修饰符，则该方法与正则对象的exec方法行为不同，会一次性返回所有匹配成功的结果。<br>设置正则表达式的lastIndex属性，对match方法无效，匹配总是从字符串的第一个字符开始。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> s = <span class="string">&#x27;_x_x&#x27;</span>;</span><br><span class="line"><span class="keyword">var</span> r1 = <span class="regexp">/x/</span>;</span><br><span class="line"><span class="keyword">var</span> r2 = <span class="regexp">/y/</span>;</span><br><span class="line">s.<span class="title function_">match</span>(r1) <span class="comment">// [&quot;x&quot;]</span></span><br><span class="line">s.<span class="title function_">match</span>(r2) <span class="comment">// null</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> s = <span class="string">&#x27;abba&#x27;</span>;</span><br><span class="line"><span class="keyword">var</span> r = <span class="regexp">/a/g</span>;</span><br><span class="line">s.<span class="title function_">match</span>(r) <span class="comment">// [&quot;a&quot;, &quot;a&quot;]</span></span><br><span class="line">r.<span class="title function_">exec</span>(s) <span class="comment">// [&quot;a&quot;]</span></span><br></pre></td></tr></table></figure>
+
+<h5 id="2-String-prototype-search"><a href="#2-String-prototype-search" class="headerlink" title="2.String.prototype.search()"></a>2.String.prototype.search()</h5><p>字符串对象的search方法，返回第一个满足条件的匹配结果在整个字符串中的位置。如果没有任何匹配，则返回-1。<br><code>&#39;_x_x&#39;.search(/x/) // 1</code></p>
+<h5 id="3-String-prototype-replace"><a href="#3-String-prototype-replace" class="headerlink" title="3.String.prototype.replace()"></a>3.String.prototype.replace()</h5><p>字符串对象的replace方法可以替换匹配的值。它接受两个参数，第一个是正则表达式，表示搜索模式，第二个是替换的内容。<br><code>str.replace(search, replacement)</code></p>
+<p>正则表达式如果不加g修饰符，就替换第一个匹配成功的值，否则替换所有匹配成功的值。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&#x27;aaa&#x27;</span>.<span class="title function_">replace</span>(<span class="string">&#x27;a&#x27;</span>, <span class="string">&#x27;b&#x27;</span>) <span class="comment">// &quot;baa&quot;</span></span><br><span class="line"><span class="string">&#x27;aaa&#x27;</span>.<span class="title function_">replace</span>(<span class="regexp">/a/</span>, <span class="string">&#x27;b&#x27;</span>) <span class="comment">// &quot;baa&quot;</span></span><br><span class="line"><span class="string">&#x27;aaa&#x27;</span>.<span class="title function_">replace</span>(<span class="regexp">/a/g</span>, <span class="string">&#x27;b&#x27;</span>) <span class="comment">// &quot;bbb&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>replace方法的第二个参数可以使用美元符号$，用来指代所替换的内容。</p>
+<ul>
+<li>$&amp;：匹配的子字符串。</li>
+<li>$&#96;：匹配结果前面的文本。</li>
+<li>$’：匹配结果后面的文本。</li>
+<li>$n：匹配成功的第n组内容，n是从1开始的自然数。</li>
+<li>$$：指代美元符号$。<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 将匹配的组互换位置</span></span><br><span class="line"><span class="string">&#x27;hello world&#x27;</span>.<span class="title function_">replace</span>(<span class="regexp">/(\w+)\s(\w+)/</span>, <span class="string">&#x27;$2 $1&#x27;</span>)</span><br><span class="line"><span class="comment">// &quot;world hello&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 改写匹配的值</span></span><br><span class="line"><span class="string">&#x27;abc&#x27;</span>.<span class="title function_">replace</span>(<span class="string">&#x27;b&#x27;</span>, <span class="string">&#x27;[$`-$&amp;-$\&#x27;]&#x27;</span>)</span><br><span class="line"><span class="comment">// &quot;a[a-b-c]c&quot;</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+<p>replace方法的一个应用，就是消除字符串首尾两端的空格。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">&#x27;  #id div.class  &#x27;</span>;</span><br><span class="line"></span><br><span class="line">str.<span class="title function_">replace</span>(<span class="regexp">/^\s+|\s+$/g</span>, <span class="string">&#x27;&#x27;</span>)</span><br><span class="line"><span class="comment">// &quot;#id div.class&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h5 id="4-String-prototype-split"><a href="#4-String-prototype-split" class="headerlink" title="4.String.prototype.split()"></a>4.String.prototype.split()</h5><p>字符串对象的split方法按照正则规则分割字符串，返回一个由分割后的各个部分组成的数组。<br><code>str.split(separator, [limit])</code><br>该方法接受两个参数，第一个参数是正则表达式，表示分隔规则，第二个参数是返回数组的最大成员数。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 非正则分隔</span></span><br><span class="line"><span class="string">&#x27;a,  b,c, d&#x27;</span>.<span class="title function_">split</span>(<span class="string">&#x27;,&#x27;</span>)</span><br><span class="line"><span class="comment">// [ &#x27;a&#x27;, &#x27;  b&#x27;, &#x27;c&#x27;, &#x27; d&#x27; ]</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 正则分隔，去除多余的空格</span></span><br><span class="line"><span class="string">&#x27;a,  b,c, d&#x27;</span>.<span class="title function_">split</span>(<span class="regexp">/, */</span>)</span><br><span class="line"><span class="comment">// [ &#x27;a&#x27;, &#x27;b&#x27;, &#x27;c&#x27;, &#x27;d&#x27; ]</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 指定返回数组的最大成员</span></span><br><span class="line"><span class="string">&#x27;a,  b,c, d&#x27;</span>.<span class="title function_">split</span>(<span class="regexp">/, */</span>, <span class="number">2</span>)</span><br><span class="line">[ <span class="string">&#x27;a&#x27;</span>, <span class="string">&#x27;b&#x27;</span> ]</span><br></pre></td></tr></table></figure>
+
+<h1 id="2-匹配规则"><a href="#2-匹配规则" class="headerlink" title="2.匹配规则"></a>2.匹配规则</h1><h3 id="1-字面量字符和元字符"><a href="#1-字面量字符和元字符" class="headerlink" title="1.字面量字符和元字符"></a>1.字面量字符和元字符</h3><p>大部分字符在正则表达式中，就是字面的含义，比如&#x2F;a&#x2F;匹配a，&#x2F;b&#x2F;匹配b。如果在正则表达式之中，某个字符只表示它字面的含义（就像前面的a和b），那么它们就叫做“字面量字符”。<br><code>/dog/.test(&#39;old dog&#39;) // true</code></p>
+<p>正则表达式是大小写敏感的.</p>
 <table>
 <thead>
 <tr>
@@ -307,7 +368,23 @@
 </thead>
 <tbody><tr>
 <td align="center">.</td>
-<td>句号匹配任意单个字符除了换行符.</td>
+<td>点字符 匹配任意单个字符除了换行符.</td>
+</tr>
+<tr>
+<td align="center">^</td>
+<td>从开始行开始匹配.</td>
+</tr>
+<tr>
+<td align="center">$</td>
+<td>从末端开始匹配.</td>
+</tr>
+<tr>
+<td align="center">或运算符</td>
+<td>或运算符,匹配符号前或后的字符.</td>
+</tr>
+<tr>
+<td align="center">\</td>
+<td>转义字符,用于匹配一些保留的字符 [ ] ( ) { } . * + ? ^ $ \ 或运算符</td>
 </tr>
 <tr>
 <td align="center">[ ]</td>
@@ -318,6 +395,18 @@
 <td>否定的字符种类. 匹配除了方括号里的任意字符</td>
 </tr>
 <tr>
+<td align="center">[-]</td>
+<td>区间，匹配字符的连续范围。</td>
+</tr>
+<tr>
+<td align="center">{n,m}</td>
+<td>重复类，表示重复不少于n次，不多于m次。</td>
+</tr>
+<tr>
+<td align="center">?</td>
+<td>标记?之前的字符为可选.出现次数为0或1</td>
+</tr>
+<tr>
 <td align="center">*</td>
 <td>匹配&gt;&#x3D;0个重复的在*号之前的字符,等价于{0,}</td>
 </tr>
@@ -325,219 +414,83 @@
 <td align="center">+</td>
 <td>匹配&gt;1个重复的+号前的字符,等价于{1,}</td>
 </tr>
-<tr>
-<td align="center">?</td>
-<td>标记?之前的字符为可选.出现次数为0或1</td>
-</tr>
-<tr>
-<td align="center">{n,m}</td>
-<td>匹配num个中括号之前的字符 (n &lt;&#x3D; num &lt;&#x3D; m).</td>
-</tr>
-<tr>
-<td align="center">(xyz)</td>
-<td>字符集, 匹配与 xyz 完全相等的字符串.</td>
-</tr>
-<tr>
-<td align="center">&amp;#124;</td>
-<td>或运算符,匹配符号前或后的字符.</td>
-</tr>
-<tr>
-<td align="center">&amp;#92;</td>
-<td>转义字符,用于匹配一些保留的字符 <code>[ ] ( ) &#123; &#125; . * + ? ^ $ \ &#124;</code></td>
-</tr>
-<tr>
-<td align="center">^</td>
-<td>从开始行开始匹配.</td>
-</tr>
-<tr>
-<td align="center">$</td>
-<td>从末端开始匹配.</td>
-</tr>
 </tbody></table>
-<h2 id="1-字符集"><a href="#1-字符集" class="headerlink" title="1. 字符集 []"></a>1. 字符集 <code>[]</code></h2><p>字符组（[]）允许匹配一组可能出现的字符。<br>在方括号中的字符集不关心顺序.<br>例如, 表达式<code>[Tt]he</code> 匹配 <code>the</code> 和 <code>The</code>.<br>方括号的句号就表示句号.</p>
-<pre>
-"[Tt]he" => <a href="#learn-regex"><strong>The</strong></a> car parked in <a href="#learn-regex"><strong>the</strong></a> garage.
-</pre>
-<p>表达式<code>[Rr]ub[ye]</code>匹配Ruby、Rube、ruby、rube。</p>
-<pre>
-"[Rr]ub[ye]" => <a href="#learn-regex"><strong>ruby</strong></a>、<a href="#learn-regex"><strong>rube</strong></a>、 <a href="#learn-regex"><strong>Ruby</strong></a> on Rails、<a href="#learn-regex"><strong>Rube</strong></a> on Rails、
-</pre>
-
-<h3 id="1-区间"><a href="#1-区间" class="headerlink" title="1.区间 -"></a>1.区间 <code>-</code></h3><p>正则表达式引擎在字符组中使用连字符(-)代表区间，依照这个规则，我们可以总结出三点：</p>
-<p>1.要匹配任意数字可以使用[0-9]；<br>2.如果想要匹配所有小写字母，可以写成[a-z]；<br>3.想要匹配所有大写字母可以写成[A-Z]。</p>
-<pre>
-"[0-9]" => 匹配0-9的数字<a href="#learn-regex"><strong>1234567890</strong></a>
-</pre>
-<pre>
-"[a-z]" => 匹配a-z的字母<a href="#learn-regex"><strong>asdfwerfdgxjklrifmc</strong></a>
-</pre>
-<pre>
-"[a-zA-Z]" => 匹配a-z以及A-Z的字母<a href="#learn-regex"><strong>SDHJEILFVCGCMSKDVasdfwerfdgxjklrifmc</strong></a>
-</pre>
-
-<h3 id="2-匹配特殊字符"><a href="#2-匹配特殊字符" class="headerlink" title="2.匹配特殊字符 \"></a>2.匹配特殊字符 <code>\</code></h3><p>反斜线 <code>\</code> 在表达式中用于转码紧跟其后的字符. 用于指定 <code>&#123; &#125; [ ] / \ + * . $ ^ | ?</code> 这些特殊字符. 如果想要匹配这些特殊字符则要在其前面加上反斜线 <code>\</code>.<br>例如：对 - 进行转义就可以表示为 -，即 - 就代表了 - 号本身。</p>
-<pre>
-"[\[\-\(]" => <a href="#learn-regex"><strong>[</strong></a><a href="#learn-regex">]<strong>-----(</strong></a>)
-</pre>
-
-<h3 id="3-或运算符"><a href="#3-或运算符" class="headerlink" title="3.或运算符 |"></a>3.或运算符 <code>|</code></h3><p>或运算符就表示或, 用作判断条件.<br>例如 <code>(T|t)he|car</code> 匹配 <code>(T|t)he</code> 或 <code>car</code>.</p>
-<pre>
-"(T|t)he|car" => <a href="#learn-regex"><strong>The</strong></a> <a href="#learn-regex"><strong>car</strong></a> is parked in <a href="#learn-regex"><strong>the</strong></a> garage.
-</pre>
-<p>使用正则表达式匹配手机号码，假设手机号码规则如下：<br>1、必须是11位的数字；<br>2、第一位数字必须以1开头，第二位数字可以是[3,4,5,7,8]中的任意一个，后面9个数是[0-9]中的任意一个数字。</p>
-<pre>
-"1(3|4|5|7|8)[0-9]{9}" => <a href="#learn-regex"><strong>18111234589</strong></a>、12345678911、<a href="#learn-regex"><strong>
-17721565489</strong></a>200110023057123
-</pre>
-
-<h3 id="4-取反"><a href="#4-取反" class="headerlink" title="4.取反 ^"></a>4.取反 <code>^</code></h3><p>一般来说 <code>^</code> 表示一个字符串的开头, 在字符数组开头使用 ^ 字符对字符集实现取反操作.<br>例如, 表达式<code>[^c]ar</code> 匹配一个后面跟着<code>ar</code>的除了<code>c</code>的任意字符.</p>
-<pre>
-"[^c]ar" => The car <a href="#learn-regex"><strong>par</strong></a>ked in the <a href="#learn-regex"><strong>gar</strong></a>age.
-</pre>
-
-<h1 id="3-简写字符集-w"><a href="#3-简写字符集-w" class="headerlink" title="3. 简写字符集 \w"></a>3. 简写字符集 <code>\w</code></h1><p>正则表达式提供一些常用的字符集简写. 如下:</p>
+<h5 id="1-点字符"><a href="#1-点字符" class="headerlink" title="1.点字符 ."></a>1.点字符 <code>.</code></h5><p>点字符（.）匹配除回车（\r）、换行(\n) 、行分隔符（\u2028）和段分隔符（\u2029）以外的所有字符。注意，对于码点大于0xFFFF字符，点字符不能正确匹配，会认为这是两个字符。<br><code>/c.t/</code><br>上面代码中，c.t匹配c和t之间包含任意一个字符的情况，只要这三个字符在同一行，比如cat、c2t、c-t等等，但是不匹配coot。</p>
+<h5 id="2-位置字符-和"><a href="#2-位置字符-和" class="headerlink" title="2.位置字符 ^ 和 $"></a>2.位置字符 <code>^</code> 和 <code>$</code></h5><p>位置字符用来提示字符所处的位置，主要有两个字符。</p>
+<ul>
+<li>^ 表示字符串的开始位置</li>
+<li>$ 表示字符串的结束位置<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// test必须出现在开始位置</span></span><br><span class="line">/^test/.<span class="title function_">test</span>(<span class="string">&#x27;test123&#x27;</span>) <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// test必须出现在结束位置</span></span><br><span class="line">/test$/.<span class="title function_">test</span>(<span class="string">&#x27;new test&#x27;</span>) <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 从开始位置到结束位置只有test</span></span><br><span class="line">/^test$/.<span class="title function_">test</span>(<span class="string">&#x27;test&#x27;</span>) <span class="comment">// true</span></span><br><span class="line">/^test$/.<span class="title function_">test</span>(<span class="string">&#x27;test test&#x27;</span>) <span class="comment">// false</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+<h5 id="3-选择符"><a href="#3-选择符" class="headerlink" title="3.选择符 |"></a>3.选择符 <code>|</code></h5><p>竖线符号<code>|</code>在正则表达式中表示“或关系”（OR），即<code>cat|dog</code>表示匹配<code>cat</code>或<code>dog</code>。<br><code>/11|22/.test(&#39;911&#39;) // true</code></p>
+<h5 id="4-转义符"><a href="#4-转义符" class="headerlink" title="4.转义符 \"></a>4.转义符 <code>\</code></h5><p>正则表达式中那些有特殊含义的元字符，如果要匹配它们本身，就需要在它们前面要加上反斜杠。比如要匹配<code>+</code>，就要写成<code>\+</code>。</p>
+<p>正则表达式中，需要反斜杠转义的，一共有12个字符：<code>^</code>、<code>.</code>、<code>[</code>、<code>$</code>、<code>(</code>、<code>)</code>、<code>|</code>、<code>*</code>、<code>+</code>、<code>?</code>、<code>&#123;</code>和<code>\</code>。需要特别注意的是，如果使用RegExp方法生成正则对象，转义需要使用两个斜杠，因为字符串内部会先转义一次。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">/<span class="number">1</span>+<span class="number">1</span>/.<span class="title function_">test</span>(<span class="string">&#x27;1+1&#x27;</span>)</span><br><span class="line"><span class="comment">// false</span></span><br><span class="line">/<span class="number">1</span>\+<span class="number">1</span>/.<span class="title function_">test</span>(<span class="string">&#x27;1+1&#x27;</span>)</span><br><span class="line"><span class="comment">// true</span></span><br><span class="line"></span><br><span class="line">(<span class="keyword">new</span> <span class="title class_">RegExp</span>(<span class="string">&#x27;1\+1&#x27;</span>)).<span class="title function_">test</span>(<span class="string">&#x27;1+1&#x27;</span>)</span><br><span class="line"><span class="comment">// false</span></span><br><span class="line">(<span class="keyword">new</span> <span class="title class_">RegExp</span>(<span class="string">&#x27;1\\+1&#x27;</span>)).<span class="title function_">test</span>(<span class="string">&#x27;1+1&#x27;</span>)</span><br><span class="line"><span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+<p>上面代码中，RegExp作为构造函数，参数是一个字符串。但是，在字符串内部，反斜杠也是转义字符，所以它会先被反斜杠转义一次，然后再被正则表达式转义一次，因此需要两个反斜杠转义。</p>
+<h3 id="2-字符类"><a href="#2-字符类" class="headerlink" title="2.字符类"></a>2.字符类</h3><p>正则表达式提供一些常用的字符集简写. 如下:</p>
 <table>
 <thead>
 <tr>
-<th align="center">简写</th>
+<th>简写</th>
 <th>描述</th>
 </tr>
 </thead>
 <tbody><tr>
-<td align="center">.</td>
-<td>除换行符外的所有字符</td>
+<td>\d</td>
+<td>匹配0-9之间的任一数字，相当于 <code>[0-9]</code></td>
 </tr>
 <tr>
-<td align="center">\w</td>
-<td>匹配所有字母数字, 等同于 <code>[a-zA-Z0-9_]</code>，表示 [A-Z]、 [a-z]、[0-9]、_</td>
+<td>\D</td>
+<td>匹配所有0-9以外的字符，相当于 <code>[^0-9]</code>，表示<code>\d</code>取反</td>
 </tr>
 <tr>
-<td align="center">\d</td>
-<td>匹配数字: <code>[0-9]</code></td>
+<td>\w</td>
+<td>匹配任意的字母、数字和下划线，相当于 <code>[a-zA-Z0-9_]</code>，表示 [A-Z]、 [a-z]、[0-9]、_</td>
 </tr>
 <tr>
-<td align="center">\s</td>
-<td>匹配所有空格字符, 等同于: <code>[\t\n\f\r\p&#123;Z&#125;]</code>，比如空格，tab<code>\t</code>、换行<code>\p</code>等</td>
+<td>\W</td>
+<td>除所有字母、数字和下划线以外的字符，相当于<code>[^A-Za-z0-9_]</code>，表示<code>\w</code>取反</td>
 </tr>
 <tr>
-<td align="center">\b</td>
+<td>\s</td>
+<td>匹配空格（包括换行符、制表符、空格符等）， 等同于: <code>[\t\n\f\r\p&#123;Z&#125;]</code>，比如空格，tab<code>\t</code>、换行<code>\p</code>等</td>
+</tr>
+<tr>
+<td>\S</td>
+<td>匹配非空格的字符，相当于<code>[^\s]</code>，表示<code>\s</code>取反</td>
+</tr>
+<tr>
+<td>\b</td>
 <td>匹配单词的边界</td>
 </tr>
 <tr>
-<td align="center">\W</td>
-<td>匹配所有非字母数字, 即符号, 等同于: <code>[^\w]</code>，表示<code>\w</code>取反</td>
-</tr>
-<tr>
-<td align="center">\D</td>
-<td>匹配非数字: <code>[^\d]</code>，表示<code>\d</code>取反</td>
-</tr>
-<tr>
-<td align="center">\S</td>
-<td>匹配所有非空格字符: <code>[^\s]</code>，表示<code>\s</code>取反</td>
+<td>\B</td>
+<td>匹配非词边界，即在词的内部。</td>
 </tr>
 </tbody></table>
-<p>例如：<code>\bmaster\b</code> 就仅匹配有边界的master单词。</p>
-<pre>
-"\bmaster\b" => <a href="#learn-regex"><strong>master</strong></a> 123asddfmaster.<a href="#learn-regex"><strong>master</strong></a>-masterasd/
-</pre>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// \s 的例子</span></span><br><span class="line">/\s\w*<span class="regexp">/.exec(&#x27;hello world&#x27;) /</span><span class="regexp">/ [&quot; world&quot;]</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">/</span><span class="regexp">/ \b 的例子</span></span><br><span class="line"><span class="regexp">/</span>\bworld/.<span class="title function_">test</span>(<span class="string">&#x27;hello world&#x27;</span>) <span class="comment">// true</span></span><br><span class="line">/\bworld/.<span class="title function_">test</span>(<span class="string">&#x27;hello-world&#x27;</span>) <span class="comment">// true</span></span><br><span class="line">/\bworld/.<span class="title function_">test</span>(<span class="string">&#x27;helloworld&#x27;</span>) <span class="comment">// false</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// \B 的例子</span></span><br><span class="line">/\<span class="title class_">Bworld</span>/.<span class="title function_">test</span>(<span class="string">&#x27;hello-world&#x27;</span>) <span class="comment">// false</span></span><br><span class="line">/\<span class="title class_">Bworld</span>/.<span class="title function_">test</span>(<span class="string">&#x27;helloworld&#x27;</span>) <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+<p>上面代码中，\s表示空格，所以匹配结果会包括空格。\b表示词的边界，所以world的词首必须独立（词尾是否独立未指定），才会匹配。同理，\B表示非词的边界，只有world的词首不独立，才会匹配。</p>
+<p>通常，正则表达式遇到换行符（\n）就会停止匹配。</p>
+<h5 id="1-字符集"><a href="#1-字符集" class="headerlink" title="1. 字符集 []"></a>1. 字符集 <code>[]</code></h5><p>字符集 表示有一系列字符可供选择，只要匹配其中一个就可以了。所有可供选择的字符都放在方括号内，比如<code>[xyz]</code> 表示x、y、z之中任选一个匹配。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">/[abc]/.<span class="title function_">test</span>(<span class="string">&#x27;hello world&#x27;</span>) <span class="comment">// false</span></span><br><span class="line">/[abc]/.<span class="title function_">test</span>(<span class="string">&#x27;apple&#x27;</span>) <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
 
-<h2 id="1-开始-和结束"><a href="#1-开始-和结束" class="headerlink" title="1.开始 ^ 和结束 $"></a>1.开始 <code>^</code> 和结束 <code>$</code></h2><p>正则表达式中 <code>^</code>指定的是一个字符串的开始，<code>$</code>指定的是一个字符串的结束。<br>例如：<code>^master</code> 就仅匹配以master开头的字符串。</p>
-<pre>
-"^master" => <a href="#learn-regex"><strong>master</strong></a> 123asddfmaster.master-master
-</pre>
-<p><code>master$</code> 就仅匹配以master结尾的字符串。</p>
-<pre>
-"master$" => master 123asddfmaster.master-<a href="#learn-regex"><strong>master</strong></a>
-</pre>
+<h5 id="2-取反"><a href="#2-取反" class="headerlink" title="2.取反 [^ ]"></a>2.取反 <code>[^ ]</code></h5><p>一般来说 <code>^</code> 表示一个字符串的开头, 在字符数组开头使用 <code>^</code> 字符对字符集实现取反操作.比如，[^xyz]表示除了x、y、z之外都可以匹配。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">/[^abc]/.<span class="title function_">test</span>(<span class="string">&#x27;bbc news&#x27;</span>) <span class="comment">// true</span></span><br><span class="line">/[^abc]/.<span class="title function_">test</span>(<span class="string">&#x27;bbc&#x27;</span>) <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
+<p>上面代码中，字符串bbc news包含a、b、c以外的其他字符，所以返回true；字符串bbc不包含a、b、c以外的其他字符，所以返回false。<br>如果方括号内没有其他字符，即只有<code>[^ ]</code>，就表示匹配一切字符，其中包括换行符。相比之下，点号作为元字符（<code>.</code>）是不包括换行符的。</p>
+<h5 id="3-区间"><a href="#3-区间" class="headerlink" title="3.区间 -"></a>3.区间 <code>-</code></h5><p>某些情况下，对于连续序列的字符，连字符（-）用来提供简写形式，表示字符的连续范围。<br>比如，[abc]可以写成[a-c]，[A-Z]表示26个大写字母，[0123456789]可以写成[0-9]。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">/a-z/.<span class="title function_">test</span>(<span class="string">&#x27;b&#x27;</span>) <span class="comment">// false</span></span><br><span class="line">/[a-z]/.<span class="title function_">test</span>(<span class="string">&#x27;b&#x27;</span>) <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+<p>上面代码中，当连字号不出现在方括号之中，就不具备简写的作用，只代表字面的含义，所以不匹配字符b。只有当连字号用在方括号之中，才表示连续的字符序列。</p>
+<h5 id="4-重复-n-m"><a href="#4-重复-n-m" class="headerlink" title="4.重复 {n,m}"></a>4.重复 <code>&#123;n,m&#125;</code></h5><p>模式的精确匹配次数，使用大括号（{}）表示。{n}表示恰好重复n次，{n,}表示至少重复n次，{n,m}表示重复不少于n次，不多于m次。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">/lo&#123;<span class="number">2</span>&#125;k/.<span class="title function_">test</span>(<span class="string">&#x27;look&#x27;</span>) <span class="comment">// true</span></span><br><span class="line">/lo&#123;<span class="number">2</span>,<span class="number">5</span>&#125;k/.<span class="title function_">test</span>(<span class="string">&#x27;looook&#x27;</span>) <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+<p>上面代码中，第一个模式指定o连续出现2次，第二个模式指定o连续出现2次到5次之间。</p>
+<h5 id="5-量词符-、-、"><a href="#5-量词符-、-、" class="headerlink" title="5.量词符 ?、*、+"></a>5.量词符 <code>?</code>、<code>*</code>、<code>+</code></h5><p>量词符用来设定某个模式出现的次数。</p>
+<ul>
+<li><code>?</code> 问号表示某个模式出现0次或1次，等同于{0, 1}。</li>
+<li><code>*</code> 星号表示某个模式出现0次或多次，等同于{0,}。</li>
+<li><code>+</code> 加号表示某个模式出现1次或多次，等同于{1,}。</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// t 出现0次或1次</span></span><br><span class="line">/t?est/.<span class="title function_">test</span>(<span class="string">&#x27;test&#x27;</span>) <span class="comment">// true</span></span><br><span class="line">/t?est/.<span class="title function_">test</span>(<span class="string">&#x27;est&#x27;</span>) <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// t 出现1次或多次</span></span><br><span class="line">/t+est/.<span class="title function_">test</span>(<span class="string">&#x27;test&#x27;</span>) <span class="comment">// true</span></span><br><span class="line">/t+est/.<span class="title function_">test</span>(<span class="string">&#x27;ttest&#x27;</span>) <span class="comment">// true</span></span><br><span class="line">/t+est/.<span class="title function_">test</span>(<span class="string">&#x27;est&#x27;</span>) <span class="comment">// false</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// t 出现0次或多次</span></span><br><span class="line">/t*est/.<span class="title function_">test</span>(<span class="string">&#x27;test&#x27;</span>) <span class="comment">// true</span></span><br><span class="line">/t*est/.<span class="title function_">test</span>(<span class="string">&#x27;ttest&#x27;</span>) <span class="comment">// true</span></span><br><span class="line">/t*est/.<span class="title function_">test</span>(<span class="string">&#x27;tttest&#x27;</span>) <span class="comment">// true</span></span><br><span class="line">/t*est/.<span class="title function_">test</span>(<span class="string">&#x27;est&#x27;</span>) <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
 
-<h2 id="2-任意字符"><a href="#2-任意字符" class="headerlink" title="2.任意字符 ."></a>2.任意字符 <code>.</code></h2><p><code>.</code>字符代表匹配任何单个字符，它只能出现在方括号以外。<br>值得注意的是： <code>.</code>字符只有一个不能匹配的字符，也就是换行符（<code>\n</code>），不过要让.字符与换行符匹配也是可以的，以后会讨论。<br>例如：匹配任意字母之后是<code>ar</code>的字符串。</p>
-<pre>
-".ar" => The <a href="#learn-regex"><strong>car</strong></a> <a href="#learn-regex"><strong>par</strong></a>ked in the <a href="#learn-regex"><strong>gar</strong></a>age.
-</pre>
-
-<h2 id="3-可选字符"><a href="#3-可选字符" class="headerlink" title="3.可选字符 ?"></a>3.可选字符 <code>?</code></h2><p><code>?</code>匹配它之前的字符0次或1次。<br><code>favou?rite</code>来匹配 favorite和favourite。</p>
-<pre>
-"favou?rite" => The <a href="#learn-regex"><strong>favorite</strong></a>、<a href="#learn-regex"><strong>favourite</strong></a>、favor、123<a href="#learn-regex"><strong>favourite</strong></a>123
-</pre>
-
-<h1 id="4-匹配多个数据"><a href="#4-匹配多个数据" class="headerlink" title="4. 匹配多个数据"></a>4. 匹配多个数据</h1><h2 id="1-重复-N"><a href="#1-重复-N" class="headerlink" title="1.重复 {N}"></a>1.重复 <code>&#123;N&#125;</code></h2><p>在一个字符组后加上<code>&#123;N&#125;</code> 就可以表示在它之前的字符组出现N次。<br><code>\w&#123;3&#125;-\w&#123;5&#125;</code>来匹配 010-88480。</p>
-<pre>
-"\w{3}-\w{5}" => <a href="#learn-regex"><strong>010-88480</strong></a>
-</pre>
-
-<h2 id="2-重复区间-M-N"><a href="#2-重复区间-M-N" class="headerlink" title="2.重复区间{M,N}"></a>2.重复区间{M,N}</h2><p>重复区间语法：{M,N}，M是下界而N是上界。<br><code>\d&#123;3,4&#125;</code>既可以匹配3个数字也可以匹配4个数字，不过当有4个数字的时候，优先匹配的是4个数字，这是因为正则表达式默认是贪婪模式，即尽可能的匹配更多字符，而要使用非贪婪模式，我们要在表达式后面加上 <code>?</code>号。</p>
-<pre>
-"\d{3,4}?-\d{7}" => <a href="#learn-regex"><strong>020-7281333</strong></a>、<a href="#learn-regex"><strong>020-7281333</strong></a>
-</pre>
-
-<h2 id="3-开闭区间-、"><a href="#3-开闭区间-、" class="headerlink" title="3.开闭区间 + 、*"></a>3.开闭区间 <code>+</code> 、<code>*</code></h2><p>闭区间不写即可表示匹配一个或无数个。<br>可以使用 <code>+</code> 匹配1个到无数个，使用<code>*</code>代表0个到无数个。即：<code>+</code>等价于<code>&#123;1,&#125;</code>，<code>*</code>等价于<code>&#123;0,&#125;</code>。</p>
-<pre>
-"a\d*" => <a href="#learn-regex"><strong>a</strong></a>sdfewed<a href="#learn-regex"><strong>aa123443</strong></a>
-</pre>
-
-<p>匹配以 <code>http</code>开头，以<code>/</code>结尾的所有数据</p>
-<pre>
-"^http.*/$" => <a href="#learn-regex"><strong>https://code.com/</strong></a>、http:jn/code、<a href="#learn-regex"><strong>https://codejn/</strong></a>
-</pre>
-
-<p>匹配电话号码，假设电话号码可以有下列两种方式：<br>1、0XX-XXXXXXX，例如020-8810456；<br>2、0XXXXXXXXX，例如0208810456。<br>020 代表区号，8810456是电话号码，区号第一个数字必须是0，电话号码的第一个数字必须大于等于1。</p>
-<pre>
-"0\d{2}-?[1-9]\d{6}" => <a href="#learn-regex"><strong>010-7810456</strong></a>、01007214569、<a href="#learn-regex"><strong>0107810456</strong></a>
-</pre>
-
-
-
-<h1 id="5-前后关联约束-前后预查"><a href="#5-前后关联约束-前后预查" class="headerlink" title="5. 前后关联约束(前后预查)"></a>5. 前后关联约束(前后预查)</h1><p>前置约束和后置约束都属于<strong>非捕获簇</strong>(用于匹配不在匹配列表中的格式).<br>前置约束用于判断所匹配的格式是否在另一个确定的格式之后.</p>
-<p>例如, 我们想要获得所有跟在 <code>$</code> 符号后的数字, 我们可以使用正向向后约束 <code>(?&lt;=\$)[0-9\.]*</code>.<br>这个表达式匹配 <code>$</code> 开头, 之后跟着 <code>0,1,2,3,4,5,6,7,8,9,.</code> 这些字符可以出现大于等于 0 次.</p>
-<p>前后关联约束如下:</p>
-<table>
-<thead>
-<tr>
-<th align="center">符号</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">?&#x3D;</td>
-<td>前置约束-存在</td>
-</tr>
-<tr>
-<td align="center">?!</td>
-<td>前置约束-排除</td>
-</tr>
-<tr>
-<td align="center">?&lt;&#x3D;</td>
-<td>后置约束-存在</td>
-</tr>
-<tr>
-<td align="center">?&lt;!</td>
-<td>后置约束-排除</td>
-</tr>
-</tbody></table>
-<h2 id="1-前置约束-存在"><a href="#1-前置约束-存在" class="headerlink" title="1. 前置约束-存在 ?=..."></a>1. 前置约束-存在 <code>?=...</code></h2><p><code>?=...</code> 前置约束(存在), 表示第一部分表达式必须跟在 <code>?=...</code>定义的表达式之后.</p>
-<p>返回结果只瞒住第一部分表达式.<br>定义一个前置约束(存在)要使用 <code>()</code>. 在括号内部使用一个问号和等号: <code>(?=...)</code>. </p>
-<p>前置约束的内容写在括号中的等号后面.<br>例如, 表达式 <code>[T|t]he(?=\sfat)</code> 匹配 <code>The</code> 和 <code>the</code>, 在括号中我们又定义了前置约束(存在) <code>(?=\sfat)</code> ,即 <code>The</code> 和 <code>the</code> 后面紧跟着 <code>(空格)fat</code>.</p>
-<pre>
-"[T|t]he(?=\sfat)" => <a href="#learn-regex"><strong>The</strong></a> fat cat sat on the mat.
-</pre>
-
-<h2 id="2-前置约束-排除"><a href="#2-前置约束-排除" class="headerlink" title="2. 前置约束-排除 ?!..."></a>2. 前置约束-排除 <code>?!...</code></h2><p>前置约束-排除 <code>?!</code> 用于筛选所有匹配结果, 筛选条件为 其后不跟随着定义的格式<br><code>前置约束-排除</code>  定义和 <code>前置约束(存在)</code> 一样, 区别就是 <code>=</code> 替换成 <code>!</code> 也就是 <code>(?!...)</code>. </p>
-<p>表达式 <code>[T|t]he(?!\sfat)</code> 匹配 <code>The</code> 和 <code>the</code>, 且其后不跟着 <code>(空格)fat</code>.</p>
-<pre>
-"[T|t]he(?!\sfat)" => The fat cat sat on <a href="#learn-regex"><strong>the</strong></a> mat.
-</pre>
-
-<h2 id="3-后置约束-存在-lt"><a href="#3-后置约束-存在-lt" class="headerlink" title="3. 后置约束-存在 ?&lt;= ..."></a>3. 后置约束-存在 <code>?&lt;= ...</code></h2><p>后置约束-存在 记作<code>(?&lt;=...)</code> 用于筛选所有匹配结果, 筛选条件为 其前跟随着定义的格式.<br>例如, 表达式 <code>(?&lt;=[T|t]he\s)(fat|mat)</code> 匹配 <code>fat</code> 和 <code>mat</code>, 且其前跟着 <code>The</code> 或 <code>the</code>.</p>
-<pre>
-"(?<=[T|t]he\s)(fat|mat)" => The <a href="#learn-regex"><strong>fat</strong></a> cat sat on the <a href="#learn-regex"><strong>mat</strong></a>.
-</=[T|t]he\s)(fat|mat)"></pre>
-
-<h2 id="4-后置约束-排除-lt"><a href="#4-后置约束-排除-lt" class="headerlink" title="4 后置约束-排除 ?&lt;!..."></a>4 后置约束-排除 <code>?&lt;!...</code></h2><p>后置约束-排除 记作 <code>(?&lt;!...)</code> 用于筛选所有匹配结果, 筛选条件为 其前不跟着定义的格式.<br>例如, 表达式 <code>(?&lt;!(T|t)he\s)(cat)</code> 匹配 <code>cat</code>, 且其前不跟着 <code>The</code> 或 <code>the</code>.</p>
-<pre>
-"(?&lt;![T|t]he\s)(cat)" => The cat sat on <a href="#learn-regex"><strong>cat</strong></a>.
-</pre>
-
-<h1 id="6-标志"><a href="#6-标志" class="headerlink" title="6. 标志"></a>6. 标志</h1><p>标志也叫修饰语, 因为它可以用来修改表达式的搜索结果.<br>这些标志可以任意的组合使用, 它也是整个正则表达式的一部分.</p>
+<h3 id="3-修饰符"><a href="#3-修饰符" class="headerlink" title="3.修饰符"></a>3.修饰符</h3><p>修饰符表示模式的附加规则，放在正则模式的最尾部。<br>修饰符可以单个使用，也可以多个一起使用。</p>
 <table>
 <thead>
 <tr>
@@ -546,72 +499,31 @@
 </tr>
 </thead>
 <tbody><tr>
-<td align="center">i</td>
-<td>忽略大小写.</td>
-</tr>
-<tr>
 <td align="center">g</td>
 <td>全局搜索.</td>
+</tr>
+<tr>
+<td align="center">i</td>
+<td>忽略大小写.</td>
 </tr>
 <tr>
 <td align="center">m</td>
 <td>多行的: 锚点元字符 <code>^</code> <code>$</code> 工作范围在每行的起始.</td>
 </tr>
 </tbody></table>
-<h2 id="1-忽略大小写-i"><a href="#1-忽略大小写-i" class="headerlink" title="1. 忽略大小写 i"></a>1. 忽略大小写 <code>i</code></h2><p>修饰语 <code>i</code> 用于忽略大小写.<br>例如, 表达式 <code>/The/gi</code> 表示在全局搜索 <code>The</code>, 在后面的 <code>i</code> 将其条件修改为忽略大小写, 则变成搜索 <code>the</code> 和 <code>The</code>, <code>g</code> 表示全局搜索.</p>
-<pre>
-"The" => <a href="#learn-regex"><strong>The</strong></a> fat cat sat on the mat.
-</pre>
+<h5 id="1-全局搜索-g"><a href="#1-全局搜索-g" class="headerlink" title="1. 全局搜索 g"></a>1. 全局搜索 <code>g</code></h5><p>默认情况下，第一次匹配成功后，正则对象就停止向下匹配了。g修饰符表示全局匹配，加上它以后，正则对象将匹配全部符合条件的结果，主要用于搜索和替换。</p>
+<p>默认情况下，正则模式不含g修饰符，每次都是从字符串头部开始匹配。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> regex = <span class="regexp">/b/g</span>;</span><br><span class="line"><span class="keyword">var</span> str = <span class="string">&#x27;abba&#x27;</span>;</span><br><span class="line"></span><br><span class="line">regex.<span class="title function_">test</span>(str); <span class="comment">// true</span></span><br><span class="line">regex.<span class="title function_">test</span>(str); <span class="comment">// true</span></span><br><span class="line">regex.<span class="title function_">test</span>(str); <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
+<p>上面代码中，正则模式含有g修饰符，每次都是从上一次匹配成功处，开始向后匹配。因为字符串abba只有两个b，所以前两次匹配结果为true，第三次匹配结果为false。</p>
+<h5 id="2-忽略大小写-i"><a href="#2-忽略大小写-i" class="headerlink" title="2. 忽略大小写 i"></a>2. 忽略大小写 <code>i</code></h5><p>默认情况下，正则对象区分字母的大小写，加上i修饰符以后表示忽略大小写</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">/abc/.<span class="title function_">test</span>(<span class="string">&#x27;ABC&#x27;</span>) <span class="comment">// false</span></span><br><span class="line">/abc/i.<span class="title function_">test</span>(<span class="string">&#x27;ABC&#x27;</span>) <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
 
-<pre>
-"/The/gi" => <a href="#learn-regex"><strong>The</strong></a> fat cat sat on <a href="#learn-regex"><strong>the</strong></a> mat.
-</pre>
-
-<h2 id="2-全局搜索-g"><a href="#2-全局搜索-g" class="headerlink" title="2. 全局搜索 g"></a>2. 全局搜索 <code>g</code></h2><p>修饰符 <code>g</code> 常用于执行一个全局搜索匹配, 即(不仅仅返回第一个匹配的, 而是返回全部).<br>例如, 表达式 <code>/.(at)/g</code> 表示搜索 任意字符(除了换行) + <code>at</code>, 并返回全部结果.</p>
-<pre>
-"/.(at)/" => The <a href="#learn-regex"><strong>fat</strong></a> cat sat on the mat.
-</pre>
-
-<pre>
-"/.(at)/g" => The <a href="#learn-regex"><strong>fat</strong></a> <a href="#learn-regex"><strong>cat</strong></a> <a href="#learn-regex"><strong>sat</strong></a> on the <a href="#learn-regex"><strong>mat</strong></a>.
-</pre>
-
-<h2 id="3-多行修饰符-m"><a href="#3-多行修饰符-m" class="headerlink" title="3. 多行修饰符 m"></a>3. 多行修饰符 <code>m</code></h2><p>多行修饰符 <code>m</code> 常用于执行一个多行匹配.</p>
-<p>像之前介绍的 <code>(^,$)</code> 用于检查格式是否是在待检测字符串的开头或结尾. 但我们如果想要它在每行的开头和结尾生效, 我们需要用到多行修饰符 <code>m</code>.</p>
-<p>例如, 表达式 <code>/at(.)?$/gm</code> 表示在待检测字符串每行的末尾搜索 <code>at</code>后跟一个或多个 <code>.</code> 的字符串, 并返回全部结果.</p>
-<pre>
-"/.at(.)?$/" => The fat
-                cat sat
-                on the <a href="#learn-regex"><strong>mat.</strong></a>
-</pre>
-
-<pre>
-"/.at(.)?$/gm" => The <a href="#learn-regex"><strong>fat</strong></a>
-                  cat <a href="#learn-regex"><strong>sat</strong></a>
-                  on the <a href="#learn-regex"><strong>mat.</strong></a>
-</pre>
-
-<h1 id="7-正则表达式的应用"><a href="#7-正则表达式的应用" class="headerlink" title="7. 正则表达式的应用"></a>7. 正则表达式的应用</h1><ul>
-<li><em>正整数</em>: <code>^\d+$</code></li>
-<li><em>非负整数（0 + 正整数）</em>：<code>^\d?\d*$</code></li>
-<li><em>负整数</em>: <code>^-\d+$</code></li>
-<li><em>手机国家号</em>: <code>^+?[\d\s]&#123;3,&#125;$</code></li>
-<li><em>手机号</em>: <code>^+?[\d\s]+(?[\d\s]&#123;10,&#125;$</code></li>
-<li><em>整数</em>: <code>^-?\d+$</code></li>
-<li><em>用户名</em>: <code>^[\w\d_.]&#123;4,16&#125;$</code></li>
-<li><em>数字和英文字母</em>: <code>^[a-zA-Z0-9]*$</code></li>
-<li><em>数字和应为字母和空格</em>: <code>^[a-zA-Z0-9 ]*$</code></li>
-<li><em>密码</em>: <code>^(?=^.&#123;6,&#125;$)((?=.*[A-Za-z0-9])(?=.*[A-Z])(?=.*[a-z]))^.*$</code></li>
-<li><em>邮箱</em>: <code>^([a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]&#123;2,4&#125;)*$</code></li>
-<li><em>IP4 地址</em>: <code>^((?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.)&#123;3&#125;(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?))*$</code></li>
-<li><em>纯小写字母</em>: <code>^([a-z])*$</code></li>
-<li><em>纯大写字母</em>: <code>^([A-Z])*$</code></li>
-<li><em>URL</em>: <code>^(((http|https|ftp):\/\/)?([[a-zA-Z0-9]\-\.])+(\.)([[a-zA-Z0-9]])&#123;2,4&#125;([[a-zA-Z0-9]\/+=%&amp;_\.~?\-]*))*$</code></li>
-<li><em>VISA 信用卡号</em>: <code>^(4[0-9]&#123;12&#125;(?:[0-9]&#123;3&#125;)?)*$</code></li>
-<li><em>日期 (MM&#x2F;DD&#x2F;YYYY)</em>: <code>^(0?[1-9]|1[012])[- /.](0?[1-9]|[12][0-9]|3[01])[- /.](19|20)?[0-9]&#123;2&#125;$</code></li>
-<li><em>日期 (YYYY&#x2F;MM&#x2F;DD)</em>: <code>^(19|20)?[0-9]&#123;2&#125;[- /.](0?[1-9]|1[012])[- /.](0?[1-9]|[12][0-9]|3[01])$</code></li>
-<li><em>MasterCard 信用卡号</em>: <code>^(5[1-5][0-9]&#123;14&#125;)*$</code></li>
-</ul>
+<h5 id="3-多行修饰符-m"><a href="#3-多行修饰符-m" class="headerlink" title="3. 多行修饰符 m"></a>3. 多行修饰符 <code>m</code></h5><p>m修饰符表示多行模式，会修改^和$的行为。默认情况下（即不加m修饰符时），^和$匹配字符串的开始处和结尾处，加上m修饰符以后，^和$还会匹配行首和行尾，即^和$会识别换行符（\n）。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">/world$/.<span class="title function_">test</span>(<span class="string">&#x27;hello world\n&#x27;</span>) <span class="comment">// false</span></span><br><span class="line">/world$/m.<span class="title function_">test</span>(<span class="string">&#x27;hello world\n&#x27;</span>) <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line">/^b/m.<span class="title function_">test</span>(<span class="string">&#x27;a\nb&#x27;</span>) <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+<p>上面代码要求匹配行首的b，如果不加m修饰符，就相当于b只能处在字符串的开始处。加上m修饰符以后，换行符\n也会被认为是一行的开始。</p>
+<h3 id="4-组匹配"><a href="#4-组匹配" class="headerlink" title="4.组匹配"></a>4.组匹配</h3><p>正则表达式的括号表示分组匹配，括号中的模式可以用来匹配分组的内容。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">/fred+<span class="regexp">/.test(&#x27;fredd&#x27;) /</span><span class="regexp">/ true</span></span><br><span class="line"><span class="regexp">/</span>(fred)+<span class="regexp">/.test(&#x27;fredfred&#x27;) /</span><span class="regexp">/ true</span></span><br></pre></td></tr></table></figure>
+<p>上面代码中，第一个模式没有括号，结果+只表示重复字母d，第二个模式有括号，结果+就表示匹配fred这个词。</p>
 
             </div>
 
@@ -706,7 +618,7 @@
             <div class="pc-post-toc right-toc">
                 <div class="post-toc-wrap">
     <div class="post-toc">
-        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#RegExp-%E5%AF%B9%E8%B1%A1"><span class="nav-text">RegExp 对象</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#1-%E5%9F%BA%E6%9C%AC%E5%8C%B9%E9%85%8D"><span class="nav-text">1.基本匹配</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-%E5%85%83%E5%AD%97%E7%AC%A6"><span class="nav-text">2. 元字符</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E5%AD%97%E7%AC%A6%E9%9B%86"><span class="nav-text">1. 字符集 []</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E5%8C%BA%E9%97%B4"><span class="nav-text">1.区间 -</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E5%8C%B9%E9%85%8D%E7%89%B9%E6%AE%8A%E5%AD%97%E7%AC%A6"><span class="nav-text">2.匹配特殊字符 \</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E6%88%96%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="nav-text">3.或运算符 |</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-%E5%8F%96%E5%8F%8D"><span class="nav-text">4.取反 ^</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-%E7%AE%80%E5%86%99%E5%AD%97%E7%AC%A6%E9%9B%86-w"><span class="nav-text">3. 简写字符集 \w</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E5%BC%80%E5%A7%8B-%E5%92%8C%E7%BB%93%E6%9D%9F"><span class="nav-text">1.开始 ^ 和结束 $</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E4%BB%BB%E6%84%8F%E5%AD%97%E7%AC%A6"><span class="nav-text">2.任意字符 .</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-%E5%8F%AF%E9%80%89%E5%AD%97%E7%AC%A6"><span class="nav-text">3.可选字符 ?</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-%E5%8C%B9%E9%85%8D%E5%A4%9A%E4%B8%AA%E6%95%B0%E6%8D%AE"><span class="nav-text">4. 匹配多个数据</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E9%87%8D%E5%A4%8D-N"><span class="nav-text">1.重复 {N}</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E9%87%8D%E5%A4%8D%E5%8C%BA%E9%97%B4-M-N"><span class="nav-text">2.重复区间{M,N}</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-%E5%BC%80%E9%97%AD%E5%8C%BA%E9%97%B4-%E3%80%81"><span class="nav-text">3.开闭区间 + 、*</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#5-%E5%89%8D%E5%90%8E%E5%85%B3%E8%81%94%E7%BA%A6%E6%9D%9F-%E5%89%8D%E5%90%8E%E9%A2%84%E6%9F%A5"><span class="nav-text">5. 前后关联约束(前后预查)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E5%89%8D%E7%BD%AE%E7%BA%A6%E6%9D%9F-%E5%AD%98%E5%9C%A8"><span class="nav-text">1. 前置约束-存在 ?&#x3D;...</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E5%89%8D%E7%BD%AE%E7%BA%A6%E6%9D%9F-%E6%8E%92%E9%99%A4"><span class="nav-text">2. 前置约束-排除 ?!...</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-%E5%90%8E%E7%BD%AE%E7%BA%A6%E6%9D%9F-%E5%AD%98%E5%9C%A8-lt"><span class="nav-text">3. 后置约束-存在 ?&lt;&#x3D; ...</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-%E5%90%8E%E7%BD%AE%E7%BA%A6%E6%9D%9F-%E6%8E%92%E9%99%A4-lt"><span class="nav-text">4 后置约束-排除 ?&lt;!...</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#6-%E6%A0%87%E5%BF%97"><span class="nav-text">6. 标志</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E5%BF%BD%E7%95%A5%E5%A4%A7%E5%B0%8F%E5%86%99-i"><span class="nav-text">1. 忽略大小写 i</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E5%85%A8%E5%B1%80%E6%90%9C%E7%B4%A2-g"><span class="nav-text">2. 全局搜索 g</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-%E5%A4%9A%E8%A1%8C%E4%BF%AE%E9%A5%B0%E7%AC%A6-m"><span class="nav-text">3. 多行修饰符 m</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#7-%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E7%9A%84%E5%BA%94%E7%94%A8"><span class="nav-text">7. 正则表达式的应用</span></a></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-RegExp-%E5%AF%B9%E8%B1%A1"><span class="nav-text">1.RegExp 对象</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E5%AE%9E%E4%BE%8B%E5%B1%9E%E6%80%A7"><span class="nav-text">1.实例属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E5%AE%9E%E4%BE%8B%E6%96%B9%E6%B3%95"><span class="nav-text">2.实例方法</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-RegExp-prototype-test"><span class="nav-text">1.RegExp.prototype.test()</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-RegExp-prototype-exec"><span class="nav-text">2.RegExp.prototype.exec()</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E5%AE%9E%E4%BE%8B%E6%96%B9%E6%B3%95"><span class="nav-text">3.字符串的实例方法</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-String-prototype-match"><span class="nav-text">1.String.prototype.match()</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-String-prototype-search"><span class="nav-text">2.String.prototype.search()</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-String-prototype-replace"><span class="nav-text">3.String.prototype.replace()</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-String-prototype-split"><span class="nav-text">4.String.prototype.split()</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-%E5%8C%B9%E9%85%8D%E8%A7%84%E5%88%99"><span class="nav-text">2.匹配规则</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E5%AD%97%E9%9D%A2%E9%87%8F%E5%AD%97%E7%AC%A6%E5%92%8C%E5%85%83%E5%AD%97%E7%AC%A6"><span class="nav-text">1.字面量字符和元字符</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-%E7%82%B9%E5%AD%97%E7%AC%A6"><span class="nav-text">1.点字符 .</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-%E4%BD%8D%E7%BD%AE%E5%AD%97%E7%AC%A6-%E5%92%8C"><span class="nav-text">2.位置字符 ^ 和 $</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-%E9%80%89%E6%8B%A9%E7%AC%A6"><span class="nav-text">3.选择符 |</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-%E8%BD%AC%E4%B9%89%E7%AC%A6"><span class="nav-text">4.转义符 \</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E5%AD%97%E7%AC%A6%E7%B1%BB"><span class="nav-text">2.字符类</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-%E5%AD%97%E7%AC%A6%E9%9B%86"><span class="nav-text">1. 字符集 []</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-%E5%8F%96%E5%8F%8D"><span class="nav-text">2.取反 [^ ]</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-%E5%8C%BA%E9%97%B4"><span class="nav-text">3.区间 -</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-%E9%87%8D%E5%A4%8D-n-m"><span class="nav-text">4.重复 {n,m}</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#5-%E9%87%8F%E8%AF%8D%E7%AC%A6-%E3%80%81-%E3%80%81"><span class="nav-text">5.量词符 ?、*、+</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E4%BF%AE%E9%A5%B0%E7%AC%A6"><span class="nav-text">3.修饰符</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-%E5%85%A8%E5%B1%80%E6%90%9C%E7%B4%A2-g"><span class="nav-text">1. 全局搜索 g</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-%E5%BF%BD%E7%95%A5%E5%A4%A7%E5%B0%8F%E5%86%99-i"><span class="nav-text">2. 忽略大小写 i</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-%E5%A4%9A%E8%A1%8C%E4%BF%AE%E9%A5%B0%E7%AC%A6-m"><span class="nav-text">3. 多行修饰符 m</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-%E7%BB%84%E5%8C%B9%E9%85%8D"><span class="nav-text">4.组匹配</span></a></li></ol></li></ol></li></ol>
     </div>
 </div>
 
@@ -879,7 +791,7 @@
             <div class="tablet-post-toc">
                 <div class="post-toc-wrap">
     <div class="post-toc">
-        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#RegExp-%E5%AF%B9%E8%B1%A1"><span class="nav-text">RegExp 对象</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#1-%E5%9F%BA%E6%9C%AC%E5%8C%B9%E9%85%8D"><span class="nav-text">1.基本匹配</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-%E5%85%83%E5%AD%97%E7%AC%A6"><span class="nav-text">2. 元字符</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E5%AD%97%E7%AC%A6%E9%9B%86"><span class="nav-text">1. 字符集 []</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E5%8C%BA%E9%97%B4"><span class="nav-text">1.区间 -</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E5%8C%B9%E9%85%8D%E7%89%B9%E6%AE%8A%E5%AD%97%E7%AC%A6"><span class="nav-text">2.匹配特殊字符 \</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E6%88%96%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="nav-text">3.或运算符 |</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-%E5%8F%96%E5%8F%8D"><span class="nav-text">4.取反 ^</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-%E7%AE%80%E5%86%99%E5%AD%97%E7%AC%A6%E9%9B%86-w"><span class="nav-text">3. 简写字符集 \w</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E5%BC%80%E5%A7%8B-%E5%92%8C%E7%BB%93%E6%9D%9F"><span class="nav-text">1.开始 ^ 和结束 $</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E4%BB%BB%E6%84%8F%E5%AD%97%E7%AC%A6"><span class="nav-text">2.任意字符 .</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-%E5%8F%AF%E9%80%89%E5%AD%97%E7%AC%A6"><span class="nav-text">3.可选字符 ?</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-%E5%8C%B9%E9%85%8D%E5%A4%9A%E4%B8%AA%E6%95%B0%E6%8D%AE"><span class="nav-text">4. 匹配多个数据</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E9%87%8D%E5%A4%8D-N"><span class="nav-text">1.重复 {N}</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E9%87%8D%E5%A4%8D%E5%8C%BA%E9%97%B4-M-N"><span class="nav-text">2.重复区间{M,N}</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-%E5%BC%80%E9%97%AD%E5%8C%BA%E9%97%B4-%E3%80%81"><span class="nav-text">3.开闭区间 + 、*</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#5-%E5%89%8D%E5%90%8E%E5%85%B3%E8%81%94%E7%BA%A6%E6%9D%9F-%E5%89%8D%E5%90%8E%E9%A2%84%E6%9F%A5"><span class="nav-text">5. 前后关联约束(前后预查)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E5%89%8D%E7%BD%AE%E7%BA%A6%E6%9D%9F-%E5%AD%98%E5%9C%A8"><span class="nav-text">1. 前置约束-存在 ?&#x3D;...</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E5%89%8D%E7%BD%AE%E7%BA%A6%E6%9D%9F-%E6%8E%92%E9%99%A4"><span class="nav-text">2. 前置约束-排除 ?!...</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-%E5%90%8E%E7%BD%AE%E7%BA%A6%E6%9D%9F-%E5%AD%98%E5%9C%A8-lt"><span class="nav-text">3. 后置约束-存在 ?&lt;&#x3D; ...</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-%E5%90%8E%E7%BD%AE%E7%BA%A6%E6%9D%9F-%E6%8E%92%E9%99%A4-lt"><span class="nav-text">4 后置约束-排除 ?&lt;!...</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#6-%E6%A0%87%E5%BF%97"><span class="nav-text">6. 标志</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E5%BF%BD%E7%95%A5%E5%A4%A7%E5%B0%8F%E5%86%99-i"><span class="nav-text">1. 忽略大小写 i</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E5%85%A8%E5%B1%80%E6%90%9C%E7%B4%A2-g"><span class="nav-text">2. 全局搜索 g</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-%E5%A4%9A%E8%A1%8C%E4%BF%AE%E9%A5%B0%E7%AC%A6-m"><span class="nav-text">3. 多行修饰符 m</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#7-%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E7%9A%84%E5%BA%94%E7%94%A8"><span class="nav-text">7. 正则表达式的应用</span></a></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-RegExp-%E5%AF%B9%E8%B1%A1"><span class="nav-text">1.RegExp 对象</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E5%AE%9E%E4%BE%8B%E5%B1%9E%E6%80%A7"><span class="nav-text">1.实例属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E5%AE%9E%E4%BE%8B%E6%96%B9%E6%B3%95"><span class="nav-text">2.实例方法</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-RegExp-prototype-test"><span class="nav-text">1.RegExp.prototype.test()</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-RegExp-prototype-exec"><span class="nav-text">2.RegExp.prototype.exec()</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E5%AE%9E%E4%BE%8B%E6%96%B9%E6%B3%95"><span class="nav-text">3.字符串的实例方法</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-String-prototype-match"><span class="nav-text">1.String.prototype.match()</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-String-prototype-search"><span class="nav-text">2.String.prototype.search()</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-String-prototype-replace"><span class="nav-text">3.String.prototype.replace()</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-String-prototype-split"><span class="nav-text">4.String.prototype.split()</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-%E5%8C%B9%E9%85%8D%E8%A7%84%E5%88%99"><span class="nav-text">2.匹配规则</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E5%AD%97%E9%9D%A2%E9%87%8F%E5%AD%97%E7%AC%A6%E5%92%8C%E5%85%83%E5%AD%97%E7%AC%A6"><span class="nav-text">1.字面量字符和元字符</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-%E7%82%B9%E5%AD%97%E7%AC%A6"><span class="nav-text">1.点字符 .</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-%E4%BD%8D%E7%BD%AE%E5%AD%97%E7%AC%A6-%E5%92%8C"><span class="nav-text">2.位置字符 ^ 和 $</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-%E9%80%89%E6%8B%A9%E7%AC%A6"><span class="nav-text">3.选择符 |</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-%E8%BD%AC%E4%B9%89%E7%AC%A6"><span class="nav-text">4.转义符 \</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E5%AD%97%E7%AC%A6%E7%B1%BB"><span class="nav-text">2.字符类</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-%E5%AD%97%E7%AC%A6%E9%9B%86"><span class="nav-text">1. 字符集 []</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-%E5%8F%96%E5%8F%8D"><span class="nav-text">2.取反 [^ ]</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-%E5%8C%BA%E9%97%B4"><span class="nav-text">3.区间 -</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-%E9%87%8D%E5%A4%8D-n-m"><span class="nav-text">4.重复 {n,m}</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#5-%E9%87%8F%E8%AF%8D%E7%AC%A6-%E3%80%81-%E3%80%81"><span class="nav-text">5.量词符 ?、*、+</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E4%BF%AE%E9%A5%B0%E7%AC%A6"><span class="nav-text">3.修饰符</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-%E5%85%A8%E5%B1%80%E6%90%9C%E7%B4%A2-g"><span class="nav-text">1. 全局搜索 g</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-%E5%BF%BD%E7%95%A5%E5%A4%A7%E5%B0%8F%E5%86%99-i"><span class="nav-text">2. 忽略大小写 i</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-%E5%A4%9A%E8%A1%8C%E4%BF%AE%E9%A5%B0%E7%AC%A6-m"><span class="nav-text">3. 多行修饰符 m</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-%E7%BB%84%E5%8C%B9%E9%85%8D"><span class="nav-text">4.组匹配</span></a></li></ol></li></ol></li></ol>
     </div>
 </div>
 
