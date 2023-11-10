@@ -1,0 +1,813 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Keep">
+    <meta name="description" content="因过竹院逢僧话,偷得浮生半日闲">
+    <meta name="author" content="immortal">
+    
+    <title>
+        
+            事件 |
+        
+        唔、
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    
+        <link rel="shortcut icon" href="/images/favicon.png">
+    
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.4/source/font/css/fontawesome.min.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.4/source/font/css/regular.min.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.4/source/font/css/solid.min.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.4/source/font/css/brands.min.css">
+    
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {}
+    KEEP.hexo_config = {"hostname":"example.com","root":"/","language":"zh-CN","path":"search.xml"}
+    KEEP.theme_config = {"toc":{"enable":true,"number":false,"expand_all":true,"init_open":true},"style":{"primary_color":"#0066cc","logo":"/images/logo.png","favicon":"/images/favicon.png","avatar":"/images/avatar.jpg","font_size":null,"font_family":null,"hover":{"shadow":true,"scale":true},"first_screen":{"enable":true,"header_transparent":true,"background_img":"/images/bg.svg","description":"建立自信不是相信自己，而是掌握面对未知的力量。","font_color":null,"hitokoto":false},"scroll":{"progress_bar":true,"percent":true}},"local_search":{"enable":true,"preload":true},"code_block":{"tools":{"enable":true,"style":"default"},"highlight_theme":"default"},"side_tools":{},"pjax":{"enable":true},"lazyload":{"enable":false},"comment":{"enable":false,"use":"valine","valine":{"appid":null,"appkey":null,"server_urls":null,"placeholder":null},"gitalk":{"github_id":null,"github_admins":null,"repository":null,"client_id":null,"client_secret":null,"proxy":null},"twikoo":{"env_id":null,"region":null,"version":"1.6.8"},"waline":{"server_url":null,"reaction":false,"version":2}},"post":{"author_label":{"enable":true,"auto":true,"custom_label_list":["Trainee","Engineer","Architect"]},"word_count":{"enable":true,"wordcount":true,"min2read":true},"img_align":"center","copyright_info":true},"website_count":{"busuanzi_count":{"enable":true,"site_uv":true,"site_pv":true,"page_pv":true}},"version":"3.7.4"}
+    KEEP.language_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 个月前","year":"%s 年前"}
+    KEEP.language_code_block = {"copy":"复制代码","copied":"已复制","fold":"折叠代码块","folded":"已折叠"}
+    KEEP.language_copy_copyright = {"copy":"复制版权信息","copied":"已复制","title":"原文标题","author":"原文作者","link":"原文链接"}
+  </script>
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+        <span class="scroll-progress-bar"></span>
+    
+
+    
+        <span class="pjax-progress-bar"></span>
+        <i class="pjax-progress-icon fas fa-circle-notch fa-spin"></i>
+    
+</div>
+
+
+<main class="page-container border-box">
+
+    <!-- home first screen  -->
+    
+
+    <!-- page content -->
+    <div class="page-main-content border-box">
+        <div class="page-main-content-top">
+            
+<header class="header-wrapper">
+
+    <div class="border-box header-content">
+        <div class="left border-box">
+            
+                <a class="logo-image border-box" href="/">
+                    <img src="/images/logo.png">
+                </a>
+            
+            <a class="site-name border-box" href="/">
+               唔、
+            </a>
+        </div>
+
+        <div class="right border-box">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                首页
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                归档
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/categories"
+                            >
+                                分类
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/tags"
+                            >
+                                标签
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/links"
+                            >
+                                友链
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/about"
+                            >
+                                关于
+                            </a>
+                        </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas fa-search"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/">首页</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives">归档</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/categories">分类</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/tags">标签</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/links">友链</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/about">关于</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle border-box">
+
+            <div class="main-content border-box">
+
+                
+
+                    <div class="fade-in-down-animation">
+    <div class="post-page-container border-box">
+
+        <div class="article-content-container border-box">
+
+            <div class="article-title">
+                <span class="title-hover-animation">事件</span>
+            </div>
+
+            
+                <div class="article-header border-box">
+                    
+                        <div class="avatar-box border-box">
+                            <img src="/images/avatar.jpg">
+                        </div>
+                    
+                    <div class="info-box">
+                        <div class="author">
+                            <span class="name">immortal</span>
+                            
+                                <span class="author-label">Lv5</span>
+                            
+                        </div>
+                        <div class="meta-info border-box">
+                            
+
+<div class="article-meta-info-container border-box post">
+    <div class="article-meta-info border-box">
+        
+
+
+        
+            <span class="meta-info-item article-create-date">
+                <i class="icon fa-solid fa-calendar-check"></i>&nbsp;
+                <span class="pc">2023-11-09 14:23:06</span>
+                <span class="mobile">2023-11-09 14:23</span>
+            </span>
+
+            <span class="meta-info-item article-update-date">
+                <i class="icon fa-solid fa-file-pen"></i>&nbsp;
+                <span class="pc">2023-11-10 22:25:22</span>
+            </span>
+        
+
+        
+            <span class="meta-info-item article-category border-box"><i class="icon fas fa-folder"></i>&nbsp;
+                <ul>
+                    
+                            <li class="category-item">
+                                
+                                <a href="/categories/JavaScript/">JavaScript</a>
+                            </li>
+                        
+                    
+                </ul>
+            </span>
+        
+
+        
+            <span class="article-tag meta-info-item border-box">
+                <i class="icon fas fa-tags"></i>&nbsp;
+                <ul>
+                    
+                </ul>
+            </span>
+        
+
+        
+        
+            <span class="meta-info-item article-wordcount">
+                <i class="icon fas fa-file-word"></i>&nbsp;<span>4.9k 字</span>
+            </span>
+        
+        
+            <span class="meta-info-item article-min2read">
+                <i class="icon fas fa-clock"></i>&nbsp;<span>19 分钟</span>
+            </span>
+        
+        
+            <span class="meta-info-item article-pv">
+                <i class="icon fas fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+            </span>
+        
+    </div>
+
+    
+</div>
+
+                        </div>
+                    </div>
+                </div>
+            
+
+            <div class="article-content keep-markdown-body">
+                
+
+                <p>事件的本质是程序各个组成部分之间的一种通信方式，也是异步编程的一种实现。</p>
+<h1 id="1-EventTarget-接口"><a href="#1-EventTarget-接口" class="headerlink" title="1.EventTarget 接口"></a>1.EventTarget 接口</h1><p>介绍具体的事件之前，先来看看如何让 DOM 节点监听事件。</p>
+<p>DOM 节点的事件操作（监听和触发），都定义在EventTarget接口。所有节点对象都部署了这个接口，其他一些需要事件通信的浏览器内置对象（比如，XMLHttpRequest、AudioNode、AudioContext）也部署了这个接口。</p>
+<p>该接口主要提供三个实例方法。</p>
+<ul>
+<li>addEventListener()：绑定事件的监听函数</li>
+<li>removeEventListener()：移除事件的监听函数</li>
+<li>dispatchEvent()：触发事件</li>
+</ul>
+<h3 id="1-EventTarget-addEventListener"><a href="#1-EventTarget-addEventListener" class="headerlink" title="1.EventTarget.addEventListener()"></a>1.EventTarget.addEventListener()</h3><p>EventTarget.addEventListener()用于在当前节点或对象上（即部署了 EventTarget 接口的对象），定义一个特定事件的监听函数。一旦这个事件发生，就会执行监听函数。该方法没有返回值。<br><code>target.addEventListener(type, function[, useCapture]);</code><br>该方法接受三个参数：<br>type 指的是要监听的事件类型，字符串，必填<br>function指的是在事件发生时要执行的函数，必填。<br>useCapture指的是触发类型，布尔型，可空。true：事件在捕获阶段执行；false：事件在冒泡阶段执行，默认是false。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;button id=<span class="string">&quot;myButton&quot;</span>&gt;<span class="title class_">Click</span> me!&lt;/button&gt;</span><br><span class="line"><span class="keyword">var</span> button = <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&quot;myButton&quot;</span>);</span><br><span class="line">button.<span class="title function_">addEventListener</span>(<span class="string">&quot;click&quot;</span>, <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="title function_">alert</span>(<span class="string">&quot;Button clicked!&quot;</span>);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">//等价于</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">hello</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;Hello world&#x27;</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> button = <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&#x27;myButton&#x27;</span>);</span><br><span class="line">button.<span class="title function_">addEventListener</span>(<span class="string">&#x27;click&#x27;</span>, hello, <span class="literal">false</span>);</span><br></pre></td></tr></table></figure>
+
+<p>第二个参数除了监听函数，还可以是一个具有handleEvent方法的对象，效果与监听函数一样。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id=<span class="string">&quot;myDiv&quot;</span>&gt;学习事件监听&lt;/div&gt;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> div = <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&quot;myDiv&quot;</span>);</span><br><span class="line">div.<span class="title function_">addEventListener</span>(<span class="string">&quot;mouseup&quot;</span>,  &#123;</span><br><span class="line">  <span class="attr">handleEvent</span>: <span class="keyword">function</span>(<span class="params">event</span>) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;X: &quot;</span> + event.<span class="property">clientX</span> + <span class="string">&quot;, Y: &quot;</span> + event.<span class="property">clientY</span>); <span class="comment">//  X: 102, Y: 17</span></span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(event.<span class="property">type</span>); <span class="comment">//mouseup</span></span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(event.<span class="property">target</span>); <span class="comment">//&lt;div id=&quot;myDiv&quot;&gt;学习事件监听&lt;/div&gt;</span></span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(event.<span class="property">currentTarget</span>); <span class="comment">//&lt;div id=&quot;myDiv&quot;&gt;学习事件监听&lt;/div&gt;</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>以下是一些常用的事件对象(Event)属性：</p>
+<ul>
+<li>type：事件类型。</li>
+<li>target：事件目标元素。</li>
+<li>currentTarget：当前正在处理事件的元素。</li>
+<li>clientX&#x2F;clientY：鼠标相对于浏览器窗口左上角的坐标。</li>
+<li>pageX&#x2F;pageY：鼠标相对于文档左上角的坐标。</li>
+<li>keyCode：按下的键盘键的键码值。</li>
+</ul>
+<p>第三个参数除了布尔值useCapture，还可以是一个监听器配置对象，定制事件监听行为。该对象有以下属性。</p>
+<ul>
+<li>capture：布尔值，如果设为true，表示监听函数在捕获阶段触发，默认为false，在冒泡阶段触发。</li>
+<li>once：布尔值，如果设为true，表示监听函数执行一次就会自动移除，后面将不再监听该事件。该属性默认值为false。</li>
+<li>passive：布尔值，设为true时，表示禁止监听函数调用preventDefault()方法。如果调用了，浏览器将忽略这个要求，并在控制台输出一条警告。该属性默认值为false。</li>
+<li>signal：该属性的值为一个 AbortSignal 对象，为监听器设置了一个信号通道，用来在需要时发出信号，移除监听函数。</li>
+</ul>
+<p>addEventListener()方法可以为针对当前对象的同一个事件，添加多个不同的监听函数。这些函数按照添加顺序触发，即先添加先触发。</p>
+<h3 id="2-EventTarget-removeEventListener"><a href="#2-EventTarget-removeEventListener" class="headerlink" title="2.EventTarget.removeEventListener()"></a>2.EventTarget.removeEventListener()</h3><p>EventTarget.removeEventListener()方法用来移除addEventListener()方法添加的事件监听函数。该方法没有返回值。<br>removeEventListener()方法的参数，与addEventListener()方法完全一致。它的第一个参数“事件类型”，大小写敏感。<br>注意，removeEventListener()方法移除的监听函数，必须是addEventListener()方法添加的那个监听函数，而且必须在同一个元素节点，否则无效。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">div.<span class="title function_">addEventListener</span>(<span class="string">&#x27;click&#x27;</span>, listener, <span class="literal">false</span>);</span><br><span class="line">div.<span class="title function_">removeEventListener</span>(<span class="string">&#x27;click&#x27;</span>, listener, <span class="literal">false</span>);</span><br></pre></td></tr></table></figure>
+
+<h1 id="2-事件模型"><a href="#2-事件模型" class="headerlink" title="2.事件模型"></a>2.事件模型</h1><h3 id="1-监听函数"><a href="#1-监听函数" class="headerlink" title="1.监听函数"></a>1.监听函数</h3><p>浏览器的事件模型，就是通过监听函数（listener）对事件做出反应。事件发生后，浏览器监听到了这个事件，就会执行对应的监听函数。<br>JavaScript 有三种方法，可以为事件绑定监听函数。<br>监听函数内部的this指向触发事件的那个元素节点。</p>
+<h5 id="1-HTML-的-on-属性"><a href="#1-HTML-的-on-属性" class="headerlink" title="1.HTML 的 on- 属性"></a>1.HTML 的 on- 属性</h5><p>HTML 语言允许在元素的属性中，直接定义某些事件的监听代码。<br>元素的事件监听属性，都是on加上事件名，比如onload就是on + load，表示load事件的监听代码。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;body onload=<span class="string">&quot;doSomething()&quot;</span>&gt;</span><br><span class="line">&lt;div onclick=&quot;console.log(&#x27;触发事件&#x27;)&quot;&gt;</span><br><span class="line"></span><br><span class="line">&lt;Element onclick=&quot;doSomething()&quot;&gt;</span><br><span class="line">// 等同于</span><br><span class="line">el.setAttribute(&#x27;onclick&#x27;, &#x27;doSomething()&#x27;);</span><br></pre></td></tr></table></figure>
+
+<h5 id="2-元素节点的事件属性"><a href="#2-元素节点的事件属性" class="headerlink" title="2.元素节点的事件属性"></a>2.元素节点的事件属性</h5><p>元素节点对象的事件属性，同样可以指定监听函数。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">window</span>.<span class="property">onload</span> = doSomething;</span><br><span class="line"></span><br><span class="line">div.<span class="property">onclick</span> = <span class="keyword">function</span> (<span class="params">event</span>) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;触发事件&#x27;</span>);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>使用这个方法指定的监听函数，也是只会在冒泡阶段触发。</p>
+<p>注意，这种方法与 HTML 的on-属性的差异是，它的值是函数名（doSomething），而不像后者，必须给出完整的监听代码（doSomething()）。</p>
+<h5 id="3-EventTarget-addEventListener"><a href="#3-EventTarget-addEventListener" class="headerlink" title="3.EventTarget.addEventListener()"></a>3.EventTarget.addEventListener()</h5><p>所有 DOM 节点实例都有addEventListener方法，用来为该节点定义事件的监听函数。<br><code>window.addEventListener(&#39;load&#39;, doSomething, false);</code></p>
+<h3 id="2-事件的传播和代理"><a href="#2-事件的传播和代理" class="headerlink" title="2.事件的传播和代理"></a>2.事件的传播和代理</h3><p>一个事件发生后，会在子元素和父元素之间传播。这种传播分成三个阶段。</p>
+<ul>
+<li>第一阶段：从window对象传导到目标节点（上层传到底层），称为“捕获阶段”</li>
+<li>第二阶段：在目标节点上触发，称为“目标阶段”</li>
+<li>第三阶段：从目标节点传导回window对象（从底层传回上层），称为“冒泡阶段”<br>这种三阶段的传播模型，使得同一个事件会在多个节点上触发。</li>
+</ul>
+<p>由于事件会在冒泡阶段向上传播到父节点，因此可以把子节点的监听函数定义在父节点上，由父节点的监听函数统一处理多个子元素的事件。这种方法叫做事件的代理</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> ul = <span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&#x27;ul&#x27;</span>);</span><br><span class="line"></span><br><span class="line">ul.<span class="title function_">addEventListener</span>(<span class="string">&#x27;click&#x27;</span>, <span class="keyword">function</span> (<span class="params">event</span>) &#123;</span><br><span class="line">  <span class="keyword">if</span> (event.<span class="property">target</span>.<span class="property">tagName</span>.<span class="title function_">toLowerCase</span>() === <span class="string">&#x27;li&#x27;</span>) &#123;</span><br><span class="line">    <span class="comment">// some code</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>上面代码中，click事件的监听函数定义在<ul>节点，但是实际上，它处理的是子节点<li>的click事件。这样做的好处是，只要定义一个监听函数，就能处理多个子节点的事件，而不用在每个</li><li>节点上定义监听函数。而且以后再添加子节点，监听函数依然有效。</li></ul></p>
+<p>如果希望事件到某个节点为止，不再传播，可以使用事件对象的stopPropagation方法。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 事件传播到 p 元素后，就不再向下传播了</span></span><br><span class="line">p.<span class="title function_">addEventListener</span>(<span class="string">&#x27;click&#x27;</span>, <span class="keyword">function</span> (<span class="params">event</span>) &#123;</span><br><span class="line">  event.<span class="title function_">stopPropagation</span>();</span><br><span class="line">&#125;, <span class="literal">true</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 事件冒泡到 p 元素后，就不再向上冒泡了</span></span><br><span class="line">p.<span class="title function_">addEventListener</span>(<span class="string">&#x27;click&#x27;</span>, <span class="keyword">function</span> (<span class="params">event</span>) &#123;</span><br><span class="line">  event.<span class="title function_">stopPropagation</span>();</span><br><span class="line">&#125;, <span class="literal">false</span>);</span><br></pre></td></tr></table></figure>
+<p>上面代码中，stopPropagation方法分别在捕获阶段和冒泡阶段，阻止了事件的传播。</p>
+<p>但是，stopPropagation方法只会阻止事件的传播，不会阻止该事件触发</p><p>节点的其他click事件的监听函数。也就是说，不是彻底取消click事件。<br>如果想要彻底取消该事件，不再触发后面所有click的监听函数，可以使用stopImmediatePropagation方法。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">p.<span class="title function_">addEventListener</span>(<span class="string">&#x27;click&#x27;</span>, <span class="keyword">function</span> (<span class="params">event</span>) &#123;</span><br><span class="line">  event.<span class="title function_">stopImmediatePropagation</span>();</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="number">1</span>);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">p.<span class="title function_">addEventListener</span>(<span class="string">&#x27;click&#x27;</span>, <span class="keyword">function</span>(<span class="params">event</span>) &#123;</span><br><span class="line">  <span class="comment">// 不会被触发</span></span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="number">2</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h1 id="3-事件类型"><a href="#3-事件类型" class="headerlink" title="3.事件类型"></a>3.事件类型</h1><h3 id="1-鼠标事件"><a href="#1-鼠标事件" class="headerlink" title="1.鼠标事件"></a>1.鼠标事件</h3><p>（1）点击事件</p>
+<ul>
+<li>click：用户单击了某个元素时触发。</li>
+<li>dblclick：用户双击了某个元素时触发。</li>
+<li>mousedown：用户按下了鼠标按钮时触发。</li>
+<li>mouseup：用户释放了鼠标按钮时触发。<br>click事件可以看成是两个事件组成的：用户在同一个位置先触发mousedown，再触发mouseup。因此，触发顺序是，mousedown首先触发，mouseup接着触发，click最后触发。</li>
+</ul>
+<p>双击时，dblclick事件则会在mousedown、mouseup、click之后触发。</p>
+<p>（2）移动事件</p>
+<ul>
+<li>mousemove：用户移动了鼠标时触发。当鼠标持续移动时，该事件会连续触发。</li>
+<li>mouseover：鼠标移到某个元素上时触发，进入子元素会再一次触发这个事件。</li>
+<li>mouseout：鼠标从某个元素移开时触发，离开父元素也会触发这个事件。</li>
+<li>mouseenter 当鼠标移动到元素上时触发，进入子元素不会触发这个事件。</li>
+<li>mouseleave：当鼠标移出元素时触发，离开父元素不会触发这个事件。</li>
+</ul>
+<h3 id="2-键盘事件"><a href="#2-键盘事件" class="headerlink" title="2.键盘事件"></a>2.键盘事件</h3><ul>
+<li>keydown：用户按下了键盘上的某个键时触发。</li>
+<li>keyup：用户释放了键盘上的某个键时触发。</li>
+<li>keypress：某个键盘按键被按下并松开时触发。按下有值的键时触发，即按下 Ctrl、Alt、Shift、Meta 这样无值的键，这个事件不会触发。对于有值的键，按下时先触发keydown事件，再触发这个事件。</li>
+</ul>
+<p>如果用户一直按键不松开，就会连续触发键盘事件，触发的顺序如下。<br>keydown、keypress、keydown、keypress、keydown、keypress、keydown、keypress…keyup</p>
+<h3 id="3-表单事件"><a href="#3-表单事件" class="headerlink" title="3.表单事件"></a>3.表单事件</h3><ul>
+<li><p>input：元素获取用户输入时触发</p>
+</li>
+<li><p>select: 当在<code>&lt;input&gt;</code>、<code>&lt;textarea&gt;</code>里面选中文本时触发，但不是点击，是框选。</p>
+</li>
+<li><p>change：该事件在<code>&lt;input&gt;</code>、<code>&lt;select&gt;</code>、<code>&lt;textarea&gt;</code>的值发生变化时触发</p>
+</li>
+<li><p>invalid: 用户提交表单时，如果表单元素的值不满足校验条件，就会触发</p>
+</li>
+<li><p>focus：元素获取焦点时触发，该事件不会冒泡</p>
+</li>
+<li><p>blur：某个元素失去了焦点时触发，该事件不会冒泡</p>
+</li>
+<li><p>focusin：元素即将获取焦点时触发，发生在focus事件之前。该事件会冒泡。</p>
+</li>
+<li><p>focusout：元素即将失去焦点时触发，发生在blur事件之前。该事件会冒泡。</p>
+</li>
+<li><p>reset：表单重置时触发</p>
+</li>
+<li><p>search：用户向搜索域输入文本时触发</p>
+</li>
+</ul>
+<p>(1)input事件<br>input事件当<code>&lt;input&gt;</code>、<code>&lt;select&gt;</code>、<code>&lt;textarea&gt;</code>的值发生变化时触发。对于复选框（<code>&lt;input type=checkbox&gt;</code>）或单选框（<code>&lt;input type=radio&gt;</code>），用户改变选项时，也会触发这个事件。另外，对于打开contenteditable属性的元素，只要值发生变化，也会触发input事件。<br>input事件的一个特点，就是会连续触发，比如用户每按下一次按键，就会触发一次input事件。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;select id=<span class="string">&quot;mySelect&quot;</span>&gt;</span><br><span class="line">  <span class="language-xml"><span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">&quot;1&quot;</span>&gt;</span>1<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span></span><br><span class="line">  <span class="language-xml"><span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">&quot;2&quot;</span>&gt;</span>2<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span></span><br><span class="line">  <span class="language-xml"><span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">&quot;3&quot;</span>&gt;</span>3<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span></span><br><span class="line">&lt;/select&gt;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">inputHandler</span>(<span class="params">e</span>) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(e.<span class="property">target</span>.<span class="property">value</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> mySelect = <span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&#x27;#mySelect&#x27;</span>);</span><br><span class="line">mySelect.<span class="title function_">addEventListener</span>(<span class="string">&#x27;input&#x27;</span>, inputHandler);</span><br></pre></td></tr></table></figure>
+<p>上面代码中，改变下拉框选项时，会触发input事件，从而执行回调函数inputHandler。</p>
+<p>(2)select事件<br>当在<code>&lt;input&gt;</code>、<code>&lt;textarea&gt;</code>里面选中文本时触发</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;input id=<span class="string">&quot;test&quot;</span> type=<span class="string">&quot;text&quot;</span> value=<span class="string">&quot;Select me!&quot;</span> /&gt;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> elem = <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&#x27;test&#x27;</span>);</span><br><span class="line">elem.<span class="title function_">addEventListener</span>(<span class="string">&#x27;select&#x27;</span>, <span class="keyword">function</span> (<span class="params">eevent</span>) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(event.<span class="property">type</span>); <span class="comment">// &quot;select&quot;</span></span><br><span class="line">&#125;, <span class="literal">false</span>);</span><br></pre></td></tr></table></figure>
+<p>选中的文本可以通过event.target元素的selectionDirection、selectionEnd、selectionStart和value属性拿到。</p>
+<p>(3)change事件<br>change事件当<code>&lt;input&gt;</code>、<code>&lt;select&gt;</code>、<code>&lt;textarea&gt;</code>的值发生变化时触发。它与input事件的最大不同，就是不会连续触发，只有当全部修改完成时才会触发，另一方面input事件必然伴随change事件。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;select size=<span class="string">&quot;1&quot;</span> onchange=<span class="string">&quot;changeEventHandler(event);&quot;</span>&gt;</span><br><span class="line">  <span class="language-xml"><span class="tag">&lt;<span class="name">option</span>&gt;</span>chocolate<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span></span><br><span class="line">  <span class="language-xml"><span class="tag">&lt;<span class="name">option</span>&gt;</span>strawberry<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span></span><br><span class="line">  <span class="language-xml"><span class="tag">&lt;<span class="name">option</span>&gt;</span>vanilla<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span></span><br><span class="line">&lt;/select&gt;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">changeEventHandler</span>(<span class="params">event</span>) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(event.<span class="property">target</span>.<span class="property">value</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>(3)invalid 事件<br>用户提交表单时，如果表单元素的值不满足校验条件，就会触发invalid事件。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;form&gt;</span><br><span class="line">  <span class="language-xml"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">required</span> <span class="attr">oninvalid</span>=<span class="string">&quot;console.log(&#x27;invalid input&#x27;)&quot;</span> /&gt;</span></span></span><br><span class="line">  <span class="language-xml"><span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">&quot;submit&quot;</span>&gt;</span>提交<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span></span><br><span class="line">&lt;/form&gt;</span><br></pre></td></tr></table></figure>
+<p>上面代码中，输入框是必填的。如果不填，用户点击按钮提交时，就会触发输入框的invalid事件，导致提交被取消。</p>
+<p>(4)reset 事件，submit 事件<br>这两个事件发生在表单对象<code>&lt;form&gt;</code>上，而不是发生在表单的成员上。</p>
+<p>reset事件当表单重置（所有表单成员变回默认值）时触发。</p>
+<p>submit事件当表单数据向服务器提交时触发。注意，submit事件的发生对象是<code>&lt;form&gt;</code>元素，而不是<code>&lt;button&gt;</code>元素，因为提交的是表单，而不是按钮。</p>
+<h3 id="4-拖拉事件"><a href="#4-拖拉事件" class="headerlink" title="4.拖拉事件"></a>4.拖拉事件</h3><ul>
+<li>drag：拖拉过程中，在被拖拉的节点上持续触发（相隔几百毫秒）。</li>
+<li>dragstart：该事件在用户开始拖动元素时触发</li>
+<li>dragend：该事件在用户完成元素的拖动时触发</li>
+<li>dragenter：拖拉进入当前节点时，在当前节点上触发一次</li>
+<li>dragover：拖拉到当前节点上方时，在当前节点上持续触发（相隔几百毫秒）</li>
+<li>dragleave：拖拉操作离开当前节点范围时，在当前节点上触发</li>
+<li>drop：被拖拉的节点或选中的文本，释放到目标节点时，在目标节点上触发。</li>
+</ul>
+<p>下面的例子展示，如何动态改变被拖动节点的背景色。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">div.<span class="title function_">addEventListener</span>(<span class="string">&#x27;dragstart&#x27;</span>, <span class="keyword">function</span> (<span class="params">e</span>) &#123;</span><br><span class="line">  <span class="variable language_">this</span>.<span class="property">style</span>.<span class="property">backgroundColor</span> = <span class="string">&#x27;red&#x27;</span>;</span><br><span class="line">&#125;, <span class="literal">false</span>);</span><br><span class="line"></span><br><span class="line">div.<span class="title function_">addEventListener</span>(<span class="string">&#x27;dragend&#x27;</span>, <span class="keyword">function</span> (<span class="params">e</span>) &#123;</span><br><span class="line">  <span class="variable language_">this</span>.<span class="property">style</span>.<span class="property">backgroundColor</span> = <span class="string">&#x27;green&#x27;</span>;</span><br><span class="line">&#125;, <span class="literal">false</span>);</span><br></pre></td></tr></table></figure>
+<p>上面代码中，div节点被拖动时，背景色会变为红色，拖动结束，又变回绿色。</p>
+<h3 id="5-多媒体（Media）事件"><a href="#5-多媒体（Media）事件" class="headerlink" title="5.多媒体（Media）事件"></a>5.多媒体（Media）事件</h3><ul>
+<li>abort 事件在视频&#x2F;音频（audio&#x2F;video）终止加载时触发。</li>
+<li>canplay 事件在用户可以开始播放视频&#x2F;音频（audio&#x2F;video）时触发。</li>
+<li>canplaythrough 事件在视频&#x2F;音频（audio&#x2F;video）可以正常播放且无需停顿和缓冲时触发。</li>
+<li>durationchange 事件在视频&#x2F;音频（audio&#x2F;video）的时长发生变化时触发。</li>
+<li>emptied The event occurs when the current playlist is empty</li>
+<li>ended 事件在视频&#x2F;音频（audio&#x2F;video）播放结束时触发。</li>
+<li>error 事件在视频&#x2F;音频（audio&#x2F;video）数据加载期间发生错误时触发。</li>
+<li>loadeddata 事件在浏览器加载视频&#x2F;音频（audio&#x2F;video）当前帧时触发触发。</li>
+<li>loadedmetadata 事件在指定视频&#x2F;音频（audio&#x2F;video）的元数据加载后触发。</li>
+<li>loadstart 事件在浏览器开始寻找指定视频&#x2F;音频（audio&#x2F;video）触发。</li>
+<li>pause 事件在视频&#x2F;音频（audio&#x2F;video）暂停时触发。</li>
+<li>play 事件在视频&#x2F;音频（audio&#x2F;video）开始播放时触发。</li>
+<li>playing 事件在视频&#x2F;音频（audio&#x2F;video）暂停或者在缓冲后准备重新开始播放时触发。</li>
+<li>progress 事件在浏览器下载指定的视频&#x2F;音频（audio&#x2F;video）时触发。</li>
+<li>ratechange 事件在视频&#x2F;音频（audio&#x2F;video）的播放速度发送改变时触发。</li>
+<li>seeked 事件在用户重新定位视频&#x2F;音频（audio&#x2F;video）的播放位置后触发。</li>
+<li>seeking 事件在用户开始重新定位视频&#x2F;音频（audio&#x2F;video）时触发。</li>
+<li>stalled 事件在浏览器获取媒体数据，但媒体数据不可用时触发。</li>
+<li>suspend 事件在浏览器读取媒体数据中止时触发。</li>
+<li>timeupdate 事件在当前的播放位置发送改变时触发。</li>
+<li>volumechange 事件在音量发生改变时触发。</li>
+<li>waiting 事件在视频由于要播放下一帧而需要缓冲时触发。</li>
+</ul>
+<h3 id="6-动画事件"><a href="#6-动画事件" class="headerlink" title="6.动画事件"></a>6.动画事件</h3><ul>
+<li>animationend 该事件在 CSS 动画结束播放时触发</li>
+<li>animationiteration 该事件在 CSS 动画重复播放时触发</li>
+<li>animationstart 该事件在 CSS 动画开始播放时触发</li>
+<li>transitionend 该事件在 CSS 完成过渡后触发。</li>
+</ul>
+<h3 id="7-框架-x2F-对象（Frame-x2F-Object）事件-window"><a href="#7-框架-x2F-对象（Frame-x2F-Object）事件-window" class="headerlink" title="7.框架&#x2F;对象（Frame&#x2F;Object）事件 window"></a>7.框架&#x2F;对象（Frame&#x2F;Object）事件 window</h3><ul>
+<li>load：在页面或某个资源加载成功时触发。</li>
+<li>abort：用户取消或中止加载时触发。</li>
+<li>error：在加载文档或图像时发生错误。</li>
+<li>pageshow：该事件在用户访问页面时触发</li>
+<li>pagehide：该事件在用户离开当前网页跳转到另外一个页面时触发</li>
+<li>scroll：在文档或文档元素滚动时触发，主要出现在用户拖动滚动条。</li>
+<li>resize：在改变浏览器窗口大小时触发。</li>
+</ul>
+<h5 id="1-load-事件-error-事件-abort-事件"><a href="#1-load-事件-error-事件-abort-事件" class="headerlink" title="(1)load 事件, error 事件, abort 事件"></a>(1)load 事件, error 事件, abort 事件</h5><p>load事件在页面或某个资源加载成功时触发。注意，页面或资源从浏览器缓存加载，并不会触发load事件。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">window</span>.<span class="title function_">addEventListener</span>(<span class="string">&#x27;load&#x27;</span>, <span class="keyword">function</span>(<span class="params">event</span>) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;所有资源都加载完成&#x27;</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>error事件是在页面或资源加载失败时触发。abort事件在用户取消加载时触发。</p>
+<p>这三个事件实际上属于进度事件，不仅发生在document对象，还发生在各种外部资源上面。浏览网页就是一个加载各种资源的过程，图像（image）、样式表（style sheet）、脚本（script）、视频（video）、音频（audio）、Ajax请求（XMLHttpRequest）等等。这些资源和document对象、window对象、XMLHttpRequestUpload 对象，都会触发load事件和error事件。<br>最后，页面的load事件也可以用pageshow事件代替。</p>
+<h5 id="2-pageshow-事件，pagehide-事件"><a href="#2-pageshow-事件，pagehide-事件" class="headerlink" title="(2)pageshow 事件，pagehide 事件"></a>(2)pageshow 事件，pagehide 事件</h5><p>默认情况下，浏览器会在当前会话（session）缓存页面，当用户点击“前进&#x2F;后退”按钮时，浏览器就会从缓存中加载页面。</p>
+<p>pageshow事件在页面加载时触发，包括第一次加载和从缓存加载两种情况。如果要指定页面每次加载（不管是不是从浏览器缓存）时都运行的代码，可以放在这个事件的监听函数。</p>
+<p>第一次加载时，它的触发顺序排在load事件后面。从缓存加载时，load事件不会触发，因为网页在缓存中的样子通常是load事件的监听函数运行后的样子，所以不必重复执行。同理，如果是从缓存中加载页面，网页内初始化的 JavaScript 脚本（比如 DOMContentLoaded 事件的监听函数）也不会执行。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">window</span>.<span class="title function_">addEventListener</span>(<span class="string">&#x27;pageshow&#x27;</span>, <span class="keyword">function</span>(<span class="params">event</span>) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;pageshow: &#x27;</span>, event);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="variable language_">window</span>.<span class="title function_">addEventListener</span>(<span class="string">&#x27;pagehide&#x27;</span>, <span class="keyword">function</span>(<span class="params">event</span>) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;pageshow: &#x27;</span>, event);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>pagehide事件与pageshow事件类似，当用户通过“前进&#x2F;后退”按钮，离开当前页面时触发。它与 unload 事件的区别在于，如果在 window 对象上定义unload事件的监听函数之后，页面不会保存在缓存中，而使用pagehide事件，页面会保存在缓存中。</p>
+<p>pageshow、pagehide事件实例（event）都有一个persisted属性，将这个属性设为true，就表示页面要保存在缓存中；设为false，表示网页不保存在缓存中</p>
+<h5 id="3-resize-事件"><a href="#3-resize-事件" class="headerlink" title="(3)resize 事件"></a>(3)resize 事件</h5><p>resize事件在改变浏览器窗口大小时触发，主要发生在window对象上面。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">var</span> resizeMethod = <span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">if</span> (<span class="variable language_">document</span>.<span class="property">body</span>.<span class="property">clientWidth</span> &lt; <span class="number">768</span>) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;移动设备的视口&#x27;</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="variable language_">window</span>.<span class="title function_">addEventListener</span>(<span class="string">&#x27;resize&#x27;</span>, resizeMethod, <span class="literal">true</span>);</span><br></pre></td></tr></table></figure>
+<p>该事件和scroll一样，会连续地大量触发，所以它的监听函数之中不应该有非常耗费计算的操作。推荐的做法是使用requestAnimationFrame或setTimeout控制该事件的触发频率，然后可以结合customEvent抛出一个新事件。。</p>
+<h3 id="8-其他事件"><a href="#8-其他事件" class="headerlink" title="8.其他事件"></a>8.其他事件</h3><ul>
+<li>message 该事件通过或者从对象(WebSocket, Web Worker, Event Source 或者子 frame 或父窗口)接收到消息时触发</li>
+<li>online 该事件在浏览器开始在线工作时触发。</li>
+<li>offline 该事件在浏览器开始离线工作时触发。</li>
+<li>storage 该事件在 Web Storage(HTML 5 Web 存储)更新时触发</li>
+<li>toggle 该事件在用户打开或关闭 元素时触发</li>
+<li>wheel 该事件在鼠标滚轮在元素上下滚动时触发</li>
+</ul>
+
+            </div>
+
+            
+                <div class="post-copyright-info">
+                    
+<div class="article-copyright-info-container">
+    <ul class="copyright-info-content">
+        <li class="post-title">
+            <span class="type">本文标题</span>：<span class="content">事件</span>
+        </li>
+        <li class="post-author">
+            <span class="type">本文作者</span>：<span class="content">immortal</span>
+        </li>
+        <li class="post-time">
+            <span class="type">创建时间</span>：<span class="content">2023-11-09 14:23:06</span>
+        </li>
+        <li class="post-link">
+            <span class="type">本文链接</span>：<span class="content">posts/43606.html</span>
+        </li>
+        <li class="post-license">
+            <span class="type">版权声明</span>：<span class="content">本博客所有文章除特别声明外，均采用 <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> 许可协议。转载请注明出处！</span>
+        </li>
+    </ul>
+    <div class="copy-copyright-info flex-center tooltip" data-content="复制版权信息" data-offset-y="-2px">
+        <i class="fa-solid fa-copy"></i>
+    </div>
+</div>
+
+                </div>
+            
+
+            
+
+            
+                <div class="article-nav">
+                    
+                        <div class="article-prev">
+                            <a class="prev"
+                               rel="prev"
+                               href="/posts/17651.html"
+                            >
+                            <span class="left arrow-icon flex-center">
+                              <i class="fas fa-chevron-left"></i>
+                            </span>
+                                <span class="title flex-center">
+                                <span class="post-nav-title-item text-ellipsis">Location 对象 和 URL 对象</span>
+                                <span class="post-nav-item">上一篇</span>
+                            </span>
+                            </a>
+                        </div>
+                    
+                    
+                        <div class="article-next">
+                            <a class="next"
+                               rel="next"
+                               href="/posts/40465.html"
+                            >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item text-ellipsis">Cookie 和 Storage</span>
+                                <span class="post-nav-item">下一篇</span>
+                            </span>
+                                <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                            </a>
+                        </div>
+                    
+                </div>
+            
+
+            
+                
+
+
+
+
+
+
+            
+        </div>
+
+        
+            <div class="pc-post-toc right-toc">
+                <div class="post-toc-wrap">
+    <div class="post-toc">
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-EventTarget-%E6%8E%A5%E5%8F%A3"><span class="nav-text">1.EventTarget 接口</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-EventTarget-addEventListener"><span class="nav-text">1.EventTarget.addEventListener()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-EventTarget-removeEventListener"><span class="nav-text">2.EventTarget.removeEventListener()</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-%E4%BA%8B%E4%BB%B6%E6%A8%A1%E5%9E%8B"><span class="nav-text">2.事件模型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E7%9B%91%E5%90%AC%E5%87%BD%E6%95%B0"><span class="nav-text">1.监听函数</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-HTML-%E7%9A%84-on-%E5%B1%9E%E6%80%A7"><span class="nav-text">1.HTML 的 on- 属性</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-%E5%85%83%E7%B4%A0%E8%8A%82%E7%82%B9%E7%9A%84%E4%BA%8B%E4%BB%B6%E5%B1%9E%E6%80%A7"><span class="nav-text">2.元素节点的事件属性</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-EventTarget-addEventListener"><span class="nav-text">3.EventTarget.addEventListener()</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E4%BA%8B%E4%BB%B6%E7%9A%84%E4%BC%A0%E6%92%AD%E5%92%8C%E4%BB%A3%E7%90%86"><span class="nav-text">2.事件的传播和代理</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-%E4%BA%8B%E4%BB%B6%E7%B1%BB%E5%9E%8B"><span class="nav-text">3.事件类型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E9%BC%A0%E6%A0%87%E4%BA%8B%E4%BB%B6"><span class="nav-text">1.鼠标事件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E9%94%AE%E7%9B%98%E4%BA%8B%E4%BB%B6"><span class="nav-text">2.键盘事件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E8%A1%A8%E5%8D%95%E4%BA%8B%E4%BB%B6"><span class="nav-text">3.表单事件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-%E6%8B%96%E6%8B%89%E4%BA%8B%E4%BB%B6"><span class="nav-text">4.拖拉事件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-%E5%A4%9A%E5%AA%92%E4%BD%93%EF%BC%88Media%EF%BC%89%E4%BA%8B%E4%BB%B6"><span class="nav-text">5.多媒体（Media）事件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-%E5%8A%A8%E7%94%BB%E4%BA%8B%E4%BB%B6"><span class="nav-text">6.动画事件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-%E6%A1%86%E6%9E%B6-x2F-%E5%AF%B9%E8%B1%A1%EF%BC%88Frame-x2F-Object%EF%BC%89%E4%BA%8B%E4%BB%B6-window"><span class="nav-text">7.框架&#x2F;对象（Frame&#x2F;Object）事件 window</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-load-%E4%BA%8B%E4%BB%B6-error-%E4%BA%8B%E4%BB%B6-abort-%E4%BA%8B%E4%BB%B6"><span class="nav-text">(1)load 事件, error 事件, abort 事件</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-pageshow-%E4%BA%8B%E4%BB%B6%EF%BC%8Cpagehide-%E4%BA%8B%E4%BB%B6"><span class="nav-text">(2)pageshow 事件，pagehide 事件</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-resize-%E4%BA%8B%E4%BB%B6"><span class="nav-text">(3)resize 事件</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-%E5%85%B6%E4%BB%96%E4%BA%8B%E4%BB%B6"><span class="nav-text">8.其他事件</span></a></li></ol></li></ol></li></ol>
+    </div>
+</div>
+
+            </div>
+        
+    </div>
+</div>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom border-box">
+            
+<footer class="footer border-box">
+    <div class="border-box website-info-box default">
+        
+            <div class="copyright-info info-item default">
+                &copy;&nbsp;<span>2023</span>&nbsp;-&nbsp;2023
+                
+                    &nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;&nbsp;<a href="/">immortal</a>
+                
+            </div>
+
+            <div class="theme-info info-item default">
+                由&nbsp;<a target="_blank" href="https://hexo.io">Hexo</a>&nbsp;驱动&nbsp;&&nbsp;主题&nbsp;<a class="keep-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep</a>
+            </div>
+
+            
+
+            
+        
+
+        <div class="count-item info-item default">
+            
+
+            
+                <span class="count-box border-box uv">
+                    <span class="item-type border-box">访问人数</span>
+                    <span class="item-value border-box uv" id="busuanzi_value_site_uv"></span>
+                </span>
+            
+
+            
+                <span class="count-box border-box pv">
+                    <span class="item-type border-box">总访问量</span>
+                    <span class="item-value border-box pv" id="busuanzi_value_site_pv"></span>
+                </span>
+            
+        </div>
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+    <!-- post tools -->
+    
+        <div class="post-tools right-toc">
+            <div class="post-tools-container border-box">
+    <ul class="tools-list border-box">
+        <!-- PC TOC show toggle -->
+        
+            <li class="tools-item flex-center toggle-show-toc">
+                <i class="fas fa-list"></i>
+            </li>
+        
+
+        <!-- PC go comment -->
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <!-- side tools -->
+    <div class="side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        
+            <li class="tools-item toggle-show-toc-tablet flex-center">
+                <i class="fas fa-list"></i>
+            </li>
+        
+
+        
+
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="arrow-up fas fa-arrow-up"></i>
+                <span class="percent"></span>
+            </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    <!-- image mask -->
+    <div class="zoom-in-image-mask">
+    <img class="zoom-in-image">
+</div>
+
+
+    <!-- local search -->
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="搜索..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="close-popup-btn">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+    <!-- tablet toc -->
+    
+        <div class="tablet-post-toc-mask">
+            <div class="tablet-post-toc">
+                <div class="post-toc-wrap">
+    <div class="post-toc">
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-EventTarget-%E6%8E%A5%E5%8F%A3"><span class="nav-text">1.EventTarget 接口</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-EventTarget-addEventListener"><span class="nav-text">1.EventTarget.addEventListener()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-EventTarget-removeEventListener"><span class="nav-text">2.EventTarget.removeEventListener()</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-%E4%BA%8B%E4%BB%B6%E6%A8%A1%E5%9E%8B"><span class="nav-text">2.事件模型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E7%9B%91%E5%90%AC%E5%87%BD%E6%95%B0"><span class="nav-text">1.监听函数</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-HTML-%E7%9A%84-on-%E5%B1%9E%E6%80%A7"><span class="nav-text">1.HTML 的 on- 属性</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-%E5%85%83%E7%B4%A0%E8%8A%82%E7%82%B9%E7%9A%84%E4%BA%8B%E4%BB%B6%E5%B1%9E%E6%80%A7"><span class="nav-text">2.元素节点的事件属性</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-EventTarget-addEventListener"><span class="nav-text">3.EventTarget.addEventListener()</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E4%BA%8B%E4%BB%B6%E7%9A%84%E4%BC%A0%E6%92%AD%E5%92%8C%E4%BB%A3%E7%90%86"><span class="nav-text">2.事件的传播和代理</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-%E4%BA%8B%E4%BB%B6%E7%B1%BB%E5%9E%8B"><span class="nav-text">3.事件类型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E9%BC%A0%E6%A0%87%E4%BA%8B%E4%BB%B6"><span class="nav-text">1.鼠标事件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E9%94%AE%E7%9B%98%E4%BA%8B%E4%BB%B6"><span class="nav-text">2.键盘事件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E8%A1%A8%E5%8D%95%E4%BA%8B%E4%BB%B6"><span class="nav-text">3.表单事件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-%E6%8B%96%E6%8B%89%E4%BA%8B%E4%BB%B6"><span class="nav-text">4.拖拉事件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-%E5%A4%9A%E5%AA%92%E4%BD%93%EF%BC%88Media%EF%BC%89%E4%BA%8B%E4%BB%B6"><span class="nav-text">5.多媒体（Media）事件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-%E5%8A%A8%E7%94%BB%E4%BA%8B%E4%BB%B6"><span class="nav-text">6.动画事件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-%E6%A1%86%E6%9E%B6-x2F-%E5%AF%B9%E8%B1%A1%EF%BC%88Frame-x2F-Object%EF%BC%89%E4%BA%8B%E4%BB%B6-window"><span class="nav-text">7.框架&#x2F;对象（Frame&#x2F;Object）事件 window</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-load-%E4%BA%8B%E4%BB%B6-error-%E4%BA%8B%E4%BB%B6-abort-%E4%BA%8B%E4%BB%B6"><span class="nav-text">(1)load 事件, error 事件, abort 事件</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-pageshow-%E4%BA%8B%E4%BB%B6%EF%BC%8Cpagehide-%E4%BA%8B%E4%BB%B6"><span class="nav-text">(2)pageshow 事件，pagehide 事件</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-resize-%E4%BA%8B%E4%BB%B6"><span class="nav-text">(3)resize 事件</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-%E5%85%B6%E4%BB%96%E4%BA%8B%E4%BB%B6"><span class="nav-text">8.其他事件</span></a></li></ol></li></ol></li></ol>
+    </div>
+</div>
+
+            </div>
+        </div>
+    
+</main>
+
+
+
+<script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.4/source/js/utils.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.4/source/js/main.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.4/source/js/header-shrink.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.4/source/js/back2top.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.4/source/js/dark-light-toggle.js"></script>
+
+
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.4/source/js/local-search.js"></script>
+
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.4/source/js/code-block.js"></script>
+
+
+
+
+<div class="post-scripts pjax">
+    
+        <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.4/source/js/post-helper.js"></script>
+        
+            <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.4/source/js/libs/anime.min.js"></script>
+        
+        
+            <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.4/source/js/toc.js"></script>
+        
+    
+    
+    
+</div>
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.4/source/js/libs/pjax.min.js"></script>
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        window.pjax = new Pjax({
+            selectors: [
+                'head title',
+                '.page-container',
+                '.pjax'
+            ],
+            history: true,
+            debug: false,
+            cacheBust: false,
+            timeout: 0,
+            analytics: false,
+            currentUrlFullReload: false,
+            scrollRestoration: false,
+            // scrollTo: true,
+        });
+
+        document.addEventListener('pjax:send', () => {
+            KEEP.utils.pjaxProgressBarStart();
+        });
+
+        document.addEventListener('pjax:complete', () => {
+            KEEP.utils.pjaxProgressBarEnd();
+            window.pjax.executeScripts(document.querySelectorAll('script[data-pjax], .pjax script'));
+            KEEP.refresh();
+        });
+    });
+</script>
+
+
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/hijiki.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":true},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/"});</script></body>
+</html>

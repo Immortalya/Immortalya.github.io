@@ -230,7 +230,7 @@
 
             <span class="meta-info-item article-update-date">
                 <i class="icon fa-solid fa-file-pen"></i>&nbsp;
-                <span class="pc">2023-09-30 17:34:38</span>
+                <span class="pc">2023-11-09 16:51:56</span>
             </span>
         
 
@@ -260,7 +260,7 @@
         
         
             <span class="meta-info-item article-wordcount">
-                <i class="icon fas fa-file-word"></i>&nbsp;<span>727 字</span>
+                <i class="icon fas fa-file-word"></i>&nbsp;<span>733 字</span>
             </span>
         
         
@@ -304,12 +304,11 @@
 <p>2.自定义函数进行深拷贝</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> arr = [<span class="string">&#x27;华佗&#x27;</span>,<span class="string">&#x27;李时珍&#x27;</span>,<span class="string">&#x27;张仲景&#x27;</span>,[<span class="string">&#x27;白起&#x27;</span>,<span class="string">&#x27;王翦&#x27;</span>],<span class="string">&#x27;扁鹊&#x27;</span>,<span class="string">&#x27;喜来乐&#x27;</span>];</span><br><span class="line"><span class="comment">// 自定义函数进行深浅拷贝 </span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">deepCopy</span>(<span class="params">object</span>)&#123;</span><br><span class="line">    <span class="keyword">let</span> result;</span><br><span class="line">    <span class="keyword">if</span> (<span class="title class_">Object</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">toString</span>.<span class="title function_">call</span>(object) == <span class="string">&#x27;[object Object]&#x27;</span>)&#123;</span><br><span class="line">        result = &#123;&#125;;</span><br><span class="line">    &#125;<span class="keyword">else</span> <span class="keyword">if</span> (<span class="title class_">Object</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">toString</span>.<span class="title function_">call</span>(object) == <span class="string">&#x27;[object Array]&#x27;</span>)&#123;</span><br><span class="line">        result = [];</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&#x27;不符合深拷贝的数据类型&#x27;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 遍历空对象或者是空数组  也就是要拷贝的对象</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">let</span> key <span class="keyword">in</span> object)&#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">typeof</span> object[key] == <span class="string">&#x27;object&#x27;</span>)&#123;</span><br><span class="line">            result[key] = <span class="title function_">deepCopy</span>(object[key]);</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            result[key] = object[key];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title function_">deepCopy</span>(arr));  <span class="comment">//[object Array]</span></span><br><span class="line"><span class="comment">// [ &#x27;华佗&#x27;, &#x27;李时珍&#x27;, &#x27;张仲景&#x27;, [ &#x27;白起&#x27;, &#x27;王翦&#x27; ], &#x27;扁鹊&#x27;, &#x27;喜来乐&#x27; ]</span></span><br></pre></td></tr></table></figure>
 
-<h3 id="2-this"><a href="#2-this" class="headerlink" title="2.this"></a>2.this</h3><h3 id="2-call-、bind-、-apply"><a href="#2-call-、bind-、-apply" class="headerlink" title="2. call 、bind 、 apply"></a>2. call 、bind 、 apply</h3><p><a class="link" target="_blank" rel="noopener" href="https://blog.csdn.net/qq_43000315/article/details/125360096">https://blog.csdn.net/qq_43000315/article/details/125360096<i class="fas fa-external-link-alt"></i></a></p>
+<h3 id="2-this"><a href="#2-this" class="headerlink" title="2.this"></a>2.this</h3><h3 id="3-call-、bind-、-apply"><a href="#3-call-、bind-、-apply" class="headerlink" title="3. call 、bind 、 apply"></a>3. call 、bind 、 apply</h3><p><a class="link" target="_blank" rel="noopener" href="https://blog.csdn.net/qq_43000315/article/details/125360096">https://blog.csdn.net/qq_43000315/article/details/125360096<i class="fas fa-external-link-alt"></i></a></p>
 <p>call()、apply()和bind()方法 三者作用都是 改变this指向</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> year = <span class="number">2021</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">getDate</span>(<span class="params">month, day</span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="variable language_">this</span>.<span class="property">year</span> + <span class="string">&#x27;-&#x27;</span> + month + <span class="string">&#x27;-&#x27;</span> + day</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> obj = &#123;<span class="attr">year</span>: <span class="number">2022</span>&#125;</span><br><span class="line">getDate.<span class="title function_">call</span>(<span class="literal">null</span>, <span class="number">3</span>, <span class="number">8</span>)    <span class="comment">//2021-3-8</span></span><br><span class="line">getDate.<span class="title function_">call</span>(obj, <span class="number">3</span>, <span class="number">8</span>)     <span class="comment">//2022-3-8</span></span><br><span class="line">getDate.<span class="title function_">apply</span>(obj, [<span class="number">6</span>, <span class="number">8</span>])  <span class="comment">//2022-6-8</span></span><br><span class="line">getDate.<span class="title function_">bind</span>(obj)(<span class="number">3</span>, <span class="number">8</span>)     <span class="comment">//2022-3-8</span></span><br></pre></td></tr></table></figure>
 
-
-
+<h3 id="4-防抖和节流"><a href="#4-防抖和节流" class="headerlink" title="4.防抖和节流"></a>4.防抖和节流</h3>
             </div>
 
             
@@ -395,7 +394,7 @@
             <div class="pc-post-toc right-toc">
                 <div class="post-toc-wrap">
     <div class="post-toc">
-        <ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E6%B5%85%E6%8B%B7%E8%B4%9D%E5%92%8C%E6%B7%B1%E6%8B%B7%E8%B4%9D"><span class="nav-text">1.浅拷贝和深拷贝</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-this"><span class="nav-text">2.this</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-call-%E3%80%81bind-%E3%80%81-apply"><span class="nav-text">2. call 、bind 、 apply</span></a></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E6%B5%85%E6%8B%B7%E8%B4%9D%E5%92%8C%E6%B7%B1%E6%8B%B7%E8%B4%9D"><span class="nav-text">1.浅拷贝和深拷贝</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-this"><span class="nav-text">2.this</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-call-%E3%80%81bind-%E3%80%81-apply"><span class="nav-text">3. call 、bind 、 apply</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-%E9%98%B2%E6%8A%96%E5%92%8C%E8%8A%82%E6%B5%81"><span class="nav-text">4.防抖和节流</span></a></li></ol>
     </div>
 </div>
 
@@ -568,7 +567,7 @@
             <div class="tablet-post-toc">
                 <div class="post-toc-wrap">
     <div class="post-toc">
-        <ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E6%B5%85%E6%8B%B7%E8%B4%9D%E5%92%8C%E6%B7%B1%E6%8B%B7%E8%B4%9D"><span class="nav-text">1.浅拷贝和深拷贝</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-this"><span class="nav-text">2.this</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-call-%E3%80%81bind-%E3%80%81-apply"><span class="nav-text">2. call 、bind 、 apply</span></a></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E6%B5%85%E6%8B%B7%E8%B4%9D%E5%92%8C%E6%B7%B1%E6%8B%B7%E8%B4%9D"><span class="nav-text">1.浅拷贝和深拷贝</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-this"><span class="nav-text">2.this</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-call-%E3%80%81bind-%E3%80%81-apply"><span class="nav-text">3. call 、bind 、 apply</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-%E9%98%B2%E6%8A%96%E5%92%8C%E8%8A%82%E6%B5%81"><span class="nav-text">4.防抖和节流</span></a></li></ol>
     </div>
 </div>
 

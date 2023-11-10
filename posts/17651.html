@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Keep">
+    <meta name="description" content="因过竹院逢僧话,偷得浮生半日闲">
+    <meta name="author" content="immortal">
+    
+    <title>
+        
+            Location 对象 和 URL 对象 |
+        
+        唔、
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    
+        <link rel="shortcut icon" href="/images/favicon.png">
+    
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.4/source/font/css/fontawesome.min.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.4/source/font/css/regular.min.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.4/source/font/css/solid.min.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.4/source/font/css/brands.min.css">
+    
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {}
+    KEEP.hexo_config = {"hostname":"example.com","root":"/","language":"zh-CN","path":"search.xml"}
+    KEEP.theme_config = {"toc":{"enable":true,"number":false,"expand_all":true,"init_open":true},"style":{"primary_color":"#0066cc","logo":"/images/logo.png","favicon":"/images/favicon.png","avatar":"/images/avatar.jpg","font_size":null,"font_family":null,"hover":{"shadow":true,"scale":true},"first_screen":{"enable":true,"header_transparent":true,"background_img":"/images/bg.svg","description":"建立自信不是相信自己，而是掌握面对未知的力量。","font_color":null,"hitokoto":false},"scroll":{"progress_bar":true,"percent":true}},"local_search":{"enable":true,"preload":true},"code_block":{"tools":{"enable":true,"style":"default"},"highlight_theme":"default"},"side_tools":{},"pjax":{"enable":true},"lazyload":{"enable":false},"comment":{"enable":false,"use":"valine","valine":{"appid":null,"appkey":null,"server_urls":null,"placeholder":null},"gitalk":{"github_id":null,"github_admins":null,"repository":null,"client_id":null,"client_secret":null,"proxy":null},"twikoo":{"env_id":null,"region":null,"version":"1.6.8"},"waline":{"server_url":null,"reaction":false,"version":2}},"post":{"author_label":{"enable":true,"auto":true,"custom_label_list":["Trainee","Engineer","Architect"]},"word_count":{"enable":true,"wordcount":true,"min2read":true},"img_align":"center","copyright_info":true},"website_count":{"busuanzi_count":{"enable":true,"site_uv":true,"site_pv":true,"page_pv":true}},"version":"3.7.4"}
+    KEEP.language_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 个月前","year":"%s 年前"}
+    KEEP.language_code_block = {"copy":"复制代码","copied":"已复制","fold":"折叠代码块","folded":"已折叠"}
+    KEEP.language_copy_copyright = {"copy":"复制版权信息","copied":"已复制","title":"原文标题","author":"原文作者","link":"原文链接"}
+  </script>
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+        <span class="scroll-progress-bar"></span>
+    
+
+    
+        <span class="pjax-progress-bar"></span>
+        <i class="pjax-progress-icon fas fa-circle-notch fa-spin"></i>
+    
+</div>
+
+
+<main class="page-container border-box">
+
+    <!-- home first screen  -->
+    
+
+    <!-- page content -->
+    <div class="page-main-content border-box">
+        <div class="page-main-content-top">
+            
+<header class="header-wrapper">
+
+    <div class="border-box header-content">
+        <div class="left border-box">
+            
+                <a class="logo-image border-box" href="/">
+                    <img src="/images/logo.png">
+                </a>
+            
+            <a class="site-name border-box" href="/">
+               唔、
+            </a>
+        </div>
+
+        <div class="right border-box">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                首页
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                归档
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/categories"
+                            >
+                                分类
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/tags"
+                            >
+                                标签
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/links"
+                            >
+                                友链
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/about"
+                            >
+                                关于
+                            </a>
+                        </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas fa-search"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/">首页</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives">归档</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/categories">分类</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/tags">标签</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/links">友链</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/about">关于</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle border-box">
+
+            <div class="main-content border-box">
+
+                
+
+                    <div class="fade-in-down-animation">
+    <div class="post-page-container border-box">
+
+        <div class="article-content-container border-box">
+
+            <div class="article-title">
+                <span class="title-hover-animation">Location 对象 和 URL 对象</span>
+            </div>
+
+            
+                <div class="article-header border-box">
+                    
+                        <div class="avatar-box border-box">
+                            <img src="/images/avatar.jpg">
+                        </div>
+                    
+                    <div class="info-box">
+                        <div class="author">
+                            <span class="name">immortal</span>
+                            
+                                <span class="author-label">Lv5</span>
+                            
+                        </div>
+                        <div class="meta-info border-box">
+                            
+
+<div class="article-meta-info-container border-box post">
+    <div class="article-meta-info border-box">
+        
+
+
+        
+            <span class="meta-info-item article-create-date">
+                <i class="icon fa-solid fa-calendar-check"></i>&nbsp;
+                <span class="pc">2023-11-10 15:50:06</span>
+                <span class="mobile">2023-11-10 15:50</span>
+            </span>
+
+            <span class="meta-info-item article-update-date">
+                <i class="icon fa-solid fa-file-pen"></i>&nbsp;
+                <span class="pc">2023-11-10 22:31:03</span>
+            </span>
+        
+
+        
+            <span class="meta-info-item article-category border-box"><i class="icon fas fa-folder"></i>&nbsp;
+                <ul>
+                    
+                            <li class="category-item">
+                                
+                                <a href="/categories/JavaScript/">JavaScript</a>
+                            </li>
+                        
+                    
+                </ul>
+            </span>
+        
+
+        
+            <span class="article-tag meta-info-item border-box">
+                <i class="icon fas fa-tags"></i>&nbsp;
+                <ul>
+                    
+                </ul>
+            </span>
+        
+
+        
+        
+            <span class="meta-info-item article-wordcount">
+                <i class="icon fas fa-file-word"></i>&nbsp;<span>3k 字</span>
+            </span>
+        
+        
+            <span class="meta-info-item article-min2read">
+                <i class="icon fas fa-clock"></i>&nbsp;<span>13 分钟</span>
+            </span>
+        
+        
+            <span class="meta-info-item article-pv">
+                <i class="icon fas fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+            </span>
+        
+    </div>
+
+    
+</div>
+
+                        </div>
+                    </div>
+                </div>
+            
+
+            <div class="article-content keep-markdown-body">
+                
+
+                <h1 id="1-Location-对象"><a href="#1-Location-对象" class="headerlink" title="1.Location 对象"></a>1.Location 对象</h1><p>Location对象是浏览器提供的原生对象，提供 URL 相关的信息和操作方法。通过window.location和document.location属性，可以拿到这个对象。</p>
+<h3 id="1-属性"><a href="#1-属性" class="headerlink" title="1.属性"></a>1.属性</h3><p>Location对象提供以下属性。</p>
+<ul>
+<li>Location.href：整个 URL。 </li>
+<li>Location.protocol：当前 URL 的协议，包括冒号（:） </li>
+<li>Location.host：主机。如果端口不是协议默认的80和433，则还会包括冒号（:）和端口。</li>
+<li>Location.hostname：主机名，不包括端口。</li>
+<li>Location.port：端口号。</li>
+<li>Location.pathname：URL 的路径部分，从根路径&#x2F;开始。</li>
+<li>Location.search：查询字符串部分，从问号?开始。</li>
+<li>Location.hash：片段字符串部分，从#开始。</li>
+<li>Location.username：域名前面的用户名。</li>
+<li>Location.password：域名前面的密码。</li>
+<li>Location.origin：URL 的协议、主机名和端口。</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 当前网址为</span></span><br><span class="line"><span class="comment">// http://user:passwd@www.example.com:4097/path/a.html?x=111#part1</span></span><br><span class="line"><span class="variable language_">document</span>.<span class="property">location</span>.<span class="property">href</span></span><br><span class="line"><span class="comment">// &quot;http://user:passwd@www.example.com:4097/path/a.html?x=111#part1&quot;</span></span><br><span class="line"><span class="variable language_">document</span>.<span class="property">location</span>.<span class="property">protocol</span></span><br><span class="line"><span class="comment">// &quot;http:&quot;</span></span><br><span class="line"><span class="variable language_">document</span>.<span class="property">location</span>.<span class="property">host</span></span><br><span class="line"><span class="comment">// &quot;www.example.com:4097&quot;</span></span><br><span class="line"><span class="variable language_">document</span>.<span class="property">location</span>.<span class="property">hostname</span></span><br><span class="line"><span class="comment">// &quot;www.example.com&quot;</span></span><br><span class="line"><span class="variable language_">document</span>.<span class="property">location</span>.<span class="property">port</span></span><br><span class="line"><span class="comment">// &quot;4097&quot;</span></span><br><span class="line"><span class="variable language_">document</span>.<span class="property">location</span>.<span class="property">pathname</span></span><br><span class="line"><span class="comment">// &quot;/path/a.html&quot;</span></span><br><span class="line"><span class="variable language_">document</span>.<span class="property">location</span>.<span class="property">search</span></span><br><span class="line"><span class="comment">// &quot;?x=111&quot;</span></span><br><span class="line"><span class="variable language_">document</span>.<span class="property">location</span>.<span class="property">hash</span></span><br><span class="line"><span class="comment">// &quot;#part1&quot;</span></span><br><span class="line"><span class="variable language_">document</span>.<span class="property">location</span>.<span class="property">username</span></span><br><span class="line"><span class="comment">// &quot;user&quot;</span></span><br><span class="line"><span class="variable language_">document</span>.<span class="property">location</span>.<span class="property">password</span></span><br><span class="line"><span class="comment">// &quot;passwd&quot;</span></span><br><span class="line"><span class="variable language_">document</span>.<span class="property">location</span>.<span class="property">origin</span></span><br><span class="line"><span class="comment">// &quot;http://user:passwd@www.example.com:4097&quot;</span></span><br></pre></td></tr></table></figure>
+<p>这些属性里面，只有origin属性是只读的，其他属性都可写。</p>
+<p>直接改写location，相当于写入href属性。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">document</span>.<span class="property">location</span> = <span class="string">&#x27;http://www.example.com&#x27;</span>;</span><br><span class="line"><span class="comment">// 等同于</span></span><br><span class="line"><span class="variable language_">document</span>.<span class="property">location</span>.<span class="property">href</span> = <span class="string">&#x27;http://www.example.com&#x27;</span>;</span><br></pre></td></tr></table></figure>
+<p>如果对Location.href写入新的 URL 地址，浏览器会立刻跳转到这个新地址。<br>另外，Location.href属性是浏览器唯一允许跨域写入的属性，即非同源的窗口可以改写另一个窗口（比如子窗口与父窗口）的Location.href属性，导致后者的网址跳转。Location的其他属性都不允许跨域写入。</p>
+<h3 id="2-方法"><a href="#2-方法" class="headerlink" title="2.方法"></a>2.方法</h3><p>（1）Location.assign()<br>assign方法接受一个 URL 字符串作为参数，使得浏览器立刻跳转到新的 URL。如果参数不是有效的 URL 字符串，则会报错。<br><code>document.location.assign(&#39;http://www.example.com&#39;)</code></p>
+<p>（2）Location.replace()<br>replace方法接受一个 URL 字符串作为参数，使得浏览器立刻跳转到新的 URL。如果参数不是有效的 URL 字符串，则会报错。<br>它与assign方法的差异在于，replace会在浏览器的浏览历史History里面删除当前网址，也就是说，一旦使用了该方法，后退按钮就无法回到当前网页了，相当于在浏览历史里面，使用新的 URL 替换了老的 URL。它的一个应用是，当脚本发现当前是移动设备时，就立刻跳转到移动版网页。<br><code>document.location.replace(&#39;http://www.example.com&#39;)</code></p>
+<p>（3）Location.reload()<br>reload方法使得浏览器重新加载当前网址，相当于按下浏览器的刷新按钮。<br><code>window.location.reload(true);</code><br>它接受一个布尔值作为参数。如果参数为true，浏览器将向服务器重新请求这个网页，并且重新加载后，网页将滚动到头部（即scrollTop &#x3D;&#x3D;&#x3D; 0）。如果参数是false或为空，浏览器将从本地缓存重新加载该网页，并且重新加载后，网页的视口位置是重新加载前的位置。</p>
+<p>（4）Location.toString()<br>toString方法返回整个 URL 字符串，相当于读取Location.href属性。</p>
+<h1 id="2-URL-的编码和解码"><a href="#2-URL-的编码和解码" class="headerlink" title="2.URL 的编码和解码"></a>2.URL 的编码和解码</h1><p>网页的 URL 只能包含合法的字符。合法字符分成两类。</p>
+<ul>
+<li>URL 元字符：分号（;），逗号（,），斜杠（&#x2F;），问号（?），冒号（:），at（@），&amp;，等号（&#x3D;），加号（+），美元符号（$），井号（#）</li>
+<li>语义字符：a-z，A-Z，0-9，连词号（-），下划线（_），点（.），感叹号（!），波浪线（~），星号（*），单引号（’），圆括号（()）</li>
+</ul>
+<p>除了以上字符，其他字符出现在 URL 之中都必须转义，规则是根据操作系统的默认编码，将每个字节转为百分号（%）加上两个大写的十六进制字母。</p>
+<p>JavaScript 提供四个 URL 的编码&#x2F;解码方法。<br>encodeURI()<br>encodeURIComponent()<br>decodeURI()<br>decodeURIComponent()</p>
+<h3 id="1-encodeURI"><a href="#1-encodeURI" class="headerlink" title="1.encodeURI()"></a>1.encodeURI()</h3><p>encodeURI()方法用于转码整个 URL。它的参数是一个字符串，代表整个 URL。它会将元字符和语义字符之外的字符，都进行转义。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">encodeURI</span>(<span class="string">&#x27;http://www.example.com/q=春节&#x27;</span>)</span><br><span class="line"><span class="comment">// &quot;http://www.example.com/q=%E6%98%A5%E8%8A%82&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="2-encodeURIComponent"><a href="#2-encodeURIComponent" class="headerlink" title="2.encodeURIComponent()"></a>2.encodeURIComponent()</h3><p>encodeURIComponent()方法用于转码 URL 的组成部分，会转码除了语义字符之外的所有字符，即元字符也会被转码。所以，它不能用于转码整个 URL。它接受一个参数，就是 URL 的片段。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">encodeURIComponent</span>(<span class="string">&#x27;春节&#x27;</span>)</span><br><span class="line"><span class="comment">// &quot;%E6%98%A5%E8%8A%82&quot;</span></span><br><span class="line"><span class="built_in">encodeURIComponent</span>(<span class="string">&#x27;http://www.example.com/q=春节&#x27;</span>)</span><br><span class="line"><span class="comment">// &quot;http%3A%2F%2Fwww.example.com%2Fq%3D%E6%98%A5%E8%8A%82&quot;</span></span><br></pre></td></tr></table></figure>
+<p>上面代码中，encodeURIComponent()会连 URL 元字符一起转义，所以如果转码整个 URL 就会出错。</p>
+<h3 id="3-decodeURI"><a href="#3-decodeURI" class="headerlink" title="3.decodeURI()"></a>3.decodeURI()</h3><p>decodeURI()方法用于整个 URL 的解码。它是encodeURI()方法的逆运算。它接受一个参数，就是转码后的 URL。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">decodeURI</span>(<span class="string">&#x27;http://www.example.com/q=%E6%98%A5%E8%8A%82&#x27;</span>)</span><br><span class="line"><span class="comment">// &quot;http://www.example.com/q=春节&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="4-decodeURIComponent"><a href="#4-decodeURIComponent" class="headerlink" title="4.decodeURIComponent()"></a>4.decodeURIComponent()</h3><p>decodeURIComponent()用于URL 片段的解码。它是encodeURIComponent()方法的逆运算。它接受一个参数，就是转码后的 URL 片段。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">decodeURIComponent</span>(<span class="string">&#x27;%E6%98%A5%E8%8A%82&#x27;</span>)</span><br><span class="line"><span class="comment">// &quot;春节&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="3-URL-接口"><a href="#3-URL-接口" class="headerlink" title="3.URL 接口"></a>3.URL 接口</h1><p>浏览器原生提供URL()接口，它是一个构造函数，用来构造、解析和编码 URL。一般情况下，通过window.URL可以拿到这个构造函数。</p>
+<h3 id="1-URL-构造函数"><a href="#1-URL-构造函数" class="headerlink" title="1.URL 构造函数"></a>1.URL 构造函数</h3><p>URL()作为构造函数，可以生成 URL 实例。它接受一个表示 URL 的字符串作为参数。如果参数不是合法的 URL，会报错。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> url = <span class="keyword">new</span> <span class="title function_">URL</span>(<span class="string">&#x27;http://www.example.com/index.html&#x27;</span>);</span><br><span class="line">url.<span class="property">href</span></span><br><span class="line"><span class="comment">// &quot;http://www.example.com/index.html&quot;</span></span><br></pre></td></tr></table></figure>
+<p>上面示例生成了一个 URL 实例，用来代表指定的网址。</p>
+<h3 id="2-实例属性"><a href="#2-实例属性" class="headerlink" title="2.实例属性"></a>2.实例属性</h3><p>URL 实例的属性与Location对象的属性基本一致，返回当前 URL 的信息。</p>
+<ul>
+<li>URL.href：返回整个 URL</li>
+<li>URL.protocol：返回协议，以冒号:结尾</li>
+<li>URL.host：返回域名与端口，包含:号，默认的80和443端口会省略</li>
+<li>URL.hostname：返回域名</li>
+<li>URL.port：返回端口</li>
+<li>URL.pathname：返回路径，以斜杠&#x2F;开头</li>
+<li>URL.search：返回查询字符串，以问号?开头</li>
+<li>URL.hash：返回片段识别符，以井号#开头</li>
+<li>URL.username：返回域名前面的用户名</li>
+<li>URL.password：返回域名前面的密码</li>
+<li>URL.origin：返回协议、域名和端口</li>
+<li>URL.searchParams：返回一个URLSearchParams实例，该属性是Location对象没有的<br>这些属性里面，只有origin属性是只读的，其他属性都可写，并且会立即生效。</li>
+</ul>
+<h3 id="3-静态方法"><a href="#3-静态方法" class="headerlink" title="3.静态方法"></a>3.静态方法</h3><p>（1）URL.createObjectURL()<br>URL.createObjectURL()方法用来为上传&#x2F;下载的文件、流媒体文件生成一个 URL 字符串。这个字符串代表了File对象或Blob对象的 URL。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;display&quot;</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;file&quot;</span> <span class="attr">id</span>=<span class="string">&quot;fileElem&quot;</span> <span class="attr">multiple</span> <span class="attr">accept</span>=<span class="string">&quot;image/*&quot;</span> <span class="attr">onchange</span>=<span class="string">&quot;handleFiles(this.files)&quot;</span> &gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript"><span class="keyword">var</span> div = <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&#x27;display&#x27;</span>);</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript"><span class="keyword">function</span> <span class="title function_">handleFiles</span>(<span class="params">files</span>) &#123;</span></span><br><span class="line"><span class="language-javascript">  <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; files.<span class="property">length</span>; i++) &#123;</span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">var</span> img = <span class="variable language_">document</span>.<span class="title function_">createElement</span>(<span class="string">&#x27;img&#x27;</span>);</span></span><br><span class="line"><span class="language-javascript">    img.<span class="property">src</span> = <span class="variable language_">window</span>.<span class="property">URL</span>.<span class="title function_">createObjectURL</span>(files[i]);</span></span><br><span class="line"><span class="language-javascript">    div.<span class="title function_">appendChild</span>(img);</span></span><br><span class="line"><span class="language-javascript">  &#125;</span></span><br><span class="line"><span class="language-javascript">&#125;</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript"><span class="comment">//生成的图片 URL</span></span></span><br><span class="line"><span class="language-javascript"><span class="comment">// blob:http://localhost/c745ef73-ece9-46da-8f66-ebes574789b1</span></span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>上面代码中，URL.createObjectURL()方法用来为上传的文件生成一个 URL 字符串，作为<code>&lt;img&gt;</code>元素的图片来源。</p>
+<p>注意，每次使用URL.createObjectURL()方法，都会在内存里面生成一个 URL 实例。如果不再需要该方法生成的 URL 字符串，为了节省内存，可以使用URL.revokeObjectURL()方法释放这个实例。</p>
+<p>（2）URL.revokeObjectURL()</p>
+<p>URL.revokeObjectURL()方法用来释放URL.createObjectURL()方法生成的 URL 实例。它的参数就是URL.createObjectURL()方法返回的 URL 字符串。</p>
+<p>下面为上一段的示例加上URL.revokeObjectURL()。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> div = <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&#x27;display&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">handleFiles</span>(<span class="params">files</span>) &#123;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; files.<span class="property">length</span>; i++) &#123;</span><br><span class="line">    <span class="keyword">var</span> img = <span class="variable language_">document</span>.<span class="title function_">createElement</span>(<span class="string">&#x27;img&#x27;</span>);</span><br><span class="line">    img.<span class="property">src</span> = <span class="variable language_">window</span>.<span class="property">URL</span>.<span class="title function_">createObjectURL</span>(files[i]);</span><br><span class="line">    div.<span class="title function_">appendChild</span>(img);</span><br><span class="line">    img.<span class="property">onload</span> = <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">      <span class="variable language_">window</span>.<span class="property">URL</span>.<span class="title function_">revokeObjectURL</span>(<span class="variable language_">this</span>.<span class="property">src</span>);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>上面代码中，一旦图片加载成功以后，为本地文件生成的 URL 字符串就没用了，于是可以在img.onload回调函数里面，通过URL.revokeObjectURL()方法卸载这个 URL 实例。</p>
+<h1 id="4-URLSearchParams-对象"><a href="#4-URLSearchParams-对象" class="headerlink" title="4.URLSearchParams 对象"></a>4.URLSearchParams 对象</h1><p>URLSearchParams对象是浏览器的原生对象，用来构造、解析和处理 URL 的查询字符串（即 URL 问号后面的部分）。<br>它本身也是一个构造函数，可以生成实例。参数可以为查询字符串，起首的问号?有没有都行，也可以是对应查询字符串的数组或对象。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> url = <span class="keyword">new</span> <span class="title function_">URL</span>(<span class="string">&#x27;https://example.com&#x27;</span>);</span><br><span class="line"><span class="comment">// 方法一：传入字符串</span></span><br><span class="line"><span class="keyword">var</span> params = <span class="keyword">new</span> <span class="title class_">URLSearchParams</span>(<span class="string">&#x27;?foo=1&amp;bar=2&#x27;</span>);</span><br><span class="line"><span class="comment">// 等同于</span></span><br><span class="line"><span class="keyword">var</span> params = <span class="keyword">new</span> <span class="title class_">URLSearchParams</span>(<span class="variable language_">document</span>.<span class="property">location</span>.<span class="property">search</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 方法二：传入数组</span></span><br><span class="line"><span class="keyword">var</span> params = <span class="keyword">new</span> <span class="title class_">URLSearchParams</span>([[<span class="string">&#x27;foo&#x27;</span>, <span class="number">1</span>], [<span class="string">&#x27;bar&#x27;</span>, <span class="number">2</span>]]);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 方法三：传入对象</span></span><br><span class="line"><span class="keyword">var</span> params = <span class="keyword">new</span> <span class="title class_">URLSearchParams</span>(&#123;<span class="string">&#x27;foo&#x27;</span> : <span class="number">1</span> , <span class="string">&#x27;bar&#x27;</span> : <span class="number">2</span>&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">//把参数添加到url中</span></span><br><span class="line">url.<span class="property">search</span> = params;</span><br></pre></td></tr></table></figure>
+
+<p>URLSearchParams会对查询字符串自动编码。浏览器向服务器发送表单数据时，可以直接使用URLSearchParams实例作为表单数据。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> params = <span class="keyword">new</span> <span class="title class_">URLSearchParams</span>(&#123;<span class="attr">foo</span>: <span class="number">1</span>, <span class="attr">bar</span>: <span class="number">2</span>&#125;);</span><br><span class="line"><span class="title function_">fetch</span>(<span class="string">&#x27;https://example.com/api&#x27;</span>, &#123;</span><br><span class="line">  <span class="attr">method</span>: <span class="string">&#x27;POST&#x27;</span>,</span><br><span class="line">  <span class="attr">body</span>: params</span><br><span class="line">&#125;).<span class="title function_">then</span>(...)</span><br></pre></td></tr></table></figure>
+
+<h3 id="1-URLSearchParams-toString"><a href="#1-URLSearchParams-toString" class="headerlink" title="1.URLSearchParams.toString()"></a>1.URLSearchParams.toString()</h3><p>toString方法返回实例的字符串形式。</p>
+<h3 id="2-URLSearchParams-append"><a href="#2-URLSearchParams-append" class="headerlink" title="2.URLSearchParams.append()"></a>2.URLSearchParams.append()</h3><p>append()方法用来追加一个查询参数。它接受两个参数，第一个为键名，第二个为键值，没有返回值。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> params = <span class="keyword">new</span> <span class="title class_">URLSearchParams</span>(&#123;<span class="string">&#x27;foo&#x27;</span>: <span class="number">1</span> , <span class="string">&#x27;bar&#x27;</span>: <span class="number">2</span>&#125;);</span><br><span class="line">params.<span class="title function_">append</span>(<span class="string">&#x27;baz&#x27;</span>, <span class="number">3</span>);</span><br><span class="line">params.<span class="title function_">toString</span>() <span class="comment">// &quot;foo=1&amp;bar=2&amp;baz=3&quot;</span></span><br></pre></td></tr></table></figure>
+<p>append()方法不会识别是否键名已经存在。查询字符串里面键名已经存在了，但是append依然会追加一个同名键。</p>
+<h3 id="3-URLSearchParams-delete"><a href="#3-URLSearchParams-delete" class="headerlink" title="3.URLSearchParams.delete()"></a>3.URLSearchParams.delete()</h3><p>delete()方法用来删除指定的查询参数。它接受键名作为参数。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> params = <span class="keyword">new</span> <span class="title class_">URLSearchParams</span>(&#123;<span class="string">&#x27;foo&#x27;</span>: <span class="number">1</span> , <span class="string">&#x27;bar&#x27;</span>: <span class="number">2</span>&#125;);</span><br><span class="line">params.<span class="title function_">append</span>(<span class="string">&#x27;baz&#x27;</span>, <span class="number">3</span>);</span><br><span class="line">params.<span class="title function_">toString</span>() <span class="comment">// &quot;foo=1&amp;bar=2&amp;baz=3&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="4-URLSearchParams-has"><a href="#4-URLSearchParams-has" class="headerlink" title="4.URLSearchParams.has()"></a>4.URLSearchParams.has()</h3><p>has()方法返回一个布尔值，表示查询字符串是否包含指定的键名。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> params = <span class="keyword">new</span> <span class="title class_">URLSearchParams</span>(&#123;<span class="string">&#x27;foo&#x27;</span>: <span class="number">1</span> , <span class="string">&#x27;bar&#x27;</span>: <span class="number">2</span>&#125;);</span><br><span class="line">params.<span class="title function_">has</span>(<span class="string">&#x27;bar&#x27;</span>) <span class="comment">// true</span></span><br><span class="line">params.<span class="title function_">has</span>(<span class="string">&#x27;baz&#x27;</span>) <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="5-URLSearchParams-set"><a href="#5-URLSearchParams-set" class="headerlink" title="5.URLSearchParams.set()"></a>5.URLSearchParams.set()</h3><p>set()方法用来设置查询字符串的键值。<br>它接受两个参数，第一个是键名，第二个是键值。如果是已经存在的键，键值会被改写，否则会被追加。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> params = <span class="keyword">new</span> <span class="title class_">URLSearchParams</span>(<span class="string">&#x27;?foo=1&#x27;</span>);</span><br><span class="line">params.<span class="title function_">set</span>(<span class="string">&#x27;foo&#x27;</span>, <span class="number">2</span>);</span><br><span class="line">params.<span class="title function_">toString</span>() <span class="comment">// &quot;foo=2&quot;</span></span><br><span class="line">params.<span class="title function_">set</span>(<span class="string">&#x27;bar&#x27;</span>, <span class="number">3</span>);</span><br><span class="line">params.<span class="title function_">toString</span>() <span class="comment">// &quot;foo=2&amp;bar=3&quot;</span></span><br></pre></td></tr></table></figure>
+<p>如果有多个的同名键，set会移除现存所有的键。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> params = <span class="keyword">new</span> <span class="title class_">URLSearchParams</span>(<span class="string">&#x27;?foo=1&amp;foo=2&#x27;</span>);</span><br><span class="line">params.<span class="title function_">set</span>(<span class="string">&#x27;foo&#x27;</span>, <span class="number">3</span>);</span><br><span class="line">params.<span class="title function_">toString</span>() <span class="comment">// &quot;foo=3&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="6-URLSearchParams-get-，URLSearchParams-getAll"><a href="#6-URLSearchParams-get-，URLSearchParams-getAll" class="headerlink" title="6.URLSearchParams.get()，URLSearchParams.getAll()"></a>6.URLSearchParams.get()，URLSearchParams.getAll()</h3><p>get()方法用来读取查询字符串里面的指定键。它接受键名作为参数。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> params = <span class="keyword">new</span> <span class="title class_">URLSearchParams</span>(<span class="string">&#x27;?foo=1&#x27;</span>);</span><br><span class="line">params.<span class="title function_">get</span>(<span class="string">&#x27;foo&#x27;</span>) <span class="comment">// &quot;1&quot;</span></span><br><span class="line">params.<span class="title function_">get</span>(<span class="string">&#x27;bar&#x27;</span>) <span class="comment">// null</span></span><br></pre></td></tr></table></figure>
+<p>两个地方需要注意。第一，它返回的是字符串，如果原始值是数值，需要转一下类型；第二，如果指定的键名不存在，返回值是null。<br>如果有多个的同名键，get返回位置最前面的那个键值。</p>
+<p>getAll()方法返回一个数组，成员是指定键的所有键值。它接受键名作为参数。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> params = <span class="keyword">new</span> <span class="title class_">URLSearchParams</span>(<span class="string">&#x27;?foo=1&amp;foo=2&#x27;</span>);</span><br><span class="line">params.<span class="title function_">getAll</span>(<span class="string">&#x27;foo&#x27;</span>) <span class="comment">// [&quot;1&quot;, &quot;2&quot;]</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="7-URLSearchParams-keys-，URLSearchParams-values-，URLSearchParams-entries"><a href="#7-URLSearchParams-keys-，URLSearchParams-values-，URLSearchParams-entries" class="headerlink" title="7.URLSearchParams.keys()，URLSearchParams.values()，URLSearchParams.entries()"></a>7.URLSearchParams.keys()，URLSearchParams.values()，URLSearchParams.entries()</h3><p>这三个方法都返回一个遍历器对象，供for…of循环遍历。它们的区别在于，keys方法返回的是键名的遍历器，values方法返回的是键值的遍历器，entries返回的是键值对的遍历器。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> params = <span class="keyword">new</span> <span class="title class_">URLSearchParams</span>(<span class="string">&#x27;a=1&amp;b=2&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> p <span class="keyword">of</span> params.<span class="title function_">keys</span>()) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(p);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// a</span></span><br><span class="line"><span class="comment">// b</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> p <span class="keyword">of</span> params.<span class="title function_">values</span>()) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(p);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 1</span></span><br><span class="line"><span class="comment">// 2</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> p <span class="keyword">of</span> params.<span class="title function_">entries</span>()) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(p);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// [&quot;a&quot;, &quot;1&quot;]</span></span><br><span class="line"><span class="comment">// [&quot;b&quot;, &quot;2&quot;]</span></span><br></pre></td></tr></table></figure>
+
+<p>如果直接对URLSearchParams进行遍历，其实内部调用的就是entries接口。&#96;&#96;&#96;js</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> p <span class="keyword">of</span> params) &#123;&#125;</span><br><span class="line"><span class="comment">// 等同于</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> p <span class="keyword">of</span> params.<span class="title function_">entries</span>()) &#123;&#125;</span><br></pre></td></tr></table></figure>
+
+
+            </div>
+
+            
+                <div class="post-copyright-info">
+                    
+<div class="article-copyright-info-container">
+    <ul class="copyright-info-content">
+        <li class="post-title">
+            <span class="type">本文标题</span>：<span class="content">Location 对象 和 URL 对象</span>
+        </li>
+        <li class="post-author">
+            <span class="type">本文作者</span>：<span class="content">immortal</span>
+        </li>
+        <li class="post-time">
+            <span class="type">创建时间</span>：<span class="content">2023-11-10 15:50:06</span>
+        </li>
+        <li class="post-link">
+            <span class="type">本文链接</span>：<span class="content">posts/17651.html</span>
+        </li>
+        <li class="post-license">
+            <span class="type">版权声明</span>：<span class="content">本博客所有文章除特别声明外，均采用 <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> 许可协议。转载请注明出处！</span>
+        </li>
+    </ul>
+    <div class="copy-copyright-info flex-center tooltip" data-content="复制版权信息" data-offset-y="-2px">
+        <i class="fa-solid fa-copy"></i>
+    </div>
+</div>
+
+                </div>
+            
+
+            
+
+            
+                <div class="article-nav">
+                    
+                        <div class="article-prev">
+                            <a class="prev"
+                               rel="prev"
+                               href="/posts/37888.html"
+                            >
+                            <span class="left arrow-icon flex-center">
+                              <i class="fas fa-chevron-left"></i>
+                            </span>
+                                <span class="title flex-center">
+                                <span class="post-nav-title-item text-ellipsis">Blob 对象</span>
+                                <span class="post-nav-item">上一篇</span>
+                            </span>
+                            </a>
+                        </div>
+                    
+                    
+                        <div class="article-next">
+                            <a class="next"
+                               rel="next"
+                               href="/posts/43606.html"
+                            >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item text-ellipsis">事件</span>
+                                <span class="post-nav-item">下一篇</span>
+                            </span>
+                                <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                            </a>
+                        </div>
+                    
+                </div>
+            
+
+            
+                
+
+
+
+
+
+
+            
+        </div>
+
+        
+            <div class="pc-post-toc right-toc">
+                <div class="post-toc-wrap">
+    <div class="post-toc">
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-Location-%E5%AF%B9%E8%B1%A1"><span class="nav-text">1.Location 对象</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E5%B1%9E%E6%80%A7"><span class="nav-text">1.属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E6%96%B9%E6%B3%95"><span class="nav-text">2.方法</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-URL-%E7%9A%84%E7%BC%96%E7%A0%81%E5%92%8C%E8%A7%A3%E7%A0%81"><span class="nav-text">2.URL 的编码和解码</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-encodeURI"><span class="nav-text">1.encodeURI()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-encodeURIComponent"><span class="nav-text">2.encodeURIComponent()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-decodeURI"><span class="nav-text">3.decodeURI()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-decodeURIComponent"><span class="nav-text">4.decodeURIComponent()</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-URL-%E6%8E%A5%E5%8F%A3"><span class="nav-text">3.URL 接口</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-URL-%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0"><span class="nav-text">1.URL 构造函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E5%AE%9E%E4%BE%8B%E5%B1%9E%E6%80%A7"><span class="nav-text">2.实例属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E9%9D%99%E6%80%81%E6%96%B9%E6%B3%95"><span class="nav-text">3.静态方法</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-URLSearchParams-%E5%AF%B9%E8%B1%A1"><span class="nav-text">4.URLSearchParams 对象</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-URLSearchParams-toString"><span class="nav-text">1.URLSearchParams.toString()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-URLSearchParams-append"><span class="nav-text">2.URLSearchParams.append()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-URLSearchParams-delete"><span class="nav-text">3.URLSearchParams.delete()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-URLSearchParams-has"><span class="nav-text">4.URLSearchParams.has()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-URLSearchParams-set"><span class="nav-text">5.URLSearchParams.set()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-URLSearchParams-get-%EF%BC%8CURLSearchParams-getAll"><span class="nav-text">6.URLSearchParams.get()，URLSearchParams.getAll()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-URLSearchParams-keys-%EF%BC%8CURLSearchParams-values-%EF%BC%8CURLSearchParams-entries"><span class="nav-text">7.URLSearchParams.keys()，URLSearchParams.values()，URLSearchParams.entries()</span></a></li></ol></li></ol></li></ol>
+    </div>
+</div>
+
+            </div>
+        
+    </div>
+</div>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom border-box">
+            
+<footer class="footer border-box">
+    <div class="border-box website-info-box default">
+        
+            <div class="copyright-info info-item default">
+                &copy;&nbsp;<span>2023</span>&nbsp;-&nbsp;2023
+                
+                    &nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;&nbsp;<a href="/">immortal</a>
+                
+            </div>
+
+            <div class="theme-info info-item default">
+                由&nbsp;<a target="_blank" href="https://hexo.io">Hexo</a>&nbsp;驱动&nbsp;&&nbsp;主题&nbsp;<a class="keep-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep</a>
+            </div>
+
+            
+
+            
+        
+
+        <div class="count-item info-item default">
+            
+
+            
+                <span class="count-box border-box uv">
+                    <span class="item-type border-box">访问人数</span>
+                    <span class="item-value border-box uv" id="busuanzi_value_site_uv"></span>
+                </span>
+            
+
+            
+                <span class="count-box border-box pv">
+                    <span class="item-type border-box">总访问量</span>
+                    <span class="item-value border-box pv" id="busuanzi_value_site_pv"></span>
+                </span>
+            
+        </div>
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+    <!-- post tools -->
+    
+        <div class="post-tools right-toc">
+            <div class="post-tools-container border-box">
+    <ul class="tools-list border-box">
+        <!-- PC TOC show toggle -->
+        
+            <li class="tools-item flex-center toggle-show-toc">
+                <i class="fas fa-list"></i>
+            </li>
+        
+
+        <!-- PC go comment -->
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <!-- side tools -->
+    <div class="side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        
+            <li class="tools-item toggle-show-toc-tablet flex-center">
+                <i class="fas fa-list"></i>
+            </li>
+        
+
+        
+
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="arrow-up fas fa-arrow-up"></i>
+                <span class="percent"></span>
+            </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    <!-- image mask -->
+    <div class="zoom-in-image-mask">
+    <img class="zoom-in-image">
+</div>
+
+
+    <!-- local search -->
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="搜索..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="close-popup-btn">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+    <!-- tablet toc -->
+    
+        <div class="tablet-post-toc-mask">
+            <div class="tablet-post-toc">
+                <div class="post-toc-wrap">
+    <div class="post-toc">
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-Location-%E5%AF%B9%E8%B1%A1"><span class="nav-text">1.Location 对象</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E5%B1%9E%E6%80%A7"><span class="nav-text">1.属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E6%96%B9%E6%B3%95"><span class="nav-text">2.方法</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-URL-%E7%9A%84%E7%BC%96%E7%A0%81%E5%92%8C%E8%A7%A3%E7%A0%81"><span class="nav-text">2.URL 的编码和解码</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-encodeURI"><span class="nav-text">1.encodeURI()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-encodeURIComponent"><span class="nav-text">2.encodeURIComponent()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-decodeURI"><span class="nav-text">3.decodeURI()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-decodeURIComponent"><span class="nav-text">4.decodeURIComponent()</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-URL-%E6%8E%A5%E5%8F%A3"><span class="nav-text">3.URL 接口</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-URL-%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0"><span class="nav-text">1.URL 构造函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E5%AE%9E%E4%BE%8B%E5%B1%9E%E6%80%A7"><span class="nav-text">2.实例属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E9%9D%99%E6%80%81%E6%96%B9%E6%B3%95"><span class="nav-text">3.静态方法</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-URLSearchParams-%E5%AF%B9%E8%B1%A1"><span class="nav-text">4.URLSearchParams 对象</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-URLSearchParams-toString"><span class="nav-text">1.URLSearchParams.toString()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-URLSearchParams-append"><span class="nav-text">2.URLSearchParams.append()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-URLSearchParams-delete"><span class="nav-text">3.URLSearchParams.delete()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-URLSearchParams-has"><span class="nav-text">4.URLSearchParams.has()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-URLSearchParams-set"><span class="nav-text">5.URLSearchParams.set()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-URLSearchParams-get-%EF%BC%8CURLSearchParams-getAll"><span class="nav-text">6.URLSearchParams.get()，URLSearchParams.getAll()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-URLSearchParams-keys-%EF%BC%8CURLSearchParams-values-%EF%BC%8CURLSearchParams-entries"><span class="nav-text">7.URLSearchParams.keys()，URLSearchParams.values()，URLSearchParams.entries()</span></a></li></ol></li></ol></li></ol>
+    </div>
+</div>
+
+            </div>
+        </div>
+    
+</main>
+
+
+
+<script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.4/source/js/utils.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.4/source/js/main.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.4/source/js/header-shrink.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.4/source/js/back2top.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.4/source/js/dark-light-toggle.js"></script>
+
+
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.4/source/js/local-search.js"></script>
+
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.4/source/js/code-block.js"></script>
+
+
+
+
+<div class="post-scripts pjax">
+    
+        <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.4/source/js/post-helper.js"></script>
+        
+            <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.4/source/js/libs/anime.min.js"></script>
+        
+        
+            <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.4/source/js/toc.js"></script>
+        
+    
+    
+    
+</div>
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.7.4/source/js/libs/pjax.min.js"></script>
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        window.pjax = new Pjax({
+            selectors: [
+                'head title',
+                '.page-container',
+                '.pjax'
+            ],
+            history: true,
+            debug: false,
+            cacheBust: false,
+            timeout: 0,
+            analytics: false,
+            currentUrlFullReload: false,
+            scrollRestoration: false,
+            // scrollTo: true,
+        });
+
+        document.addEventListener('pjax:send', () => {
+            KEEP.utils.pjaxProgressBarStart();
+        });
+
+        document.addEventListener('pjax:complete', () => {
+            KEEP.utils.pjaxProgressBarEnd();
+            window.pjax.executeScripts(document.querySelectorAll('script[data-pjax], .pjax script'));
+            KEEP.refresh();
+        });
+    });
+</script>
+
+
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/hijiki.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":true},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/"});</script></body>
+</html>
